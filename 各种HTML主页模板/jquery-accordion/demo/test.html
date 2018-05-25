@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	 <div id="aa" class="easyui-accordion" style="width:300px;height:200px;">  
+      <div title="Title1" iconCls="icon-save" style="overflow:auto;padding:10px;">  
+         <h3 style="color:#0099FF;">Accordion for jQuery</h3>  
+         <p>Accordion is a part of easyui framework for jQuery.    
+         It lets you define your accordion component on web page more easily.</p>  
+     </div>  
+     <div title="Title2" iconCls="icon-reload" selected="true" style="padding:10px;">  
+          content2   
+      </div>  
+     <div title="Title3">  
+         content3   
+    </div>  
+ </div>  
+
+
+<script>
+	  $('#aa').accordion({   
+	  	animate:false
+  });  
+	 var pp = $('#aa').accordion('getSelected'); // 获取选中的 panel   
+  if (pp){   
+      pp.panel('refresh','new_content.php');  // 调用 'refresh' 方法加载新内容   
+  }  
+	
+	
+</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery鼠标悬停图片上滑动显示说明 - 站长素材</title>
+<link href="css/zzsc.css" type="text/css" rel="stylesheet" />
+<script src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $(".imgtext").hide();
+ $(".zzsc").hover(function(){
+  $(".imgtext",this).slideToggle(500);
+ });
+});
+</script>
+</head>
+
+<body>
+
+<div class="zzsc"><a href="#" target="_blank"><img src="images/zzsc.jpg"></a>
+  <div class="text">
+    <div class="imgtext"> 2012新品男T恤韩版短袖男士夏装男装翻领t恤POLO衫 货到付款 T93 </div>
+  </div>
+</div>
+
+
+</body>
+</html>

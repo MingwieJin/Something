@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery鼠标悬停显示文字效果代码 - 站长素材</title>
+</head>
+
+<body>
+
+<link type="text/css" rel="stylesheet" media="screen" href="css/style.css" />
+
+
+<div class="picBox">
+	<ul class="picL" id="picLsy" >
+		<li>
+			<a href="#"><img src="img/111153875.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>科技</b>
+				<p><a href="#">《猜图学科学》：这么是什么动物？不是松鼠！</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114268338.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>数码</b>
+				<p><a  href="#">【壁上观】小米空气净化器是抄来的吗？</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114284271.jpg" alt="罐装车撞扁小轿车场面真惨 人竟然没事" width="200" height="150" border="0" /></a>
+			<div class="text">
+				<b>汽车</b>
+				<p><a  href="#">罐装车撞扁小轿车场面真惨 人竟然没事</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/110818790.jpg" alt="组图：长腿白嫩女神的床上短裙诱惑" width="200" height="150"/></a>
+			<div class="text">
+				<b>房产</b>
+				<p><a href="#">组图：长腿白嫩女神的床上短裙诱惑</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114271770.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>财经</b>
+				<p><a href="#">东非海岸建起水下酒店 </a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114268784.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>公益</b>
+				<p><a  href="#">93个彝族孩子过年梦</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/113867875.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>儿童</b>
+				<p><a href="#">萌娃的冰雪奇缘 美女婴18个月会滑雪</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114267485.jpg" alt="宋美龄的后半生" width="200" height="150"/></a>
+			<div class="text">
+				<b>文化</b>
+				<p><a href="#">宋美龄的后半生</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114236461.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>博客</b>
+				<p><a href="#">美丽湘女舞动瑶家风情 </a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114274367.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>校园</b>
+				<p><a href="#">艺考女神养成记</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114200112.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>游戏</b>
+				<p><a href="#">女大学生宿舍内COS林黛玉 网友：睡衣亮了！</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/109104198.jpg" alt="" width="200" height="150"/></a>
+			<div class="text">
+				<b>爱玩</b>
+				<p><a href="#">推荐！奇葩宅男最爱的游戏！</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/113921558.jpg" alt="抢镜狗狗" width="200" height="150"/></a>
+			<div class="text">
+				<b>八卦</b>
+				<p><a href="#">新出炉日本九大高校校花</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114166141.jpg" alt="自曝偷情野史的女星" width="200" height="150"/></a>
+			<div class="text">
+				<b>星座</b>
+				<p><a href="#">惊呆！自曝偷情野史的女星</a></p>
+			</div>
+		</li>
+		<li>
+			<a href="#"><img src="img/114252042.jpg" alt="一代玉女掌门原来也是整过容的" width="200" height="150"/></a>
+			<div class="text">
+				<b>健康</b>
+				<p><a href="#">一代玉女掌门原来也是整过容的</a></p>
+			</div>
+		</li>
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("#picLsy li").hover(function(){
+		$(this).find('.text:not(:animated)').animate({top:"0px"}, {easing:"easeInOutExpo"}, 50, function(){});
+	},function () {
+		$(this).find('.text').animate({top:"149px"}, {easing:"easeInOutExpo"}, 50, function(){});
+	});
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML5加载进度条百分比特效</title>
+<link rel="stylesheet" type="text/css" href="css/default.css">
+</head>
+<body>
+<br><br><br>
+<!-- 代码部分begin -->
+<article class="htmleaf-container">
+	<div class="htmleaf-content">
+		<svg id="container"></svg>
+		<svg id="container1"></svg>
+		<svg id="container2"></svg>
+	</div>
+</article>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.progress.js"></script>
+<script>
+var progress = $("#container").Progress({
+	percent: 20,
+	width: 180,
+	height: 40,
+	fontSize: 16
+});
+
+var progress1 = $("#container1").Progress({
+	percent: 20,
+	width: 180,
+	height: 40,
+	fontSize: 16,
+	increaseSpeed: 2
+});
+
+var progress2 = $("#container2").Progress({
+	percent: 20,
+	width: 180,
+	height: 40,
+	fontSize: 16,
+	animate: false
+});
+
+setTimeout(function(){
+	progress.percent(90);
+	progress1.percent(90);
+	progress2.percent(90);
+}, 4000);
+</script>
+<!-- 代码部分end -->
+</body>
+</html>

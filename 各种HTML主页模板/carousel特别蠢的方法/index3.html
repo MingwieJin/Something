@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>jQuery幻灯片插件Owl Carousel演示-自动播放_dowebok</title>
+<style>
+#owl-demo { width: 900px; margin-left: auto; margin-right: auto;}
+#owl-demo .item{ display: block;}
+#owl-demo img { display: block; width: 100%;}
+</style>
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.theme.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script>
+$(function(){
+	$('#owl-demo').owlCarousel({
+		items: 1,
+		autoPlay: true
+	});
+});
+</script>
+</head>
+
+<body>
+
+<div class="main">
+	<div class="mianc">
+		
+			
+		<!-- Demo -->
+		<div id="owl-demo" class="owl-carousel">
+			<a class="item"><img src="img/fullimage1.jpg" alt=""></a>
+			<a class="item"><img src="img/fullimage2.jpg" alt=""></a>
+			<a class="item"><img src="img/fullimage3.jpg" alt=""></a>
+			<a class="item"><img src="img/fullimage4.jpg" alt=""></a>
+			<a class="item"><img src="img/fullimage5.jpg" alt=""></a>
+		</div>
+		<!-- Demo end -->
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

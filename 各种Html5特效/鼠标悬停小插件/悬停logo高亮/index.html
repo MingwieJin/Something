@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery鼠标悬停LOGO高亮显示 - 站长素材</title>
+<link href="css/news.css" rel="stylesheet" />
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+	$("ul.gallery li").hover(function() { 		
+		var thumbOver = $(this).find("img").attr("src");
+		$(this).find("a.thumb").css({'background' : 'url(' + thumbOver + ') no-repeat center bottom'});
+		$(this).find("span").stop().fadeTo('normal', 0 , function() {
+			$(this).hide()
+		}); 
+	} , function() { 
+		$(this).find("span").stop().fadeTo('normal', 1).show();
+	});
+});
+</script>
+</head>
+
+<body>
+
+<div class="other"><a name="kh"></a>
+	<div class="boxt">
+
+  	<h3>服务客户</h3>
+    <div class="boxtinfo">
+    	<ul class="gallery">
+	<li>
+		<a class="thumb" style="background-image: url(images/leidian.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/leidian.gif" alt="雷电搜索"></span></a>
+	</li>
+    <li>
+		<a class="thumb" style="background-image: url(images/68admin.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/68admin.gif" alt="站长素材联盟"></span></a>
+	</li>
+     <li>
+		<a class="thumb" style="background-image: url(images/cndns.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/cndns.gif" alt="美橙互联"></span></a>
+	</li>
+    <li>
+    	<a class="thumb" style="background-image: url(images/53dns.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/53dns.gif" alt="互易中国"></span></a>
+	</li>
+    <li>
+    	<a class="thumb" style="background-image: url(images/sdluban.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/sdluban.gif" alt="鲁班装饰"></span></a>
+	</li>
+    
+    <div class="cer"></div>
+    </ul>
+    <ul class="gallery">
+	<li>
+		<a class="thumb" style="background-image: url(images/uhuoo.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/uhuoo.gif" alt="悠活网"></span></a>
+	</li>
+    <li>
+		<a class="thumb" style="background-image: url(images/91.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/91.gif" alt="91手机助手"></span></a>
+	</li>
+     <li>
+		<a class="thumb" style="background-image: url(images/taobao.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/taobao.gif" alt="淘宝网"></span></a>
+	</li>
+    <li>
+    	<a class="thumb" style="background-image: url(http://lycm.net.cn/images/tmall.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/tmall.gif" alt="天猫"></span></a>
+	</li>
+    <li>
+    	<a class="thumb" style="background-image: url(images/lingyi.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 100%; background-repeat: no-repeat no-repeat; "><span style="display: block; opacity: 1; "><img src="images/lingyi.gif" alt="领艺传媒"></span></a>
+	</li>
+    
+    <div class="cer"></div>
+    </ul>
+    </div>
+   
+    </div>
+  </div>
+<div style="text-align:center;clear:both">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

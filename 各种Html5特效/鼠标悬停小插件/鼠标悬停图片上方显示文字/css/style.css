@@ -1,0 +1,31 @@
+/**
+ * author: shenshenyan
+ * data: 2013-11-19 19:47
+ */
+/*reset*/
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}  
+body{font:12px simsun Arial;background:#fff}  
+a{text-decoration:none;color:#333; }  
+a:hover{text-decoration:none; color:#c00; }
+em{font-style:normal}  
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+button, input, select, textarea{background:#fff; }
+img{-webkit-backface-visibility: hidden;-webkit-transition: opacity 0.3s ease-out;-moz-transition: opacity 0.3s ease-out;-o-transition: opacity 0.3s ease-out;transition: opacity 0.3s ease-out;}
+img:hover{opacity:0.8}
+p{word-wrap:break-word}  
+.cf:after{content:"";display:table;clear:both}  
+.cf{*zoom:1}
+.fl,.layout .fl,.chief{float:left;display:inline}
+.fr,.layout .fr,.extra{float:right;display:inline}
+h1,h2,h3,dt{font-family:'Î¢ÈíÑÅºÚ','ºÚÌå';font-weight:100;font-size:16px;}
+
+/* ÊÓÒ° */
+.picBox{overflow:hidden;zoom:1;margin:40px auto 0 auto;width:1000px;}
+.picL{overflow:hidden;zoom:1;margin-left:-1px;}
+.picL li{overflow:hidden;position:relative;float:left; display:inline; width:199px;height:149px;margin:1px 0 0 1px; zoom:1  }
+.picL li .text{background:#ff5a58;position:absolute;width:199px;height:149px;top:149px;left:0;font-family:'Î¢ÈíÑÅºÚ','ºÚÌå';}
+.picL li .text b{background:#ca2c2a;padding:5px 15px;color:#fff;font-size:14px;display:inline-block;*display:inline;zoom:1;font-weight:100;}
+.picL li .text p{font-size:14px;line-height:24px; }
+.picL li .text a{color: #fff;display: block;height: 80px;padding: 20px;}

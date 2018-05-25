@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>jQuery幻灯片插件Owl Carousel演示-延迟加载(Lazy Load)_dowebok</title>
+<style>
+#owl-demo { width: 900px; margin-left: auto; margin-right: auto;}
+#owl-demo .item{ display: block; margin: 5px;}
+#owl-demo img { display: block; width: 100%;}
+</style>
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.theme.css" rel="stylesheet">
+<script src="http://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script>
+$(function(){
+	$('#owl-demo').owlCarousel({
+		items: 4,
+		lazyLoad: true,
+		navigation: true,
+		navigationText: ["上一个","下一个"]
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="menu">
+	<p class="menuc">
+		<span></span>
+		<a href="./">1、默认</a>
+		<a href="index2.html">2、单个</a>
+		<a href="index3.html">3、自动播放</a>
+		<a href="index4.html">4、显示上一张/下一张</a>
+		<a href="index5.html">5、自适应高度</a>
+		<a class="cur" href="index6.html">6、延迟加载（Lazy Load）</a>
+		<a href="index7.html">7、加载JSON</a>
+		<a href="index8.html">8、自定义JSON</a>
+		<a href="index9.html">9、进度条</a>
+		<a href="index10.html">10、随机显示</a>
+	</p>
+</div>
+<div class="main">
+	<div class="mianc">
+		<h1>延迟加载（Lazy Load）</h1>
+
+		<!-- Demo -->
+		<div id="owl-demo" class="owl-carousel">
+			<div class="item"><img class="lazyOwl" data-src="img/owl1.jpg" alt=""></div>
+			<div class="item"><img class="lazyOwl" data-src="img/owl2.jpg" alt=""></div>
+			<div class="item"><img class="lazyOwl" data-src="img/owl3.jpg" alt=""></div>
+			<div class="item"><img class="lazyOwl" data-src="img/owl4.jpg" alt=""></div>
+			<div class="item"><img class="lazyOwl" data-src="img/owl5.jpg" alt=""></div>
+			<div class="item"><img class="lazyOwl" data-src="img/owl6.jpg" alt=""></div>
+			<div class="item"><img class="lazyOwl" data-src="img/owl7.jpg" alt=""></div>
+			<div class="item"><img class="lazyOwl" data-src="img/owl8.jpg" alt=""></div>
+		</div>
+		<!-- Demo end -->
+
+		<div class="code">
+			<h3 class="h31 cur">JavaScript</h3>
+			<div class="pre">
+<pre class="pre-show prettyprint linenums">$(function(){
+    $('#owl-demo').owlCarousel({
+        items: 4,
+        lazyLoad: true,
+        navigation: true,
+        navigationText: ["上一个","下一个"]
+    });
+});</pre>
+			</div>
+
+			<h3 class="h32">HTML</h3>
+			<div class="pre">
+<pre class="pre-show prettyprint linenums">&lt;div id="owl-demo" class="owl-carousel"&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl1.jpg" alt=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl2.jpg" alt=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl3.jpg" alt=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl4.jpg" alt=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl5.jpg" alt=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl6.jpg" alt=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl7.jpg" alt=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;img class="lazyOwl" data-src="img/owl8.jpg" alt=""&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+			</div>
+
+			<h3 class="h33">CSS</h3>
+			<div class="pre">
+<pre class="pre-show prettyprint linenums">#owl-demo {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#owl-demo .item {
+    display: block;
+    margin: 5px;
+}
+#owl-demo img {
+    display: block;
+    width: 100%;
+}</pre>
+			</div>
+		</div>
+
+		<p class="vad">
+			<a href="http://www.dowebok.com/" target="_blank">dowebok.com</a>
+			<a href="http://www.dowebok.com/93.html" target="_blank">说 明</a>
+			<a href="http://www.dowebok.com/93.html" target="_blank">下 载</a>
+		</p>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- 以下是统计及其他信息，与演示无关，不必理会 -->
+<style>
+* { margin: 0; padding: 0;}
+html, body { height: 100%; overflow: hidden;}
+body { font-family: Consolas,arial,"宋体";}
+.menu { position: absolute; left: 0; top: 0; width: 200px; height: 100%; background-color: #ccc; font-family: Consolas,arial,"宋体";}
+.menuc { height: 100%; overflow-x: hidden; overflow-y: auto;}
+.menu span { display: block; height: 100px;}
+.menu a { display: block; height: 40px; margin: 0 0 1px 2px; padding-left: 10px; line-height: 40px; font-size: 14px; color: #333; text-decoration: none;}
+.menu a:hover { background-color: #eee;}
+.menu .cur { color: #000; background-color: #fff !important;}
+.main { height: 100%; margin-left: 200px;}
+.mianc { position: relative; height: 100%; overflow-x: hidden; overflow-y: auto;}
+.main h1 { width: 900px; margin: 40px auto; font: 32px "Microsoft Yahei";}
+.explain, .dowebok-explain { margin-top: 20px; font-size: 14px; text-align: center; color: #f50;}
+
+.vad { margin: 50px 0 10px; font-family: Consolas,arial,宋体,sans-serif; text-align:center;}
+.vad a { display: inline-block; height: 36px; line-height: 36px; margin: 0 5px; padding: 0 50px; font-size: 14px; text-align:center; color:#eee; text-decoration: none; background-color: #222;}
+.vad a:hover { color: #fff; background-color: #000;}
+.thead { width: 728px; height: 90px; margin: 0 auto; border-bottom: 40px solid transparent;}
+
+.code { position: relative; margin-top: 100px; padding-top: 41px;}
+.code h3 { position: absolute; top: 0; z-index: 10; width: 100px; height: 40px; font: 16px/40px "Microsoft Yahei"; text-align: center; cursor: pointer;}
+.code .cur { border: 1px solid #f0f0f0; border-bottom: 1px solid #f8f8f8; background-color: #f8f8f8;}
+.code .h31 { left: 0;}
+.code .h32 { left: 102px;}
+.code .h33 { left: 204px;}
+.code .h34 { left: 306px;}
+.code { width: 900px; margin-left: auto; margin-right: auto;}
+pre { padding: 15px 0; border: 1px solid #f0f0f0; background-color: #f8f8f8;}
+.f-dn { display: none;}
+</style>
+<link href="http://xww-global.u.qiniudn.com/prettify.css" rel="stylesheet">
+<script src="http://xww-global.u.qiniudn.com/prettify.js"></script>
+<script>
+window.prettyPrint && prettyPrint();
+$('.code h3').not(':first').next().addClass('f-dn');
+$('.code h3').click(function(){
+	$(this).addClass('cur').siblings('h3').removeClass('cur');
+	$(this).next().removeClass('f-dn').siblings('.pre').addClass('f-dn');
+});
+</script>
+
+</body>
+</html>

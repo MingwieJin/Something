@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <style>
+    #cas {
+      display: block;
+      border: 1px solid;
+      margin: auto;
+    }
+  </style>
+  <title>3D旋转球</title>
+</head>
+<body style="background-color:#000">
+<div>
+  <canvas id='cas' width="1000" height="700">浏览器不支持canvas，请更新浏览器后再浏览</canvas>
+  <div style="width:50px;margin:10px auto">
+    <button id="controlBtn">停止</button>
+  </div>
+</div>
+<script>
+  var canvas = document.getElementById("cas"),
+      ctx = canvas.getContext("2d"),
+      vpx = canvas.width / 2,
+      vpy = canvas.height / 2,
+      Radius = 200,
+      balls = [],
+      angleX = Math.PI / 100,//转动角度
+      angleY = Math.PI / 100;//一样
+	  
+	  //定义鼠标动作
+  window.addEventListener("mousemove", function(event) {
+    var x = event.clientX - canvas.offsetLeft - vpx - document.body.scrollLeft - document.documentElement.scrollLeft;//现在鼠标X轴位置-画布左边框-画布中心距离左边边距-body水平位置-元素水平位置, 2,4,5感觉上没啥用
+    var y = event.clientY - canvas.offsetTop - vpy - document.body.scrollTop - document.documentElement.scrollTop;
+    angleY = -x * 0.0001;
+    angleX = -y * 0.0001;
+  });
+  //初始动画
+  var Animation = function() {
+    this.init();
+  };
+   //定义小球
+  Animation.prototype = {
+    isrunning: false,
+    init: function() {
+      balls = [];
+      var num = 500;
+      for (var i = 0; i <= num; i++) {
+        var k = -1 + (2 * (i + 1) - 1) / num;
+        var a = Math.acos(k);
+        var b = a * Math.sqrt(num * Math.PI);
+        var x = Radius * Math.sin(a) * Math.cos(b);
+        var y = Radius * Math.sin(a) * Math.sin(b);
+        var z = Radius * Math.cos(a);
+        var d = new ball(x, y, z, 1.5);
+        balls.push(d);
+        d.paint();
+      }
+    },
+	//running or not
+    start: function() {
+      this.isrunning = true;
+      animate();
+    },
+    stop: function() {
+      this.isrunning = false;
+    }
+  }
+  //清除画布内容，导入x.y旋转，排序球使前方球不会被后方遮挡
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    rotateX();
+    rotateY();
+    balls.sort(function(a, b) {
+      return b.z - a.z;
+    })
+    for (var i = 0; i < balls.length; i++) {
+      balls[i].paint();
+    }
+  //内容为canvas刷新前先刷新动画内容，不同写法对应不同版本浏览器
+    if (animation.isrunning) { 
+      if ("requestAnimationFrame" in window) {
+        requestAnimationFrame(animate);
+      }
+      else if ("webkitRequestAnimationFrame" in window) {
+        webkitRequestAnimationFrame(animate);
+      }
+      else if ("msRequestAnimationFrame" in window) {
+        msRequestAnimationFrame(animate);
+      }
+      else if ("mozRequestAnimationFrame" in window) {
+        mozRequestAnimationFrame(animate);
+      }
+    }
+  }
+  
+  //x轴旋转
+  function rotateX() {
+    var cos = Math.cos(angleX);
+    var sin = Math.sin(angleX);
+    for (var i = 0; i < balls.length; i++) {
+      var y1 = balls[i].y * cos - balls[i].z * sin;
+      var z1 = balls[i].z * cos + balls[i].y * sin;
+      balls[i].y = y1;
+      balls[i].z = z1;
+    }
+  }
+  //y轴旋转
+  function rotateY() {
+    var cos = Math.cos(angleY);
+    var sin = Math.sin(angleY);
+    for (var i = 0; i < balls.length; i++) {
+      var x1 = balls[i].x * cos - balls[i].z * sin;
+      var z1 = balls[i].z * cos + balls[i].x * sin;
+      balls[i].x = x1;
+      balls[i].z = z1;
+    }
+  }
+  //定义球function,被animation调用 
+  var ball = function(x, y, z, r) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    this.r = r;
+    this.width = 2 * r;
+  }
+  //
+  ball.prototype = {
+    paint: function() {
+      var fl = 450 //焦距
+      ctx.save();
+      ctx.beginPath();
+      var scale = fl / (fl - this.z);//小球远近半径系数
+      var alpha = (this.z + Radius) / (2 * Radius);//定义透明度参数
+      ctx.arc(vpx + this.x, vpy + this.y, this.r * scale, 0, 2 * Math.PI, true);//定义小球位置，大小，是的远处的球更小
+      ctx.fillStyle = "rgba(255,255,255," + (alpha + 0.5) + ")" //调整远近的透明度(rgba：红，绿，蓝，透明度)
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+  //开始结束按钮
+  var animation = new Animation();
+  animation.start();
+  document.getElementById("controlBtn").onclick = function() {
+    this.innerText === "开始" ? this.innerText = "停止" : this.innerText = "开始";
+    this.innerText === "开始" ? animation.stop() : animation.start();
+    ;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>改好的页签和悬浮显示内容插件</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!--	只是wow.js前置用-->
+		<link rel="stylesheet" href="css/animate.css">
+		<style>
+
+
+
+.tab-content ul li {
+	margin-right: 14px;
+/*	显现溢出*/
+/*	overflow: hidden;*/
+}
+.tab-content ul li:last-child{
+	margin-right: 0;
+}
+
+.tab-content ul li a{
+	position: relative;
+}
+
+.tab-content ul li a:hover .overlay {
+	opacity: 1;
+	top: -85px;
+}			
+			
+.overlay {
+  /*background: -webkit-linear-gradient(transparent 57%, rgba(0,0,0,1) 100%); 
+  background:    -moz-linear-gradient(transparent 57%, rgba(0,0,0,1) 100%); 
+  background:     -ms-linear-gradient(transparent 57%, rgba(0,0,0,1) 100%);
+  background:      -o-linear-gradient(transparent 57%, rgba(0,0,0,1) 100%); 
+  background:         linear-gradient(transparent 57%, rgba(0,0,0,1) 100%);*/
+ background: rgba(0,0,0,0.7);
+
+    border-radius: 2px;
+  height: 190px;
+  left: 0;
+  position: absolute;
+ 	top: 110px;
+  width: 100%;
+  opacity: 1;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.overlay  h3 {
+/*  bottom: -50px;*/
+  margin: 0;
+  position: absolute;
+  left: 15px;
+  color: #00AEEF;
+  font-weight: 700;
+  font-size: 17px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition-delay:0.4s;
+	-moz-transition-delay:0.4s;
+	-ms-transition-delay:0.4s;
+	-o-transition-delay:0.4s;
+	transition-delay:0.4s;
+}
+.tab-content ul.employeer li a .overlay h3 {
+  bottom: -30px;
+}
+
+.tab-content ul.employeer li a:hover .overlay h3{
+	bottom: 20px
+}
+
+/*.tab-content ul.job-seeker li a .overlay{
+	
+}*/
+.tab-content ul.job-seeker li a .overlay h3 {
+  bottom: -100px;
+}
+.tab-content ul.job-seeker li a:hover .overlay h3 {
+  bottom: 35px;
+}
+.tab-content ul.job-seeker li a .overlay p {
+  bottom: 3px;
+  color: #fff;
+  font-weight: 400;
+  left: -120px;
+  position: absolute;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition-delay:0.4s;
+	-moz-transition-delay:0.4s;
+	-ms-transition-delay:0.4s;
+	-o-transition-delay:0.4s;
+	transition-delay:0.4s;
+
+}
+.tab-content ul.job-seeker li a:hover .overlay p{
+	left: 18px
+}
+		</style>
+	</head>
+	<body>
+		
+		
+<div class="container">
+		<!--<div class="row job-posting ">-->
+			<div class="row job-posting wow fadeInUp" data-wow-delay="1s">
+			<div role="tabpanel">
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#job-seekers" aria-controls="home" role="tab" data-toggle="tab">Job Seekers</a></li>
+				<li role="presentation"><a href="#employeers" aria-controls="profile" role="tab" data-toggle="tab">Employeers</a></li>
+				<li role="presentation"><a href="#lalala" aria-controls="profile" role="tab" data-toggle="tab">Hahaha</a></li>
+				<!--这个href地址需要跟下面的id对应-->
+			  </ul>
+
+			  <!-- Tab panes -->
+			  <div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="job-seekers">
+					<ul class="list-inline job-seeker">
+						<li>
+							<a href="">
+								<img src="img/team-small-5.jpg" alt="">
+								<div class="overlay"><h3>Ohidul Islam</h3><p>Web Designer</p></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/team-small-6.jpg" alt="">
+								<div class="overlay"><h3>Mohidul Islam</h3><p>CEO</p></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/team-small-3.jpg" alt="">
+								<div class="overlay"><h3>Unknown girl</h3><p>Graphic Designer</p></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/team-small-4.jpg" alt="">
+								<div class="overlay"><h3>Eftakher Alam</h3><p>Graphic Designer</p></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/team-small-2.jpg" alt="">
+								<div class="overlay"><h3>Mark Otto</h3><p>Founder</p></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/team-small-1.jpg" alt="">
+								<div class="overlay"><h3>Rasel Ahmed</h3><p>Web Developer</p></div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="employeers">
+					<ul class="list-inline employeer">
+						<li>
+							<a href="">
+								<img src="img/employee4.png" alt="">
+								<div class="overlay"><h3>Instagram</h3></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/employee5.png" alt="">
+								<div class="overlay"><h3>Microsoft</h3></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/employee6.png" alt="">
+								<div class="overlay"><h3>Dribbble</h3></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/employee1.png" alt="">
+								<div class="overlay"><h3>Beats Music</h3></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/employee2.png" alt="">
+								<div class="overlay"><h3>Facebook</h3></div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/employee3.png" alt="">
+								<div class="overlay"><h3>Twitter</h3></div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="lalala">
+					<ul class="list-inline employeer">
+						<li>1111111111111</li>
+					</ul>
+				</div>
+			  </div>
+
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+<script src="js/vendor/jquery-1.10.2.min.js"></script>		
+<script src="js/bootstrap.min.js"></script>		
+<script src="js/wow.js"></script>
+<script type="text/javascript">
+//	初始化/启动wow.js
+    new WOW().init();
+</script>
+
+
+</body>
+</html>

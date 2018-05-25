@@ -1,0 +1,114 @@
+/**********************
+PORTFOLIO
+***********************/
+.centered-pills {
+	text-align: center;
+}
+.centered-pills ul.nav-pills {
+	display: inline-block;
+	margin-bottom: 50px;
+}
+.centered-pills li {
+	display: inline;
+}
+.centered-pills a {
+	float: left;
+}
+
+.nav-pills > li > a{
+	border-radius: 0;
+	color: #000;
+	border:1px solid #000;
+	margin-right: 20px;
+}
+
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus,
+.nav-pills > li > a.active{
+	background: #fa5c58;
+	border-color: #fa5c58;
+	color: #fff;
+}
+
+.projects{
+	margin: 0 0 70px 0;
+}
+
+.portfolio-item {
+	position: relative;
+	
+	overflow: hidden;
+	padding: 0;
+	
+	text-align: center;
+}
+
+.portfolio-item figcaption {
+	background: #27282b;
+	background: rgba(39, 40, 43, 0.8);
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	bottom: 15px;
+	right: 15px;
+	display: block;
+	opacity: 0;
+}
+
+.portfolio-item:hover figcaption {
+	opacity: 1;
+}
+
+figcaption h3 {
+	color: #fff;
+	font-size: 20px;
+	line-height: 28px;
+	margin-top: 25%;
+}
+
+figcaption span {
+	color: #fb5d59;
+}
+
+#about .baner {
+	background-image: url(../img/about-bg.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.box{
+	background: #27282b;
+	background: rgba(39, 40, 43, 0.8);
+	margin: 70px 0;
+	padding: 40px;
+}
+
+.box h3,
+.box p
+{
+	color: #fff;
+}
+
+.box .delimiter,
+.box p{
+	margin-bottom: 50px;
+}
+
+.box h3{
+	margin-bottom: 20px;
+}
+
+.box .delimiter{
+	width: 60px;
+	height: 0;
+	border-bottom: 2px solid #fa5c58;
+	display: block;
+}
+
+/********************************
+Team
+*********************************/
+
+ .mix{
+	display: none;
+}

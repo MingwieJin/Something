@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>jQuery��������Ӧʽ����VenoBox - վ���ز�</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="venobox/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="venobox/demo.css" type="text/css" media="screen" />
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="venobox/venobox.min.js"></script>
+</head>
+	<body>
+	<div class="wrapper">
+		<div class="block">
+		<h2>Examples</h2>
+		<p>Image gallery (possibility of navigation with keyboard arrows)</p>
+			<ul class="thumbs">
+				<li>
+					<a id="firstlink" class="venobox" data-gall="gall1" title="Breakfast Recipe" href="img/25f7bf38a36413a35c1a1f1bf9363f76.png"><img src="img/pic1.jpg"></a>
+				</li>
+				<li>
+					<a class="venobox" data-gall="gall1" title="Twhater" href="img/dcc6e8ecad425c0caf94466e41535ef5.png"><img src="img/pic2.jpg"></a>
+				</li>
+				<li>
+					<a class="venobox" data-gall="gall1" href="img/52db37cfb4daafedb9909bf7cda59de8.jpg"><img src="img/pic3.jpg"></a>
+				</li>
+				<li>
+					<a class="venobox" data-gall="gall1" href="img/64628d508ea9b5de1ea0f2ff9066419c.jpg"><img src="img/pic4.jpg"></a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="block">
+			<p>Various links</p>
+			<a class="btn btn-default venoboxframe" data-type="iframe" title="veno.it" href="http://www.veno.it">iFrame</a>
+			<a data-gall="gall2" data-type="iframe" class="btn btn-primary venoboxframe" href="https://maps.google.it/maps?oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;q=Monkey+surf+club+Riccione&amp;fb=1&amp;gl=it&amp;hq=monkey+surf&amp;hnear=0x132cc3a48fa6592b:0xc1f284db17f1449d,Rimini&amp;cid=0,0,1254770793035831807&amp;t=m&amp;vpsrc=0&amp;iwloc=A&amp;ll=44.007971,12.656561&amp;spn=0.006295,0.006295&amp;output=embed">G maps</a>
+			<a class="btn btn-info venoboxvid" data-gall="gall2" data-type="vimeo" href="http://vimeo.com/75976293">Vimeo</a>
+			<a class="btn btn-danger venoboxvid" data-gall="gall2" data-type="youtube" href="http://youtu.be/d85gkOXeXG4">YouTube</a>
+			<a class="btn btn-warning venoboxajax" data-gall="gall3" data-type="ajax" href="ajax.php">Ajax</a>
+			<a class="btn btn-warning venoboxinline" data-gall="gall3" data-type="inline" href="#inline-content">Inline</a>
+		</div>
+
+		<div id="inline-content" style="display:none;">
+			<div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+			<h1>Hello world!</h1>
+			<p>this is my inline content</p>
+			</div>
+		</div>
+
+
+
+
+</div> <!-- wrapper -->
+	<script type="text/javascript">
+		 $(document).ready(function(){
+			$('.venobox').venobox({
+				numeratio: true,
+				border: '20px'
+			});
+			$('.venoboxvid').venobox({
+				bgcolor: '#000'
+			});
+			$('.venoboxframe').venobox({
+				border: '6px'
+			});
+			$('.venoboxinline').venobox({
+				framewidth: '300px',
+				frameheight: '250px',
+				border: '6px',
+				bgcolor: '#f46f00'
+			});
+			$('.venoboxajax').venobox({
+				border: '30px;',
+				frameheight: '220px'
+			});
+		})
+	</script>
+<div style="text-align:center;clear:both">
+<p>�����������360��FireFox��Chrome��Safari��Opera�����Ρ��ѹ�������֮��. ��֧��IE8�������������</p>
+<p>��Դ��<a href="http://sc.chinaz.com/" target="_blank">վ���ز�</a></p>
+</div>
+	</body>
+</html>
