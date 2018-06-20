@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>2018数博会, 英方与你一起，数化万物，智在融合</title>
+
+    <link href="./css/video-js.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /*loading*/
+
+        .loading_wrap {
+            -webkit-transition: opacity 0.2s linear;
+        }
+
+        .loading_hide {
+            opacity: 0;
+        }
+
+        .loading_wrap {
+            position: fixed;
+            z-index: 200;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+
+        .loading_hide {
+            opacity: 0;
+        }
+
+        .loading_wrap .loading {
+            display: block;
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            left: 50%;
+            margin-left: -150px;
+            top: 50%;
+            margin-top: -50px;
+            color: #fff;
+            font-family: "Arial", "microsoft yahei";
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .loading_wrap .loading .click_links {
+            display: block;
+            height: 17px;
+            width: 87px;
+            background: url(./img/loading_enter.png) no-repeat 0 0;
+            background-size: contain;
+            position: absolute;
+            left: 50%;
+            margin-left: -44px;
+            top: 50%;
+            margin-top: 17px;
+            z-index: 2;
+            text-indent: -9999px;
+            overflow: hidden;
+            display: none;
+            -webkit-animation: a_link_enter 3s linear infinite;
+            opacity: 0;
+        }
+
+        .loading_wrap .loading .loading_txt {
+            display: block;
+            height: 17px;
+            width: 195px;
+            background-size: contain;
+            position: absolute;
+            left: 50%;
+            margin-left: -98px;
+            top: 50%;
+            margin-top: 17px;
+            z-index: 2;
+            text-indent: -9999px;
+            overflow: hidden;
+            display: block;
+        }
+
+        .loading_wrap .hook {
+            display: block;
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            left: 50%;
+            margin-left: -150px;
+            top: 50%;
+            margin-top: -150px;
+            z-index: 3;
+        }
+
+        .num_area {
+            display: block;
+            width: 200px;
+            height: 39px;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            top: 50%;
+            margin-top: -38px;
+            z-index: 2;
+            text-align: center;
+            -webkit-transform: scale(0.9);
+        }
+
+        .num_area .num {
+            display: inline-block;
+            height: 39px;
+            width: 31px;
+            background: url(./img/num_0.png) no-repeat 0 0;
+            background-size: contain;
+            margin: 0px;
+        }
+
+        .num_area .num_0 {
+            background-image: url(./img/num_0.png);
+        }
+
+        .num_area .num_1 {
+            background-image: url(./img/num_1.png);
+        }
+
+        .num_area .num_2 {
+            background-image: url(./img/num_2.png);
+        }
+
+        .num_area .num_3 {
+            background-image: url(./img/num_3.png);
+        }
+
+        .num_area .num_4 {
+            background-image: url(./img/num_4.png);
+        }
+
+        .num_area .num_5 {
+            background-image: url(./img/num_5.png);
+        }
+
+        .num_area .num_6 {
+            background-image: url(./img/num_6.png);
+        }
+
+        .num_area .num_7 {
+            background-image: url(./img/num_7.png);
+        }
+
+        .num_area .num_8 {
+            background-image: url(./img/num_8.png);
+        }
+
+        .num_area .num_9 {
+            background-image: url(./img/num_9.png);
+        }
+
+        .num_area .num_percent {
+            background-image: url(./img/num_percent.png);
+            width: 36px;
+            margin-left: 2px;
+        }
+
+        @-webkit-keyframes a_link_enter {
+            0% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /*loading*/
+
+        .button {
+            position: absolute;
+            top: 80%;
+            left: 0;
+            right: 0;
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+            background: transparent;
+            border: 2px solid #fff;
+            text-align: center;
+            font-size: 28px;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            padding-top: 10px;
+        }
+
+        .button:hover {
+            color: #027cdc;
+            border: 2px solid #027cdc;
+        }
+
+        .vjs-big-play-button {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .vjs-audio {
+            width: 0;
+            height: 0;
+        }
+
+        @-webkit-keyframes rotating {
+            0% {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(1turn)
+            }
+        }
+
+        @keyframes rotating {
+            0% {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(1turn)
+            }
+        }
+
+        .bgm-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 100;
+            width: 30px;
+            height: 30px;
+            background-image: url(./img/bgmBtn.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .bgm-btn.rotate {
+            -webkit-animation: rotating 1.2s linear infinite;
+            animation: rotating 1.2s linear infinite;
+        }
+
+    </style>
+</head>
+<body>
+<div style="display: none;"><img src="img/ED.png"/></div>
+<div id="loading" class="loading_wrap">
+    <div class="loading">
+        <div class="num_area">
+            <span class="num num_0"></span>
+            <span class="num num_percent"></span>
+        </div>
+        <span class="click_links">请点击进入</span>
+        <span class="loading_txt">正在加载</span>
+    </div>
+    <div class="hook"></div>
+</div>
+
+
+<div class="bgm-btn" onclick="toggleMp3()" style="display: block;">
+    <audio id="bgm" src="http://h.info2soft.com/video/BIG_DATA_EXPO.mp3" preload="auto" loop="loop"></audio>
+</div>
+
+
+<div class="video-container">
+    <video id="my-video" class="video-js" playsinline x5-video-player-type="h5">
+        <source src="http://h.info2soft.com/video/BIG_DATA_EXPO.mp4" type='video/mp4'>
+        <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
+</div>
+
+
+<div id="after-video" style="display:none;position:relative;">
+    <a href="https://mp.weixin.qq.com/s/FSVlaoqKFGUyQ57SWFmO7w"><img style="height:100%; width:100%;" src="img/ED.png"/></a>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="./js/video.js"></script><!--视频播放用-->
+<script language="javascript" type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+
+    // var myBgm = videojs('bgm', {
+    //     preload: 'auto',
+    //     controls: false,
+    //     autoplay: false,
+    //     loop: true,
+    //     muted: false
+    // });
+    // myBgm.src('http://h.info2soft.com/video/BIG_DATA_EXPO.mp3');
+
+    var bgm;
+
+    var myPlayer = videojs('my-video', {
+        preload: 'auto',
+        controls: false,
+        autoplay: false,
+        muted: true
+    });
+    myPlayer.on("ended", function () {
+        closevideo();
+    });
+    // myBgm.on("play", function () {
+    //     myBgm.volume(1);
+    //     $('.bgm-btn').addClass('rotate');
+    // });
+    // myBgm.ready(function () {
+    //     // myBgm.play();
+    //     // set
+    //      // Set volume to half
+    //     // console.log(myBgm.volume());
+    // });
+
+	//loader
+    var timer_count = 0;
+    var timer_loading = setInterval(function () {
+        // copy from http://h5app.qq.com/act/cdc/cloud/js/js.js
+        if (timer_count < 100) {
+
+            var n_100 = Math.floor(timer_count / 100);
+            var n_10 = Math.floor(timer_count / 10) % 10;
+            var n_1 = timer_count % 10;
+
+            if (n_100 > 0) {
+                var str_100 = "<span class='num num_" + n_100 + "'></span>";
+            } else {
+                var str_100 = "";
+            }
+
+            if (n_10 > 0) {
+                var str_10 = "<span class='num num_" + n_10 + "'></span>";
+            } else {
+                var str_10 = "";
+            }
+
+            var str_1 = "<span class='num num_0'></span>";
+
+            if (n_1 > 0) {
+                var str_1 = "<span class='num num_" + n_1 + "'></span>";
+            } else {
+                var str_1 = "<span class='num num_0'></span>";
+            }
+
+            $(".loading .num_area").html(str_100 + "" + str_10 + "" + str_1 + "" + "<span class='num num_percent'></span>");
+
+            timer_count++;
+        } else {
+            $(".loading .num_area").html("<span class='num num_1'></span><span class='num num_0'></span><span class='num num_0'></span><span class='num num_percent'></span>");
+            clearInterval(timer_loading);
+            $(".loading_wrap .loading .loading_txt").fadeOut();
+            $(".loading_wrap .loading .click_links").fadeIn();
+            $(".loading_wrap .hook").hide();
+        }
+    }, 30);
+
+
+    $(".loading_wrap .loading").on("click", function () {
+        $(".loading_wrap").addClass("loading_hide");
+
+        var timer = setTimeout(function () {
+            $(".loading_wrap").hide();
+        }, 300);
+        myPlayer.ready(function () {
+            myPlayer.muted(true);
+            var howLoudIsIt = myPlayer.volume();
+            console.log(howLoudIsIt);
+            toggleMp3();
+            bgm.play(); // call again
+            myPlayer.play();
+        });
+
+    });
+
+    function changesize() {
+        var winHeight = document.documentElement.clientHeight;
+        var winWidth = document.documentElement.clientWidth;
+        $("#my-video").css("width", winWidth);
+        $("#my-video").css("height", winHeight);
+        $("#after-video").css("width", winWidth);
+        $("#after-video").css("height", winHeight);
+    }
+
+    $(document).ready(function () {
+        bgm = document.getElementById('bgm');
+        changesize();
+        bgm.load();
+    })
+
+    window.onresize = function () {
+        changesize();
+    }
+
+    function closevideo() {
+        $(".video-container").css("display", "none");
+        $("#after-video").css("display", "block");
+    }
+
+    function toggleMp3() {
+        // if (myBgm.paused()) {
+        //     myBgm.play();
+        // } else {
+        //     myBgm.pause();
+        // }
+        console.log(bgm.paused);
+        if (bgm.paused) {
+            bgm.play();
+        } else {
+            bgm.pause();
+        }
+        $('.bgm-btn').toggleClass('rotate');
+    }
+
+    // 页面分享组件
+    wx.ready(function() {
+
+        var shareTitle = '2018数博会, 英方与你一起，数化万物，智在融合';
+        var shareDesc = '6区6419，不见不散';
+        var shareLink = 'http://h.info2soft.com/EXPO/index.html';
+        var shareImg = 'http://h.info2soft.com/EXPO/img/ED.png';
+
+        // 分享给朋友事件绑定
+        wx.onMenuShareAppMessage({
+            title: shareTitle,
+            desc: shareDesc,
+            link: shareLink,
+            imgUrl: shareImg,
+            trigger: function (res) {
+                // alert('触发');
+            },
+            success: function (res) {
+                // alert('感谢您的分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+
+        });
+
+        // 分享到朋友圈
+        wx.onMenuShareTimeline({
+            title: shareTitle,
+            link: shareLink,
+            imgUrl: shareImg
+        });
+
+        // 分享到QQ
+        wx.onMenuShareQQ({
+            title: shareTitle,
+            desc: shareDesc,
+            link: shareLink,
+            imgUrl: shareImg
+        });
+
+        // 分享到微博
+        wx.onMenuShareWeibo({
+            title: shareTitle,
+            desc: shareDesc,
+            link: shareLink,
+            imgUrl: shareImg
+        });
+    });
+
+    var cUrl = window.location.href.replace(window.location.hash, '');
+    $.ajax({
+        url: 'http://m.info2soft.com/wechat/sign.php',
+        type: 'GET',
+        data: {url: cUrl},
+        dataType: 'jsonp',
+        success: function(data) {
+            wx.config({
+                debug: false,
+                appId: data.appId,
+                timestamp: data.timestamp,
+                nonceStr: data.nonceStr,
+                signature: data.signature,
+                jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'onMenuShareQZone',
+                    'onhideOptionMenu'
+                ]
+            });
+        }
+    });
+
+</script>
+</body>
+</html>
