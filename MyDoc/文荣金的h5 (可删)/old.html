@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--预加载动画-->
+<link rel="stylesheet" type="text/css" href="css/loader.min.css">
+ <link href="https://vjs.zencdn.net/6.9.0/video-js.css" rel="stylesheet">
+			<script src="js/jquery-1.11.1.min.js"></script>
+
+
+<script type="text/javascript">         
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    }); 
+</script>  		 	
+<style>
+	.button{
+		position: absolute;
+		top:80%;
+		left: 0;
+		right:0;
+		width:200px;
+		height: 50px;
+		margin: 0 auto;
+		background: transparent;
+		border:2px solid #fff;
+		text-align: center;
+		font-size: 28px;
+		color:#fff;
+		border-radius: 5px;
+		text-decoration: none;
+		font-weight: 500;
+		padding-top:10px;
+	}
+	.button:hover{
+		color:#027cdc;
+		border:2px solid #027cdc;
+	}
+</style>		 	
+	</head>
+	<body>
+ <!--========== BEGIN Loder ==========-->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在努力的加载资源，请稍后<br><span>V1.0</span></div>
+</div>		
+ <!--========== BEGIN Loder ==========-->				
+		
+	
+	<div class = "video-container">
+		  <video id="my-video" class="video-js" controls preload="auto" autoplay="autoplay" 
+		  poster="img/background1.jpg" data-setup='{"autoplay": true, "preload": "auto"}'>
+		    <source src="http://oss.info2soft.com/video/BIG_DATA_EXPO.mp4" type='video/mp4'>
+		    <p class="vjs-no-js">
+		      To view this video please enable JavaScript, and consider upgrading to a web browser that
+		      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+		    </p>
+		  </video>
+	</div>
+	<div id="after-video" style="display:none;position:relative;">
+		<img style="height:100%; width:100%;" src="img/background.jpg"/>
+		<a href="#" class="button">点击注册</a>
+	</div>
+<script>
+
+function changesize(){
+	var	winHeight = document.documentElement.clientHeight;
+ 	var winWidth = document.documentElement.clientWidth;
+ 	$("#my-video").css("width",winWidth);
+ 	$("#my-video").css("height",winHeight);
+ 	$("#after-video").css("width",winWidth);
+ 	$("#after-video").css("height",winHeight);
+ 	
+}
+
+$(document).ready(function(){
+	changesize();
+	var audio = document.getElementById("my-video");
+　　audio.play(); //没有就播放
+})
+
+window.onresize = function(){
+	changesize();
+}
+
+var videorun = document.getElementById('my-video') || null;
+
+videorun.addEventListener('ended',function(){
+	$("#my-video").css("display","none");
+	$("#after-video").css("display","block");
+});
+
+ 	
+</script>
+		 	<script src="https://vjs.zencdn.net/6.9.0/video.js"></script><!--视频播放用-->
+	</body>
+</html>

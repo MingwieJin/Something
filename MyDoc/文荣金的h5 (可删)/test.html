@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head> 
+		<meta charset="utf-8" />
+				<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title></title> 
+			<script src="js/jquery-1.11.1.min.js"></script>
+<!--			<script src="js/iphone-inline-video.min.js"></script>-->
+</head>
+<style>
+	.video-container{
+		position: relative ;
+		width: 100%;
+	}
+	.close{
+	position: absolute;
+	top:50%;
+	left:50%;
+	color:#fff;
+	}
+</style>
+<body>
+
+<div class="video-container"></div>	
+<video id="video" class="video" controls autoplay onended="closevideo()" preload="auto" webkit-playsinline="true" src="all.mp4" 
+type="video/mp4" poster="img/background1.jpg"></video>
+<a class="close" >跳过</a>
+<!--http://wqs.jd.com/promote/superfestival/superfestival.mp4-->
+
+<!--<video width="320" height="240" controls autoplay>
+  <source src="movie.ogg" type="video/ogg">
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.webm" type="video/webm">
+  <object data="movie.mp4" width="320" height="240">
+    <embed width="320" height="240" src="movie.swf">
+  </object>
+</video>-->
+  
+<div id="after-video" style="display:none;position:relative;">
+		<img style="height:100%; width:100%;" src="img/background.jpg"/>
+		<a href="#" class="button">点击注册</a>
+	</div>
+  
+
+
+<script>
+function changesize(){
+	var	winHeight = document.documentElement.clientHeight;
+ 	var winWidth = document.documentElement.clientWidth;
+ 	$("#video").css("width",winWidth);
+ 	$("#video").css("height",winHeight);
+ 	$("#after-video").css("width",winWidth);
+ 	$("#after-video").css("height",winHeight);
+ 	
+}
+
+$(document).ready(function(){
+	changesize();
+})	
+	
+function closevideo() {
+    		$("video").css("display","none");
+	$("#after-video").css("display","block");
+}
+
+$(".close").click(function(){
+	var video=document.getElementById("video");
+	 video.pause();
+	$("#video").css("display","none");
+	$("#after-video").css("display","block");
+});
+
+//	var videorun = document.getElementById('video') || null;
+//	videorun.addEventListener('ended',function(){
+//	$("video").css("display","none");
+//	$("#after-video").css("display","block");
+//});
+
+
+// var video = document.querySelector('video');
+// enableInlineVideo(video);
+	
+</script>
+</body>
+</html>
