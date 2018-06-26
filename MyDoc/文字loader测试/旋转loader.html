@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<script src="http://wow.techbrood.com/libs/jquery/jquery-1.11.1.min.js"></script>
+
+
+<style>
+	body {
+    background-color: rgb(12, 12, 12);
+    text-align: center;
+    color: #ccc;
+}
+@element 'body' and (min-width: 500px) {
+    body {
+        font-size: 0.8ew;
+    }
+}
+@element 'body' and (max-width: 499px) {
+    body {
+        font-size: 2ew;
+    }
+}
+a {
+    color: #ccc;
+}
+a:hover {
+    color: blue;
+}
+.container.small {
+    width: 50px;
+    margin-bottom: -22px;
+    display: inline-block;
+}
+.container {
+    width: 30%;
+    margin: 0 auto;
+    position: relative;
+}
+@element '.container' {
+    $this {
+        height: 100ew;
+    }
+}
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 8%;
+    width: 8%;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+@element '.container' {
+    $this .circle.One {
+        border-left: 1.67ew solid #c6ddde;
+        border-top: 1.67ew solid #c6ddde;
+        border-right: 1.67ew solid #c6ddde;
+        border-bottom: 1.67ew solid transparent;
+    }
+    $this .circle.Two {
+        border-left: 5.01ew solid rgba(93, 197, 247, 0.3);
+        border-bottom: 5.01ew solid rgba(93, 197, 247, 0.3);
+        border-right: 5.01ew solid rgba(93, 197, 247, 00.3);
+        border-top: 5.01ew solid transparent;
+    }
+    $this .circle.Three {
+        border-left: 1.67ew solid rgba(93, 197, 247, 0.8);
+        border-bottom: 1.67ew solid rgba(93, 197, 247, 0.8);
+        border-right: 1.67ew solid rgba(93, 197, 247, 0.8);
+        border-top: 1.67ew solid transparent;
+    }
+    $this .circle.Four {
+        border-left: 1.67ew solid rgba(93, 197, 247, 0.8);
+        border-bottom: 1.67ew solid rgba(93, 197, 247, 0.8);
+        border-right: 1.67ew solid rgba(93, 197, 247, 0.8);
+        border-top: 1.67ew solid transparent;
+    }
+    $this .Expand {
+        border: 0.36ew solid rgba(93, 197, 247, 0.5);
+    }
+}
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+.circle.One {
+    height: 500%;
+    width: 500%;
+    left: -220%;
+    top: -220%;
+    animation: Rotate 2s infinite linear
+}
+.circle.Two {
+    height: 460%;
+    width: 460%;
+    left: -239%;
+    top: -239%;
+    animation: Rotate2 2s infinite linear
+}
+.circle.Three {
+    height: 460%;
+    width: 460%;
+    left: -200%;
+    top: -200%;
+    animation: Rotate2 2s infinite linear;
+}
+.circle.Four {
+    height: 540%;
+    width: 540%;
+    left: -240%;
+    top: -240%;
+    animation: Rotate2 2s infinite linear;
+}
+.Expand {
+    position: absolute;
+    border-radius: 50%;
+    animation: Expand 1s infinite linear;
+    left: -200%;
+    top: -200%;
+    height: 500%;
+    width: 500%;
+}
+.Expand.Two {
+    animation: Expand 1s 100ms infinite linear;
+}
+.Expand.Three {
+    animation: Expand 1s 200ms infinite linear;
+}
+@keyframes Rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+@keyframes Rotate2 {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0)
+    }
+}
+@keyframes Expand {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+</style>
+	</head>
+	<body>
+		
+
+<h1>Final Fantasy XV Responsive Loader using <a href="http://elementqueries.com/">EQCSS</a></h1>
+<h3>Change width of window...</h3>
+
+<h4>Set width of container for desired size and done.
+<div class="container small" style="width: 50px; display: inline-block;">
+  <div class="center">
+    <div class="circle One"></div>
+    <div class="circle Two"></div>
+    <div class="circle Three"></div>
+    <div class="circle Four"></div>
+    <div class="Expand"></div>
+    <div class="Expand Two"></div>
+    <div class="Expand Three"></div>
+  </div>
+</div>
+</h4>
+
+<div class="container">
+    <div class="center">
+        <div class="circle One"></div>
+        <div class="circle Two"></div>
+        <div class="circle Three"></div>
+        <div class="circle Four"></div>
+        <div class="Expand"></div>
+        <div class="Expand Two"></div>
+        <div class="Expand Three"></div>
+    </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/eqcss/1.5.0/EQCSS.min.js'></script>		
+		
+	</body>
+</html>
