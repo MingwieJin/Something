@@ -1,0 +1,69 @@
+<html>
+<head>
+	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>弹出一个窗口后，后面的层不可操作</title>
+<script>
+function show()  //显示隐藏层和弹出层
+{
+	var hidebg=document.getElementById("hidebg");
+   hidebg.style.display="block";  //显示隐藏层
+   hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+   document.getElementById("hidebox").style.display="block";  //显示弹出层
+}
+function hide()  //去除隐藏层和弹出层
+{
+   document.getElementById("hidebg").style.display="none";
+   document.getElementById("hidebox").style.display="none";
+}
+</script>
+<style>
+   body { margin:0px;padding:0px;text-align: center;}
+   #content { text-align:center;cursor:pointer;z-Index:1;}
+   #hidebg { position:absolute;left:0px;top:0px;
+      background-color:#000;
+      width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+      filter:alpha(opacity=60);  /*设置透明度为60%*/
+      opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+      display:none; 
+      z-Index:2;}
+   #hidebox { position:absolute;width:400px;height:300px;left:0;right:0;top:200px;margin-left: auto;margin-right: auto;background-color:#fff;display:none;cursor:pointer;z-Index:3;text-align: center;border-radius:10px;}
+   .sub-privacy-top{width:100%;}
+   .sub-privacy-title{width:90%;margin:20px auto 30px auto;font-size: 24px;color:#027cdc;}
+   .sub-privacy-content{width:90%;margin:0 auto;}
+   .sub-privacy-button{text-align: center; margin: 30px auto 0 auto; border-radius:10px; width:100px;height: 40px;font-size: 20px; border:none;color:#fff;}
+   .sub-privacy-close {
+	display: block;
+	position:absolute;
+	top:-20px;
+	right:-20px;
+	width:40px;
+	height:40px;
+	text-indent:-9999px;
+	background: url(img/log-close.png) no-repeat 0 0;
+	background-size:100% 100%;
+}
+.sub-privacy-button {
+  -webkit-animation-name: greenPulse;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #027cdc; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #8470FF; -webkit-box-shadow: 0 0 18px #7D26CD; }
+  to { background-color: #027cdc; -webkit-box-shadow: 0 0 9px #333; }
+}
+</style>
+</head>
+<body>
+<div id="content" onClick="show();">点击试试</div>	
+<div id="hidebg"></div>
+<div id="hidebox">
+	<a href="javascript:void(0);" onClick="hide();" class="sub-privacy-close"></a>
+	<div class="sub-privacy-title">个人信息收集</div>
+	<div class="sub-privacy-content">当您在本网站进行合作伙伴注册登记，本网站将收集您的相关信息，并保存记录。本网站收集的个人信息包括但不限于：姓名、地址、公司、所在地区、电话号码以及电子邮件地址等。您主动提供的信息越多及越准确，我们就能够更好地为您提供有关服务。</div>
+	<button class="sub-privacy-button " onClick="hide();">我同意</button>
+</div>
+
+</body>
+</html>
