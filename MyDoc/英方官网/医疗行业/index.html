@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>		
+		
+<style>
+	
+body{
+	margin:0px;
+	font-family: "微软雅黑";
+}	
+a, a:focus, a:hover{
+	text-decoration: none;
+}
+/*banner*/
+.Med-banner{
+	width:100%;
+}
+.Med-banner img {
+	width: 100%;
+	height:auto;
+}
+/*banner结束*/
+
+/*优势开始*/
+.Med-advantages{
+	width:100%;
+	max-width:1200px;
+	margin:70px auto 140px auto;
+
+}
+.Adv-title{
+	font-size:36px;
+	color:#333;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.Adv-content{
+	width:100%;
+}
+.Adv-content img{
+	width:auto;
+	height:auto;
+	display:block;
+	margin:0 auto;
+}
+.Adv-row{
+	padding:0 20px
+}
+@media screen and (max-width: 1000px){
+	.Adv-row{
+		max-width:90%;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+}
+.Adv-row-title{
+	margin: 20px auto 15px auto;
+	font-size:18px;
+	color:#333;
+	text-align: center;
+}
+.Adv-row-content{
+	font-size:16px;
+	color:#666;
+	line-height: 31px;
+}
+.clear{
+	clear:both;
+}
+/*优势结束*/
+
+/*方案开始*/
+.Med-solutions{
+	background: url(img/bg_hospital.png) no-repeat center;
+}
+@media screen and (min-width: 1921px) {
+    .Med-solutions{
+    background-size:100%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+.Med-solutions{
+	background: url(img/bg_hospital.png);
+	background-repeat:repeat ;
+	/*background: #373D41;*/
+}
+}
+.Sol-container{
+	width:100%;
+	max-width:1200px;
+	margin: 0 auto;
+	background: transparent;
+}
+.sol-part{
+	padding:0 35px;
+}
+.sol-part2{
+}
+@media screen and (min-width: 1000px) {
+	.sol-part, .sol-part2{height:400px;}
+}
+.sol-part:hover, .sol-part2:hover{
+	/*background: rgba(59, 73, 224, 0.5);*/
+	background: rgba(31, 181, 255, 0.7);
+}
+
+
+@media screen and (min-width: 1200px) {
+	.sol-part2{
+		padding:0 235px;
+	}
+}
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+	.sol-part2{
+		padding:0 135px;
+	}
+}
+
+.sol-part-title{
+	margin:100px 0 30px 0;
+	font-size:24px;
+	color:#fff;
+	text-align: center;
+	opacity: 0.95;
+}
+.sol-part-content{
+	font-size:14px;
+	line-height: 28px;
+	color:#fff;	
+	opacity: 0.95;
+}
+@media screen and (max-width: 1000px){
+	.sol-part-title{
+		margin:0 auto 30px auto;
+		max-width: 330px;
+	}
+	.sol-part-content{
+		margin:0 auto 30px auto;
+		max-width: 330px;
+	}
+	.sol-part, .sol-part2{
+		padding:50px 15px;
+	}
+}
+/*方案结束*/
+
+/*架构开始*/
+.Med-structure{
+	width:100%;
+	max-width:1200px;
+	margin:130px auto 115px auto;
+}
+.str-row{
+	margin-bottom:50px;
+}
+.str-left{
+	width: 777px;
+	float: left;
+}
+.str-left img{
+	width:100%;
+	height:auto;
+	display:block;
+	moz-box-shadow:0px 0px 20px #A1A1A1; 
+	-webkit-box-shadow:0px 0px 20px #A1A1A1; 
+	box-shadow:0px 0px 20px #A1A1A1;
+}
+
+.str-img-subtitle{
+	margin-top:25px;
+	text-align: center;
+	font-size: 14px;
+	color:#666;
+}
+
+.str-right{
+	margin-left: 30px;
+	float: left;
+}
+.str-right-title{
+	margin: 25px 0 20px 0;
+	font-size: 18px;
+	color:#333;
+}
+.str-right-content{
+	margin-bottom:50px;
+	font-size: 14px;
+	line-height: 28px;
+	color:#666;
+}
+
+@media screen and (max-width: 1200px) {
+	.str-left, .str-right{
+		float:none;
+	}
+	.str-left{width:100%;}
+	.str-left img{
+		margin:0 auto;
+		max-width: 90%;
+	}
+}
+/*架构结束*/
+</style>		
+		
+	</head>
+	<body>
+				
+<!--banner开始-->
+<div class="Med-banner"><img src="img/banner-1.png"/></div>
+<!--banner结束-->	
+
+<!--优势开始-->
+<div class="Med-advantages">
+	<div class="Adv-title">三大优势</div>
+	
+	<div class="Adv-content">
+		<div class="Adv-row col-md-4 col-sm-6">
+			<img src="img/icon1.png"/>
+			<div class="Adv-row-title">多层级的灾备能力</div>
+			<div class="Adv-row-content">
+				单服务器的数据备份、集群部署的灾备 保护、重要系统的异地备份、重要系统的应用容灾、数据中心的整体容灾、都可以针对性的提供相应的解决方案。
+			</div>
+		</div>
+		
+		<div class="Adv-row col-md-4 col-sm-6">
+			<img src="img/icon2.png"/>
+			<div class="Adv-row-title">多层级的灾备能力</div>
+			<div class="Adv-row-content">
+				单服务器的数据备份、集群部署的灾备 保护、重要系统的异地备份、重要系统的应用容灾、数据中心的整体容灾、都可以针对性的提供相应的解决方案。
+			</div>
+			<div></div>
+		</div>
+		
+		<div class="Adv-row col-md-4 col-sm-6">
+			<img src="img/icon3.png"/>
+			<div class="Adv-row-title">多层级的灾备能力</div>
+			<div class="Adv-row-content">
+				单服务器的数据备份、集群部署的灾备 保护、重要系统的异地备份、重要系统的应用容灾、数据中心的整体容灾、都可以针对性的提供相应的解决方案。
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>	
+	
+</div>
+<!--优势结束-->
+
+<!--方案开始-->
+<div class="Med-solutions">
+<!--	<img src="img/bg_hospital.png"/>-->
+		<div class="Sol-container">
+			
+			<div class="sol-part col-md-4 col-sm-6">
+				<a href="javascript:void(0);">
+					<div class="sol-part-title">异构存储的灾备</div>
+					<div class="sol-part-content">
+						1、用户无需针对不同存储介质构建多个灾备体系;<br />
+						2、无关系统、应用和硬件，可在同一个灾备管理平台对各类资源数据进行灾备管理。
+					</div>
+				</a>
+			</div>
+			
+			<div class="sol-part col-md-4 col-sm-6">
+				<a href="javascript:void(0);">
+					<div class="sol-part-title">NAS海量数据的灾备</div>
+					<div class="sol-part-content">
+						1、现有业务的体系架构无需调整，事件触发式通知，备份响应速度快;<br />
+						2、旁路模式对现有业务系统无多余资源开销，备端数据可随时查看。
+					</div>
+				</a>
+			</div>
+			
+			<div class="sol-part col-md-4 col-sm-6">
+				<a href="javascript:void(0);">
+					<div class="sol-part-title">非结构化数据的灾备</div>
+					<div class="sol-part-content">
+						1、支持数据的完整性校验，保证同步到云端的数据于本地是完整一致的;<br />
+						2、目录结构的一致性，同步过程中严格将文档的目录层级完整继承到云端。<br />
+						3、添加同步主机，主动向本地存储发动访问请求，对原来的业务生产系统唔任何影响
+					</div>
+				</a>
+			</div>
+			
+			<div class="sol-part col-md-4 col-sm-6">
+				<a href="javascript:void(0);">
+					<div class="sol-part-title">异地容灾</div>
+					<div class="sol-part-content">
+						1、构建数据和应用两个层级的异地容灾保护;<br />
+						2、提高业务连续性，从而降低因各类因素导致的数据丢失和业务中断带来的损失。
+					</div>
+				</a>
+			</div>
+			
+			<div class="sol-part2 col-md-8 col-sm-12">
+				<a href="javascript:void(0);">
+					<div class="sol-part-title">黑客攻击和勒索病毒</div>
+					<div class="sol-part-content">
+						1、避免因为认为误删除或外部黑客攻击导致的数据感染或丢失导致的业务中断不可用;<br />
+						2、根据需求将数据快速回复到之前的任意时间点，细粒度到百万分之一秒。<br />
+					</div>
+				</a>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+</div>
+<!--方案结束-->
+
+<!--架构开始-->
+<div class="Med-structure">
+	
+	<div class="str-row">
+		<div class="str-left">
+			<img src="img/pic_up.png"/>
+			<div class="str-img-subtitle">三甲医院异地容灾架构</div>
+		</div>
+		<div class="str-right">
+			<div class="str-right-title">本架构能够解决</div>
+			<div class="str-right-content">医院三级评审  数据异地保护  应用异地接管  数据库双活</div>
+			<div class="str-right-title">主要产品:</div>
+			<div class="str-right-content">i2COOPY i2CDP i2Availability i2Box i2VP i2Active</div>
+			<div class="str-right-title">典型案例:</div>
+			<div class="str-right-content">辽宁省人民医院、保定市第三中心医院</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="str-row">
+		<div class="str-left">
+			<img src="img/pic_down.png"/>
+			<div class="str-img-subtitle">三甲医院异地容灾架构</div>
+		</div>
+		<div class="str-right">
+			<div class="str-right-title">本架构能够解决</div>
+			<div class="str-right-content">等级保护 数据保护 应用本地接管</div>
+			<div class="str-right-title">主要产品:</div>
+			<div class="str-right-content">i2COOPY i2CDP i2Availability i2Box</div>
+			<div class="str-right-title">典型案例:</div>
+			<div class="str-right-content">上海嘉会国际医院、广州市中医院</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+</div>
+
+<!--架构结束-->
+
+	</body>
+</html>
