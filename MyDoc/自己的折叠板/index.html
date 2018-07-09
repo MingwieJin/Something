@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 折叠面板（Accordion） - 默认功能</title>
+  
+  
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script src="js/jquery-1.9.1.js"></script>
+  <script src="js/jquery-ui.js"></script>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="css/style.css">-->
+<style>
+	#title1 {
+  	display:inline;
+  	} 
+	
+  	#title2 {
+  	display:inline;
+  	margin-left:40%;
+  	} 
+  	
+  	#title3 {
+  	display:inline;
+  	margin-left:40%;
+  	} 
+ </style>
+
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      heightStyle:"content",
+      collapsible: true
+//     heightStyle:"content"移动端不会出现滚动条;
+//    collapsible:true 可以再次点击收回折叠板;
+    });
+  } );
+  </script>
+  
+
+  
+ 
+</head>
+<body>
+ 
+<div id="accordion">
+  <div class="title-row" >
+  	<div id="title1">1111</div>
+  	<div id="title2">22222</div>
+  	<div id="title3">33333</div>
+  </div>
+  <div>
+  	<div class="col-md-6">
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+    </div>
+    <div class="col-md-6" style="padding-left:40%;">
+    	<button>111111</button>
+    </div>
+  </div>
+
+  <h3>部分 2</h3>
+  <div>
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+    </p>
+  </div>
+  <h3>部分 3</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>部分 4</h3>
+  <div>
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    </p>
+    <p>
+    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+    </p>
+  </div>
+</div>
+ 
+ 
+</body>
+</html>
