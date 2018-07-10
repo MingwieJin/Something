@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<div class="commonemail_Wrap">
+       <!-- <form  name="frmEmailOutLook" action="" method="post" enctype="text/plain">
+            <input type="hidden" name="message" value=""/>
+        </form>-->
+        <!--<form name="frmEmail" action="" method="post">
+            <div><label>收件人</label><input type="text" name="website"  /></div>
+            <div><label>主题</label><input type="text"  name="subject"/></div>
+            <div><label class="unique">内容</label><textarea  rows="4"   name="message"></textarea></div>
+            <input type="button" name="send" value="发送邮件" id="SendEmai"/>
+        </form>-->
+        <div>
+            <div><label>收件人</label><input type="text" name="website" id="test1" /></div>
+            <div><label>主题</label><input type="text"  id="test2" name="subject"/></div>
+            <div><label class="unique">内容</label><textarea  rows="4"   id="test3" name="message"></textarea></div>
+            <!--<input type="button" name="send" value="发送邮件" id="SendEmail"/>-->
+            <a href="" id="SendEmail">发送邮件</a>
+        </div>
+    </div>	
+
+
+
+<script type="text/javascript">
+        $(document).on("click", "#SendEmail", function () {
+
+            var website = document.getElementById("test1").value;
+            var subject = document.getElementById("test2").value;
+            var body = document.getElementById("test3").value;
+            var url = "mailto:" + website + "?subject=" + subject + "&body=" + body;
+            document.getElementById("SendEmai").setAttribute("href", url);
+     　　　　//return fasle;
+        });
+</script>
+	</body>
+</html>

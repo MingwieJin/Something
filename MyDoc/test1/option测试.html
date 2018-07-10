@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+		
+		
+<style>
+.unit_a{ float:left; height:32px; line-height:32px; text-align:center; display:block; cursor:pointer;padding:0  15px}
+.unit_a:hover{background:#6bb4f2; border:1px solid #60a6e2; border-right:none; color:#fff; text-decoration:none;  }
+.unit{ background:#fff; border:1px solid #e0e0e0; border-right:none; color:#555;}
+.unit_left{ background:#fff; border:1px solid #e0e0e0; border-right:none; color:#555; border-radius:3px 0 0 3px;}
+.unit_right{ background:#fff; border:1px solid #e0e0e0; color:#555;  border-radius: 0 3px 3px 0;}
+.unit_blue{ background:#6bb4f2; border:1px solid #60a6e2; border-right:none; color:#fff;}
+.unit_blue_left{ background:#6bb4f2; border:1px solid #60a6e2; border-right:none; color:#fff;  border-radius:3px 0 0 3px; }
+.unit_blue_right{ background:#6bb4f2; border:1px solid #60a6e2; color:#fff;  border-radius: 0 3px 3px 0; }
+	
+</style>		
+	</head>
+	<body>
+        <div class="timezone">
+          <div> 购买时长：</div>
+          	<div class="">
+          		<a class="unit_a unit_left unit_blue_left" data-v="1"onclick="changetime(this);return false;">
+          			1月
+          		</a>
+          		<a class="unit_a unit" data-v="2" onclick="changetime(this);return false;">
+          			2月
+          		</a>
+                <a class="unit_a unit" data-v="3" onclick="changetime(this);return false;">
+          			3月
+          		</a>
+				<a class="unit_a unit" data-v="4"onclick="changetime(this);return false;">
+          			4月
+          		</a>
+				<a class="unit_a unit" data-v="5" onclick="changetime(this);return false;">
+          			5月
+          		</a>
+				<a class="unit_a unit" data-v="6" onclick="changetime(this);return false;">
+          			6月
+          		</a>
+				<a class="unit_a unit" data-v="7" onclick="changetime(this);return false;">
+          			7月
+          		</a>
+				<a class="unit_a unit" data-v="8" onclick="changetime(this);return false;">
+          			8月
+          		</a>
+				<a class="unit_a unit" data-v="9" onclick="changetime(this);return false;">
+          			9月
+          		</a>
+          		<a title="仅需10个月费用"  id="1year_btn" class="unit_a unit" data-v="10" onclick="changetime(this);return false;">
+          			1年[<font color="red">惠</font>]
+          		</a>
+          		<a title="仅需20个月费用"  class="unit_a unit" data-v="20" onclick="changetime(this);return false;" >
+          			2年[<font color="red">惠</font>]
+          		</a>
+          		<a title="仅需30个月费用"  class="unit_a unit_right" data-v="30" onclick="changetime(this);return false;" >
+          			3年[<font color="red">惠</font>]
+          		</a>
+                </div>
+                
+				
+        </div>	
+	
+		<input  name="timecycle" value="1" type="hidden" id="timecycle"><!--服务与分发数-->
+<script>
+	function changetime(items){
+		var checkCssName = 'unit_blue';
+		var unitCssName = 'unit';
+		$("#times a").removeClass("unit_blue_left").removeClass("unit_blue").removeClass("unit_blue_right");
+		$("#times a").addClass("unit");
+		$(items).removeClass("unit");
+		var clazz = $(items).attr("class"); 
+		if (clazz.search('left') != -1) {
+			$(items).addClass(checkCssName + "_left");
+		} else if (clazz.search('right') != -1) {
+			$(items).addClass(checkCssName + "_right");
+		} else {
+			$(items).addClass(checkCssName);
+		}
+		
+		$("#timecycle").val($(items).attr("data-v"));
+//
+//		subnumber();
+	}
+	
+	
+</script>		
+	</body>
+</html>

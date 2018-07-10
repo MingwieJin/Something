@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+<title>iScroll demo: simple</title>   
+<script type="text/javascript">  
+window.onscroll=function(){
+test();
+}
+function test(){
+var a = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+var b = document.documentElement.scrollTop==0? document.body.scrollTop : document.documentElement.scrollTop;
+var c = document.documentElement.scrollTop==0? document.body.scrollHeight : document.documentElement.scrollHeight;
+//alert(document.body.clientHeight);
+//alert(document.documentElement.clientHeight);
+  // alert(document.documentElement.scrollTop);
+  //alert(document.documentElement.scrollHeight);
+  //alert(document.body.scrollHeight);
+  if(document.body.scrollTop==0&&document.documentElement.scrollTop==0){
+          alert("到达顶端");
+                                 }
+  if(a+Math.floor(b)==c || a+Math.ceil(b)==c){
+alert("到达底部");
+}
+}
+</script>  
+</head>  
+<body>  
+<div style="background-color:#ccc; height:2000px;position:absolute;">
+IE和 FF下测试通过
+<a href="javascript:void(0);" onclick="test();" style="position:fixed;">3212315438468434185</a>
+</div>
+</body>
+<script>
+//  $(document).ready(function(){
+//      alert("bbbbb");
+//     if($(document).scrollTop()!==0){
+//         alert("aaaaa");
+//         $("#login111" ).css("color","black"); 
+//     }  
+//   });
+//window.onscroll=function(){
+//test111();
+//};
+//function test111(){
+//
+//
+//  if(document.body.scrollTop==0&&document.documentElement.scrollTop==0){
+//         $("#login111,#login112 " ).css("color","white"); 
+//         $("#login112" ).css("border","1px solid rgba(255,255,255,0.8)");
+//  }
+//  else{
+//      $("#login111,#login112" ).css("color","black"); 
+//      $("#login112" ).css("border","1px solid rgba(0,0,0,0.8)");
+////         $(".gray " ).css("background","rgba(255,255,255,0.8)");
+////         $("#navi ul li a " ).css("color","#333"); 
+//      
+//      $("#head.gray, #HomeFaceLogin").hover(
+//              function(){
+////                        $("#login111,#login112 " ).css("color","white"); 
+//                      
+//              },
+//              function(){
+////                    移出的时候
+//              }
+//              )
+//     
+//     
+//
+//      
+//  }
+//};
+    
+    
+</script>
+
+</html>  

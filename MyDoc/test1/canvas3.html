@@ -1,0 +1,71 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+<title>每天一个JavaScript实例-canvas定时器动态的更新一个线条</title>  
+<style>  
+      
+</style>  
+  
+<script>  
+window.onload = function(){  
+    var array1 = [[100,100],[150,50],[200,185],[250,185],[300,250],[350,100],[400,250],[450,100],[500,20],[550,80],[600,120]];  
+  
+    var array2 = [[100,100],[150,150],[200,135],[250,285],[300,150],[350,150],[400,280],[450,100],[500,120],[550,80],[600,190]];  
+  
+    var array3 = [[100,200],[150,100],[200,35],[250,185],[300,10],[350,15],[400,80],[450,100],[500,120],[550,80],[600,120]];  
+  
+    var imgcanvas = document.getElementById("imgcanvas");  
+    if(imgcanvas.getContext){  
+        var ctx = imgcanvas.getContext('2d');  
+  
+        //矩形包围线条图标  
+        ctx.strokeRect(0,0,600,300);  
+  
+        //第一条线条  
+        ctx.beginPath();  
+        ctx.moveTo(0,100);  
+        for(var i=0;i<array1.length;i++){  
+            ctx.lineTo(array1[i][0],array1[i][1]);  
+        }  
+        ctx.stroke();  
+    }  
+  
+  
+    setTimeout(function(){  
+        ctx.strokeStyle="#f00";  
+        //第二条线  
+        ctx.beginPath();  
+        ctx.moveTo(0,100);  
+        for(var i=0;i<array2.length;i++){  
+            ctx.lineTo(array2[i][0],array2[i][1]);  
+        }  
+        ctx.stroke();  
+        //第二次延迟  
+    setTimeout(function(){  
+        ctx.strokeStyle = "0f0";  
+        ctx.fillStyle="rgba(255,255,0,.1)";  
+        //第三条线  
+        ctx.beginPath();  
+        ctx.moveTo(0,100);  
+        for(var i=0;i<array3.length;i++){  
+            ctx.lineTo(array3[i][0],array3[i][1]);  
+        }  
+        ctx.stroke();  
+    },5000);  
+    },5000);  
+  
+  
+}  
+</script>  
+  
+</head>  
+  
+<body>  
+  
+<canvas width="650" height="350" id="imgcanvas">  
+    <p>img</p>  
+</canvas>  
+  
+</body>  
+</html>  

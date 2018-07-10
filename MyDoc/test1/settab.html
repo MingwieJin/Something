@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
+<title>简洁Tab</title>
+<style type="text/css">
+<!--
+body,div,ul,li{
+padding:0;
+text-align:center;
+}
+body{
+font:12px "宋体";
+text-align:center;
+}
+a:link{
+color:#00F;
+text-decoration:none;
+}
+a:visited {
+color: #00F;
+text-decoration:none;
+}
+a:hover {
+color: #c00;
+text-decoration:underline;
+}
+ul{ list-style:none;}
+
+.Menubox {
+width:50%;
+background:url(image/2.gif);
+height:28px;
+line-height:28px;
+}
+.Menubox ul{
+margin:0px;
+padding:0px;
+}
+.Menubox li{
+float:left;
+display:block;
+cursor:pointer;
+width:114px;
+text-align:center;
+color:#949694;
+font-weight:bold;
+}
+.Menubox li.hover{
+padding:0px;
+background:#fff;
+width:116px;
+border-left:1px solid #A8C29F;
+border-top:1px solid #A8C29F;
+border-right:1px solid #A8C29F;
+background:url(image/1.gif);
+color:#739242;
+font-weight:bold;
+height:27px;
+line-height:27px;
+}
+.Contentbox{
+width: 50%;
+clear:both;
+margin-top:0px;
+border:1px solid #A8C29F;
+border-top:none;
+height:181px;
+text-align:center;
+padding-top:8px;
+}
+-->
+</style>
+<script>
+<!--
+function setTab(name,cursel,n){
+for(i=1;i<=n;i++){
+var menu=document.getElementByIdx_x(name+i);
+var con=document.getElementByIdx_x("con_"+name+"_"+i);
+menu.className=i==cursel?"hover":"";
+con.style.display=i==cursel?"block":"none";
+}
+}
+//-->
+</script>
+</head>
+<body>
+<br><br>
+<div class="Menubox">
+<ul>
+   <li id="one1" onmouseover="setTab('one',1,4)" >新闻1</li>
+   <li id="one2" onmouseover="setTab('one',2,4)" class="hover">新闻2</li>
+   <li id="one3" onmouseover="setTab('one',3,4)">新闻3</li>
+   <li id="one4" onmouseover="setTab('one',4,4)">新闻4</li>
+</ul>
+</div>
+<div class="Contentbox">
+   <div id="con_one_1" >新闻列表1</div>
+   <div id="con_one_2" style="display:none">新闻列表2</div>
+   <div id="con_one_3" style="display:none">新闻列表3</div>
+   <div id="con_one_4" style="display:none">新闻列表4</div>
+</div>
+<br />
+</body>
+</html>

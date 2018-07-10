@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+<!-- 搜索框开始 -->
+<div id="search">
+<form id="searchwebform" action="{APP_PATH}index.php?m=search&c=index&a=init&typeid=&siteid=1"  target="_blank" />
+<div class="search">
+<input type="hidden" name="m" value="search"/>
+<input type="hidden" name="c" value="index"/>
+<input type="hidden" name="a" value="init"/>
+<input type="hidden" name="typeid" value="{$typeid}" id="typeid"/>
+<input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+<input type="text" class="text" name="q" id="q" value="" />
+<input type="submit" value="搜 索" class="btn" id="search_btn" /> 
+</div>
+</form>
+</div>
+
+<!-- 搜索框结束 -->
+
+
+<ul class="mainlist">
+{pc:get sql="SELECT * FROM `v9_news` where title like '%$q%' order by id DESC " num="10" page="$page" return="data"}
+{if $data==""}
+<p style="text-align:center; font-size:12px; ">没有找到和<font color="#FF0000;" style="text-decoration:underline; font-weight:bold; " >{$q}</font>相关的文章，请减短关键词或换个词组！</p>
+{/if}
+
+
+{loop $data $v}
+
+<li><a href="{$v['url']}"  style="color:#ea0525;" >{$v[title]}</a></li>
+{/loop}
+{/pc}
+</ul>
+<div class='pagelist'>
+{$pages}
+</div>
+</div>
+	</body>
+</html>

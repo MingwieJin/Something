@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+						<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"></script>
+	</head>
+	<body>
+		
+		
+		
+<script>
+	var data = ["cdp", "i2coopy", "i2cloud", "i2share","CoCO"]
+	
+	
+  $(document).ready(function(){	
+  for(var i=0; i<data.length; i++){
+if (data[i].search(/co/i)>-1){
+document.body.innerHTML += "<br>" + data[i];	
+}
+  
+  }
+});  
+
+
+
+
+
+</script>		
+	</body>
+</html>

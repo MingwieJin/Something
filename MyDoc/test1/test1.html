@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+.ui_button{
+	background: violet;
+	border:1px solid #00a5e0;
+	line-height: 30px;
+	font-size: 16px;
+	color:#fff;
+	padding: 5px 20px;
+	border-radius: 5px;
+}
+.ui_button:hover{
+	background:#00a5e0;
+}
+    </style>
+    <title>RunJS 演示代码</title>
+
+  </head>
+<body>
+<label class="ui_button ui_button_primary" for="xFile">上传文件</label>
+<form><input type="file" id="xFile" style="position:absolute;clip:rect(0 0 0 0);"></form>
+
+<label class="ui_button ui_button_primary" for="x1">上传文件</label>
+<input id="x1" type="file"/>
+
+<hr/>
+<form action="" method="post" enctype="multipart/form-data" name="upload_form">
+  <label>选择图片文件</label>
+ <input name="imgfile" type="file" accept="image/gif, image/jpeg"/>
+  <input name="upload" type="submit" value="上传" />
+</form>
+
+<hr/>
+<form class="container" enctype="multipart/form-data" method="post" id='formBox' name="form">   
+       <input type="file" id="chooseImage" name="file">  
+       <!-- 保存用户自定义的背景图片 -->  
+       <img id="cropedBigImg" value='custom' alt="lorem ipsum dolor sit" data-address='' title="自定义背景"/>  
+ </form>  
+
+
+<script>
+	 $('#chooseImage').on('change',function(){  
+        var filePath = $(this).val(),         //获取到input的value，里面是文件的路径  
+            fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();  
+        // 检查是否是图片  
+        if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {  
+            error_prompt_alert('上传错误,文件格式必须为：png/jpg/jpeg');  
+            return;    
+        }  
+        $('#cropedBigImg').attr('src',filePath);  
+        $('#loding').show();  
+});  
+</script>
+  </body>
+</html>

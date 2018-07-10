@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+	<div id="anlitags">
+		<a>i2coopy</a>
+		<a>i2cdp</a>
+	</div>
+		
+<script>
+$(document).ready(function(){
+    $("#anlitags a").each(function(){
+      var hangye1 = $(this).text();
+      var changeword;
+      if(hangye1 == "i2coopy"){
+        changeword  = '<img src="img/i2D.png"/>'+$(this).html();
+        $(this).html(changeword);
+         
+      }
+     else if(hangye1 == "i2cdp") {
+        changeword  = '<img src="img/i2D.png"/>'+$(this).html();
+        $(this).html(changeword);
+     }   
+    else if(hangye1 == "企业") {
+         $(this).html() = '<img src="img/logo3.png"/>'+$(this).html();
+      }   
+    else if(hangye1 == "能源") {
+         $(this).html() = '<img src="img/logo3.png"/>'+$(this).html();
+    } 
+    else if(hangye1 == "医疗") {
+         $(this).html() = '<img src="img/logo3.png"/>'+$(this).html();
+    }   
+    else if(hangye1 == "教育") {
+         $(this).html() = '<img src="img/logo3.png"/>'+$(this).html();
+    }   
+    else if(hangye1 == "交通") {
+         $(this).html() = '<img src="img/logo3.png"/>'+$(this).html();
+    }   
+    else if(hangye1 == "交通") {
+         $(this).html() = '<img src="img/logo3.png"/>'+$(this).html();
+    } 
+    else if(hangye1 == "运营商") {
+         $(this).html() = '<img src="img/logo3.png"/>'+$(this).html();
+    }   
+    });
+});		
+</script>
+	</body>
+</html>
