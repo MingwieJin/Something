@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<meta charset="utf-8" />
+<title>认证信息输出</title>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<style>
+    #Certifiedlist th{
+        min-width:200px;
+        font-size:16px;
+        text-align: center;
+        background: #027cdc;
+        height:50px;
+        
+    }
+    #Certifiedlist td{
+        text-align: center;
+        height:50px;
+    }
+    
+</style>
+
+	</head>
+<body>
+    <form action="" method="post" onsubmit="initlist(); return false">
+证书ID:<br>
+<input type="text" id="idnumber" name="idnumber" value="">
+<br>
+<br>
+<input type="submit" value="Submit">
+</form> 
+    
+    
+    <div id="Certifiedlist">
+        
+    </div>
+
+
+
+<script>
+	 function initlist(){
+                var certificate1 = $("#idnumber").val();
+		var result = new Array();
+		 $.ajax( {    
+                    url:"search1.php",
+		    data:{   
+		    		idnumber: certificate1
+		    },
+		    type:'post',    
+		    cache:false, 
+                    async:false,  // 设置同步方式
+		    dataType:'json',    
+		    success:function(data) {  
+				 $('#Certifiedlist').empty();
+				 var html = '';
+                                 html += "<table><tr><th>ID</th><th>区域</th><th>姓名</th><th>公司名称</th><th>身份证号</th><th>证书ID</th><th>上机分数</th></tr>";
+				 $.each(data, function(index, value){
+                                        html += "<tr><td>"+value["id"]+"</td><td>"+value["location"]+"</td><td>"+value["name"]+"</td><td>"+value["company"]+"</td><td>"+value["IDcard"]+"</td><td>"+value["certificate"]+"</td><td>"+value["score"]+"</td></tr>";                  
+				 });
+                                 html +="</table>";
+				 $('#Certifiedlist').html(html);
+				 
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                alert("链接失败");
+   			} 
+		});
+		return result;
+	 }
+         
+//$(document).ready(function() {
+//		initlist(); 
+//});
+	
+</script>
+	</body>
+</html>
