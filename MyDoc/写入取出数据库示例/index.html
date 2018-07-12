@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+<title>认证信息输入页面</title>
+
+<style>
+	body{
+		margin:0px;
+		font-family: "微软雅黑";
+	}
+
+.join-title{
+	text-align: center;
+	font-size:36px;
+	color:#333;
+	padding:50px 0 30px 0;
+}
+.from-info{
+/*margin-left: 40%;*/
+text-align: center;
+}
+.form-row1{
+	width:370px;
+	margin:0 auto;
+}
+.form-row{
+	margin:20px 0;
+	font-size: 24px;
+	color:#666;
+	height: 30px;
+	
+	}
+.form-row input{
+	width:400px;
+	border:none;
+	border-bottom: 1px solid #dcdcdc;
+	font-size: 24px;
+	color:#666;
+	height:30px;
+	
+}
+.form-img {
+	float:left;
+	height:50px;
+	font-size: 16px;
+	color:#666;
+	margin-top: 10px;
+}
+
+.form-img input{
+	font-size: 16px;
+	color:#666;
+	width:90px;
+	height: 30px;
+}
+.img-code{
+float:left;
+height:50px;
+margin-left: 10px;
+	}
+.img-code img { 
+	width:80px;
+	height: auto;
+	margin-left: 20px;
+}	
+.form-submit{
+	background: #005BAC;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	width: 140px;
+	height:40px;
+	margin-top: 10px;
+        display:block;
+        margin:0 auto;
+	
+}
+#require_type{
+	font-size: 16px;
+}
+/*signin部分结束*/
+
+
+</style>
+	</head>
+<body>
+<!--报名参会-->
+<section id="joinin-section">
+<div class="joinin-speach">
+	<div class="join-title">英方工程师认证名单输入</div>
+
+<div id="myTabContent">
+
+	<div class="from-info">
+		<form action="push1.php" method = 'post' onsubmit = "return checkUser();" target="_self">
+                        <div class='form-row'><strong>·</strong> 区域：&nbsp;<span><input type="text" name="location" id="lacation" value=""></span></div>
+                        <div class='form-row'><strong>·</strong> 姓名：&nbsp;<span><input type="text" name="name" id="name" value=""></span></div>
+			<div class='form-row'><strong>·</strong> 公司：&nbsp;<span><input type="text" name="company" id="company" value=""></span></div>
+			<div class='form-row'><strong>·</strong> 身份证：&nbsp; <span><input type="text" name="IDcard" id="IDcard" value=""></span></div>
+			<div class='form-row'><strong>·</strong> 证书ID：&nbsp;<span><input type="text" name="certificate" id="certificate" value=""></span></div>
+			<div class='form-row'><strong>·</strong> 上机分数：&nbsp;<span><input type="text" name="score" id="score" value=""></span></div>
+                        <div class='form-row'><strong>·</strong> 链接密码：&nbsp;<span><input type="text" name="PassCode" id="PassCode" value=""></span></div>
+  	
+			</div>
+		<input class="form-submit" type="submit" value="确认提交">
+		</form> 
+	</div>	
+
+</div><!-- myTabContent-->
+
+</section>
+<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe>  
+<!--报名参会结束-->
+
+
+
+<script>
+//var verifyCode = new GVerify("v_container");
+//var verifyCode1 = new GVerify1("v_container1");
+//检查填写信息	
+ function checkUser(){
+	var location = $("#location").val();
+	var name = $("#name").val();
+	var company = $("#company").val();
+	var IDcard = $("#IDcard").val();
+	var certificate = $("#certificate").val();
+	var score = $("#score").val();
+        var PassCode = $("#PassCode").val();
+        
+		if (name == ""){
+			alert("请输入姓名");
+			return false;
+		}
+		else if (company == ""){
+			alert("请输入公司");
+			return false;
+		}
+		else if (IDcard == ""){
+			alert("请输入身份证");
+			return false;
+		}
+		else if (certificate == ""){
+			alert("请输入证书ID");
+			return false;
+		}
+		else if (score == ""){
+			alert("请输入得分");
+			return false;
+		}
+                else if (location == ""){
+			alert("请输入区域");
+			return false;
+		}
+                else if (PassCode == ""){
+			alert("请输入链接密码");
+			return false;
+		}
+
+		else{
+                    return true;
+		}
+}
+
+
+	
+</script>
+	</body>
+</html>
