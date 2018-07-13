@@ -33,7 +33,7 @@ $Passcode = $_POST['PassCode'];
  $_SESSION['authcodeRe1Date'] = date("YmdHi");
 
 if ($Passcode=="info2_key") {
-$con = mysql_connect("localhost","root","newinfo2");
+$con = mysql_connect("localhost","root","j19910113");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

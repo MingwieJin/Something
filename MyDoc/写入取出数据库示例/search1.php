@@ -2,7 +2,7 @@
 //defined('IN_PHPCMS') or exit('No permission resources.');
 $servername = "localhost";  
 $username = "root";  
-$password = "newinfo2";  
+$password = "j19910113";  
 $dbname = "info2";  
 
 // 创建连接  
