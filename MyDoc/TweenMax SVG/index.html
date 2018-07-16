@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+		
+		<script src="js/TweenMax.min.js"></script>
+		<script src="js/TimelineMax.min.js"></script>
+		<title></title>
+		
+		
+<style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width:100px;
+            height:100px;
+            background: #8D121A;
+            position: absolute;
+            left:0;
+            top:100px;
+        }
+</style>		
+		
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		
+ <script>
+        $(function(){
+            var t =new TimelineMax();
+t.to("#div1", 1, { left: 300, width: 300 }, 1);
+    t.to("#div1", 1, { width: 300 }, "+=1");
+    t.to("#div1", 1, { height: 300 });
+    t.to("#div1", 1, { top: 300 });
+    t.to("#div1", 1, { rotationZ: 180 });
+    t.to("#div1", 1, { opacity: 0 });
+        });
+ </script>		
+	</body>
+</html>
