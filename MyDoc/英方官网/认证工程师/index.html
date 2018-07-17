@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+<title>注册工程师</title>
+<meta name="description" content="成为英方注册工程师，赢取未来">
+
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+<style>
+body{
+	margin:0;
+	font-family: "微软雅黑";
+}	
+.clear{
+	clear:both;
+}		
+/*标题部分*/
+.banner{
+	width:100%;
+}
+.banner img{
+	width:100%;
+	height:auto;
+}
+/*标题部分结束*/
+/*认证工程师模块*/
+.Certified-Engineer{
+	widht:100%;
+	max-width: 1200px;
+	margin:60px auto 0 auto;
+}
+#myTab{
+	font-size: 22px;
+	display:flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #f0f0f0;
+	
+}
+.nav-tabs>li>a{
+	color:#999;
+}
+@media screen and (min-width: 1200px) {
+	.nav-tabs li:nth-child(3) a{
+		margin-right: 88px;
+	}
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{
+	font-size: 28px;
+	color: #027cdc;
+	border-bottom: 2px solid #027CDC;
+}
+#myTabContent{
+	margin: 50px 0;
+}
+/*认证工程师模块结束*/
+
+/*基础认证工程师*/
+/*基础认证工程师结束*/
+
+/*专业级认证工程师*/
+/*专业级认证工程师结束*/
+
+
+/*证书查询*/
+.CerSearch-title{
+	margin:75px 0 35px 0;
+	text-align: center;
+	font-size: 36px;
+	color: #333333;
+}
+.form-row{
+	margin:0 auto 60px auto;
+	width:621px;
+}
+.form-row .form-input{
+	color:#999;
+	font-size:20px;
+	height: 60px;
+	float:left;
+	width:520px;
+	border-radius: 5px;
+	padding-left: 25px;
+}
+.form-submit{
+	background: #448ACA;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	width: 100px;
+	height:60px;
+	float:left;	
+	border-radius: 5px;
+}
+.CerSearch-result{
+	width:480px;
+	font-size:16px;
+	border-radius: 5px;
+	margin: 0 auto;
+	moz-box-shadow:0px 0px 20px #b1b1b1; 
+	-webkit-box-shadow:0px 0px 20px #b1b1b1; 
+	box-shadow:0px 0px 20px #b1b1b1;
+}
+.Result-title{
+	height: 50px;
+	color:#333;
+	padding: 20px 0 10px 20px;
+	border-bottom: 1px solid #f0f0f0;	
+}
+.Result-row{
+	padding:8px 0 0 20px;
+	color:#666;
+}
+.Result-row:nth-child(2){
+	padding:15px 0 0 20px;
+}
+.Result-row:nth-child(4){
+	padding:8px 0 15px 20px;
+}
+/*证书查询结束*/
+
+</style>
+
+</head>
+<body>
+<!--标题部分-->
+		<div class="banner">
+			<img src="img/banner_01.jpg"/>
+
+		</div>
+<!--标题部分结束-->
+
+<!--认证工程师模块-->
+<div class="Certified-Engineer">
+	
+	<ul id="myTab" class="nav nav-tabs">
+	   <li class="active"><a href="#BasicEngineer" data-toggle="tab">基础认证工程师</a></li>
+	   <li><a href="#SerinorEngineer" data-toggle="tab">专业级认证工程师</a></li>
+	   <li><a href="#CerSearch" data-toggle="tab">证书查询</a></li>
+	</ul>
+	
+	<div id="myTabContent" class="tab-content">
+		<!--基础认证工程师-->
+		<div class="BasicEngineer tab-pane in active" id="BasicEngineer">
+			<div class="BasicEn-title"></div>
+		</div>
+		<!--基础认证工程师结束-->
+		
+		<!--专业级认证工程师-->
+		<div class="SerinorEngineer tab-pane" id="SerinorEngineer">
+			专业级认证工程师
+		</div>	
+		<!--专业级认证工程师结束-->
+		
+		<!--证书查询-->
+		<div class="CerSearch tab-pane" id="CerSearch">
+			<div class="CerSearch-title">证书查询</div>
+			
+			<form action="re.php" method = 'post' onsubmit = "return checkUser();" target="iframe_display">
+				<div class='form-row'>
+					<input class="form-input" type="text" name="certificate" id="certificate" value="请输入证书编号">
+					<input class="form-submit" type="submit" value="确认提交">
+					<div class="clear"></div>
+				</div>
+			</form>
+			
+			<div class="CerSearch-result" >
+				<div class="Result-title">证书信息</div>
+				<div class="Result-row">姓名:程权</div>
+				<div class="Result-row">身份号码：4305689999899384</div>
+				<div class="Result-row">证书获取时间:2018-7-13</div>
+			</div>
+		</div>
+		<!--证书查询结束-->
+		
+		
+		<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe>  
+	</div>
+</div>
+<!--认证工程师模块结束-->
+
+	</body>
+</html>
