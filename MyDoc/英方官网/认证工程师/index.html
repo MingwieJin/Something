@@ -13,6 +13,9 @@ body{
 	margin:0;
 	font-family: "微软雅黑";
 }	
+a, a:focus, a:hover{
+	text-decoration: none;
+}
 .clear{
 	clear:both;
 }		
@@ -33,18 +36,19 @@ body{
 }
 #myTab{
 	font-size: 22px;
-	display:flex;
-	justify-content: space-between;
+	/*display:flex;
+	justify-content: space-between;*/
 	border-bottom: 1px solid #f0f0f0;
 	
 }
 .nav-tabs>li>a{
 	color:#999;
+	text-align: center;
 }
-@media screen and (min-width: 1200px) {
+/*@media screen and (min-width: 1200px) {
 	.nav-tabs li:nth-child(3) a{
 		margin-right: 88px;
-	}
+	}*/
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{
 	font-size: 28px;
@@ -57,6 +61,59 @@ body{
 /*认证工程师模块结束*/
 
 /*基础认证工程师*/
+.BasicEn-container{
+	margin:50px auto;
+}
+.BasicEn-row{
+	text-align: center;
+	padding: 0;
+}
+.BasicEn-title{
+	font-size: 20px;
+	color:#333;
+	font-weight: 700;
+	padding:10px 0;
+	background: #E8F5FD;
+}
+.BasicEn-content{
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	height:300px;
+	padding:0 25px;
+	border-bottom: 1px dashed #999;
+	text-align: left;
+	line-height:36px;
+}
+@media screen and (min-width: 1200px) {
+	.content-left{
+		border-left: 1px dashed #999;
+	}
+}
+.BasicEn-content, .BasicEn-content2{
+	font-size:18px;
+	color:#666;
+}
+
+.BasicEn-content2-row{
+	text-align: left;
+	border-left: 1px dashed #999;
+	border-bottom: 1px dashed #999;
+	padding:10px 0 10px 25px;
+}
+@media screen and (max-width: 1200px) {
+	border-right: 1px dashed #999;
+}
+
+.BasicEn-content2-row a{
+	color:#666;
+	cursor:pointer;
+}
+.BasicEn-content2-row a:hover{
+	color:#027cdc;
+	text-decoration: none;
+}
+
 /*基础认证工程师结束*/
 
 /*专业级认证工程师*/
@@ -106,7 +163,7 @@ body{
 	height: 50px;
 	color:#333;
 	padding: 20px 0 10px 20px;
-	border-bottom: 1px solid #f0f0f0;	
+	border-bottom: 1px solid #d9d9d9;	
 }
 .Result-row{
 	padding:8px 0 0 20px;
@@ -135,15 +192,37 @@ body{
 <div class="Certified-Engineer">
 	
 	<ul id="myTab" class="nav nav-tabs">
-	   <li class="active"><a href="#BasicEngineer" data-toggle="tab">基础认证工程师</a></li>
-	   <li><a href="#SerinorEngineer" data-toggle="tab">专业级认证工程师</a></li>
-	   <li><a href="#CerSearch" data-toggle="tab">证书查询</a></li>
+	   <li class="active col-md-4 col-sm-4"><a href="#BasicEngineer" data-toggle="tab">基础认证工程师</a></li>
+	   <li class="col-md-4 col-sm-4"><a href="#SerinorEngineer" data-toggle="tab">专业级认证工程师</a></li>
+	   <li class="col-md-4 col-sm-4"><a href="#CerSearch" data-toggle="tab">证书查询</a></li>
 	</ul>
 	
 	<div id="myTabContent" class="tab-content">
 		<!--基础认证工程师-->
 		<div class="BasicEngineer tab-pane in active" id="BasicEngineer">
-			<div class="BasicEn-title"></div>
+			<div class="BasicEn-container">
+				<div class="BasicEn-row col-md-4 col-sm-6">
+					<div class="BasicEn-title">理论学习</div>
+					<div class="BasicEn-content">了解各类灾备的基础知识、全面理解英方的技术、产品和解决方案（一天）</div>
+				</div>
+				<div class="BasicEn-row col-md-4 col-sm-6">
+					<div class="BasicEn-title">上机操作</div>
+					<div class="BasicEn-content content-left">掌握备份、CDP以及高可用的安装配置、备份和恢复操作、系统参数，能够有效解决日常灾备及高可用管理工作中产生的问题（两天）</div>
+				</div>
+				<div class="BasicEn-row col-md-4 col-sm-6">
+					<div class="BasicEn-title">课程</div>
+					<div class="BasicEn-content2">
+						<div class="BasicEn-content2-row"><a herf="javascript:void(0);">《灾备行业基础知识概述》</a></div>
+						<div class="BasicEn-content2-row"><a herf="javascript:void(0);">《灾备关键技术》</a></div>
+						<div class="BasicEn-content2-row"><a herf="javascript:void(0);">《快速了解英方》</a></div>
+						<div class="BasicEn-content2-row"><a herf="javascript:void(0);">《英方技术-i2Technology》</a></div>
+						<div class="BasicEn-content2-row"><a herf="javascript:void(0);">《英方产品i2-Product》i2COOPY、i2CDO、i2Availability</a></div>
+						<div class="BasicEn-content2-row"><a herf="javascript:void(0);">《英方行业实践i2-Case Study》</a></div>
+						<div class="BasicEn-content2-row"><a herf="javascript:void(0);">《英方服务i2-Service》</a></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
 		</div>
 		<!--基础认证工程师结束-->
 		
@@ -157,7 +236,7 @@ body{
 		<div class="CerSearch tab-pane" id="CerSearch">
 			<div class="CerSearch-title">证书查询</div>
 			
-			<form action="re.php" method = 'post' onsubmit = "return checkUser();" target="iframe_display">
+			<form action="" method = 'post' onsubmit = "return getCertified();" target="iframe_display">
 				<div class='form-row'>
 					<input class="form-input" type="text" name="certificate" id="certificate" value="请输入证书编号">
 					<input class="form-submit" type="submit" value="确认提交">
@@ -165,10 +244,10 @@ body{
 				</div>
 			</form>
 			
-			<div class="CerSearch-result" >
+			<div class="CerSearch-result" id="Certifiedlist">
 				<div class="Result-title">证书信息</div>
-				<div class="Result-row">姓名:程权</div>
-				<div class="Result-row">身份号码：4305689999899384</div>
+				<div class="Result-row">姓名:王萌</div>
+				<div class="Result-row">身份号码：430568999989XXXX</div>
 				<div class="Result-row">证书获取时间:2018-7-13</div>
 			</div>
 		</div>
@@ -180,5 +259,60 @@ body{
 </div>
 <!--认证工程师模块结束-->
 
+
+<script>
+function changeheight(){
+	var rowheight= $(".BasicEn-content2").css("height");
+	$(".BasicEn-content").css("height", rowheight);
+}
+
+function getCertified(){
+	   var certificate1 = $("#certificate").val();
+		var result = false;
+		 $.ajax( {    
+                    url:"certified-search1.php",
+		    data:{   
+		    		idnumber: certificate1
+		    },
+		    type:'post',    
+		    cache:false, 
+            async:false,  // 设置同步方式
+		    dataType:'json',    
+		    success:function(data) {  
+				 $('#Certifiedlist').empty();
+				 var html = '';
+				 $.each(data, function(index, value){
+                                     var nameStr = value["name"];
+                                     var IDcardStr = value["IDcard"];
+					if(value["name"].length>=3){
+                                            nameStr= nameStr.substring(0,nameStr.length-2);
+                                            nameStr += "**";
+					}
+					else{
+                                            var nameStr= nameStr.substring(0,nameStr.length-1);
+                                            nameStr += "*";
+					}
+					var IDcardStr= IDcardStr.substring(0,IDcardStr.length-4);
+					IDcardStr +="****";
+
+                                        html += '<div class="Result-title">证书信息</div>'; 
+                                        html += '<div class="Result-row">姓名:'+nameStr+'</div>';
+                                        html += '<div class="Result-row">身份号码：'+IDcardStr+'</div>';
+                                        html += '<div class="Result-row">证书获取时间:'+value["submission_date"]+'</div>';
+				 });
+				 $('#Certifiedlist').html(html);
+				 
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                alert("链接失败");
+   			} 
+		});
+		return result;
+}
+
+$(document).ready(function(){
+	changeheight();
+})
+</script>
 	</body>
 </html>
