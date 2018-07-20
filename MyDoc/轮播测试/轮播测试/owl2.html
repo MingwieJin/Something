@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    
+    
+    
+<style>
+#owl-carousel {
+	width:95%;
+	float:left;
+}	
+.owl-controls{
+	display:none;
+}
+.owl-side{
+	width:2.5%;
+	float:left;
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	text-align: center;
+	font-size:40px;
+}
+.owl-side button{
+	font-size:40px;
+	width:100%;
+	height:100%;
+	background: transparent;
+	border:none;
+	outline:none;
+}
+
+</style>  
+	</head>
+	<body>
+
+<div class="owl-side owl-prev1"><button>&lt;</button></div>
+<div class="owl-carousel" id="owl-carousel">
+            <div class="item">
+              <img src="img/partener/p1.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p2.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p3.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p4.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p5.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p6.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p7.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p8.png" alt="">
+            </div>
+            <div class="item">
+              <img src="img/partener/p9.png" alt="">
+            </div>
+</div>
+<div class="owl-side owl-next1"><button>></button></div>
+
+
+<div style="clear:both"></div>
+
+
+<script>
+	
+	//底部轮播用
+$(function(){
+    var owl = $('#owl-carousel');
+        owl.owlCarousel({
+        items: 4,
+        loop: true,
+//      margin: 10,
+        nav: true,
+        autoplay: false,
+//      mouseDrag:false,
+//      autoplayTimeout: 1000,
+//      autoplayHoverPause: true
+		});
+		
+		$('.owl-next1').on('click', function() {
+		owl.trigger('next.owl');
+		});
+		$('.owl-prev1').on('click', function() {
+		owl.trigger('prev.owl');
+		})
+		
+	var rowheight= $(".owl-stage-outer").css("height");
+	$(".owl-side").css("height", rowheight);
+
+//            $('.play').on('click', function() {
+//              owl.trigger('play.owl.autoplay', [1000])
+//            })
+//            $('.stop').on('click', function() {
+//              owl.trigger('stop.owl.autoplay')
+//            })
+}); 
+
+	
+</script>
+	</body>
+</html>

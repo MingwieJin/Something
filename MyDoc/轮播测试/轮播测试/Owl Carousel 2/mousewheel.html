@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件-mousewheel_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+    <link rel="stylesheet" href="assets/css/docs.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header bgcolor-11">
+			<h1>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件 <span>Touch enabled jQuery plugin that lets you create a beautiful responsive carousel slider.</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-home" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-arrow-right3" href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201502161387.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+    <div class="htmleaf-demo center">
+      <a href="index.html">Basic</a>
+      <a href="responsive.html">Responsive</a>
+      <a href="center.html">Center</a>
+      <a href="merge.html">Merge</a>
+      <a href="autowidth.html">Auto Width</a>
+      <a href="urlhashnav.html">Url Hash Nav</a>
+      <a href="events.html">Events</a>
+      <a href="stagepadding.html">Stage Padding</a>
+      <a href="rtl.html">rtl</a>
+      <a href="lazyload.html">Lazyload</a>
+      <a href="video.html">Video</a>
+      <a href="animate.html">Animate</a>
+      <a href="autoplay.html">Autoplay</a>
+      <a href="autoheight.html">Auto Height</a>
+      <a href="mousewheel.html" class="current">Mousewheel</a>
+    </div>
+		<section class="title">
+	      <div class="row">
+	        <div class="large-12 columns">
+	          <h2>Mousewheel</h2>
+	        </div>
+	      </div>
+	    </section>
+	    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel">
+            <div class="item">
+              <h4>1</h4>
+            </div>
+            <div class="item">
+              <h4>2</h4>
+            </div>
+            <div class="item">
+              <h4>3</h4>
+            </div>
+            <div class="item">
+              <h4>4</h4>
+            </div>
+            <div class="item">
+              <h4>5</h4>
+            </div>
+            <div class="item">
+              <h4>6</h4>
+            </div>
+            <div class="item">
+              <h4>7</h4>
+            </div>
+            <div class="item">
+              <h4>8</h4>
+            </div>
+            <div class="item">
+              <h4>9</h4>
+            </div>
+            <div class="item">
+              <h4>10</h4>
+            </div>
+            <div class="item">
+              <h4>11</h4>
+            </div>
+            <div class="item">
+              <h4>12</h4>
+            </div>
+          </div>
+          <h3 id="overview">Overview</h3>
+          <p>要添加鼠标滚动的支持，只需要添加Brandon Aaron写的<a href="https://github.com/brandonaaron/jquery-mousewheel">jquery.mousewheel.js</a>插件。</p>
+          <h3 id="setup">Setup</h3>
+          <pre><code>var owl = $(&#39;.owl-carousel&#39;);
+owl.owlCarousel({
+    loop:true,
+    nav:true,
+    margin:10,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },            
+        960:{
+            items:5
+        },
+        1200:{
+            items:6
+        }
+    }
+});
+owl.on(&#39;mousewheel&#39;, &#39;.owl-stage&#39;, function (e) {
+    if (e.deltaY&gt;0) {
+        owl.trigger(&#39;next.owl&#39;);
+    } else {
+        owl.trigger(&#39;prev.owl&#39;);
+    }
+    e.preventDefault();
+});</code></pre>
+          <script src="../assets/vendors/jquery.mousewheel.min.js"></script>
+          <script>
+            $(document).ready(function() {
+              var owl = $('.owl-carousel');
+              owl.owlCarousel({
+                loop: true,
+                nav: true,
+                margin: 10,
+                responsive: {
+                  0: {
+                    items: 1
+                  },
+                  600: {
+                    items: 3
+                  },
+                  960: {
+                    items: 5
+                  },
+                  1200: {
+                    items: 6
+                  }
+                }
+              });
+              owl.on('mousewheel', '.owl-stage', function(e) {
+                if (e.deltaY > 0) {
+                  owl.trigger('next.owl');
+                } else {
+                  owl.trigger('prev.owl');
+                }
+                e.preventDefault();
+              });
+            })
+          </script>
+        </div>
+      </div>
+    </section>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/20141022261.html">
+          <img src="img/1.jpg" width="300" alt="Owl Carousel强大的响应式jQuery焦点图轮播插件"/>
+          <h3>Owl Carousel强大的响应式jQuery焦点图轮播插件</h3>
+        </a>
+        <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201501291294.html">
+          <img src="img/2.jpg" width="300" alt=" jQuery适合移动设备触摸屏的响应式幻灯片插件"/>
+          <h3> jQuery适合移动设备触摸屏的响应式幻灯片插件</h3>
+        </a>
+		</div>
+	</div>
+	
+	
+    <script src="assets/vendors/highlight.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

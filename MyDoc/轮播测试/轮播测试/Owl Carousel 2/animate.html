@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件-Animate_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+    <link rel="stylesheet" href="assets/css/docs.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header bgcolor-11">
+			<h1>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件 <span>Touch enabled jQuery plugin that lets you create a beautiful responsive carousel slider.</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-home" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-arrow-right3" href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201502161387.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+    <div class="htmleaf-demo center">
+      <a href="index.html">Basic</a>
+      <a href="responsive.html">Responsive</a>
+      <a href="center.html">Center</a>
+      <a href="merge.html">Merge</a>
+      <a href="autowidth.html">Auto Width</a>
+      <a href="urlhashnav.html">Url Hash Nav</a>
+      <a href="events.html">Events</a>
+      <a href="stagepadding.html">Stage Padding</a>
+      <a href="rtl.html">rtl</a>
+      <a href="lazyload.html">Lazyload</a>
+      <a href="video.html">Video</a>
+      <a href="animate.html" class="current">Animate</a>
+      <a href="autoplay.html">Autoplay</a>
+      <a href="autoheight.html">Auto Height</a>
+      <a href="mousewheel.html">Mousewheel</a>
+    </div>
+		<section class="title">
+	      <div class="row">
+	        <div class="large-12 columns">
+	          <h2>Animate</h2>
+	        </div>
+	      </div>
+	    </section>
+	    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="fadeOut owl-carousel">
+            <div class="item">
+              <h4>1</h4>
+            </div>
+            <div class="item">
+              <h4>2</h4>
+            </div>
+            <div class="item">
+              <h4>3</h4>
+            </div>
+            <div class="item">
+              <h4>4</h4>
+            </div>
+            <div class="item">
+              <h4>5</h4>
+            </div>
+            <div class="item">
+              <h4>6</h4>
+            </div>
+            <div class="item">
+              <h4>7</h4>
+            </div>
+            <div class="item">
+              <h4>8</h4>
+            </div>
+            <div class="item">
+              <h4>9</h4>
+            </div>
+            <div class="item">
+              <h4>10</h4>
+            </div>
+            <div class="item">
+              <h4>11</h4>
+            </div>
+            <div class="item">
+              <h4>12</h4>
+            </div>
+          </div>
+          <h3 id="overview">Overview</h3>
+          <p>要制作fade out 效果只需要设置:</p>
+          <pre><code>animateOut: &#39;fadeOut&#39;</code></pre>
+          <blockquote>
+          	<p><code>fadeOut</code>值只是内置的CSS动画样式。还有一些额外的CSS animations你可以使用。Simply download
+              <a href="http://daneden.github.io/animate.css/">animate.css</a> library and you are ready to extend Owl with new fancy transitions.</p>
+          </blockquote>
+          <h3 id="important">Important</h3>
+          <p>Animate函数只在一个项中工作，并且只在浏览器中支持perspective属性。</p>
+          <h3 id="how-to-use-additional-animation-from-animate-css-library">如何从<code>animate.css</code>中使用额外的 animation</h3>
+          <ol>
+            <li> <a href="http://daneden.github.io/animate.css/">下载 animate.css</a>  </li>
+            <li>在页面头部引入 animate.css </li>
+            <li>通过你选择的动画样式名称来设置 <code>animateOut</code> 和 <code>animateIn</code> 参数</li>
+          </ol>
+          <pre><code>$(&#39;.custom1&#39;).owlCarousel({
+    animateOut: &#39;slideOutDown&#39;,
+    animateIn: &#39;flipInX&#39;,
+    items:1,
+    margin:30,
+    stagePadding:30,
+    smartSpeed:450
+});</code></pre>
+          <p>Example with slideOutDown and flipInX</p>
+          <div class="custom1 owl-carousel">
+            <div class="item">
+              <h4>1</h4>
+            </div>
+            <div class="item">
+              <h4>2</h4>
+            </div>
+            <div class="item">
+              <h4>3</h4>
+            </div>
+            <div class="item">
+              <h4>4</h4>
+            </div>
+            <div class="item">
+              <h4>5</h4>
+            </div>
+            <div class="item">
+              <h4>6</h4>
+            </div>
+            <div class="item">
+              <h4>7</h4>
+            </div>
+            <div class="item">
+              <h4>8</h4>
+            </div>
+            <div class="item">
+              <h4>9</h4>
+            </div>
+            <div class="item">
+              <h4>10</h4>
+            </div>
+            <div class="item">
+              <h4>11</h4>
+            </div>
+            <div class="item">
+              <h4>12</h4>
+            </div>
+          </div>
+          <h3 id="how-does-it-work-">如何工作?</h3>
+          <p>在开始动画前有三个class被添加到每个项上：</p>
+          <ul>
+          	<li>.animated-添加到In和Out项上 - Animate.css已经被添加到Owl的核心CSS文件中。</li>
+          	<li>.owl-animated-out - 只添加到Out的项上 - 用它来改变z-index</li>
+          	<li>.owl-animated-in - 只添加到In的项上 - 用它来改变z-index</li>
+          	<li>.classNameOut - 只添加到Out的项上 - 这是你在选项中自定义的动画class</li>
+          	<li>.classNameIn - 只添加到In的项上 - 这是你在选项中自定义的动画class</li>
+          </ul>
+          <p>Part of owl.carousel.css:</p>
+          <pre><code class="language-css"><span class="comment">/* Feel free to change duration  */</span> 
+<span class="class">.animated</span>  <span class="rules">{
+  <span class="rule"><span class="attribute">-webkit-animation-duration</span> :<span class="value"> <span class="number">1000</span> ms</span> </span> ;
+  <span class="rule"><span class="attribute">animation-duration</span> :<span class="value"> <span class="number">1000</span> ms</span> </span> ;
+  <span class="rule"><span class="attribute">-webkit-animation-fill-mode</span> :<span class="value"> both</span> </span> ;
+  <span class="rule"><span class="attribute">animation-fill-mode</span> :<span class="value"> both</span> </span> ;
+<span class="rule">}</span> </span> 
+<span class="comment">/* .owl-animated-out - only for current item */</span> 
+<span class="comment">/* This is very important class. Use z-index if you want move Out item above In item */</span> 
+<span class="class">.owl-animated-out</span> <span class="rules">{
+  <span class="rule"><span class="attribute">z-index</span> :<span class="value"> <span class="number">1</span> 
+</span> </span> </span> }
+<span class="comment">/* .owl-animated-in - only for upcoming item
+/* This is very important class. Use z-index if you want move In item above Out item */</span> 
+<span class="class">.owl-animated-in</span> <span class="rules">{
+  <span class="rule"><span class="attribute">z-index</span> :<span class="value"> <span class="number">0</span> 
+</span> </span> </span> }
+<span class="comment">/* .fadeOut is style taken from Animation.css and this is how it looks in owl.carousel.css:  */</span> 
+<span class="class">.fadeOut</span>  <span class="rules">{
+  <span class="rule"><span class="attribute">-webkit-animation-name</span> :<span class="value"> fadeOut</span> </span> ;
+  <span class="rule"><span class="attribute">animation-name</span> :<span class="value"> fadeOut</span> </span> ;
+<span class="rule">}</span> </span> 
+<span class="at_rule">@<span class="keyword">-webkit-keyframes</span>  fadeOut </span> {
+  0% <span class="rules">{
+    <span class="rule"><span class="attribute">opacity</span> :<span class="value"> <span class="number">1</span> </span> </span> ;
+  <span class="rule">}</span> </span> 
+  100% <span class="rules">{
+    <span class="rule"><span class="attribute">opacity</span> :<span class="value"> <span class="number">0</span> </span> </span> ;
+  <span class="rule">}</span> </span> 
+}
+<span class="at_rule">@<span class="keyword">keyframes</span>  fadeOut </span> {
+  0% <span class="rules">{
+    <span class="rule"><span class="attribute">opacity</span> :<span class="value"> <span class="number">1</span> </span> </span> ;
+  <span class="rule">}</span> </span> 
+  100% <span class="rules">{
+    <span class="rule"><span class="attribute">opacity</span> :<span class="value"> <span class="number">0</span> </span> </span> ;
+  <span class="rule">}</span> </span> 
+}</code></pre>
+          <link rel="stylesheet" href="../assets/css/animate.css">
+          <script>
+            jQuery(document).ready(function($) {
+              $('.fadeOut').owlCarousel({
+                items: 1,
+                animateOut: 'fadeOut',
+                loop: true,
+                margin: 10,
+              });
+              $('.custom1').owlCarousel({
+                animateOut: 'slideOutDown',
+                animateIn: 'flipInX',
+                items: 1,
+                margin: 30,
+                stagePadding: 30,
+                smartSpeed: 450
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/20141022261.html">
+          <img src="img/1.jpg" width="300" alt="Owl Carousel强大的响应式jQuery焦点图轮播插件"/>
+          <h3>Owl Carousel强大的响应式jQuery焦点图轮播插件</h3>
+        </a>
+        <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201501291294.html">
+          <img src="img/2.jpg" width="300" alt="jQuery适合移动设备触摸屏的响应式幻灯片插件"/>
+          <h3>jQuery适合移动设备触摸屏的响应式幻灯片插件</h3>
+        </a>
+		</div>
+	</div>
+	
+	
+    <script src="assets/vendors/highlight.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

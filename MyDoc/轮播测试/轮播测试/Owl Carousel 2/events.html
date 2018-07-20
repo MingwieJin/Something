@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件-events_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+    <link rel="stylesheet" href="assets/css/docs.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header bgcolor-11">
+			<h1>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件 <span>Touch enabled jQuery plugin that lets you create a beautiful responsive carousel slider.</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-home" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-arrow-right3" href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201502161387.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+    <div class="htmleaf-demo center">
+      <a href="index.html">Basic</a>
+      <a href="responsive.html">Responsive</a>
+      <a href="center.html">Center</a>
+      <a href="merge.html">Merge</a>
+      <a href="autowidth.html">Auto Width</a>
+      <a href="urlhashnav.html">Url Hash Nav</a>
+      <a href="events.html" class="current">Events</a>
+      <a href="stagepadding.html">Stage Padding</a>
+      <a href="rtl.html">rtl</a>
+      <a href="lazyload.html">Lazyload</a>
+      <a href="video.html">Video</a>
+      <a href="animate.html">Animate</a>
+      <a href="autoplay.html">Autoplay</a>
+      <a href="autoheight.html">Auto Height</a>
+      <a href="mousewheel.html">Mousewheel</a>
+    </div>
+		<section class="title">
+	      <div class="row">
+	        <div class="large-12 columns">
+	          <h2>Events</h2>
+	        </div>
+	      </div>
+	    </section>
+	    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel">
+            <div class="item">
+              <h4>1</h4>
+            </div>
+            <div class="item">
+              <h4>2</h4>
+            </div>
+            <div class="item">
+              <h4>3</h4>
+            </div>
+            <div class="item">
+              <h4>4</h4>
+            </div>
+            <div class="item">
+              <h4>5</h4>
+            </div>
+            <div class="item">
+              <h4>6</h4>
+            </div>
+            <div class="item">
+              <h4>7</h4>
+            </div>
+            <div class="item">
+              <h4>8</h4>
+            </div>
+            <div class="item">
+              <h4>9</h4>
+            </div>
+            <div class="item">
+              <h4>10</h4>
+            </div>
+            <div class="item">
+              <h4>11</h4>
+            </div>
+            <div class="item">
+              <h4>12</h4>
+            </div>
+          </div>
+          <hr>
+          <div class="large-12 columns callbacks">
+            <div><span class="label secondary initialize">on</span>  initialize.owl.carousel</div>
+            <div><span class="label secondary initialized">on</span>  initialized.owl.carousel</div>
+            <div><span class="label secondary resize">on</span>  resize.owl.carousel</div>
+            <div><span class="label secondary resized">on</span>  resized.owl.carousel</div>
+            <div><span class="label secondary refresh">on</span>  refresh.owl.carousel</div>
+            <div><span class="label secondary refreshed">on</span>  refreshed.owl.carousel</div>
+            <div><span class="label secondary update">on</span>  update.owl.carousel</div>
+            <div><span class="label secondary updated">on</span>  updated.owl.carousel</div>
+            <div><span class="label secondary drag">on</span>  drag.owl.carousel</div>
+            <div><span class="label secondary dragged">on</span>  dragged.owl.carousel</div>
+            <div><span class="label secondary translate">on</span>  translate.owl.carousel</div>
+            <div><span class="label secondary translated">on</span>  translated.owl.carousel</div>
+            <div><span class="label secondary to">on</span>  to.owl.carousel</div>
+            <div><span class="label secondary changed">on</span>  changed.owl.carousel</div>
+          </div>
+          <h3 id="overview">Overview</h3>
+          <p>注意：<code>initialize.owl.carousel</code> 和 <code>initialized.owl.carousel</code>事件必须在Owl Carousel初始化之前被附加。只有这两个事件需要这样做。</p>
+          <p><code>changed.owl.carousel</code>事件附加在主要的Owl Carousel动画方法上，这样每次旋转木马移动都会触发这个回调函数。</p>
+          <script>
+            jQuery(document).ready(function($) {
+              var owl = $('.owl-carousel');
+              owl.on('initialize.owl.carousel initialized.owl.carousel ' +
+                'initialize.owl.carousel initialize.owl.carousel ' +
+                'resize.owl.carousel resized.owl.carousel ' +
+                'refresh.owl.carousel refreshed.owl.carousel ' +
+                'update.owl.carousel updated.owl.carousel ' +
+                'drag.owl.carousel dragged.owl.carousel ' +
+                'translate.owl.carousel translated.owl.carousel ' +
+                'to.owl.carousel changed.owl.carousel', function(e) {
+                  $('.' + e.type)
+                    .removeClass('secondary')
+                    .addClass('success');
+                  window.setTimeout(function() {
+                    $('.' + e.type)
+                      .removeClass('success')
+                      .addClass('secondary');
+                  }, 500);
+                });
+              owl.owlCarousel({
+                loop: true,
+                nav: true,
+                lazyLoad: true,
+                margin: 10,
+                video: true,
+                responsive: {
+                  0: {
+                    items: 1
+                  },
+                  600: {
+                    items: 3
+                  },
+                  960: {
+                    items: 5,
+                  },
+                  1200: {
+                    items: 6
+                  }
+                }
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/20141022261.html">
+          <img src="img/1.jpg" width="300" alt="Owl Carousel强大的响应式jQuery焦点图轮播插件"/>
+          <h3>Owl Carousel强大的响应式jQuery焦点图轮播插件</h3>
+        </a>
+        <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201501291294.html">
+          <img src="img/2.jpg" width="300" alt="jQuery适合移动设备触摸屏的响应式幻灯片插件"/>
+          <h3>jQuery适合移动设备触摸屏的响应式幻灯片插件</h3>
+        </a>
+		</div>
+	</div>
+	
+	
+    <script src="assets/vendors/highlight.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

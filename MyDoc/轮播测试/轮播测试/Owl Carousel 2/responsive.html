@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件-responsive_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+    <link rel="stylesheet" href="assets/css/docs.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script>
+    <style type="text/css">
+		body{font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;}
+    </style>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header bgcolor-11">
+			<h1>OwlCarousel2-支持触摸屏的响应式jQuery旋转木马插件 <span>Touch enabled jQuery plugin that lets you create a beautiful responsive carousel slider.</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-home" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-arrow-right3" href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201502161387.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+		<div class="htmleaf-demo center">
+		  <a href="index.html">Basic</a>
+		  <a href="responsive.html" class="current">Responsive</a>
+		  <a href="center.html">Center</a>
+		  <a href="merge.html">Merge</a>
+		  <a href="autowidth.html">Auto Width</a>
+		  <a href="urlhashnav.html">Url Hash Nav</a>
+		  <a href="events.html">Events</a>
+		  <a href="stagepadding.html">Stage Padding</a>
+		  <a href="rtl.html">rtl</a>
+		  <a href="lazyload.html">Lazyload</a>
+		  <a href="video.html">Video</a>
+		  <a href="animate.html">Animate</a>
+		  <a href="autoplay.html">Autoplay</a>
+		  <a href="autoheight.html">Auto Height</a>
+		  <a href="mousewheel.html">Mousewheel</a>
+		</div>
+		<section class="title">
+	      <div class="row">
+	        <div class="large-12 columns">
+	          <h2>Responsive</h2>
+	        </div>
+	      </div>
+	    </section>
+		<section id="demos">
+	      <div class="row">
+	        <div class="large-12 columns">
+	          <div class="owl-carousel">
+	            <div class="item">
+	              <h4>1</h4>
+	            </div>
+	            <div class="item">
+	              <h4>2</h4>
+	            </div>
+	            <div class="item">
+	              <h4>3</h4>
+	            </div>
+	            <div class="item">
+	              <h4>4</h4>
+	            </div>
+	            <div class="item">
+	              <h4>5</h4>
+	            </div>
+	            <div class="item">
+	              <h4>6</h4>
+	            </div>
+	            <div class="item">
+	              <h4>7</h4>
+	            </div>
+	            <div class="item">
+	              <h4>8</h4>
+	            </div>
+	            <div class="item">
+	              <h4>9</h4>
+	            </div>
+	            <div class="item">
+	              <h4>10</h4>
+	            </div>
+	            <div class="item">
+	              <h4>11</h4>
+	            </div>
+	            <div class="item">
+	              <h4>12</h4>
+	            </div>
+	          </div>
+	          <h3 id="overview">Overview</h3>
+	          <blockquote>
+	          	<p>Responsive选项可用于设置breakpoints和额外的选项。缩放你的浏览器看看导航和旋转木马如何变化。</p>
+	          </blockquote>
+	          <h4 id="about-responsive-option">关于responsive 选项</h4>
+	          <p>设置responsive非常简单。responsive参数的结构如下:</p>
+	          <pre><code>responsive : {
+	    // breakpoint from 0 up
+	    0 : {
+	        option1 : value,
+	        option2 : value,
+	        ...
+	    },
+	    // breakpoint from 480 up
+	    480 : {
+	        option1 : value,
+	        option2 : value,
+	        ...
+	    },
+	    // breakpoint from 768 up
+	    768 : {
+	        option1 : value,
+	        option2 : value,
+	        ...
+	    }
+	}</code></pre>
+	          <h3 id="key-facts-">Key facts:</h3>
+	          <ul>
+	          	<li>每一个breakpoint关键点可以是一个数字或一个字符串： &#39;480&#39;。</li>
+	          	<li>Owl有一个内置排序选项，该旋转在小屏幕上设置要比在大屏幕上设置要好。</li>
+	          	<li>Responsive参数选项总是会覆盖最顶级的设置。</li>
+	          	<p>默认情况下，responsive参数选项设置为true，所以旋转木马总是试图匹配容器的宽度和高度（甚至是在media queries不被支持的IE7/IE8中也是如此）</p>
+	          	<li>如果你使用flexible布局那么设置<code>responsive:false</code>。</li>
+	          </ul>
+	          <h3 id="live-example">Live Example</h3>
+	          <pre><code>$(&#39;.owl-carousel&#39;).owlCarousel({
+	    loop:true,
+	    margin:10,
+	    responsiveClass:true,
+	    responsive:{
+	        0:{
+	            items:1,
+	            nav:true
+	        },
+	        600:{
+	            items:3,
+	            nav:false
+	        },
+	        1000:{
+	            items:5,
+	            nav:true,
+	            loop:false
+	        }
+	    }
+	})</code></pre>
+	          <hr>
+	          <h3 id="responsive-related-options-">Responsive related options:</h3>
+	          <h4 id="responsiveclass">responsiveClass</h4>
+	          <p>Optional helper class. Add &#39;owl-reponsive-&#39; + &#39;breakpoint&#39; class to main element.</p>
+	          <h4 id="responsivebaseelement">responsiveBaseElement</h4>
+	          <p>As default all responsive breakpoints are corresponding with <code>window</code> width. This option gives you an opportunity to change it to your own class/id like <code>responsiveBaseElement:&quot;.myCustomWrapper&quot;</code>
+	          </p>
+	          <h4 id="responsiverefreshrate">responsiveRefreshRate</h4>
+	          <p>What this does is wait 200ms after you changed the browser width and performs refresh actions (calculating widths/ cloning items etc.) Default refresh rate is 200ms. I think this rate is optimal but you can change it if it’s to slow for you.</p>
+	          <p>As not every option is able to use responsive abilities, here’s a full list of responsive options.</p>
+	          <p>
+	            <div class="row">
+	          </p>
+	          <div class="large-6 columns">
+	            <h4 id="list-of-responsive-options">List of responsive options</h4>
+	            <ul>
+	              <li>items</li>
+	              <li>loop</li>
+	              <li>center</li>
+	              <li>mouseDrag</li>
+	              <li>touchDrag</li>
+	              <li>pullDrag</li>
+	              <li>freeDrag</li>
+	              <li>margin</li>
+	              <li>stagePadding</li>
+	              <li>merge</li>
+	              <li>mergeFit</li>
+	              <li>autoWidth</li>
+	              <li>autoHeight</li>
+	              <li>nav</li>
+	              <li>navRewind</li>
+	              <li>slideBy</li>
+	              <li>dots</li>
+	              <li>dotsEach</li>
+	              <li>autoplay</li>
+	              <li>autoplayTimeout</li>
+	              <li>smartSpeed</li>
+	              <li>fluidSpeed</li>
+	              <li>autoplaySpeed</li>
+	              <li>navSpeed</li>
+	              <li>dotsSpeed</li>
+	              <li>dragEndSpeed</li>
+	              <li>responsiveRefreshRate</li>
+	              <li>animateOut</li>
+	              <li>animateIn</li>
+	              <li>fallbackEasing</li>
+	              <li>callbacks</li>
+	              <li>info</li>
+	              <li>and all events</li>
+	            </ul>
+	          </div>
+	          <div class="large-6 columns">
+	            <h4 id="list-of-responsive-only-on-load">List of responsive only on load</h4>
+	            <ul>
+	              <li>startPosition</li>
+	              <li>URLhashListener</li>
+	              <li>navText</li>
+	              <li>dotData</li>
+	              <li>lazyLoad</li>
+	              <li>lazyContent</li>
+	              <li>autoplayHoverPause</li>
+	              <li>responsiveBaseElement</li>
+	              <li>responsiveClass</li>
+	              <li>video</li>
+	              <li>videoHeight</li>
+	              <li>videoWidth</li>
+	              <li>nestedItemSelector</li>
+	              <li>itemElement</li>
+	              <li>stageElement</li>
+	              <li>navContainer</li>
+	              <li>dotsContainer</li>
+	              <li>and all classes options</li>
+	            </ul>
+	          </div>
+	          </div>
+	          <script>
+	            $(document).ready(function() {
+	              $('.owl-carousel').owlCarousel({
+	                loop: true,
+	                margin: 10,
+	                responsiveClass: true,
+	                responsive: {
+	                  0: {
+	                    items: 1,
+	                    nav: true
+	                  },
+	                  600: {
+	                    items: 3,
+	                    nav: false
+	                  },
+	                  1000: {
+	                    items: 5,
+	                    nav: true,
+	                    loop: false,
+	                    margin: 20
+	                  }
+	                }
+	              })
+	            })
+	          </script>
+	        </div>
+	      </div>
+	    </section>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/20141022261.html">
+		      <img src="img/1.jpg" width="300" alt="Owl Carousel强大的响应式jQuery焦点图轮播插件"/>
+		      <h3>Owl Carousel强大的响应式jQuery焦点图轮播插件</h3>
+		    </a>
+		    <a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201501291294.html">
+		      <img src="img/2.jpg" width="300" alt=" jQuery适合移动设备触摸屏的响应式幻灯片插件"/>
+		      <h3> jQuery适合移动设备触摸屏的响应式幻灯片插件</h3>
+		    </a>
+		</div>
+	</div>
+	
+	
+    <script src="assets/vendors/highlight.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
