@@ -1,0 +1,116 @@
+<html>
+<head>
+	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+   body { margin:0px;padding:0px;text-align: center;}
+   #content { text-align:center;cursor:pointer;z-Index:1;}
+   #hidebackground-partner { position:absolute;left:0px;top:0px;
+      background-color:#000;
+      width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+      filter:alpha(opacity=60);  /*设置透明度为60%*/
+      opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+      display:none; 
+      z-Index:10011;}
+   #hidebox-partner{ 
+   		position:fixed;
+	   width:700px;
+	   height:auto;
+    	top: 25%;
+    	left: 0px;
+    	right: 0px;
+	   margin-left: auto;
+	   margin-right: auto;
+	   background-color:#fff;
+	   display:none;
+	   cursor:pointer;
+	   z-Index:10012;
+	   text-align: center;
+	   border-radius:10px;
+   }
+   #hidebox-partner  .sub-privacy-close {
+	display: block;
+	position:absolute;
+	top:20px;
+	right:20px;
+	width:20px;
+	height:20px;
+	text-indent:-9999px;
+	background: url(img/close.png) no-repeat 0 0;
+	background-size:100% 100%;
+}
+.Parbox-content{
+	
+}
+.Parbox-title{
+	font-size: 26px;
+	color:#333;
+	margin:40px auto 30px auto;
+}
+
+/*.box-content{
+	display: flex;
+	justify-content: center;
+}
+
+.hide-box-img{
+	float:left;
+	width:300px;
+	margin-top:30px;
+	margin-bottom: 30px;
+}
+
+.hide-box-word{
+	font-size:28px;
+	font-weight: 700;
+	color:#555;
+}
+.hide-box-img img{
+	width:100%;
+	height:auto;
+}
+
+.clear{
+	clear:both;
+}*/
+</style>
+</head>
+<body>
+<div id="content" onClick="showPar();">点击试试</div>	
+<div id="hidebackground-partner"></div>
+<div id="hidebox-partner">
+	<a href="javascript:void(0);" onClick="hidePar();" class="sub-privacy-close"></a>
+	
+	<div class="Parbox-content">
+			<div class="Parbox-title">合作伙伴申请</div>
+			
+			<form action="" method = 'post' onsubmit = "return getCertified();" target="iframe_display">
+				<div class='form-row'>
+					<input class="form-input" type="text" name="certificate" id="certificate" value="请输入证书编号">
+					<input class="form-submit" type="submit" value="确认提交">
+					<div class="clear"></div>
+				</div>
+			</form>
+	</div>
+</div>
+
+
+
+
+<script>
+function showPar()  //显示隐藏层和弹出层
+{
+	var hidebg=document.getElementById("hidebackground-partner");
+   hidebg.style.display="block";  //显示隐藏层
+   hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+   document.getElementById("hidebox-partner").style.display="block";  //显示弹出层
+}
+function hidePar()  //去除隐藏层和弹出层
+{
+   document.getElementById("hidebackground-partner").style.display="none";
+   document.getElementById("hidebox-partner").style.display="none";
+}
+</script>
+</body>
+</html>
