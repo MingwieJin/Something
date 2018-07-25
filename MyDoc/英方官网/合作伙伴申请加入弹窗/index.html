@@ -3,6 +3,7 @@
 	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <style>
    body { margin:0px;padding:0px;text-align: center;}
    #content { text-align:center;cursor:pointer;z-Index:1;}
@@ -15,9 +16,9 @@
       z-Index:10011;}
    #hidebox-partner{ 
    		position:fixed;
-	   width:700px;
+	   width:750px;
 	   height:auto;
-    	top: 25%;
+    	top: 10%;
     	left: 0px;
     	right: 0px;
 	   margin-left: auto;
@@ -28,6 +29,11 @@
 	   z-Index:10012;
 	   text-align: center;
 	   border-radius:10px;
+   }
+   @media screen and (max-width:750px) {
+   	#hidebox-partner{ 
+   	width:92%;
+   	}
    }
    #hidebox-partner  .sub-privacy-close {
 	display: block;
@@ -40,14 +46,75 @@
 	background: url(img/close.png) no-repeat 0 0;
 	background-size:100% 100%;
 }
-.Parbox-content{
+/*.Parbox-content{
 	
-}
+}*/
 .Parbox-title{
 	font-size: 26px;
 	color:#333;
-	margin:40px auto 30px auto;
+	margin:20px auto 30px auto;
 }
+/*.Parbox-left{
+	font-size:16px;
+	color:#666;
+}*/
+
+.Parbox-r1{
+	margin:20px 0;
+	font-size: 24px;
+	color:#666;
+	height: 30px;
+	
+	}
+.Parbox-r1 input{
+	width:400px;
+	border:none;
+	border-bottom: 1px solid #dcdcdc;
+	font-size: 24px;
+	color:#666;
+	height:30px;
+	
+}
+.Parbox-r1 strong{
+	color:red;
+}
+/*.form-img {
+	float:left;
+	height:50px;
+	font-size: 16px;
+	color:#666;
+	margin-top: 10px;
+}
+
+.form-img input{
+	font-size: 16px;
+	color:#666;
+	width:90px;
+	height: 30px;
+}
+.img-code{
+float:left;
+height:50px;
+margin-left: 10px;
+	}
+.img-code img { 
+	width:80px;
+	height: auto;
+	margin-left: 20px;
+}	*/
+.Parbox-submit{
+	background: #005BAC;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	width: 140px;
+	height:40px;
+	margin-top: 10px;
+        display:block;
+        margin:0 auto;
+	
+}
+
 
 /*.box-content{
 	display: flex;
@@ -85,12 +152,21 @@
 	<div class="Parbox-content">
 			<div class="Parbox-title">合作伙伴申请</div>
 			
-			<form action="" method = 'post' onsubmit = "return getCertified();" target="iframe_display">
-				<div class='form-row'>
-					<input class="form-input" type="text" name="certificate" id="certificate" value="请输入证书编号">
-					<input class="form-submit" type="submit" value="确认提交">
-					<div class="clear"></div>
+			<form action="pushPar.php" method = 'post' onsubmit = "return checkPar();" target="_blank">
+				<div class='Parbox-row'>
+                    <div class='Parbox-r1'><strong>*</strong> 公司名称：&nbsp;<span><input type="text" name="companyname" id="companyname" value=""></span></div>
+                    <div class='Parbox-r1'><strong style="color:transparent;">*</strong> 母公司名称：&nbsp;<span><input type="text" name="companysource" id="companysource" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 国家：&nbsp;<span><input type="text" name="country" id="country" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 州/省：&nbsp; <span><input type="text" name="province" id="province" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 城市：&nbsp;<span><input type="text" name="city" id="city" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 公司电话：&nbsp;<span><input type="text" name="phone" id="phone" value=""></span></div>
+                    <div class='Parbox-r1'><strong>*</strong> 公司邮箱：&nbsp;<span><input type="text" name="email" id="email" value=""></span></div>
+                    <div class='Parbox-r1'><strong style="color:transparent;">*</strong>公司网址：&nbsp;<span><input type="text" name="website" id="website" value=""></span></div>
+                    <div class='Parbox-r1'><strong style="color:transparent;">*</strong> 邮政编码：&nbsp;<span><input type="text" name="zipcode" id="zipcode" value=""></span></div>
+                    <div class='Parbox-r1'><strong>*</strong> 合作意向：&nbsp;<span><input type="text" name="will" id="will" value=""></span></div>
+                    <input name="PassCode" id="PassCode" value="info2_key" type="hidden">
 				</div>
+					<input class="Parbox-submit" type="submit" value="确认提交">
 			</form>
 	</div>
 </div>
@@ -111,6 +187,51 @@ function hidePar()  //去除隐藏层和弹出层
    document.getElementById("hidebackground-partner").style.display="none";
    document.getElementById("hidebox-partner").style.display="none";
 }
+
+ function checkPar(){
+	var companyname = $("#companyname").val();
+	var country = $("#country").val();
+	var province = $("#province").val();
+	var city = $("#IDcard").val();
+	var phone = $("#certificate").val();
+	var email = $("#score").val();
+	var will = $("#will").val();
+	
+        var PassCode = $("#PassCode").val();
+        
+		if (companyname == ""){
+			alert("请输入公司名");
+			return false;
+		}
+		else if (country == ""){
+			alert("请输入国家");
+			return false;
+		}
+		else if (province == ""){
+			alert("请输入省份");
+			return false;
+		}
+		else if (city == ""){
+			alert("请输入城市");
+			return false;
+		}
+		else if (phone == ""){
+			alert("请输入公司电话");
+			return false;
+		}
+		else if (email == ""){
+			alert("请输入公司邮箱");
+			return false;
+		}
+        else if (will == ""){
+			alert("请输入合作意向");
+			return false;
+		}
+		else{
+                    return true;
+		}
+}
+
 </script>
 </body>
 </html>
