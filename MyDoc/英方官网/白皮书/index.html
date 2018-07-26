@@ -1,0 +1,294 @@
+<html>
+<head>
+	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<style>
+   body { margin:0px;padding:0px;text-align: center;}
+   #content { text-align:center;cursor:pointer;z-Index:1;}
+   #hidebackground-partner { position:absolute;left:0px;top:0px;
+      background-color:#000;
+      width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+      filter:alpha(opacity=60);  /*设置透明度为60%*/
+      opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+      display:none; 
+      z-Index:10011;}
+   #hidebox-partner{ 
+   		position:fixed;
+	   width:750px;
+	   height:auto;
+    	top: 5%;
+    	left: 0px;
+    	right: 0px;
+	   margin-left: auto;
+	   margin-right: auto;
+	   background-color:#fff;
+	   display:none;
+	   cursor:pointer;
+	   z-Index:10012;
+	   text-align: center;
+	   border-radius:10px;
+   }
+   @media screen and (max-width:750px) {
+   	#hidebox-partner{ 
+   	width:92%;
+   	}
+   }
+   #hidebox-partner  .sub-privacy-close {
+	display: block;
+	position:absolute;
+	top:20px;
+	right:20px;
+	width:20px;
+	height:20px;
+	text-indent:-9999px;
+	background: url(img/close1.png) no-repeat 0 0;
+	background-size:100% 100%;
+}
+/*.Parbox-content{
+	
+}*/
+.Parbox-title{
+	font-size: 26px;
+	color:#333;
+	margin:20px auto 30px auto;
+}
+/*.Parbox-left{
+	font-size:16px;
+	color:#666;
+}*/
+
+.Parbox-r1, .form-row1{
+	margin:20px 0;
+	font-size: 24px;
+	color:#666;
+	height: 30px;
+	
+	}
+.Parbox-r1 input{
+	width:400px;
+	border:none;
+	border-bottom: 1px solid #dcdcdc;
+	font-size: 24px;
+	color:#666;
+	height:30px;	
+}
+.form-row1 input{
+	border:none;
+	border-bottom: 1px solid #dcdcdc;
+	font-size: 24px;
+	color:#666;
+	height:30px;	 
+}
+.form-row1 img{
+    vertical-align: bottom;
+}
+.Parbox-r1 strong{
+	color:red;
+}
+/*.form-img {
+	float:left;
+	height:50px;
+	font-size: 16px;
+	color:#666;
+	margin-top: 10px;
+}
+
+.form-img input{
+	font-size: 16px;
+	color:#666;
+	width:90px;
+	height: 30px;
+}
+.img-code{
+float:left;
+height:50px;
+margin-left: 10px;
+	}
+.img-code img { 
+	width:80px;
+	height: auto;
+	margin-left: 20px;
+}	*/
+.Parbox-submit{
+	background: #005BAC;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	width: 140px;
+	height:40px;
+	margin-top: 10px;
+        display:block;
+        margin:0 auto;
+	
+}
+
+
+/*.box-content{
+	display: flex;
+	justify-content: center;
+}
+
+.hide-box-img{
+	float:left;
+	width:300px;
+	margin-top:30px;
+	margin-bottom: 30px;
+}
+
+.hide-box-word{
+	font-size:28px;
+	font-weight: 700;
+	color:#555;
+}
+.hide-box-img img{
+	width:100%;
+	height:auto;
+}
+
+.clear{
+	clear:both;
+}*/
+</style>
+</head>
+<body>
+<div id="content" onClick="showPar();">点击试试</div>	
+<div id="hidebackground-partner"></div>
+<div id="hidebox-partner">
+	<a href="javascript:void(0);" onClick="hidePar();" class="sub-privacy-close"></a>
+	
+	<div class="Parbox-content">
+			<div class="Parbox-title">合作伙伴申请</div>
+			
+			<form action="pushPar.php" method = 'post' onsubmit = "return checkPar();" target="iframe_display">
+				<div class='Parbox-row'>
+                                        <div class='Parbox-r1'><strong>*</strong> 公司名称：&nbsp;<span><input type="text" name="companyname" id="companyname" value=""></span></div>
+                                        <div class='Parbox-r1'><strong style="color:transparent;">*</strong> 母公司名称：&nbsp;<span><input type="text" name="companysource" id="companysource" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 国家：&nbsp;<span><input type="text" name="country" id="country" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 州/省：&nbsp; <span><input type="text" name="province" id="province" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 城市：&nbsp;<span><input type="text" name="city" id="city" value=""></span></div>
+					<div class='Parbox-r1'><strong>*</strong> 公司电话：&nbsp;<span><input type="text" name="phone" id="phone" value=""></span></div>
+                                        <div class='Parbox-r1'><strong>*</strong> 公司邮箱：&nbsp;<span><input type="text" name="email" id="email" value=""></span></div>
+                                        <div class='Parbox-r1'><strong style="color:transparent;">*</strong>公司网址：&nbsp;<span><input type="text" name="website" id="website" value=""></span></div>
+                                        <div class='Parbox-r1'><strong>*</strong> 合作意向：&nbsp;<span><input type="text" name="will" id="will" value=""></span></div>
+                                        <input name="PassCode" id="PassCode" value="info2_key" type="hidden">
+                                        <div class="form-row1">		
+                                            请输入验证码:<input id="codeT" type="text" name='codeT' value=''/>
+                                        </div>
+                                        <div class="form-row1">	
+                                            <p>验证码: <img id="captcha_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:100px; height:30px" />
+                                                   <a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha_img').src='./captcha.php?r='+Math.random()">换一个?</a>
+                                            </p>
+                                        </div>
+				</div>
+                                <div><input class="Parbox-submit" type="submit" value="确认提交"></div>		
+			</form>
+	</div>
+</div>
+<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe>  
+
+
+
+<script>
+function showPar()  //显示隐藏层和弹出层
+{
+	var hidebg=document.getElementById("hidebackground-partner");
+   hidebg.style.display="block";  //显示隐藏层
+   hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+   document.getElementById("hidebox-partner").style.display="block";  //显示弹出层
+}
+function hidePar()  //去除隐藏层和弹出层
+{
+   document.getElementById("hidebackground-partner").style.display="none";
+   document.getElementById("hidebox-partner").style.display="none";
+}
+
+ function checkPar(){
+     	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+	var companyname = $("#companyname").val();
+	var country = $("#country").val();
+	var province = $("#province").val();
+	var city = $("#city").val();
+	var phone = $("#phone").val();
+	var email = $("#email").val();
+	var will = $("#will").val();
+        var codeT = $("#codeT").val();
+		if (companyname == ""){
+			alert("请输入公司名");
+			return false;
+		}
+		else if (country == ""){
+			alert("请输入国家");
+			return false;
+		}
+		else if (province == ""){
+			alert("请输入省份");
+			return false;
+		}
+		else if (city == ""){
+			alert("请输入城市");
+			return false;
+		}
+		else if (phone == ""){
+			alert("请输入公司电话");
+			return false;
+		}
+                else if(!(/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/.test(phone))){ 
+			alert("电话格式不对,若是固话请加区号（例子：010-66665555）");
+			return false;
+		}
+		else if (email == ""){
+			alert("请输入公司邮箱");
+			return false;
+		}
+                else if(!reg.test(email)){
+                    alert("邮件格式不对");
+                    return false;
+                 }
+                else if (will == ""){
+			alert("请输入合作意向");
+			return false;
+		}
+                 else if (codeT == ""){
+			alert("请输入验证码");
+			return false;
+		}
+		else{
+		 $.ajax( {    
+		    url:"beforeRe.php",// 跳转到 action    
+		    data:{   
+		    	codeT: $("#codeT").val()
+		    },
+		    type:'post',    
+		    cache:false,   
+                    async:false,  // 设置同步方式
+		    dataType:'text',    
+		    success:function(data) {  
+		    	if(data==1){
+		    	alert("恭喜，您已成功报名。");
+				$("#changecode").click();
+				setTimeout(window.location.reload(), 3000)
+				return true;	
+		    	}
+		    	else if(data==-1){
+		    		alert("提交过于频繁,请过一会再尝试");
+		    		$("#changecode").click();
+					return false;
+		    	}
+				else{
+					alert("输入验证码错误");
+					$("#changecode").click();	
+				}
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+			 alert("链接错误");
+			 return false;
+   			} 
+		});
+		}
+}
+
+</script>
+</body>
+</html>
