@@ -1,0 +1,107 @@
+li{
+	list-style: none;
+}
+ul {
+	-webkit-padding-start:0;
+}
+
+/* ===== Begin NAV ===== */
+.navbar-brand, .navbar-right a{
+	font-family: "微软雅黑", arial;
+	font-weight: 700;
+}
+
+
+
+@media (min-width:768px) {
+	#main-navbar .container {
+		width: 95%
+	}
+}
+
+/*@media (max-width:826px) and (min-width:768px){
+	#main-navbar .container {
+		padding-left:0;
+		padding-right: 0;
+	}
+}*/
+/* ===== End NAV ===== */
+
+
+/* ===== Begin footer ===== */
+.footer-top {
+	padding: 50px 0 35px;
+}
+
+@media screen and (max-width: 992px) {
+.footer-top{
+	display:none;
+}
+}
+
+.text-off-white{
+		color:#f9f9f9;
+		
+	}
+
+
+.footer-top .col-md-4 {
+	margin-bottom: 25px;
+}
+.footer {
+	padding: 10px 0;
+}
+.footer a{
+	text-decoration: none;
+}
+.footer p{
+	margin:0;
+}
+/*Widget1: Useful Links*/
+ul.imp-links {
+	margin-top: 15px;
+}
+ul.imp-links li {
+	padding: 5px 0;
+}
+ul.imp-links li a {
+	text-decoration: none;
+	color: #fff;
+}
+
+/*Widget2: subscribe form*/
+#subscribe #result {
+    display: block;
+    width: 100% !important;
+}
+#footer_signup {
+    margin: 20px 0;
+}
+#subscribe > input[type="text"] {
+    border: 0 none;
+    color: #99abb7;
+    font-style: italic;
+    font-size: 0.9em;
+    padding: 7px 10px;
+    width: 170px;
+    height: 30px;
+}
+#subscribe > button[type="submit"] {
+    background: none repeat scroll 0 0 #21c2f8;
+    border: 0 none;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 300;
+    padding: 7px 20px;
+    height: 30px;
+    transition: all 0.4s ease-in;
+}
+
+.tel{
+	height:145px;
+    background: url(../img/tel.png); 
+    background-repeat:no-repeat ;
+    background-size:100% auto; 
+}
+
+/* ===== End footer ===== */

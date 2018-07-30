@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/Portfolio.css" rel="stylesheet" type="text/css" />
+<link href="css/cool-gray.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/style-index.css" rel="stylesheet" type="text/css" />
+<!--预加载动画-->
+<link rel="stylesheet" type="text/css" href="css/loader.min.css">
+<!--幻灯片用-->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.theme.css" rel="stylesheet">
+<!--动态效果用-->
+<link rel="stylesheet" href="css/animate.css">
+
+
+
+<!--预加载启动用-->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/wow.js"></script>
+<script type="text/javascript">         
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    }); 
+</script>    
+
+<style>
+	 /*@media (min-width:1200px) {
+	.navbar-default:hover{
+		background: rgba(54, 57, 64, 0.9);
+	}
+	}
+
+        .navbar .nav > li:hover .dropdown-menu {  
+            display: block;  
+        }  
+    @media (min-width:768px) {
+	.navbar-right .dropdown-menu {
+		right: auto;
+		left: 0;
+	}
+}*/
+
+</style>
+		
+	</head>
+	<body>
+ <!--========== BEGIN Loder ==========-->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在努力的加载i2yun<br><span>V1.0</span></div>
+</div>		
+ <!--========== BEGIN Loder ==========-->		
+		
+		
+ <!--========== BEGIN HEADER ==========-->
+            <header id="header" class="header-main">
+                <!-- Begin Navbar -->
+                <nav id="main-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation"> <!-- Classes: navbar-default, navbar-inverse, navbar-fixed-top, navbar-fixed-bottom, navbar-transparent. Note: If you use non-transparent navbar, set "height: 98px;" to #header -->
+
+                  <div class="container">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand page-scroll" href="index.html">Info2Software</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="scroll active"><a class="page-scroll Nav-scroll-1" href="#header">首页</a></li>
+               				<li class="dropdown">
+								<a href="#" class="dropdown-toggle Nav-scroll-2" data-toggle="dropdown">云产品服务</a>
+								<ul class="dropdown-menu">
+									<li><a href="http://i2yun.a5yun.cn/beifenhuifu/">云备份与恢复</a></li>
+									<li><a href="http://i2yun.a5yun.cn/yewuqianyi/">业务迁移</a></li>
+									<li><a href="http://i2yun.a5yun.cn/gaokeyong/">云高可用</a></li>
+									<li><a href="http://i2yun.a5yun.cn/i2box/">i2box一体机</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle Nav-scroll-3" data-toggle="dropdown">帮助和支持</a>
+								<ul class="dropdown-menu">
+									<li><a href="/help/bangzhuwendang/">帮助文档</a></li>
+									<li><a href="/changjianwenti/">常见问题</a></li>
+									<li><a href="javascript:void(0)" onclick="showgongdan()"">工商管理</a></li>
+								</ul>
+							</li>
+
+                            <li class="scroll"><a class="page-scroll Nav-scroll-4" href="#NesHelp-section">软件下载</a></li>
+                            <li class="scroll"><a class="page-scroll Nav-scroll-5" href="#Partener-section">关于我们</a></li>                            
+                            <li class="scroll "><a class="page-scroll Nav-scroll-6" href="#Contact-section">控制台</a></li>
+             
+                            <li><a class="Nav-login" href="http://www.i2yun.com/index.php?m=member&c=index&a=login">登录</a></li>   
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container -->
+                </nav>
+                <!-- End Navbar -->
+
+            </header>
+<!-- ========= END HEADER =========-->	
+            
+            
+            
+ <!-- ========= BEGIN CAROUSEL =========-->			
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+	<!-- 轮播（Carousel）指标 -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>   
+	<!-- 轮播（Carousel）项目 -->
+	<div class="carousel-inner">
+		<div class="item active">
+			<img src="img/slider-bg4.jpg" alt="First slide">
+			<div class="carousel-title">云中就绪    有备而来</div>
+			<div class="carousel-title2">Let's make our data safer together</div>
+			<button id="slide-button" class="btn btn-default" onclick="location.href='http://www.i2yun.com/index.php?m=member&c=index&a=login'">立即注册 </button>
+
+		</div>
+		<div class="item">
+			<img src="img/slider-bg5.jpg" alt="Second slide">
+		</div>
+		<div class="item">
+			<img src="img/slider-bg6.jpg" alt="Third slide">
+		</div>
+	</div>
+	<!-- 轮播（Carousel）导航 -->
+	<a class="carousel-control left" href="#myCarousel" 
+	   data-slide="prev"></a>
+	<a class="carousel-control right" href="#myCarousel" 
+	   data-slide="next"></a>
+</div> 		
+ <!-- ========= END CAROUSEL =========-->		
+
+<!-- Begin prices section -->
+<section id="Prices-section">
+<div class="container1">
+
+                <!-- Begin page header-->
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>云产品服务</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">Price of our Products</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End page header-->
+
+				<div class="extra-space-l"></div>
+
+				<!-- Begin prices -->
+				<div class="prices">
+					<div class="container">
+						<div class="row">
+							
+							<!--<div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.3s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-plug fa-2x"></i>
+										<h3>Basic</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead"><strong>$49</strong></p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">Personal Use</li>
+										<li class="list-group-item">3 projects</li>
+										<li class="list-group-item">1 GB Disk</li>
+										<li class="list-group-item">Custom Domain</li>
+										<li class="list-group-item">24/7 Support</li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="#">Order Now!</a>
+									</div>
+								</div>										
+							</div>-->
+
+							<div class="price-box col-sm-6 col-md-4 wow flipInY" data-wow-delay="0.5s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-cog fa-2x"></i>
+										<h3>i2Availability</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead">云高可用</p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">自动切换</li>
+										<li class="list-group-item">多类型监控</li>
+										<li class="list-group-item">多种通知方式</li>
+										<li class="list-group-item">操作简单</li>
+										<li class="list-group-item"></li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="http://www.i2yun.com/gaokeyong/">Learn More!</a>
+									</div>
+								</div>										
+							</div>
+							
+							<div class="price-box col-sm-6 price-box-featured col-md-4 wow flipInY" data-wow-delay="0.7s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-star fa-2x"></i>
+										<h3>i2Coopy+i2CDP</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead">云备份和恢复</p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">实时复制</li>
+										<li class="list-group-item">传输加密</li>
+										<li class="list-group-item">任意操作点恢复</li>
+										<li class="list-group-item">任意时间点恢复</li>
+										<li class="list-group-item">数据自行持有</li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="http://www.i2yun.com/beifenhuifu/">Learn More!</a>
+									</div>
+									<div class="price-box-ribbon"><strong>Popular</strong></div>
+								</div>										
+							</div>
+							
+							<div class="price-box col-sm-6 col-md-4 wow flipInY" data-wow-delay="0.9s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-plus fa-2x"></i>
+										<h3>i2Move</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead">业务迁移</p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">无需停机</li>
+										<li class="list-group-item">与硬件无关</li>
+										<li class="list-group-item">多系统支持</li>
+										<li class="list-group-item">简单高效</li>
+										<li class="list-group-item"></li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="http://www.i2yun.com/yewuqianyi/">Learn More!</a>
+									</div>
+								</div>										
+							</div>
+							
+						</div> <!-- /.row -->
+					</div> <!-- /.container -->
+				</div>
+				<!-- End prices -->
+				<div class="extra-space-l"></div>
+			
+</div>
+
+</section>
+<!-- End prices section -->
+
+
+
+	
+
+<!--		hover放大图片区开始-->
+<section id="Achievements-section">
+<div class="container-gray">
+<div class="container1">	
+	
+<div class="page-header-wrapper">
+     <div class="container">
+             <div class="page-header text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h2>客户案例</h2>
+                    <div class="devider"></div>
+                    <p class="subtitle">What we are proud of</p>
+                    </div>
+    </div>
+</div>	
+	
+	
+	
+	
+<div class="portfolio_content">
+                <div class="row"  id="portfolio">
+                                            <div class="col-xs-12 col-sm-3 appsDevelopment wow zoomIn" data-wow-delay="0.3s">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/p1.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="http://m.info2soft.com/html/solution/2015/0923/14.html">医疗灾备解决方案</a>
+                                                        <span>随着医院信息化快速深入发展，为了能够对医院信息安全进行有效梳理及合理建设，英方软件从医院信息系统业务连续性角度出发，英方软件制定医.. .</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 appsDevelopment wow zoomIn" data-wow-delay="0.4s">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/p2.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="http://m.info2soft.com/html/solution/2015/0923/14.html">医疗灾备解决方案2</a>
+                                                        <span>随着医院信息化快速深入发展，为了能够对医院信息安全进行有效梳理及合理建设，英方软件从医院信息系统业务连续性角度出发，英方软件制定医.. .</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 appsDevelopment wow zoomIn" data-wow-delay="0.5s">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/p3.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="http://m.info2soft.com/html/solution/2015/0923/14.html">医疗灾备解决方案3</a>
+                                                        <span>随着医院信息化快速深入发展，为了能够对医院信息安全进行有效梳理及合理建设，英方软件从医院信息系统业务连续性角度出发，英方软件制定医.. .</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                    						<div class="col-xs-12 col-sm-3 appsDevelopment wow zoomIn" data-wow-delay="0.6s">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/p4.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="http://m.info2soft.com/html/solution/2015/0923/14.html">医疗灾备解决方案</a>
+                                                        <span>随着医院信息化快速深入发展，为了能够对医院信息安全进行有效梳理及合理建设，英方软件从医院信息系统业务连续性角度出发，英方软件制定医.. .</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 appsDevelopment wow zoomIn" data-wow-delay="0.7s">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/p5.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="http://m.info2soft.com/html/solution/2015/0923/14.html">医疗灾备解决方案2</a>
+                                                        <span>随着医院信息化快速深入发展，为了能够对医院信息安全进行有效梳理及合理建设，英方软件从医院信息系统业务连续性角度出发，英方软件制定医.. .</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 appsDevelopment wow zoomIn" data-wow-delay="0.8s">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/p6.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="http://m.info2soft.com/html/solution/2015/0923/14.html">医疗灾备解决方案3</a>
+                                                        <span>随着医院信息化快速深入发展，为了能够对医院信息安全进行有效梳理及合理建设，英方软件从医院信息系统业务连续性角度出发，英方软件制定医.. .</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 appsDevelopment wow zoomIn" data-wow-delay="0.9s">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/p7.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="http://m.info2soft.com/html/solution/2015/0923/14.html">医疗灾备解决方案3</a>
+                                                        <span>随着医院信息化快速深入发展，为了能够对医院信息安全进行有效梳理及合理建设，英方软件从医院信息系统业务连续性角度出发，英方软件制定医.. .</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                    
+                </div>
+         </div>
+</div>     
+</div>
+</section>
+	<!--Hover放大图片区结束-->	
+	
+<!--选项卡区开始-->
+<section id="NesHelp-section">
+<div class="container1">
+	
+<div class="page-header-wrapper nav-header-wrapper">
+     <div class="container">
+             <div class="page-header1 text-center wow fadeInDown" data-wow-delay="0.1s">
+                    <h2>
+                    	<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-presentation" role="presentation" class="active"><a class="First-Click-link" href="#RecentNews" aria-controls="home" role="tab" data-toggle="tab">最新动态</a></li>
+							<li class="nav-presentation" role="presentation"><a href="#HelpAndSupport" aria-controls="profile" role="tab" data-toggle="tab">帮助支持</a></li>
+
+							<!--这个href地址需要跟下面的id对应-->
+			  			</ul>
+
+                    </h2>
+                    <div class="devider"></div>
+                    <p class="subtitle">What you will care about</p>
+                    </div>
+    </div>
+</div>		
+
+		<!--<div class="row job-posting ">-->
+			<div class="row NewsHelp wow fadeInUp" data-wow-delay="0.3s">
+			<div role="tabpanel">
+			  <!-- Nav tabs -->
+			  <!--<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#RecentNews" aria-controls="home" role="tab" data-toggle="tab">最新动态</a></li>
+				<li role="presentation"><a href="#HelpAndSupport" aria-controls="profile" role="tab" data-toggle="tab">帮助支持</a></li>
+
+
+			  </ul>-->
+
+			  <!-- Tab panes -->
+			  <div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="RecentNews">
+					<ul class="list-inline RecentNews">
+						<div class="col-md-6 col-sm-12 wow slideInLeft" data-wow-delay="0.3s">
+							<ul>
+								<li><a href="#" class="n_t">保障企业数据资产 英方解决方案护航</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">保障企业数据资产 英方解决方案护航</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">保障企业数据资产 英方解决方案护航</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+
+							</ul>
+						</div>
+						<div class="col-md-6 col-sm-12 wow slideInRight" data-wow-delay="0.3s">
+							<ul>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+
+							</ul>
+						</div>
+					</ul>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="HelpAndSupport">
+					<ul class="list-inline HelpAndSupport">
+						<div class="col-md-6 col-sm-12 wow slideInLeft" data-wow-delay="0.3s">
+							<ul>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+
+							</ul>
+						</div>
+						<div class="col-md-6 col-sm-12 wow slideInRight" data-wow-delay="0.3s">
+							<ul>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+								<li><a href="#" class="n_t">帮助维护数据安全，保障数据可靠性</a>
+									<a href="javascript:void(0);" class="n_d">2017-9-10</a></li>
+
+							</ul>
+						</div>
+					</ul>
+				</div>
+
+			  </div>
+
+			</div>
+		</div>
+</div>
+</section>
+<!--选项卡区结束-->
+
+<!--轮播开始-->
+<section id="Partener-section">
+<div class="container-gray">
+	<div class="container1">	
+	
+<div class="page-header-wrapper">
+     <div class="container">
+             <div class="page-header text-center wow fadeInUp" data-wow-delay="0.5s">
+                    <h2>合作伙伴</h2>
+                    <div class="devider"></div>
+                    <p class="subtitle">Those who trust us</p>
+                    </div>
+    </div>
+</div>	
+
+
+<div id="owl-demo" class="owl-carousel wow pulse" data-wow-delay="0.7s">
+    <a class="item"><img src="img/partener/p1.png" alt=""></a>
+    <a class="item"><img src="img/partener/p2.png" alt=""></a>
+    <a class="item"><img src="img/partener/p3.png" alt=""></a>
+    <a class="item"><img src="img/partener/p4.png" alt=""></a>
+    <a class="item"><img src="img/partener/p5.png" alt=""></a>
+    <a class="item"><img src="img/partener/p6.png" alt=""></a>
+    <a class="item"><img src="img/partener/p7.png" alt=""></a>
+    <a class="item"><img src="img/partener/p8.png" alt=""></a>
+    <a class="item"><img src="img/partener/p9.png" alt=""></a>
+    <a class="item"><img src="img/partener/p10.png" alt=""></a>
+
+</div>
+
+
+	</div>
+</div>
+</section>
+<!--轮播结束-->
+
+
+ <!-- Begin footer -->
+            <footer class="text-off-white">
+            
+                <div class="footer-top">
+                	<div class="container">
+                    	<div class="row wow bounceInLeft" data-wow-delay="0.4s">
+
+                            <div class="col-sm-6 col-md-3">
+                            	<h4>产品中心</h4>
+                                <ul class="imp-links">
+                                	<li><a href="http://www.i2yun.com/beifenhuifu/" target="_blank">云备份与恢复</a></li>
+                                	<li><a href="http://www.i2yun.com/yewuqianyi/" target="_blank">业务迁移</a></li>
+                                	<li><a href="http://www.i2yun.com/gaokeyong/" target="_blank" >高可用</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3 ">
+                            	<h4>帮助中心</h4>
+                                <ul class="imp-links">
+                                	<li><a href="http://www.i2yun.com/changjianwenti-19-1.html" target="_blank">常见问题</a></li>
+                                	<li><a href="http://www.i2yun.com/bangzhuwendang-26-1.html" target="_blank">帮助文档</a></li>
+                                	<li><a href="http://p.qiao.baidu.com//im/index?siteid=8152259&ucid=19123718" target="_blank">在线客服</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                            	<h4>关于我们</h4>
+                                <ul class="imp-links">
+                                	<li><a href="http://www.i2yun.com/html/about/" target="_blank">英方简介</a></li>
+                                	<li><a href="http://www.i2yun.com/index.php?m=content&c=index&a=lists&catid=9" target="_blank">联系我们</a></li>
+                                	<li><a href="http://www.i2yun.com/jiejuefangan/" target="_blank">云灾备解决方案</a></li>
+                                </ul>
+                            </div>
+                        
+                        	<div class="col-sm-6 col-md-3">
+                               <div class="tel">
+                               	
+                               </div>
+                            </div>
+  
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                </div>
+                 <section id="Contact-section">
+                <div class="footer">
+                    <div class="container text-center wow fadeIn" data-wow-delay="0.4s">
+                        <p class="copyright">Copyright &copy; 2017 - Designed By Information2 software Inc.</p>
+                    </div>
+                </div>
+				</section>
+            </footer>
+
+            <!-- End footer -->
+
+            <a href="#" class="scrolltotop"><i class="fa fa-arrow-up"></i></a>  <!--Scroll to top button -->
+	
+	
+	
+	
+
+<script>
+	//不要定位功能，恢复跳转功能
+	$('.Nav-scroll-1').click(function(){
+		window.location.href="http://i2yun.a5yun.cn";
+		return false;
+	});
+	
+	$('.Nav-scroll-2').click(function(){
+		window.location.href="http://i2yun.a5yun.cn/beifenhuifu/";
+		return false;
+	});
+	
+	$('.Nav-scroll-3').click(function(){
+		window.location.href="http://i2yun.a5yun.cn/help/bangzhuwendang/";
+		return false;
+	});
+	
+	$('.Nav-scroll-4').click(function(){
+		window.location.href="http://www.i2yun.com/index.php?m=content&c=index&a=lists&catid=25";
+		return false;
+	});
+	
+	$('.Nav-scroll-5').click(function(){
+//		$('html, body').animate({scrollTop: $(this.hash).offset().top - 79}, 1000);
+		window.location.href="http://www.i2yun.com/html/about/";
+		return false;
+	});
+
+	$('.Nav-scroll-6').click(function(){
+		window.location.href="http://www.i2yun.com/index.php?m=member&c=index&a=login&forward=http%3A%2F%2Fwww.i2yun.com%2Fi2%2Fi2yun%2Fhome.php";
+		return false;
+	});
+	
+
+// Navigation Scroll
+//	$(window).scroll(function(event) {
+//		Scroll();
+//	});
+
+//	$('.navbar-collapse ul li a').click(function() {  
+//		$('html, body').animate({scrollTop: $(this.hash).offset().top - 79}, 1000);
+//		return false;
+//	});	
+	
+	// Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+	    if ($(this).scrollTop() > 100) {
+	        $('.scrolltotop').fadeIn();
+	    } else {
+	        $('.scrolltotop').fadeOut();
+	    }
+	});
+	
+	// Click event to scroll to top
+	$('.scrolltotop').click(function(){
+	    $('html, body').animate({scrollTop : 0}, 1500, 'easeInOutExpo');
+	    return false;
+	});
+
+
+
+	
+	// User define function
+function Scroll() {
+	var contentTop      =   [];
+	var contentBottom   =   [];
+	var winTop      =   $(window).scrollTop();
+	var rangeTop    =   200;
+	var rangeBottom =   500;
+	$('.navbar-collapse').find('.scroll a').each(function(){
+		contentTop.push( $( $(this).attr('href') ).offset().top);
+		contentBottom.push( $( $(this).attr('href') ).offset().top + $( $(this).attr('href') ).height() );
+	})
+	$.each( contentTop, function(i){
+		
+
+		 if ( winTop > contentTop[i] - rangeTop ){
+			$('.navbar-collapse li.scroll')
+			.removeClass('active')
+			.eq(i).addClass('active');			
+		}
+		 if ($(document).scrollTop()+1 >= $(document).height() - $(window).height() ){
+			$('.navbar-collapse li.scroll')
+			.removeClass('active');
+			$('.scroll-bottom').addClass('active');	
+		}
+	})
+
+};
+
+	
+//菜单在滚动条下拉的时候的变化
+ $(function () {              
+            //绑定滚动条事件  
+              //绑定滚动条事件  
+            $(window).bind("scroll", function () {  
+                var sTop = $(window).scrollTop();  
+                var sTop = parseInt(sTop);  
+                if (sTop > 0) {  
+                    $(".navbar-default").css("background","#363940");
+                   	$(".navbar-default").hover(
+				      function () {
+				        $(this).css({"background-color":"rgba(54, 57, 64, 0.9)"});
+				      },
+				      function () {
+				         $(".navbar-default").css("background","#363940");
+				      }
+				    );
+                }  
+                else if (sTop == 0) {  
+                 $(".navbar-default").css("background","rgba(255,255,255,0)");
+                 $(".navbar-default").hover(
+				      function () {
+				        $(this).css({"background-color":"rgba(54, 57, 64, 0.9)"});
+				      },
+				      function () {
+				       $(".navbar-default").css("background","rgba(255,255,255,0)");
+				      }
+				    );
+                }   
+            });  
+})  
+
+//首页初始化分页导航激活用
+ $(function () {
+        $(".First-Click-link").click();
+    })
+ 
+//底部轮播用
+$(function(){
+    $('#owl-demo').owlCarousel({
+//      navigation: true,
+        autoPlay : true,
+//     	 分页导航
+        pagination:false,
+//      navigationText: ["上一个","下一个"]
+
+    });
+}); 
+
+
+//	初始化/启动wow.js
+    new WOW().init();
+</script>   	
+
+<script>
+	//给导航添加样式	
+$(".nav li").eq(1).css({"border-bottom":"2px solid #FFCC00"});
+</script>
+
+
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/owl.carousel.js"></script>
+
+
+</body>
+</html>
