@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>1111</title>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    
+    
+<style>
+	body{
+		padding: 0;
+		margin: 0;
+	}
+	body a{
+		color:#333;
+		text-decoration: none;
+	}
+	body a:hover{
+		color:#027cdc;
+		text-decoration: none;
+	}
+	table{
+		border:1px solid #F0F0F0;
+		width:100%;
+		margin-bottom:30px;
+	}
+	table tr th{
+		border-left:1px solid #F0F0F0;
+		border-right:1px solid #F0F0F0;
+		border-bottom:1px solid #F0F0F0 ;
+		min-width:150px;
+        font-size:16px;
+        text-align: center;
+        color:#fff;
+        height:50px;
+		background: -webkit-gradient(linear, 0 0, 0 100%, from(#007adb), to(#1fb4fe));
+		background: -webkit-linear-gradient(#007adb, #1fb4fe);
+		background: -moz-linear-gradient(#007adb, #1fb4fe);
+		background: -o-linear-gradient(#007adb, #1fb4fe);
+		background: linear-gradient(#007adb, #1fb4fe); /* Safari 5.1 - 6.0 */
+	}
+	table tr td{
+		border-left:1px solid #F0F0F0;
+		border-right:1px solid #F0F0F0;
+       	padding:15px 15px;
+		text-align: center;		
+	}
+    td input, th input{
+    	vertical-align: bottom;
+    	display: inline;
+    	width:15px;
+    }
+    .table-num{
+    	width:100px;
+    }
+    @media screen and (max-width:700px ) {
+    	.table-num{
+    		width:50px;
+    	}
+    }
+    .bottom-select{
+    	float:left;
+    	margin:10px 20px;
+    	color:#666;
+    }
+    .bottom-gopurchase{
+    	float:right;
+    	margin:0 20px;
+	    background: -webkit-linear-gradient(#007adb, #1fb4fe); /* Safari 5.1 - 6.0 */
+	    background: -o-linear-gradient(#007adb, #1fb4fe); /* Opera 11.1 - 12.0 */
+	    background: -moz-linear-gradient(r#007adb, #1fb4fe); /* Firefox 3.6 - 15 */
+	    background: linear-gradient(#007adb, #1fb4fe); /* 标准的语法 */
+    	border-radius: 5px;
+    	color:#fff;
+    	padding:10px 20px;
+    }
+    .bottom-gopurchase a{
+    	color:#fff;
+    }
+    .bottom-gopurchase a:hover{
+    	color:#fff;
+    }
+    .bottom-price{
+    	float:right;	
+    	color:#666;
+    	margin:0 20px;
+    	line-height:41px;
+    }
+    .bottom-price strong{
+    	color:red;
+    	font-size:24px;
+    }
+    .clear{
+    	clear:both;
+    }
+</style>
+</head>
+
+
+<div id="memberArea">
+{template 'member', 'left'}
+<div class="col-auto">
+<div class="col-1 ">
+<h6 class="title">购物车</h6>
+<div class="content"> 
+<form name="myform" id="myform" action="?m=order&c=cart&a=edit" method="post" >
+<input type="hidden" name="buttontype" id="buttontype" value="edit" />
+<table width="100%" cellspacing="0"  class="table-list">
+    <thead>
+	    <tr>
+	        <th class="table-num"><input style="width:15px;" type="checkbox" name="" value="1111">序号</th>
+			<th>产品详情</th>
+			<th>操作</th>
+	    </tr>
+    </thead>
+    <tbody>
+	{loop $infos $n $info} 
+	<tr>
+    <tr>
+    	<td style="background:#F0F0F0;"></td>
+    	<td style="background:#F0F0F0;">i2share购买</td>
+    	<td style="background:#F0F0F0;"></td>
+    </tr>
+
+    <tr>
+    	<td style="border-bottom: 1px solid #F0F0F0;"><input type="checkbox" name="selectid[]" value="{$info['id']}">{php echo $n+1;}</td>
+		<td style="border-bottom: 1px solid #F0F0F0;">永久免费版<br />套餐用户数量：5<br />共享网盘容量(G)：5<br />购买时长：永久免费</td>
+		<td style="border-bottom: 1px solid #F0F0F0;">数量&nbsp; &nbsp; <input name="qualtity" value="1" readonly="readonly"><br />单价（元）：0<br />操作：<a href="">删除</a></td>
+    </tr>
+    <!--<tr>
+		<td>单价（元）：0</td>
+    </tr>    
+    <tr>
+		<td>操作：<a href="">删除</a></td>
+    </tr>   
+    <tr >
+		<td style="border-bottom: 1px solid #F0F0F0;"></td>
+    </tr> -->
+</table>		
+		
+		
+		
+		
+		
+		<!--<td align="center"><input type="checkbox" name="selectid[]" value="{$info['id']}"></td>
+		<td align="center">{php echo $n+1;}</td>
+		<td align="left" style="padding-left: 200px;" >
+		{$info['a_title']}{if $info["configs"]["uuid"]} : {$info["configs"]["uuid"]}{/if}
+		{if $info["from"]=="yunbeifen"||$info["from"]=="yewuqianyi"||$info["from"]=="gaokeyong"||$info["from"]=="yungongxiang"}
+		<br />{$info["configs"]["yun"]}
+		{loop $info["configs"]["service"] $r}
+		<br />{$r[desc]}
+		{/loop}
+		{if $info['configs']['duration']}
+		<br />购买时长:{$info['configs']['duration']}{php echo $info['configs']['pricing_cycle']=="month"?"月":"年";}
+		{/if}
+                
+                {elseif $info["from"]=="i2share"}
+                <br />{$info["configs"]["yun"]}
+                <br />{$info["configs"]["quantity"]}
+                <br />{$info["configs"]["storage"]}
+                
+                
+                {if $info['configs']['duration']  && $info["ptype"] == "goumai"}
+                {if $info['configs']['duration']!=1200}
+		<br />购买时长:{$info['configs']['duration']}{php echo $info['configs']['pricing_cycle']=="月"?"月":"年";}
+                {else}<br />购买时长: &nbsp; 永久免费
+                {/if}
+                {/if}
+                
+                {if $info["ptype"] == "shengji"}
+                <br />购买时长:{$info['configs']['duration']}{php echo $info['configs']['pricing_cycle']=="月"?"月":"年";}
+                {/if}
+                
+                {if $info["ptype"] == "xufei" || $info["ptype"] == "xuanpei"}
+                <br />续费时长:{$info['configs']['durationIn']}{php echo $info['configs']['pricing_cycle']=="月"?"月":"年";}
+                <br />新到期时间:{$info['configs']['dueday']}
+                {/if}
+                
+		{elseif $info["from"]=="manage"}
+		<br />{$info["configs"]["content"]}
+		{else}
+		{if $info['configs']['RegionName']}<br />机房线路:{$info['configs']['RegionName']} {/if}
+			{if $info['configs']['osName']}<br />操作系统:{$info['configs']['osName']} {/if}
+			{if $info['configs']['cpu']}<br />CPU:{$info['configs']['cpu']}核 {/if}
+			{if $info['configs']['mem']}<br />内存:{$info['configs']['mem']}G {/if}
+			{if $info['configs']['memory']}<br />内存:{$info['configs']['memory']}G {/if}
+			{if $info['configs']['storageSize']}
+			<br />硬盘:{if is_array($info['configs']['storageSize'])}{$info['configs']['storageSize_desc']}{else}{$info['configs']['storageSize']}GB{/if} 
+			{/if}
+			{if $info['configs']['from']=="ctyun"}<br />硬盘:{$info['configs']['datahd']}GB{/if}
+			{if $info['configs']['bandwidth']}<br />带宽:{$info['configs']['bandwidth']}Mbps {/if}
+			{if $info['configs']['bw']}<br />带宽:{$info['configs']['bw']}Mbps {/if}
+			{if $info['configs']['bandwidthUpgradeStartTime']}<br />带宽生效开始时间:{$info['configs']['bandwidthUpgradeStartTime']} {/if}
+			{if $info['configs']['bandwidthUpgradeEndTime']}<br />带宽生效截止时间:{$info['configs']['bandwidthUpgradeEndTime']} {/if}
+			{if $info[ptype]=="xufei"}
+			{if $info['configs']['period']}<br />续费时长:{$info['configs']['xfsc']}月 {/if}
+			{else}
+			{if $info['configs']['period']}<br />购买时长:{$info['configs']['period']}月 {/if}
+			{if $info['configs']['periodNum']}<br />购买时长:{$info['configs']['periodNum']}月 {/if}
+			{/if}
+		{/if}
+		</td>
+		<td align="center">
+			<input type="hidden" name="id[]" value="{$info['id']}" />
+			<input type="text" name="quantity[]" value="{$info['quantity']}" onfocus="this.blur()" size="4" />
+		</td>
+		<td align="center">{$info['money']}</td>
+		<td align="center"><a href="{APP_PATH}index.php?m=order&c=cart&a=delete&id={$info['id']}">删除</a></td>
+	</tr>
+	{/loop}
+    </tbody>
+</table>-->
+<div class="btn">
+	<a href="#" onClick="javascript:$('input[type=checkbox]').attr('checked', true)">全选</a>/<a href="#" onClick="javascript:$('input[type=checkbox]').attr('checked', false)">取消</a> 
+
+	<input name="upbut" type="button" class="button" value="更新购物车" onClick="$('#buttontype').val('edit');$('#myform').submit();">&nbsp;
+	<input name="delbut" type="button" class="button" value="删除选中" onClick="but_del()">&nbsp;
+	<input name="clebut" type="button" class="button" value="清空购物车" onClick="redirect('{APP_PATH}index.php?m=order&c=cart&a=clear')">&nbsp;
+    <input name="nxtbut" type="button" class="button" value="下一步" onClick="redirect('{APP_PATH}index.php?m=order&c=cart&a=pay')">&nbsp;
+
+共件<font color=#FF0000>{$total_quantity}</font> 商品,合计<font color=#FF0000>{$total_money}</font> 元
+
+</div> 
+</form>   
+
+ <div id="pages">{$pages}</div>
+</div>
+<span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+</div>
+
+</div>
+</div>
+<script type="text/javascript">
+function but_del() {
+	$('#buttontype').val('del');
+	var ids='';
+	$("input[name='selectid[]']:checked").each(function(i, n){
+		ids += $(n).val() + ',';
+	});
+	if(ids=='') {
+		window.top.art.dialog({content:'请选择再执行操作',lock:true,width:'200',height:'50',time:1.5},function(){});
+	} else {
+		$('#myform').submit();
+	}
+}
+</script>
+{template 'member', 'footer'}
+

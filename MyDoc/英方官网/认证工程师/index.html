@@ -41,19 +41,22 @@ a, a:focus, a:hover{
 	border-bottom: 1px solid #f0f0f0;
 	
 }
+#myTab li{
+    border:none;
+}
 .nav-tabs>li>a{
 	color:#999;
 	text-align: center;
 }
-/*@media screen and (min-width: 1200px) {
-	.nav-tabs li:nth-child(3) a{
-		margin-right: 88px;
-	}*/
-}
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{
 	font-size: 28px;
 	color: #027cdc;
+        border:none;
 	border-bottom: 2px solid #027CDC;
+}
+.nav-tabs>li>a:hover, .nav>li>a:hover{
+    background-color:transparent;
+    border-color:transparent;  
 }
 #myTabContent{
 	margin: 50px 0;
@@ -83,7 +86,7 @@ a, a:focus, a:hover{
 	padding:0 25px;
 	border-bottom: 1px dashed #999;
 	text-align: left;
-	line-height:36px;
+        line-height:36px;
 }
 @media screen and (min-width: 1200px) {
 	.content-left{
@@ -105,18 +108,19 @@ a, a:focus, a:hover{
 	border-right: 1px dashed #999;
 }
 
-.BasicEn-content2-row a{
+/*.BasicEn-content2-row a{
 	color:#666;
 	cursor:pointer;
 }
 .BasicEn-content2-row a:hover{
 	color:#027cdc;
 	text-decoration: none;
-}
+}*/
 
 /*基础认证工程师结束*/
 
 /*专业级认证工程师*/
+
 .SerinorEn-container{
 	margin:50px auto;
 }
