@@ -2,25 +2,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>1111</title>
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    
-    
-    
-<style>
-	body{
-		padding: 0;
-		margin: 0;
-	}
-	body a{
-		color:#333;
-		text-decoration: none;
-	}
-	body a:hover{
-		color:#027cdc;
-		text-decoration: none;
-	}
-	table{
+
+<title>1111</title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+		table{
 		border:1px solid #F0F0F0;
 		width:100%;
 		margin-bottom:30px;
@@ -29,34 +15,44 @@
 		border-left:1px solid #F0F0F0;
 		border-right:1px solid #F0F0F0;
 		border-bottom:1px solid #F0F0F0 ;
-		min-width:150px;
-        font-size:16px;
-        text-align: center;
-        color:#fff;
-        height:50px;
-		background: -webkit-gradient(linear, 0 0, 0 100%, from(#007adb), to(#1fb4fe));
-		background: -webkit-linear-gradient(#007adb, #1fb4fe);
-		background: -moz-linear-gradient(#007adb, #1fb4fe);
-		background: -o-linear-gradient(#007adb, #1fb4fe);
-		background: linear-gradient(#007adb, #1fb4fe); /* Safari 5.1 - 6.0 */
 	}
 	table tr td{
 		border-left:1px solid #F0F0F0;
 		border-right:1px solid #F0F0F0;
-       	padding:15px 15px;
-		text-align: center;		
 	}
+	 .container th{
+        min-width:150px;
+        font-size:16px;
+        text-align: center;
+        color:#fff;
+background: -webkit-gradient(linear, 0 0, 0 100%, from(#007adb), to(#1fb4fe));
+background: -webkit-linear-gradient(#007adb, #1fb4fe);
+background: -moz-linear-gradient(#007adb, #1fb4fe);
+background: -o-linear-gradient(#007adb, #1fb4fe);
+background: linear-gradient(#007adb, #1fb4fe); /* Safari 5.1 - 6.0 */
+ /* Opera 11.1 - 12.0 */
+ /* Firefox 3.6 - 15 */
+ /* 标准的语法 */
+       	height:50px;
+        
+    }
+    .container td{
+        text-align: center;
+       	padding:15px 15px;
+       	/*height:50px;*/
+/*        text-align: left;*/
+    }
     td input, th input{
     	vertical-align: bottom;
     	display: inline;
     	width:15px;
     }
     .table-num{
-    	width:100px;
+    	width:50px;
     }
     @media screen and (max-width:700px ) {
     	.table-num{
-    		width:50px;
+    		width:30px;
     	}
     }
     .bottom-select{
@@ -94,8 +90,8 @@
     .clear{
     	clear:both;
     }
-</style>
-</head>
+</script>
+
 
 
 <div id="memberArea">
@@ -108,45 +104,23 @@
 <input type="hidden" name="buttontype" id="buttontype" value="edit" />
 <table width="100%" cellspacing="0"  class="table-list">
     <thead>
-	    <tr>
-	        <th class="table-num"><input style="width:15px;" type="checkbox" name="" value="1111">序号</th>
-			<th>产品详情</th>
-			<th>操作</th>
-	    </tr>
+    <tr>
+        <th class="table-num"><input style="width:15px;" type="checkbox" name="" value="1111">序号</th>
+		<th>产品详情</th>
+		<th>操作</th>
+    </tr>
     </thead>
     <tbody>
 	{loop $infos $n $info} 
 	<tr>
-    <tr>
     	<td style="background:#F0F0F0;"></td>
-    	<td style="background:#F0F0F0;">i2share购买</td>
+    	<td style="background:#F0F0F0;">{$info['a_title']}</td>
     	<td style="background:#F0F0F0;"></td>
     </tr>
-
-    <tr>
-    	<td style="border-bottom: 1px solid #F0F0F0;"><input type="checkbox" name="selectid[]" value="{$info['id']}">{php echo $n+1;}</td>
-		<td style="border-bottom: 1px solid #F0F0F0;">永久免费版<br />套餐用户数量：5<br />共享网盘容量(G)：5<br />购买时长：永久免费</td>
-		<td style="border-bottom: 1px solid #F0F0F0;">数量&nbsp; &nbsp; <input name="qualtity" value="1" readonly="readonly"><br />单价（元）：0<br />操作：<a href="">删除</a></td>
-    </tr>
-    <!--<tr>
-		<td>单价（元）：0</td>
-    </tr>    
-    <tr>
-		<td>操作：<a href="">删除</a></td>
-    </tr>   
-    <tr >
-		<td style="border-bottom: 1px solid #F0F0F0;"></td>
-    </tr> -->
-</table>		
-		
-		
-		
-		
-		
-		<!--<td align="center"><input type="checkbox" name="selectid[]" value="{$info['id']}"></td>
-		<td align="center">{php echo $n+1;}</td>
-		<td align="left" style="padding-left: 200px;" >
-		{$info['a_title']}{if $info["configs"]["uuid"]} : {$info["configs"]["uuid"]}{/if}
+	<tr>
+		<td style="border-bottom: 1px solid #F0F0F0;"><input type="checkbox" name="selectid[]" value="{$info['id']}">{php echo $n+1;}</td>
+		<td style="border-bottom: 1px solid #F0F0F0;">
+			{if $info["configs"]["uuid"]} : {$info["configs"]["uuid"]}{/if}
 		{if $info["from"]=="yunbeifen"||$info["from"]=="yewuqianyi"||$info["from"]=="gaokeyong"||$info["from"]=="yungongxiang"}
 		<br />{$info["configs"]["yun"]}
 		{loop $info["configs"]["service"] $r}
@@ -164,7 +138,7 @@
                 
                 {if $info['configs']['duration']  && $info["ptype"] == "goumai"}
                 {if $info['configs']['duration']!=1200}
-		<br />购买时长:{$info['configs']['duration']}{php echo $info['configs']['pricing_cycle']=="月"?"月":"年";}
+				<br />购买时长:{$info['configs']['duration']}{php echo $info['configs']['pricing_cycle']=="月"?"月":"年";}
                 {else}<br />购买时长: &nbsp; 永久免费
                 {/if}
                 {/if}
@@ -202,16 +176,23 @@
 			{/if}
 		{/if}
 		</td>
-		<td align="center">
+		<td style="border-bottom: 1px solid #F0F0F0;"><input type="hidden" name="id[]" value="{$info['id']}" />数量&nbsp; &nbsp; <input type="text" name="quantity[]" value="{$info['quantity']}" onfocus="this.blur()" size="4" />
+		<br />单价（元）：{$info['money']}
+		<br />操作：<a href="{APP_PATH}index.php?m=order&c=cart&a=delete&id={$info['id']}">删除</a>
+			
+		</td>
+
+
+		<!--<td align="center">
 			<input type="hidden" name="id[]" value="{$info['id']}" />
 			<input type="text" name="quantity[]" value="{$info['quantity']}" onfocus="this.blur()" size="4" />
 		</td>
 		<td align="center">{$info['money']}</td>
-		<td align="center"><a href="{APP_PATH}index.php?m=order&c=cart&a=delete&id={$info['id']}">删除</a></td>
+		<td align="center"><a href="{APP_PATH}index.php?m=order&c=cart&a=delete&id={$info['id']}">删除</a></td>-->
 	</tr>
 	{/loop}
     </tbody>
-</table>-->
+</table>
 <div class="btn">
 	<a href="#" onClick="javascript:$('input[type=checkbox]').attr('checked', true)">全选</a>/<a href="#" onClick="javascript:$('input[type=checkbox]').attr('checked', false)">取消</a> 
 
