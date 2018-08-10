@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <div id="space"></div>  
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+		<script src="build/three.js"></script>
+     
+    <script src="threejs的官方examples/js/controls/OrbitControls.js"></script>
+		<script src="threejs的官方examples/js/libs/tween.min.js"></script>
+    <script>
+         
+ 
+            var container, stats;
+ 
+            var camera, scene, renderer;
+ 
+            var mouseX = 0, mouseY = 0;
+ 
+            var windowHalfX = window.innerWidth / 2;
+            var windowHalfY = window.innerHeight / 2;
+ 
+ 
+            init();
+            animate();
+            var mesh;
+ 
+            function init() {
+ 
+                container = document.getElementById("space")
+                camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 5000 );
+                camera.position.set(0, 0, 1500);
+                 
+                scene = new THREE.Scene();
+ 
+                var ambient = new THREE.AmbientLight( 0xffffff );
+                scene.add( ambient );
+                 
+                 
+                var directionalLight = new THREE.DirectionalLight( 0xffffff );
+                directionalLight.position.set( -5, 5, 5).normalize();
+                scene.add( directionalLight );
+ 
+                var pointlight = new THREE.PointLight(0x63d5ff, 1, 200); 
+                pointlight.position.set(0, 0, 200);
+                scene.add( pointlight );                
+                var pointlight2 = new THREE.PointLight(0xffffff, 1, 200); 
+                pointlight2.position.set(-200, 200, 200);
+                scene.add( pointlight2 );
+                var pointlight3 = new THREE.PointLight(0xffffff, 1.5, 200); 
+                pointlight3.position.set(-200, 200, 0);
+                scene.add( pointlight3 );
+ 
+ 
+					// FlyControls:飞行控制，用键盘和鼠标控制相机的移动和转动
+					//OrbitControls::轨道控制器，模拟轨道中的卫星，绕某个对象旋转平移，用键盘和鼠标控制相机位置
+					//PointerLockControls:指针锁定，鼠标离开画布依然能被捕捉到鼠标交互，主要用于游戏
+					//TrackballControls：轨迹球控制器，通过键盘和鼠标控制前后左右平移和缩放场景
+					//TransformControls:变换物体控制器，可以通过鼠标对物体的进行拖放等操作
+					
+                var controls = new THREE.OrbitControls(camera,container);
+					// controls.maxPolarAngle=1.5;//上下两极的可视区域的最大角度
+					//  controls.minPolarAngle=1;//上下两极的可视区域最小角度
+					    controls.enableDamping=true;//允许远近拉伸
+					    controls.enableKeys=false;//禁止键盘控制
+					    controls.enablePan=false;//禁止平移
+					    controls.dampingFactor = 0.1;//鼠标滚动一个单位时拉伸幅度
+					    controls.rotateSpeed=0.1;//旋转速度
+					////  controls.enabled = false;//禁用控制器
+					//  controls.minDistance=1000;//离中心物体的最近距离
+					//  controls.maxDistance=3000;//离中心物体的最远距离
+                 
+                 
+                 
+                var path = "img/";
+                var format = '.png';
+                var urls = [
+                        path + 'p1' + format, path + 'p2' + format,
+                        path + 'p3' + format, path + 'p4' + format,
+                        path + 'p5' + format, path + 'p6' + format
+                    ];
+                var skyMaterials = []; 
+                for (var i = 0; i < urls.length; ++i) {
+                    var loader = new THREE.TextureLoader();
+                    loader.setCrossOrigin( this.crossOrigin );
+                    var texture = loader.load( urls[i], function(){}, undefined, function(){} );
+                     
+                    skyMaterials.push(new THREE.MeshBasicMaterial({
+                        //map: THREE.ImageUtils.loadTexture(urls[i], {},function() { }), 
+                        map: texture, 
+                        overdraw: true,
+                        side: THREE.BackSide,
+                        //transparent: true,
+                        //needsUpdate:true,
+                        premultipliedAlpha: true
+                        //depthWrite:true,
+                         
+        //              wireframe:false,
+                    })
+                    ); 
+                     
+                } 
+                 
+                var cube = new THREE.Mesh(new THREE.CubeGeometry(500, 500,500), new THREE.MeshFaceMaterial(skyMaterials)); 
+                cube.name="sky";
+                scene.add(cube);
+                
+                renderer = new THREE.WebGLRenderer();
+                renderer.setPixelRatio( window.devicePixelRatio );//设置canvas的像素比为当前设备的屏幕像素比，避免高分屏下模糊
+                renderer.setSize( window.innerWidth, window.innerHeight );//设置渲染器大小,即canvas画布的大小
+                container.appendChild( renderer.domElement );//在页面中添加canvas
+ 
+                document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+                window.addEventListener( 'resize', onWindowResize, false );
+ 
+            }
+ 
+            function onWindowResize() {
+ 
+                windowHalfX = window.innerWidth / 2;
+                windowHalfY = window.innerHeight / 2;
+ 
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+ 
+            }
+ 
+            function onDocumentMouseMove( event ) {
+ 
+                mouseX = ( event.clientX - windowHalfX ) / 2;
+                mouseY = ( event.clientY - windowHalfY ) / 2;
+ 
+            }
+ 
+            //
+ 
+            function animate() {
+ 
+                requestAnimationFrame( animate );
+                render();
+ 
+            }
+ 
+            function render() {
+                 
+//              camera.position.x += ( mouseX - camera.position.x ) ;
+//              camera.position.y += ( mouseY - camera.position.y ) ;
+                 
+                camera.lookAt( scene.position );
+ 
+                renderer.render( scene, camera );
+ 
+            }
+ 
+    </script>
+    </body>
+</html>

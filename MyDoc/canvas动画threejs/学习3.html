@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <div id="space"></div>  
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+		<script src="build/three.js"></script>
+    <script src="threejs的官方examples/js/loaders/MTLLoader.js"></script>
+    <script src="threejs的官方examples/js/loaders/OBJLoader.js"></script>
+    <script src="threejs的官方examples/js/controls/OrbitControls.js"></script>
+		<script src="threejs的官方examples/js/libs/tween.min.js"></script>
+    <script>
+        var Math3D=function(window,document){
+    function _createRandomCoord(maxR,minR){
+        var r=Math.round(Math.random()*(maxR-minR))+minR;
+        var theta=Math.random()*Math.PI*2;
+        //console.log(theta+"="+theta/Math.PI*180);
+        var phi=Math.random()*Math.PI*2;
+        //console.log(phi+"="+phi/Math.PI*180);
+         
+        return get3DAxis(theta,phi,r);
+    }
+    function get3DAxis(theta,phi,r){
+        //X=rsinθcosφ y=rsinθsinφ z=rcosθ
+        return{
+            x:r*Math.sin(theta)*Math.cos(phi),
+            y:r*Math.sin(theta)*Math.sin(phi),
+            z:r*Math.cos(theta)
+        }
+    }
+    function get3DAngle(x,y,z){
+        //r=sqrt(x*2 + y*2 + z*2); θ= arccos(z/r); φ=arctan(y/x);
+        var r=Math.sqrt(x*x + y*y + z*z);
+        return{
+            theta:Math.acos(z/r),
+            phi:Math.atan(y/x),
+            r:r
+        }
+    }
+    function getAngle(point){
+                return Math.atan2(point.y,point.x)//atan2自带坐标系识别, 注意X,Y的顺序
+            }
+    function Rotate(source,angle,rudius)//Angle为正时逆时针转动, 单位为弧度
+    {
+        var A,R;
+        A = getAngle(source);
+        A += angle;//旋转
+        R = Math.sqrt(source.x * source.x + source.y * source.y)//半径
+        if(rudius){
+            R-=rudius
+        }
+        return {
+            x : Math.cos(A) * R,
+            y : Math.sin(A) * R
+        }
+    }
+    function getpositionFromAngel(A,R)//Angle为正时逆时针转动, 单位为弧度
+    {
+         
+        return {
+            x : Math.cos(A) * R,
+            y : Math.sin(A) * R
+        }
+    }
+     
+    return{
+        createRandomCoord:_createRandomCoord,
+        getAngleByAxis2d:getAngle,
+        getRotateAxis2d:Rotate,
+        getAxis2dByAngle:getpositionFromAngel,
+        get3DAxis:get3DAxis,
+        get3DAngle:get3DAngle
+    }
+}(window,document,undefined);
+ 
+ 
+        var container, stats;
+ 
+        var camera, scene, renderer,controls;
+ 
+        var mouseX = 0, mouseY = 0;
+ 
+        var windowHalfX = window.innerWidth / 2;
+        var windowHalfY = window.innerHeight / 2;
+ 
+        var clickObjects=[];
+        var _raycaster = new THREE.Raycaster();
+        var raycAsix=new THREE.Vector2();
+        var _curObj=null,_isRotateing=false;
+        var _userView={};
+        init();
+        animate();
+        var mesh;
+ 
+        function init() {
+ 
+            container = document.getElementById("space")
+            camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 8000 );
+            camera.position.set(0, 0, 1500);
+             
+            scene = new THREE.Scene();
+ 
+            var ambient = new THREE.AmbientLight( 0xffffff );
+            scene.add( ambient );
+             
+             
+            var directionalLight = new THREE.DirectionalLight( 0xffffff );
+            directionalLight.position.set( -5, 5, 5).normalize();
+            scene.add( directionalLight );
+ 
+            var pointlight = new THREE.PointLight(0x63d5ff, 1, 200); 
+            pointlight.position.set(0, 0, 200);
+            scene.add( pointlight );                
+            var pointlight2 = new THREE.PointLight(0xffffff, 1, 200); 
+            pointlight2.position.set(-200, 200, 200);
+            scene.add( pointlight2 );
+            var pointlight3 = new THREE.PointLight(0xffffff, 1.5, 200); 
+            pointlight3.position.set(-200, 200, 0);
+            scene.add( pointlight3 );
+            scene.add( new THREE.PointLightHelper( pointlight3 ) );
+            scene.add( new THREE.PointLightHelper( pointlight2 ) );
+            scene.add( new THREE.PointLightHelper( pointlight ) );
+         
+             
+                var path = "img/";
+                var format = '.png';
+                var urls = [
+                        path + 'p1' + format, path + 'p2' + format,
+                        path + 'p3' + format, path + 'p4' + format,
+                        path + 'p5' + format, path + 'p6' + format
+                    ];
+            var skyMaterials = []; 
+            for (var i = 0; i < urls.length; ++i) {
+                var loader = new THREE.TextureLoader();
+                loader.setCrossOrigin( this.crossOrigin );
+                var texture = loader.load( urls[i], function(){}, undefined, function(){} );
+                 
+                skyMaterials.push(new THREE.MeshBasicMaterial({
+                    //map: THREE.ImageUtils.loadTexture(urls[i], {},function() { }), 
+                    map: texture, 
+                    overdraw: true,
+                    side: THREE.BackSide,
+                    //transparent: true,
+                    //needsUpdate:true,
+                    premultipliedAlpha: true
+                    //depthWrite:true,
+                     
+    //              wireframe:false,
+                })
+                ); 
+                 
+            } 
+             
+            var cube = new THREE.Mesh(new THREE.CubeGeometry(4000, 4000,4000), new THREE.MeshFaceMaterial(skyMaterials)); 
+            cube.name="sky";
+            scene.add(cube);
+             
+            createMtlObj({
+                mtlBaseUrl:"../resource/haven/",
+                mtlPath: "../resource/haven/",
+                mtlFileName:"threejs.mtl",
+                objPath:"../resource/haven/",
+                objFileName:"threejs.obj",
+                completeCallback:function(object){
+                    object.traverse(function(child) { 
+                        if (child instanceof THREE.Mesh) { 
+                            child.material.side = THREE.DoubleSide;
+                            child.material.emissive.r=0;
+                            child.material.emissive.g=0.01;
+                            child.material.emissive.b=0.05;
+                            child.material.transparent=true;
+                            //child.material.opacity=0;                     
+                            //child.material.shading=THREE.SmoothShading;
+                            clickObjects.push(child);
+                        }
+                    });
+ 
+                    object.emissive=0x00ffff;
+                    object.ambient=0x00ffff;
+                    //object.rotation.x= 10/180*Math.PI;
+                    object.position.y = 0;
+                    object.position.z = 0;
+                    object.scale.x=1;
+                    object.scale.y=1;
+                    object.scale.z=1;
+                    object.name="haven";
+                    object.rotation.y=-Math.PI;
+                    scene.add(object);
+                },
+                progress:function(persent){
+                     
+                    $("#havenloading .progress").css("width",persent+"%");
+                }
+            })
+            controls = new THREE.OrbitControls(camera,container);
+            controls.maxPolarAngle=1.5;
+            controls.minPolarAngle=1;
+            controls.enableDamping=true;
+            controls.enableKeys=false;
+            controls.enablePan=false;
+            controls.dampingFactor = 0.1;
+            controls.rotateSpeed=0.1;
+    //      controls.enabled = false;
+            controls.minDistance=1000;
+            controls.maxDistance=3000;
+             
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            container.appendChild( renderer.domElement );
+             
+            window.addEventListener( 'resize', onWindowResize, false );
+            window.addEventListener( 'mousemove', onDocumentMouseMove, false ); 
+            window.addEventListener( 'click', onDocumentClick, false );     
+        }
+         
+         
+        function createMtlObj(options){
+        //      options={
+        //          mtlBaseUrl:"",
+        //          mtlPath:"",
+        //          mtlFileName:"",
+        //          objPath:"",
+        //          objFileName:"",
+        //          completeCallback:function(object){  
+        //          }
+        //          progress:function(persent){
+        //              
+        //          }
+        //      }
+                //THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+            var mtlLoader = new THREE.MTLLoader();
+            mtlLoader.setBaseUrl( options.mtlBaseUrl );
+            mtlLoader.setPath( options.mtlPath );
+            mtlLoader.load( options.mtlFileName, function( materials ) {
+                materials.preload();
+                var objLoader = new THREE.OBJLoader();
+                objLoader.setMaterials( materials );
+                objLoader.setPath( options.objPath );
+                objLoader.load( options.objFileName, function ( object ) {
+                    if(typeof options.completeCallback=="function"){
+                        options.completeCallback(object);
+                    }
+                }, function ( xhr ) {
+                    if ( xhr.lengthComputable ) {
+                        var percentComplete = xhr.loaded / xhr.total * 100;
+                        if(typeof options.progress =="function"){
+                            options.progress( Math.round(percentComplete, 2));
+                        }
+                        //console.log( Math.round(percentComplete, 2) + '% downloaded' );
+                    }
+                }, function(error){
+                     
+                } );
+         
+            });
+        }
+        function onWindowResize() {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+        }
+         
+        function onDocumentMouseMove( event ) {
+            event.preventDefault();
+             
+            raycAsix.x = ( (event.pageX-$(container).offset().left) / container.offsetWidth ) * 2 - 1;
+            raycAsix.y = - ( (event.pageY-$(container).offset().top) /container.offsetHeight ) * 2 + 1;
+            _raycaster.setFromCamera(raycAsix, camera );
+            var intersects = _raycaster.intersectObjects( clickObjects );
+            if ( intersects.length > 0 ) {
+                document.body.style.cursor = 'pointer';
+                console.log(intersects[0].object.name);
+            }else{
+                document.body.style.cursor = 'default';
+            }
+        }
+             
+        function onDocumentClick( event ) {
+             
+            event.preventDefault();
+            _raycaster.setFromCamera( raycAsix, camera );
+            var intersects = _raycaster.intersectObjects( clickObjects );
+            if(intersects.length== 0){
+                return;
+                resetRotate();
+            }
+            if ( intersects.length > 0 &&intersects[ 0 ].object!=_curObj) {
+                if(_userView.curObj ==intersects[ 0 ].object){
+                    return;
+                }
+                _curObj =intersects[ 0 ].object;
+                rotateTo(intersects[ 0 ]);
+            }
+        }
+         
+        function rotateTo(obj){
+            _isRotateing=true;
+            controls.enabled = false;
+            var point=obj.point;
+            var pointAngle=Math3D.get3DAngle(point.x,point.y,point.z);//点击点的角度和球半径
+            var toAngle={//需要旋转到的用户视角的角度和半径
+                theta:pointAngle.theta,
+                phi:30/180*Math.PI,
+                r:1000
+            }
+             
+            _userView.cameraPosTo=Math3D.get3DAxis(toAngle.theta,toAngle.phi,toAngle.r);//旋转用户视角停止时摄像机位置
+            _userView.dmy={};
+            _userView.dmy.theta=Math3D.getAngleByAxis2d({x:camera.position.x,y:camera.position.z});//当前摄像机与Z轴的水平夹角
+            _userView.dmy.r=Math.sqrt(camera.position.x * camera.position.x + camera.position.z * camera.position.z);//当前摄像机离坐标轴原点的水平距离
+            _userView.dmy.y=camera.position.y;//当前摄像机的Y点坐标
+             
+            var dmyStop={};
+            dmyStop.theta=Math3D.getAngleByAxis2d({x:point.x,y:point.z});//旋转到用户点击点所在位置时摄像机与Z轴的水平夹角
+            dmyStop.r=1000;//用户视角模式时摄像机与坐标原点的水平距离
+            dmyStop.y=300;//用户视角模式时摄像机Y点坐标
+            var tween = new TWEEN.Tween(_userView.dmy).to(dmyStop, 1000).easing(TWEEN.Easing.Quadratic.InOut)
+            .onComplete(function(){
+                _isRotateing=false;
+                controls.enabled = true;
+            })
+            .start();//设置缓动动画
+        }
+        function animate() {
+            requestAnimationFrame( animate );
+            controls.update();
+            TWEEN.update();
+            render();
+        }
+        function render() {
+//              camera.position.x += ( mouseX - camera.position.x ) ;
+//              camera.position.y += ( mouseY - camera.position.y ) ;
+            if(_isRotateing){
+                var newCameraPos=Math3D.getAxis2dByAngle(_userView.dmy.theta,_userView.dmy.r);
+                camera.position.x=newCameraPos.x;
+                camera.position.y=_userView.dmy.y;
+                camera.position.z=newCameraPos.y;
+            }else {
+                var newCameraPos=Math3D.getRotateAxis2d({
+                    x:camera.position.x,
+                    y:camera.position.z
+                },-0.001,0);
+                camera.position.x=newCameraPos.x;
+                camera.position.z=newCameraPos.y;
+         
+                 
+            }
+             
+            camera.lookAt( scene.position );
+            renderer.render( scene, camera );
+ 
+        }
+         
+    </script>
+    </body>
+</html>

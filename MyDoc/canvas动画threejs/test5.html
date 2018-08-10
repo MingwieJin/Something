@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>1</title>
+		<script type="text/javascript" src="js/three.min.js"></script>
+    		<script src="https://cdn.bootcss.com/dat-gui/0.7.2/dat.gui.js"></script>
+    <script type="text/javascript" src="threejs的官方examples/js/effects/AsciiEffect.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Div which will hold the Output -->
+<div id="WebGL-output">
+</div>
+
+<!-- Javascript code that runs our Three.js examples -->
+<script type="text/javascript">
+
+   function init() {
+        var scene=new THREE.Scene();//生成一个场景
+        //生成一个相机
+        var camera=new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,0.1,1000);//视场，长宽比，近面，远面
+        camera.position.x=-20;
+        camera.position.y=40;
+        camera.position.z=30;
+        camera.lookAt(scene.position);
+        //生成一个渲染器
+        var render=new THREE.WebGLRenderer();
+        render.setClearColorHex(0xEEEEEE);
+        render.setSize(window.innerWidth,window.innerHeight);
+        render.shadowMapEnabled=true;//允许阴影映射，渲染阴影需要大量的资源，因此我们需要告诉渲染器我们需要阴影
+        
+        
+        //生成一个坐标轴，辅助线
+        var axes=new THREE.AxisHelper(20);
+        //生成一个平面
+        var planeGeometry=new THREE.PlaneGeometry(60,20,10,10);//平面
+        //生成一个材质
+        var planeMaterial=new THREE.MeshLambertMaterial({color:0xffffff});
+        //生成一个网格，将平面和材质放在一个网格中，组合在一起，组成一个物体
+        var plane=new THREE.Mesh(planeGeometry,planeMaterial);
+        plane.rotation.x=-0.5*Math.PI;//将平面沿着x轴进行旋转
+        plane.position.x=0;
+        plane.position.y=0;
+        plane.position.z=0;
+        plane.receiveShadow=true;//平面进行接受阴影
+        
+        var cubeGeometry=new THREE.CubeGeometry(10,10,10);
+        var planeMaterial1=new THREE.MeshLambertMaterial({color:0xff0000});
+        var cube=new THREE.Mesh(cubeGeometry,planeMaterial1);
+        //plane1.rotation.x=-0.5*Math.PI;//将平面沿着x轴进行旋转
+        cube.position.x=-4;
+        cube.position.y=3;
+        cube.position.z=0;
+        cube.castShadow=true;//需要阴影，方块进行投射阴影
+        
+        
+        var spotLight=new THREE.SpotLight(0xffffff);
+        spotLight.position.set(-40,60,-10);
+        spotLight.castShadow=true;
+        //将相机，渲染器，坐标轴，平面都追加到场景中，然后对场景和相机进行渲染
+        scene.add(camera);
+        scene.add(render);
+        scene.add(axes);
+        scene.add(plane);
+        scene.add(cube);
+        scene.add(spotLight);
+        var effect=new THREE.AsciiEffect(render);
+        effect.setSize(window.innerWidth,window.innerHeight);
+        document.getElementById("WebGL-output").append(effect.domElement);
+        renderScene();
+        
+        function renderScene(){
+            cube.rotation.x+=controls.rotationSpeed;
+            cube.rotation.y+=controls.rotationSpeed;
+            cube.rotation.z+=controls.rotationSpeed;
+            requestAnimationFrame(renderScene);
+            effect.render(scene,camera);
+        }
+        
+        
+    }
+    var controls=new function(){
+            this.rotationSpeed=0.02;
+    };
+    var gui=new dat.GUI();
+    gui.add(controls,"rotationSpeed",0,0.5);
+    window.onload = init;
+
+</script>
+</body>
+</html>
