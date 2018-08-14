@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <title>点播</title>
+	    <!-- load stylesheets -->
+	    <link rel="stylesheet" href="css/reset.css">
+	    <link rel="stylesheet" href="css/style.css">
+	    <script type="text/javascript">
+	    	(function (doc, win) {
+				var docEl = doc.documentElement,
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function () {
+					var clientWidth = docEl.clientWidth;
+					if (!clientWidth) return;
+					if(clientWidth>=1920){
+						docEl.style.fontSize = '100px';
+					}else{
+						docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+				}
+			};
+			if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+	    </script>
+		<!-- build:js ../javascript/demandapp.js -->
+		<script src="http://cdn.smarket.net.cn/javascript/SmarketComponents/CommonScript/Config.js" data-smarket="config"></script>
+		<script src="js/jquery/jquery.js"></script>
+		<!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+		<script src="js/flash.js"></script>
+		<script src="js/config.js" data-smarket="config"></script>
+		<!--<script src="../../bower_components/jquery/jquery.js"></script>-->
+		<script src="js/jquery/jquery.cookie.js"></script>
+		<script src="js/jquery/jquery.qrcode.min.js"></script>
+		<script src="js/hack.js"></script>
+		<script src="js/component/socket.io.js"></script>
+		<script src="js/component/knockout.js"></script>
+		<script src="js/component/knockout-repeat.js"></script>
+		<script src="js/component/device.js"></script>
+		<script src="js/Util.js"></script>
+        <script src="js/json3.min.js"></script>
+        <script src="js/jQuery.XDomainRequest.js"></script>
+		<script src="js/respond.min.js"></script>
+		<script src="js/component/jquery.mCustomScrollbar.js"></script>
+		<script src="js/component/idangerous.swiper.min.js"></script>
+		<!-- endbuild -->
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="logo-live"><img src="images/logo-live.png" alt="logo"  /></div>
+			<!--<div class="logo-live"><img src="../images/logo-live.png" alt="logo"  data-smarket="logo" data-smarket-name="会场Logo" data-smarket-scope="图片设置"/></div>-->
+			<div class="live-main clearfix">
+				<a href="javascript:void(0)"><div class="back back-1" style="display: none;">返回选择会场</div></a>
+				<div class="bf">
+
+					
+					
+	<div class="video" data-component="video">
+		  <video id="my-video" class="video-js" controls preload="none" width="100%" height="100%"
+		  poster="img/poster.jpg" data-setup="{}">
+		    <source src="http://oss.info2soft.com/video/info2soft.mp4" type='video/mp4'>
+		    <p class="vjs-no-js">
+		      To view this video please enable JavaScript, and consider upgrading to a web browser that
+		      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+		    </p>
+		  </video>
+	</div>
+					
+					<div name = "video1" style=" text-align: center"></div>
+					<div class="ppt" name="doc" data-component="doc"></div>
+					<div class="video-animation">
+						<div class="video-line"></div>
+						<div class="video-round"></div>
+					</div>
+					<div class="switch icon-switch"></div>
+				</div>
+				<div class="bf-side">
+					<div class="cont" id="chapterVM">
+						<div class="ppt"></div>
+						<div class="tabs">
+							<span class="on">时间</span>
+							<span>页码</span>
+						</div>
+						<ul class="list" data-bind="foreach:chapterList">
+							<li class="clearfix" data-bind="click:function(){meetingSetting.chapterSeek($data)}">
+								<div class="fl" data-bind="text:startimeShort">00:08:47</div>
+								<div class="fl" data-bind="text:title,attr:{'title':title}">1</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="gz"></div>
+		</div>
+		
+		<div class="pop sel-meeting" style="display: none;">
+			<div class="main">
+				<div class="close"><span></span></div>
+				<div class="cont">
+					<div class="tit">请选择您感兴趣的会场</div>
+					<div class="btn-group">
+						<a href="javascript:void(0);"  data-bind="click:function(){selectmeeting(parentId())},css:{'on':webinarId()==parentId()}">主会场</a>
+						<!--ko foreach:mainwebinarInfo-->
+						<a href="javascript:void(0);"  data-bind="click:function(){$root.selectmeeting(webinarId)},css:{'on':$root.webinarId()==webinarId}">
+							<!--ko text:title-->
+							<!--/ko-->
+						</a>
+						<!--/ko-->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(function(){
+				$('.pop .close>span').click(function(){
+					$(this).parent().parent().parent().fadeOut();
+				})
+				$('.back').click(function(){
+					$('.sel-meeting').fadeIn();
+				})
+			})
+		</script>
+
+    <script src="js/smarket/md5.js"></script>
+	<script src="js/smarket/smarket.js"></script>
+		<!--以下依赖smarket-->
+	<!-- build:js ../javascript/demandlive.js -->
+	<script src="js/smarket/utilityVariable.js"></script>
+	<script src="js/smarket/webinar.js"></script>
+	<script src="js/smarket/meetingVM.js"></script>
+	<script src="js/smarket/meetingSetting.js"></script>
+	<script src="js/smarket/meetingSocket.js"></script>
+	<script src="js/smarket/indexMeeting.js"></script>
+	<!-- endbuild -->
+		<!--demandinit_controller 依赖meetingSocket-->
+		<script src="js/smarket/demandinit_controller.js"></script>
+
+	</body>
+</html>
