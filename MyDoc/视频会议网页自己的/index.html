@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="wrap">
-			<div class="logo-live"><img src="img/logo3.png" alt="logo"  /></div>
+			<div class="logo-live"><a href="主入口/主入口.html"><img src="img/logo3.png" alt="logo"/></a></div>
 			<!--<div class="logo-live"><img src="../images/logo-live.png" alt="logo"  data-smarket="logo" data-smarket-name="会场Logo" data-smarket-scope="图片设置"/></div>-->
 			<div class="live-main clearfix">
 				<a href="主入口/主入口.html"><div class="back back-1">返回选择会场</div></a>
@@ -141,9 +141,12 @@
   	$("#largeContainer").bind("click",function(){
 			$("#largeContainer").hide();
 	});
-
-
-
+//绑定esc键退出全屏
+	$(window).keydown(function (event) {
+        if (event.keyCode == 27) {
+            $("#largeContainer").hide();
+        }
+   });
 //时间跳转
 	function setCurTime(obj){ 
 	  var videotime =$(obj).attr("data-time");
