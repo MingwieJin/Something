@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	<style>
+		    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        body {
+            /*background: url("https://farm3.staticflickr.com/2908/32764885503_1a04915b11_k.jpg") no-repeat center;*/
+            width: 100vw;
+            min-height: 100%;
+        }
+	</style>	
+		
+	</head>
+	<body>
+		
+		<canvas id="canvas" width="1000px" height="1000px"></canvas>
+		
+<script>
+	
+	var canvas = document.getElementById('canvas'); 
+	var ctx = canvas.getContext('2d');
+	
+	var cx =400;
+	var cy = 200;
+	var radius = 100;
+
+	ctx.save(); // 绘制第一个圆 
+	ctx.beginPath(); 
+	ctx.fillStyle = 'tomato'; 
+	ctx.arc(cx, cy, radius, 0, Math.PI * 2, false); 
+	ctx.fill();
+	// 绘制第二个圆 
+	ctx.beginPath(); 
+	ctx.fillStyle = '#333'; 
+	ctx.arc(cx + 100, cy, radius, 0, Math.PI * 2, false); 
+	ctx.fill();
+	// 绘制第三个圆
+	ctx.beginPath(); 
+	ctx.fillStyle = 'cornsilk'; 
+	ctx.arc(cx, cy + 100, radius, 0, Math.PI * 2, false); 
+	ctx.fill();
+	// 绘制第四个圆 
+	ctx.beginPath(); 
+	ctx.strokeStyle = '#ccc'; 
+	ctx.lineWidth = 10; 
+	ctx.arc(cx, cy, radius, 0, Math.PI * 2, false); 
+	ctx.stroke(); ctx.restore();
+
+</script>		
+	</body>
+</html>
