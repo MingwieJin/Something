@@ -187,10 +187,10 @@ const update = () => {
 	arc(279, Math.PI);
 	g.stroke();
 
-//	加载云彩
-	g.save();
-	clouds.forEach(cloud => cloud.update());
-	g.restore();
+////	加载云彩
+//	g.save();
+//	clouds.forEach(cloud => cloud.update());
+//	g.restore();
 
 	let toRight = g.createLinearGradient(512, 200, 400, 400);
 	toRight.addColorStop(1, "rgba(1,230,255,0)");
