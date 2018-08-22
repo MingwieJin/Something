@@ -122,7 +122,11 @@
    rangeValue = range.value;
  
    if(IsdrawCircled == false){
-    drawCircle(); 
+//先画裁剪区
+   ctx.beginPath();
+   ctx.arc(r, r, cR, 0, 2 * Math.PI);
+   ctx.save()
+   ctx.clip();
    }
  
    if(nowRange <= rangeValue){
@@ -135,9 +139,19 @@
     nowRange -= tmp;
    }
  
+ 	
    drawSin(xOffset, '#1c86d1');
    drawSin(xOffset+Math.PI*1, 'rgba(28, 134, 209, 0.5)');
    drawText(); 
+   
+// 在画完波浪以后,取消裁剪,然后画外边框
+   ctx.restore();
+   ctx.beginPath();
+   ctx.lineWidth=10;
+   ctx.strokeStyle = "#d6f9ff";
+   ctx.arc(r, r, cR+5, 0, 2 * Math.PI);
+   ctx.stroke();
+// 外边框结束
  
    xOffset += speed;
 

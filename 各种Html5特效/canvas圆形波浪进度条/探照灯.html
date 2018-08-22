@@ -47,17 +47,19 @@
 	ctx.fillStyle = '#333'; 
 	ctx.arc(cx + 100, cy, radius, 0, Math.PI * 2, false); 
 	ctx.fill();
+	
 	// 绘制第三个圆
 	ctx.beginPath(); 
 	ctx.fillStyle = 'cornsilk'; 
 	ctx.arc(cx, cy + 100, radius, 0, Math.PI * 2, false); 
 	ctx.fill();
+	ctx.clip();
 	// 绘制第四个圆 
 	ctx.beginPath(); 
 	ctx.strokeStyle = '#ccc'; 
 	ctx.lineWidth = 10; 
 	ctx.arc(cx, cy, radius, 0, Math.PI * 2, false); 
-	ctx.stroke(); ctx.restore();
+	ctx.stroke(); 
 
 </script>		
 	</body>
