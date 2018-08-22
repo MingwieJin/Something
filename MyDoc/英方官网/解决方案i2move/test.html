@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		
+		    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   	<script src="js/owl.carousel.js"></script>
+   	
+   	
+   	<style>
+   		body
+   		{margin:0;}
+   		#owl-carousel{
+   			width:100%;
+   			max-width: 1200px;
+   			margin:0 auto;
+   		}
+   		.slide-item{
+   			padding:15%;
+   		}
+.owl-controls{
+	display:none;
+}
+   	</style>
+	</head>
+	<body>
+		
+		
+		
+<div class="owl-carousel" id="owl-carousel">
+            <div class="slide-item">
+					<img class="item-bg" src="img/case1.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case2.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case3.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case4.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case5.png"/>
+            </div>
+</div>
+
+<script>
+	//底部轮播用
+$(function(){
+    var owl = $('#owl-carousel');
+        owl.owlCarousel({
+        items: 4,
+        loop: true,
+//      margin: 10,
+        nav: true,
+        autoplay: true,
+        mouseDrag:true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+	    responsive: {
+	        0: {
+	            items: 1,
+	           },
+	        700: {
+	            items: 2,
+	            },
+	       1000: {
+	            items: 4,
+	            },
+	       1200: {
+	            items: 5,
+	        }
+	    }
+
+
+		});
+		
+//		$('.owl-next1').on('click', function() {
+//		owl.trigger('next.owl');
+//		});
+//		$('.owl-prev1').on('click', function() {
+//		owl.trigger('prev.owl');
+//		})
+		
+}); 
+</script>
+	</body>
+</html>

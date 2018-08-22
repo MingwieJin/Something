@@ -5,7 +5,12 @@
 		<title></title>
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>		
+		<script src="js/bootstrap.min.js"></script>	
+		
+		<!--轮播用-->
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+	    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+	   	<script src="js/owl.carousel.js"></script>
 		
 <style>	
 body{
@@ -173,12 +178,21 @@ body{
 	max-width: 1200px;
 	margin:60px auto 100px auto;
 }
-.case-row{
+/*.case-row{
 	margin-top:60px;
 }
 .case-row img{
 	display:block;
 	margin: 0 auto;
+}*/
+#owl-carousel{
+	margin-top: 60px;
+}
+.slide-item{
+   	padding:0 15%;
+}
+.owl-controls{
+	display:none;
 }
 /*用户案例结束*/
 /*合作伙伴开始*/
@@ -328,28 +342,29 @@ body{
 <!--产品界面开始-->
 <div class="move-desktop">
 	<img class="desk-back" src="img/desktop.png"/>
-	<div class="move-title desk-title"><span><img src="img/title-icon-left.png"/></span>主要应用场景<span><img src="img/title-icon-right.png"/></span></div>	
+	<div class="move-title desk-title"><span><img src="img/title-icon-left.png"/></span>产品界面<span><img src="img/title-icon-right.png"/></span></div>	
 </div>
 <!--产品界面结束-->
 <!--用户案例开始-->
 <div class="move-case">
 	<div class="move-title"><span><img src="img/title-icon-left.png"/></span>用户案例<span><img src="img/title-icon-right.png"/></span></div>	
-	<div class="case-row col-md-25 col-sm-6">
-		<img src="img/case1.png"/>
+	<div class="owl-carousel" id="owl-carousel">
+            <div class="slide-item">
+					<img class="item-bg" src="img/case1.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case2.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case3.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case4.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/case5.png"/>
+            </div>
 	</div>
-	<div class="case-row col-md-25 col-sm-6">
-		<img src="img/case2.png"/>
-	</div>
-	<div class="case-row col-md-25 col-sm-6">
-		<img src="img/case3.png"/>
-	</div>
-	<div class="case-row col-md-25 col-sm-6">
-		<img src="img/case4.png"/>
-	</div>
-	<div class="case-row col-md-25 col-sm-6">
-		<img src="img/case5.png"/>
-	</div>
-	<div class="clear"></div>
 </div>
 <!--用户案例结束-->
 <!--合作伙伴开始-->
@@ -384,5 +399,44 @@ body{
 </div>
 <!--合作伙伴结束-->
 
+
+<script>
+	//底部轮播用
+$(function(){
+    var owl = $('#owl-carousel');
+        owl.owlCarousel({
+        items: 4,
+        loop: true,
+//      margin: 10,
+        nav: true,
+        autoplay: true,
+        mouseDrag:true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+	    responsive: {
+	        0: {
+	            items: 2,
+	           },
+	        700: {
+	            items: 2,
+	            },
+	       1000: {
+	            items: 4,
+	            },
+	       1200: {
+	            items: 5,
+	        }
+	    }
+		});
+		
+//		$('.owl-next1').on('click', function() {
+//		owl.trigger('next.owl');
+//		});
+//		$('.owl-prev1').on('click', function() {
+//		owl.trigger('prev.owl');
+//		})
+		
+}); 
+</script>
 </body>
 </html>
