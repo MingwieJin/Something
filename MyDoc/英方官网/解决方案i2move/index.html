@@ -214,6 +214,24 @@ body{
 	}
 }
 /*合作伙伴结束*/
+/*canvas开始*/
+ .canvas-outer{
+ 	position: relative;
+ 	width:120px;
+ 	height:120px;
+ 	margin:0 auto 40px auto;
+ 	border-radius:140px;
+ 	background:radial-gradient(#fff 40%, #A8DEF4 100%);;
+ 	
+ }
+ .c{
+ 	position:absolute;
+ }
+.shadow{
+	top:110px;
+	position:absolute;
+}
+/*canvas结束*/
 </style>			
 </head>
 <body>
@@ -223,30 +241,60 @@ body{
 
 <!--系统迁移难点开始-->
 <div class="move-difficulty">
-	<div class="move-title"><span><img src="img/title-icon-left.png"/></span>系统迁移的难点<span><img src="img/title-icon-right.png"/></span></div>
+	<div class="move-title"><span><img src="<?php echo content_url('themes/zCloud/img/Sol-i2move/title-icon-left.png');?>"/></span>系统迁移的难点<span><img src="<?php echo content_url('themes/zCloud/img/Sol-i2move/title-icon-right.png');?>"/></span></div>
 	<div class="dif-row col-md-4 col-sm-6">
-			<div class="dif-row-img"><img src="img/百分比图2.png"/></div>
-			<div class="dif-row-content"><p>停机迁移，影响业务日常运行</p></div>
+                <div class="dif-row-img">
+                    <div class="canvas-outer">
+                        <canvas id="c" class="c"></canvas>
+                        <canvas id="box" class="shadow" width="150px" height="50"></canvas>
+                     </div>
+                </div>
+		<div class="dif-row-content"><p>停机迁移，影响业务日常运行</p></div>
 	</div>
 	<div class="dif-row col-md-4 col-sm-6">
-		<div class="dif-row-img"><img src="img/百分比图4.png"/></div>
+                <div class="dif-row-img">
+                    <div class="canvas-outer">
+                        <canvas id="c2" class="c"></canvas>
+                        <canvas id="box2" class="shadow" width="150px" height="50"></canvas>
+                     </div>
+                </div>
 		<div class="dif-row-content"><p>迁移系统数量受限，迁移效率低下</p></div>
 	</div>	
 	<div class="dif-row col-md-4 col-sm-6">
-		<div class="dif-row-img"><img src="img/百分比图1.png"/></div>
+                <div class="dif-row-img">
+                    <div class="canvas-outer">
+                        <canvas id="c3" class="c"></canvas>
+                        <canvas id="box3" class="shadow" width="150px" height="50"></canvas>
+                     </div>
+                </div>
 		<div class="dif-row-content"><p>异构存储无法实现迁移，造成数据孤岛</p></div>
 	</div>
 	<div class="row-clear"></div>
 	<div class="dif-row col-md-4 col-sm-6">
-		<div class="dif-row-img"><img src="img/百分比图1.png"/></div>
+                <div class="dif-row-img">
+                    <div class="canvas-outer">
+                        <canvas id="c4" class="c"></canvas>
+                        <canvas id="box4" class="shadow" width="150px" height="50"></canvas>
+                     </div>
+                </div>
 		<div class="dif-row-content"><p>迁移过程的数据安全性问题凸显，迁移过程不可见</p></div>
 	</div>
 	<div class="dif-row col-md-4 col-sm-6">
-		<div class="dif-row-img"><img src="img/百分比图7.png"/></div>
+                <div class="dif-row-img">
+                    <div class="canvas-outer">
+                        <canvas id="c5" class="c"></canvas>
+                        <canvas id="box5" class="shadow" width="150px" height="50"></canvas>
+                     </div>
+                </div>
 		<div class="dif-row-content"><p>难以保证数据一致性，业务无法正常重启</p></div>
 	</div>
 	<div class="dif-row col-md-4 col-sm-6">
-		<div class="dif-row-img"><img src="img/百分比图5.png"/></div>
+                <div class="dif-row-img">
+                    <div class="canvas-outer">
+                        <canvas id="c6" class="c"></canvas>
+                        <canvas id="box6" class="shadow" width="150px" height="50"></canvas>
+                     </div>
+                </div>
 		<div class="dif-row-content"><p>其他（成本，服务能力等）</p></div>
 	</div>
 	<div class="clear"></div>
@@ -437,6 +485,156 @@ $(function(){
 //		})
 		
 }); 
+
+function drawCanvas(id, percent, waveH, waveW, shift){
+   var canvas = document.getElementById(id);
+   var ctx = canvas.getContext('2d');
+	var range=percent;
+ 
+  //range控件信息
+  var rangeValue = range.value;
+  var nowRange = 0; //用于做一个临时的range
+ 
+  //画布属性
+  var mW = canvas.width = 120;
+  var mH = canvas.height = 120;
+  var lineWidth = 2;
+ 
+  //圆属性
+  var r = mH / 2; //圆心
+  var cR = r - 3 * lineWidth; //圆半径
+ 
+  //Sin 曲线属性
+  var sX = 0;
+  var sY = mH / 2;
+  var axisLength = mW; //轴长
+  var waveWidth = waveW ; //波浪宽度,数越小越宽 
+  var waveHeight = waveH; //波浪高度,数越大越高
+  var speed = 0.05; //波浪速度，数越大速度越快
+  var xOffset = 0; //波浪x偏移量
+ 
+  ctx.lineWidth = lineWidth;
+ 
+  //画圈函数
+  var IsdrawCircled = false;  
+  //画sin 曲线函数
+  var drawSin = function(xOffset, color){
+   ctx.save();
+ 
+   var points=[]; //用于存放绘制Sin曲线的点
+ 
+   ctx.beginPath();
+   //在整个轴长上取点
+   for(var x = sX; x < sX + axisLength; x += 20 / axisLength){
+    //此处坐标(x,y)的取点，依靠公式 “振幅高*sin(x*振幅宽 + 振幅偏移量)”
+    var y = -Math.sin((sX + x) * waveWidth + xOffset);
+ 
+    var dY = mH * (1 - nowRange / 100 );
+ 
+    points.push([x, dY + y * waveHeight]);
+    ctx.lineTo(x, dY + y * waveHeight);  
+   }
+ 
+
+ 
+   //封闭路径
+   ctx.lineTo(axisLength, mH);
+   ctx.lineTo(sX, mH);
+   ctx.lineTo(points[0][0],points[0][1]);
+   ctx.fillStyle = color;
+   ctx.fill();
+ 
+   ctx.restore();
+  };
+ 
+  //写百分比文本函数
+  var drawText = function(){
+   ctx.save();
+ 
+   var size = 0.4*cR;
+   ctx.font = size + 'px Microsoft Yahei';
+   ctx.textAlign = 'center';
+   ctx.fillStyle = "#666";
+   ctx.fillText(~~nowRange + '%', r, r + size / 2);
+ 
+   ctx.restore();
+  };
+ 
+  var render = function(){
+   ctx.clearRect(0, 0, mW, mH);
+ 
+// rangeValue = range.value;
+	rangeValue = range;
+ 
+   if(IsdrawCircled == false){
+//先画裁剪区
+   ctx.beginPath();
+   ctx.arc(r, r, cR+1, 0, 2 * Math.PI);
+   ctx.save()
+   ctx.clip();
+   }
+ 
+   if(nowRange <= rangeValue){
+    var tmp = 1;
+    nowRange += tmp;
+   }
+ 
+   if(nowRange > rangeValue){
+    var tmp = 1;
+    nowRange -= tmp;
+   }
+ 
+ 	
+  
+   drawSin(xOffset+Math.PI*(0.8+shift), 'rgba(159, 219, 243, 0.9)');
+    drawSin(xOffset+Math.PI*shift, 'rgba(39, 168, 225, 0.9)');
+   drawText(); 
+   
+// 在画完波浪以后,取消裁剪,然后画外边框
+   ctx.restore();
+   ctx.beginPath();
+   ctx.lineWidth=2;
+   ctx.strokeStyle = "rgba(218, 241, 251, 1)";
+   ctx.arc(r, r, cR+5, 0, 2 * Math.PI);
+   ctx.stroke();
+   
+// 外边框结束
+ 
+   xOffset += speed;
+	requestAnimationFrame(render);
+  };
+ 
+  render(); 
+}
+
+function drawshadow(id){
+var canvasEle=document.querySelector(id);
+var context=canvasEle.getContext("2d");
+var radialGradient=context.createRadialGradient(60,150,0,60,150,60);
+radialGradient.addColorStop(0,"#d1d1d1");
+radialGradient.addColorStop(1,"#ffffff");
+
+            context.beginPath();
+//          context.rotate(0);//旋转
+            context.scale(1, 0.2);
+            context.arc(60,150,60,0,Math.PI*2,true);
+            context.closePath();
+            context.fillStyle=radialGradient;
+			context.fill();
+}
+
+ drawCanvas("c", 40, 8, 0.02, 0);	
+ drawshadow("#box");
+ drawCanvas("c2", 30, 7, 0.03, 1.5);	
+ drawshadow("#box2");
+ drawCanvas("c3", 10, 2, 0.03, 0.9);	
+ drawshadow("#box3");
+ drawCanvas("c4", 10, 2, 0.03, 1.2);	
+ drawshadow("#box4");
+ drawCanvas("c5", 8, 2, 0.03, 1.5);	
+ drawshadow("#box5");
+ drawCanvas("c6", 2, 5, 0.03, 1.8);	
+ drawshadow("#box6");
 </script>
 </body>
 </html>

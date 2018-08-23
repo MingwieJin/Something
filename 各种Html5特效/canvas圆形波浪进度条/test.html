@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+     
+    <canvas id="box" width="800px" height="400px"></canvas>
+
+<script>
+	drawshadow("#box");
+function drawshadow(id){
+var canvasEle=document.querySelector("#box")
+var context=canvasEle.getContext("2d")
+var radialGradient=context.createRadialGradient(200,150,0,200,150,100)
+radialGradient.addColorStop(0,"#a1a1a1");
+radialGradient.addColorStop(1,"#ffffff");
+
+            context.beginPath();
+//          context.rotate(0);//旋转
+            context.scale(1, 0.2);
+            context.arc(200,150,100,0,Math.PI*2,true);
+            context.closePath();
+            context.fillStyle=radialGradient;
+			context.fill();
+}
+
+
+
+
+
+</script>
+	</body>
+</html>

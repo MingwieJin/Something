@@ -4,7 +4,7 @@
  <meta charset="UTF-8" />
  <title>Document</title>
  <style type="text/css">
-  #c{
+  /*#c{
    margin: 0 auto;
    display: block;
   }
@@ -21,38 +21,72 @@
    color: black;
    content: attr(max);
    padding-left: 10px;
-  }  
+  }  */
+ .canvas-outer{
+ 	position: relative;
+ 	width:150px;
+ 	height:150px;
+ 	margin-bottom: 40px;
+ 	border-radius:140px;
+ 	background:radial-gradient(#fff 40%, #A8DEF4 100%);;
+ 	
+ }
+ .c{
+ 	position:absolute;
+ }
+.shadow{
+	top:140px;
+	position:absolute;
+}
  </style>
 </head>
 <body>
- <canvas id="c"></canvas>
+<div class="canvas-outer">
+ <canvas id="c" class="c"></canvas>
+ <canvas id="box" class="shadow" width="150px" height="50"></canvas>
+ </div>
+ 
+<div class="canvas-outer">
+ <canvas id="c1" class="c">></canvas>
+ <canvas id="box1" class="shadow" width="150px" height="50"></canvas>
+ </div>
+<!-- <div class="canvas-bottom"></div>-->
  <input type="range" id="r" min="0" max="100" step="1">
  
  <script type="text/javascript">
-  var canvas = document.getElementById('c');
-  var ctx = canvas.getContext('2d');
-  var range = document.getElementById('r');
-
+ drawCanvas("c", 50, 10, 0.02, 0);	
+  drawCanvas("c1", 10, 3, 0.02, 0.5);	
+ 	
+function drawCanvas(id, percent, waveH, waveW, shift){
+	
+//var canvas = document.getElementById('c');
+//var ctx = canvas.getContext('2d');
+//var range = document.getElementById('r');	
+	
+	
+   var canvas = document.getElementById(id);
+   var ctx = canvas.getContext('2d');
+	var range=percent;
  
   //range控件信息
   var rangeValue = range.value;
   var nowRange = 0; //用于做一个临时的range
  
   //画布属性
-  var mW = canvas.width = 250;
-  var mH = canvas.height = 250;
+  var mW = canvas.width = 150;
+  var mH = canvas.height = 150;
   var lineWidth = 2;
  
   //圆属性
   var r = mH / 2; //圆心
-  var cR = r - 16 * lineWidth; //圆半径
+  var cR = r - 3 * lineWidth; //圆半径
  
   //Sin 曲线属性
   var sX = 0;
   var sY = mH / 2;
   var axisLength = mW; //轴长
-  var waveWidth = 0.015 ; //波浪宽度,数越小越宽 
-  var waveHeight = 15; //波浪高度,数越大越高
+  var waveWidth = waveW ; //波浪宽度,数越小越宽 
+  var waveHeight = waveH; //波浪高度,数越大越高
   var speed = 0.05; //波浪速度，数越大速度越快
   var xOffset = 0; //波浪x偏移量
  
@@ -119,12 +153,13 @@
   var render = function(){
    ctx.clearRect(0, 0, mW, mH);
  
-   rangeValue = range.value;
+// rangeValue = range.value;
+	rangeValue = range;
  
    if(IsdrawCircled == false){
 //先画裁剪区
    ctx.beginPath();
-   ctx.arc(r, r, cR, 0, 2 * Math.PI);
+   ctx.arc(r, r, cR+2, 0, 2 * Math.PI);
    ctx.save()
    ctx.clip();
    }
@@ -140,28 +175,45 @@
    }
  
  	
-   drawSin(xOffset, '#1c86d1');
-   drawSin(xOffset+Math.PI*1, 'rgba(28, 134, 209, 0.5)');
+   drawSin(xOffset+Math.PI*shift, '#1c86d1');
+   drawSin(xOffset+Math.PI*(0.8+shift), 'rgba(28, 134, 209, 0.5)');
    drawText(); 
    
 // 在画完波浪以后,取消裁剪,然后画外边框
    ctx.restore();
    ctx.beginPath();
-   ctx.lineWidth=10;
+   ctx.lineWidth=2;
    ctx.strokeStyle = "#d6f9ff";
    ctx.arc(r, r, cR+5, 0, 2 * Math.PI);
    ctx.stroke();
+   
 // 外边框结束
  
    xOffset += speed;
-
+	requestAnimationFrame(render);
   }
  
   render(); 
-  var FPS = 60;
+}
 
-setInterval(render, 1000/FPS);
-  
+drawshadow("#box");
+drawshadow("#box1");
+
+function drawshadow(id){
+var canvasEle=document.querySelector(id)
+var context=canvasEle.getContext("2d")
+var radialGradient=context.createRadialGradient(75,150,0,75,150,75)
+radialGradient.addColorStop(0,"#c1c1c1");
+radialGradient.addColorStop(1,"#ffffff");
+
+            context.beginPath();
+//          context.rotate(0);//旋转
+            context.scale(1, 0.2);
+            context.arc(75,150,75,0,Math.PI*2,true);
+            context.closePath();
+            context.fillStyle=radialGradient;
+			context.fill();
+}
 
  </script>
 </body>
