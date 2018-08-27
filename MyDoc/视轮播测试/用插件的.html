@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+			<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/jquery.vidbacking.css" type="text/css">
+	    <script src="js/jquery.vidbacking.js" type="text/javascript"></script>
+	
+	<style>
+	#video-back{
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	}	
+	#video-back h1{
+		font-size:60px;
+/*		color:#333;*/
+		text-align: center;
+	}	
+	#video-back .subtitle{
+		font-size:30px;
+		text-align: center;
+	}	
+	</style>
+	<body>
+		
+		
+		
+    <li id="video-back"> 
+      <video poster="screenshot1.jpg" autoplay muted loop class="vidbacking"> 
+<!--		<source src="assets/Rallye.webm" type="video/webm">-->
+        <source src="http://oss.info2soft.com/video/info2soft.mp4" type="video/mp4">
+      </video> 
+        <!-- html content of the div --> 
+        <h1>云中就绪  有备而来</h1> 
+        <div class="subtitle">长沙工业云峰台展会欢迎您</div>
+    </li>         
+    
+    
+    
+ <script>
+//	$(function(){
+//  		$('body').vidbacking();
+//	});
+	
+	
+	$(function(){
+			var cliheight = document.body.clientWidth ;
+			var videoheight= cliheight*720/1920;
+			$("#video-back").height(videoheight);
+    		$('#video-back').vidbacking();
+    		
+	});
+</script>
+
+	</body>
+</html>
