@@ -11,6 +11,11 @@
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="js/wow.js"></script>	
 		
+				<!--轮播用-->
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+	    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+		
 <style>
 body{
 	margin:0px;
@@ -34,7 +39,18 @@ img{
 	margin:0 0 60px 0;
 }
 .clear{clear:both;}
-
+.clearhide{
+	clear:both;
+	width:100%;
+	min-height: 50px;
+}
+@media screen and (min-width:800px ) {
+	.clearhide{
+		display: none;
+	}
+}
+li{list-style-type:none;}
+ul{padding:0;}
 /*banner开始*/
 .exhitition-banner{
 	width:100%;
@@ -70,7 +86,18 @@ img{
 }
 .ad-top-img img{
 	max-width: 200px;
-	margin: 0 auto 20px auto;
+	margin: 0 auto 30px auto;
+	transition:all 1s;
+	-moz-transition:all 1s; /* Firefox 4 */
+	-webkit-transition:all 1s; /* Safari and Chrome */
+	-o-transition:all 1s; /* Opera */
+	/*transition-timing-function: ease-in-out;
+	-moz-transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;*/
+}
+.ad-row:hover .ad-top-img img{
+	transform:rotate(360deg)scale(1.1);
 }
 .ad-title{
 	margin-bottom: 10px;
@@ -82,6 +109,26 @@ img{
 	-webkit-box-shadow:0px 0px 30px #A1A1A1; 
 	box-shadow:0px 0px 30px #A1A1A1;
 	height:500px;
+	transition:all 0.5s;
+	-moz-transition:all 0.5s; /* Firefox 4 */
+	-webkit-transition:all 0.5s; /* Safari and Chrome */
+	-o-transition:all 0.5s; /* Opera */
+}
+@media screen and (max-width: 800px) {.pro-container{margin:50px auto;}}	
+@media screen and (max-width: 700px) {
+	.pro-container{
+		height:600px;
+	}
+}
+.pro-container:hover{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+	moz-box-shadow:0px 0px 30px #027cdc; 
+	-webkit-box-shadow:0px 0px 30px #027cdc; 
+	box-shadow:0px 0px 30px#027cdc;
 }
 .pro-top-img{
 	width:100%;
@@ -107,6 +154,21 @@ img{
 	position: relative;
 	overflow: hidden;
 	border: none;
+}
+.prices .panel:hover .panel-heading i{
+	transition:all 0.5s;
+	-moz-transition:all 0.5s; /* Firefox 4 */
+	-webkit-transition:all 0.5s; /* Safari and Chrome */
+	-o-transition:all 0.5s; /* Opera */
+}
+.prices .panel:hover .panel-heading i{
+	transform:rotate(360deg)scale(1.1);
+}
+.prices .panel:hover .panel-heading, .prices .panel:hover .panel-body, .panel:hover .btn-default{
+	color:#027cdc;
+}
+.panel .btn-default:hover{
+	color: #fff;
 }
 .prices .panel-body .lead {
 	margin: 0;
@@ -136,13 +198,15 @@ img{
 .price-box-featured {
 	z-index: 9;
 }
-.price-box-featured .panel {
-	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.21);
-	-webkit-transform: scale(1.1);
-	-moz-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	-o-transform: scale(1.1);
-	transform: scale(1.1);
+@media screen and (min-width: 960px) {
+	.price-box-featured .panel {
+		box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.21);
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		transform: scale(1.1);
+	}	
 }
 .prices .price-box-featured .price-box-ribbon {
 	position: absolute;
@@ -168,7 +232,80 @@ img{
 	width:100%;
 }
 /*合作伙伴结束*/
+/*合作伙伴轮播*/
+.par-carousel{
+	width:100%;
+	max-width: 1200px;
+	margin:50px auto;
+}
+.slide-item{
+	padding:0 15%;
+}
+.slide-item img{
+	margin:20px 0;
+	transition:all 0.5s;
+	-moz-transition:all 0.5s; /* Firefox 4 */
+	-webkit-transition:all 0.5s; /* Safari and Chrome */
+	-o-transition:all 0.5s; /* Opera */
+}
+.owl-controls{
+	display: none;
+}
+.slide-item img:hover{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+/*或作伙伴轮播结束*/
+/* ===== Begin footer ===== */
+.footer-top {
+	padding: 50px 0 35px;
+}
 
+@media screen and (max-width: 992px) {
+.footer-top{
+	display:none;
+}
+}
+
+.text-off-white{
+		color:#f9f9f9;
+		
+	}
+.footer-top .col-md-4 {
+	margin-bottom: 25px;
+}
+.footer {
+	padding: 10px 0;
+}
+.footer a{
+	text-decoration: none;
+}
+.footer p{
+	margin:0;
+}
+/*Widget1: Useful Links*/
+ul.imp-links {
+	margin-top: 15px;
+}
+ul.imp-links li {
+	padding: 5px 0;
+}
+ul.imp-links li a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.tel{
+	height:145px;
+    background: url(img/tel.png); 
+    background-repeat:no-repeat ;
+    background-size:100% auto; 
+}
+
+/* ===== End footer ===== */
 
 </style>
 </head>
@@ -188,7 +325,7 @@ img{
 	</div>
 	
 	
-	<div class="ad-row col-md-25 col-sm-4 wow zoomIn" data-wow-delay="0.4s">
+	<div class="ad-row col-md-25 col-sm-4 col-xs-4 wow zoomIn" data-wow-delay="0.4s">
 		<div class="ad-top-img">
 			<img src="img/i2bakshare_04.jpg"/>
 		</div>
@@ -196,7 +333,7 @@ img{
 		<div class="ad-content page-content">快速部署，易于应用，开通功能只需几分钟，随时可变更的主机规格和带宽，高资源利用率</div>
 	</div>
 	
-	<div class="ad-row col-md-25 col-sm-4 wow zoomIn" data-wow-delay="0.5s">
+	<div class="ad-row col-md-25 col-sm-4 col-xs-4 wow zoomIn" data-wow-delay="0.5s">
 		<div class="ad-top-img">
 			<img src="img/i2bakshare_06.jpg"/>
 		</div>
@@ -204,7 +341,7 @@ img{
 		<div class="ad-content page-content">AES256数据加密，压缩传输，提供数据传输的安全性</div>
 	</div>
 	
-	<div class="ad-row col-md-25 col-sm-4 wow zoomIn" data-wow-delay="0.6s">
+	<div class="ad-row col-md-25 col-sm-4 col-xs-4 wow zoomIn" data-wow-delay="0.6s">
 		<div class="ad-top-img">
 			<img src="img/i2bakshare_08.jpg"/>
 		</div>
@@ -212,7 +349,9 @@ img{
 		<div class="ad-content page-content">电信级别的服务器运行环境，可达99.995%的设计可用度，99.99995%的设计数据持久度</div>
 	</div>
 	
-	<div class="ad-row col-md-25 col-sm-4 wow zoomIn" data-wow-delay="0.7s">
+	<div class="clear clearhide"></div>
+	
+	<div class="ad-row col-md-25 col-sm-4 col-xs-4 wow zoomIn" data-wow-delay="0.7s">
 		<div class="ad-top-img">
 			<img src="img/i2bakshare_10.jpg"/>
 		</div>
@@ -220,7 +359,7 @@ img{
 		<div class="ad-content page-content">以字节为数据捕捉的最小单位，从而减少了需复制的数据量，节省了带宽。</div>
 	</div>
 	
-	<div class="ad-row col-md-25 col-sm-4 wow zoomIn" data-wow-delay="0.8s">
+	<div class="ad-row col-md-25 col-sm-4 col-xs-4 wow zoomIn" data-wow-delay="0.8s">
 		<div class="ad-top-img">
 			<img src="img/i2bakshare_12.jpg"/>
 		</div>
@@ -298,7 +437,7 @@ img{
 								<div class="panel panel-default">
 									<div class="panel-heading text-center">
 										<i class="fa fa-cog fa-2x"></i>
-										<h3>i2Availability</h3>
+										<h3>Trial Edition</h3>
 									</div>
 									<div class="panel-body text-center">
 										<p class="lead">永久免费版</p>
@@ -320,7 +459,7 @@ img{
 								<div class="panel panel-default">
 									<div class="panel-heading text-center">
 										<i class="fa fa-star fa-2x"></i>
-										<h3>i2Coopy+i2CDP</h3>
+										<h3>Enterprise Edition</h3>
 									</div>
 									<div class="panel-body text-center">
 										<p class="lead">企业高级版</p>
@@ -331,6 +470,7 @@ img{
 										<li class="list-group-item">可灵活扩容</li>
 										<li class="list-group-item">5个账号起售</li>
 										<li class="list-group-item">最多100个账号</li>
+							<!--			<li class="list-group-item">&nbsp; </li>-->
 									</ul>
 									<div class="panel-footer text-center">
 										<a class="btn btn-default" href="http://www.i2yun.com/index.php?m=content&c=index&a=lists&catid=67">了解更多</a>
@@ -343,7 +483,7 @@ img{
 								<div class="panel panel-default">
 									<div class="panel-heading text-center">
 										<i class="fa fa-plus fa-2x"></i>
-										<h3>i2Move</h3>
+										<h3>Professional Edition</h3>
 									</div>
 									<div class="panel-body text-center">
 										<p class="lead">企业定制版</p>
@@ -372,7 +512,7 @@ img{
 <!--推荐套餐结束-->
 
 <!--合作伙伴开始-->
-<div class="ex-partner ex-container">
+<!--<div class="ex-partner ex-container">
 	<div class="page-myheader wow bounceIn" data-wow-delay="0.3s" style="margin:100px 0 30px 0;">
 		<div class="feature-title ex-title">越来越多的企业开始使用</div>
 		<div class="devider"></div>
@@ -383,16 +523,133 @@ img{
 		<img src="img/i2bakshare_30.png"/>
 	</div>
 	
-</div>
+</div>-->
 <!--合作伙伴结束-->
 
+<!--合作伙伴轮播开始-->
+<div class="par-carousel">	
+	<div class="page-myheader wow bounceIn" data-wow-delay="0.3s" style="margin:100px 0 30px 0;">
+		<div class="feature-title ex-title">越来越多的企业开始使用</div>
+		<div class="devider"></div>
+		<div class="subtitle">Companies who trust us</div>
+	</div>
+	<div class="owl-carousel wow pulse" data-wow-delay="0.5s" id="owl-carousel">
+            <div class="slide-item">
+					<img class="item-bg" src="img/del/case1.png"/>
+					<img class="item-bg" src="img/del/case1.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/del/case2.png"/>
+					<img class="item-bg" src="img/del/case2.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/del/case3.png"/>
+					<img class="item-bg" src="img/del/case3.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/del/case4.png"/>
+					<img class="item-bg" src="img/del/case4.png"/>
+            </div>
+            <div class="slide-item">
+					<img class="item-bg" src="img/del/case5.png"/>
+					<img class="item-bg" src="img/del/case5.png"/>
+            </div>
+	</div>
+</div>
+<!--合作伙伴轮播结束-->
 
+<!-- Begin footer -->
+            <footer class="text-off-white">
+            
+                <div class="footer-top">
+                	<div class="container">
+                    	<div class="row wow bounceInLeft" data-wow-delay="0.4s">
+
+                            <div class="col-sm-6 col-md-3">
+                            	<h4>产品中心</h4>
+                                <ul class="imp-links">
+                                	<li><a href="http://www.i2yun.com/beifenhuifu/" target="_blank">云备份与恢复</a></li>
+                                	<li><a href="http://www.i2yun.com/yewuqianyi/" target="_blank">业务迁移</a></li>
+                                	<li><a href="http://www.i2yun.com/gaokeyong/" target="_blank" >高可用</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3 ">
+                            	<h4>帮助中心</h4>
+                                <ul class="imp-links">
+                                	<li><a href="http://www.i2yun.com/changjianwenti-19-1.html" target="_blank">常见问题</a></li>
+                                	<li><a href="http://www.i2yun.com/bangzhuwendang-26-1.html" target="_blank">帮助文档</a></li>
+                                	<li><a href="http://p.qiao.baidu.com//im/index?siteid=8152259&ucid=19123718" target="_blank">在线客服</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                            	<h4>关于我们</h4>
+                                <ul class="imp-links">
+                                	<li><a href="http://www.i2yun.com/html/about/" target="_blank">英方简介</a></li>
+                                	<li><a href="http://www.i2yun.com/index.php?m=content&c=index&a=lists&catid=9" target="_blank">联系我们</a></li>
+                                	<li><a href="http://www.i2yun.com/jiejuefangan/" target="_blank">云灾备解决方案</a></li>
+                                </ul>
+                            </div>
+                        
+                        	<div class="col-sm-6 col-md-3">
+                               <div class="tel">
+                               	
+                               </div>
+                            </div>
+  
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                </div>
+                 <section id="Contact-section">
+                <div class="footer">
+                    <div class="container text-center wow fadeIn" data-wow-delay="0.8s">
+                        <p class="copyright">Copyright &copy; 2017 - Designed By Information2 software Inc.</p>
+                    </div>
+                </div>
+				</section>
+            </footer>
+
+            <!-- End footer -->
 
 <script>
+	
 	//	初始化/启动wow.js
     new WOW().init();
+    
+	//底部轮播用
+$(function(){
+    var owl = $('#owl-carousel');
+        owl.owlCarousel({
+        items: 4,
+        loop: true,
+//      margin: 10,
+        nav: true,
+        autoplay: true,
+        mouseDrag:true,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        smartSpeed:1000,
+	    responsive: {
+	        0: {
+	            items: 2,
+	           },
+	        700: {
+	            items: 2,
+	            },
+	       1000: {
+	            items: 4,
+	            },
+	       1200: {
+	            items: 5,
+	        }
+	    }
+		});		
+});     
+    
 </script>
 
-		<script src="js/bootstrap.min.js"></script>	
+<script src="js/bootstrap.min.js"></script>	
+<script src="js/owl.carousel.js"></script>
 </body>
 </html>
