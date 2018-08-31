@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script src="js/zoomcharts.min.js"></script>
+	</head>
+	<body>
+		<div id="chart"></div>
+		 <script>
+        var t = new NetChart({
+            container: document.getElementById("chart"),
+            area: { height: 700 },
+            data: {
+                preloaded: {
+                    nodes: [
+                        { id: "foo" },
+                        { id: "bar" },
+                        { id: "baz" }
+                    ],
+                    links: [
+                        { id: "foo-bar", from: "foo", to: "bar" },
+                        { id: "bar-baz", from: "bar", to: "baz" },
+                        { id: "baz-foo", from: "baz", to: "foo" }
+                    ]
+                }
+            },
+            interaction: { selection: { lockNodesOnMove: false } }
+        });
+    </script>
+    
+    
+    <!--<div id="demo"></div>
+<script>
+    var data = {
+        "subvalues": [
+        {
+            "value": 50, "name": "Apples", "subvalues": [
+               { "value": 25, "name": "Red apples" },
+               { "value": 15, "name": "Yellow apples" },
+               { "value": 10, "name": "Green apples" }]
+        },
+        { "value": 50, "name": "Vegetables", style: { fillColor: "yellow" } }]
+    };
+    var t = new PieChart({
+        container: document.getElementById("demo"),
+        area: { height: null },
+        data: { preloaded: data }
+    });
+</script>-->
+	</body>
+</html>

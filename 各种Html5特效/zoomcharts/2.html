@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script>
+	</head>
+	<body>
+		<div id="demo"></div>
+		
+		
+		
+		
+<script>
+	 var t = new NetChart({
+        container: document.getElementById("demo"),
+        area: { height: null },
+        data: { url: "https://zoomcharts.com/dvsl/data/net-chart/friend-net.json" },
+        navigation: { initialNodes: ["m-1"], mode: "focusnodes" },
+        style: {
+            node: { imageCropping: true },
+            nodeStyleFunction: nodeStyle,
+            linkStyleFunction: linkStyle
+        }
+    });
+
+    function nodeStyle(node) {
+        node.label = node.data.name;
+        node.labelStyle.backgroundStyle.fillColor = "rgba(47,195,47,0.8)";
+        node.labelStyle.textStyle.fillColor = "white";
+        node.labelStyle.padding = 2;
+        node.selected = 
+        node.image = "https://zoomcharts.com/dvsl/data/net-chart/friend-net/" + node.id + ".png";
+    }
+
+    function linkStyle(link) {
+        link.length = 2;
+        link.radius = 4;
+        link.fillColor = "blue"
+        link.items = [
+            {   // Default item places just as the regular label.
+                text: link.data.type,
+                padding:2,
+                backgroundStyle: {
+                    fillColor: "rgba(86,185,247,1)",
+                    lineColor: "rgba(86,185,247,0.4)"
+                },
+                textStyle: {
+                    fillColor: "white"
+                }
+            },
+            {
+                // add a star at the source node
+                image: "https://zoomcharts.com/dvsl/data/net-chart/icons.png",
+                imageSlicing: [0, 0, 16, 16],
+                px: -1, py: 0, lx: 8, ly: 0
+            },
+            {
+                // add a star at the target node
+                image: "https://zoomcharts.com/dvsl/data/net-chart/icons.png",
+                imageSlicing: [0, 0, 16, 16],
+                px: 1, py: 0, lx: -8, ly: 0
+            }
+        ]
+    }
+    
+    
+</script>
+	</body>
+</html>
