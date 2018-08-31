@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="dist/css/swiper.min.css">
+  
+  
+  			<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/jquery.vidbacking.css" type="text/css">
+	    <script src="js/jquery.vidbacking.js" type="text/javascript"></script>
+
+  <!-- Demo styles -->
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-slide img{
+    	width:100%;
+    	height: 720px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="img/slider-bg4.jpg"/></div>
+      <div class="swiper-slide"><img src="img/slider-bg5.jpg"/></div>
+      <div class="swiper-slide"><img src="img/slider-bg6.jpg"/></div>
+      <div class="swiper-slide" id="video-back">
+        <video poster="img/screenshot1.jpg" autoplay muted loop class="vidbacking"> 
+<!--		<source src="assets/Rallye.webm" type="video/webm">-->
+        <source src="http://oss.info2soft.com/video/info2soft.mp4" type="video/mp4">
+      </video> 
+
+      	
+     </div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+  </div>
+
+
+
+
+
+  <!-- Swiper JS -->
+  <script src="dist/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+    
+    	$(function(){
+			var cliheight = document.body.clientWidth ;
+			var videoheight= cliheight*720/1920;
+			$("#video-back").height(videoheight);
+    		$('#video-back').vidbacking();
+    		
+	});
+  </script>
+</body>
+</html>
