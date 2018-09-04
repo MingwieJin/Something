@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link href="css/base.css" rel="stylesheet">
+    <link href="css/checkout.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
+    	
+ <style>
+ 	body{margin: 0;}
+ 	a{text-decoration: none;}
+ 	.cart-item-check1 .check{color:blueviolet;}
+ 	h2 .check{color:blueviolet;}
+ 	.close-btn a{color:black !important;}
+ </style>   	
+	</head>
+	<body>
+	
+		
+<div id="app">		
+	<h1>{{callmyname}}</h1>
+	<div v-for="(item,index) in productList">
+		<div class="cart-item-check1"><a href="javascript:void(0);" class="item-check-btn1" v-bind:class="{'check':item.checked}" @click="selectedProduct(item)">选择</a></div>
+		<img v-bind:src="item.productImage" alt="烟" style="width:200px;">
+		 <div class="item-name" >产品名称：<span v-text="item.productName"></span></div>
+		 <div class="item-name" >产品单价：<span v-text="item.productPrice"></span></div>
+		 <a href="javascript:void(0);" @click="changeMoney(item,-1)" style="display: inline;">-</a>
+		 <div class="item-name" style="display: inline;">产品数量：<input type="text" value="0" v-model="item.productQuantity"></div>
+		 <a href="javascript:void(0);"  @click="changeMoney(item,1)" style="display: inline;">+</a>
+        <div class="item-price-total">总价：{{item.productQuantity*item.productPrice  | money("元")}}</div>
+       <dt>赠送:</dt>
+        <dd v-for="part in item.parts"><span v-text="part.partsName">1</span>|<span v-text="part.partsId">1</span></dd>
+        <div><a href="javascript:void(0);" @click="delFlag=true;indexp=index;">删除产品</a></div>
+        <br />
+	</div>
+	<br />
+	<h2 style="display: inline;"><a href="javascript:void(0);" v-bind:class="{'check':checkflag}" @click="checkall(true)">全选</a></h2>
+	<h2 class="close-btn"  style="display: inline;"><a href="javascript:void(0);" v-bind:class="{'check':checkflag}" @click="checkall(false)">取消全选</a></h2>
+	<h2 style="color:red;">	总价: <span class="total-price">{{totalMoney | money("元")}}</span></h2>
+	
+	<!--弹窗-->
+	<div class="md-modal modal-msg md-modal-transition" id="showModal" v-bind:class="{'md-show':delFlag}">
+          <div class="md-modal-inner">
+            <div class="md-top">
+              <button class="md-close" @click="delFlag=false">关闭</button>
+            </div>
+            <div class="md-content">
+              <div class="confirm-tips">
+                <p id="cusLanInfo">你确认删除此订单信息吗?</p>
+              </div>
+              <div class="btn-wrap col-2">
+                <button class="btn btn--m" id="btnModalConfirm" @click="delitem()">Yes</button>
+                <button class="btn btn--m btn--red" id="btnModalCancel" @click="delFlag=false">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md-overlay" v-if="delFlag"></div>
+   </div>   	
+</div>
+	
+
+
+ 
+	
+		
+		
+		
+    <script src="../js/lib/vue.min.js"></script>
+    <script src="js/lib/vue-resource.js"></script>
+    <script src="js/mytest.js"></script>		
+	</body>
+</html>
