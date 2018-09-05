@@ -31,7 +31,7 @@
 			var _this = this;
 			
 //			get方法
-			this.$http.get("data/cartData.json",{"id":123}).then(function(res){
+			this.$http.get("data/cartData.json",{""}).then(function(res){
 				_this.productList = res.data.result.list;
 				_this.totalMoney   =res.data.result.totalMoney;
 				
