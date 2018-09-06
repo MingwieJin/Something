@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+				<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+			<form action="#"  onsubmit = "return goSubmit();" target="_self">
+			<div>用户名</div>
+			<input  name="name" value="" id="name"> 
+			<div>密码</div>
+			<input  name="psswd" value=""  id="psswd"><!--服务与分发数-->
+			<div>机器ip</div>
+			<input  name="ip" value="" id="ip"> <!--目标云-->
+
+			<input class="form-submit" type="submit" value="确认" >
+</form>
+
+<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe>  
+<script>
+	function goSubmit(){
+		
+		if($("#name").val()!=""){
+		var name = $("#name").val();
+		    setCookie('name',name,1);
+		}
+		
+		if($("#psswd").val()!=""){
+			var psswd = $("#psswd").val();
+			setCookie('psswd',psswd,1);
+		}
+		
+		if($("#ip").val()!=""){
+			var ip = $("#ip").val();
+			setCookie('ip',ip,1);
+		}
+		return true;
+	}
+	
+function setCookie(cname,cvalue,exdays){
+	var d = new Date();
+	d.setTime(d.getTime()+(exdays*60*1000));
+	var expires = "expires="+d.toGMTString();
+	document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function getCookie(cname){
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+		var c = ca[i].trim();
+		if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+	}
+	return "";
+}
+
+function resetcookie(){
+      
+	document.cookie = "cat1=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        document.cookie = "tag1=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+}
+
+
+	$(document).ready(function() {
+	var nameget = getCookie('name');
+	var psswdget = getCookie('psswd');
+	var ipget = getCookie('ip');
+	if(nameget!=""){
+		$("#name").val(nameget);
+	}
+	if(psswdget!=""){
+		$("#psswd").val(psswdget);
+	}
+	if(ipget!=""){
+		$("#ip").val(ipget);
+	}
+	
+  		})
+
+
+
+</script>
+	</body>
+</html>

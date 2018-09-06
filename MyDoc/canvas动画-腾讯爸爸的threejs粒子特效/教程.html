@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>立方体</title>
+    <script src="http://sqimg.qq.com/qq_product_operations/mma/javanli_test/lib/three.min.js"></script>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #three_canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<canvas id="three_canvas"></canvas>
+
+
+
+
+
+<script>
+    var renderer, camera, scene, light, object;
+    var width, height;
+    
+//  初始化渲染器(显示器中能观察到的物体)
+	function initRenderer() {
+	    width = document.getElementById('three_canvas').clientWidth;
+	    height = document.getElementById('three_canvas').clientHeight;
+	    renderer = new THREE.WebGLRenderer({
+	        //将Canvas绑定到renderer
+	        canvas: document.getElementById('three_canvas')
+	    });
+	    renderer.setSize(width, height);//将渲染的大小设为与Canvas相同
+	    renderer.setClearColor(000000, 1.0);//设置默认颜色与透明度
+	}
+
+//	初始化镜头
+    function initCamera() {
+    	//简单的正交投影相机，正对着视口的中心，视口大小与Canvas大小相同。
+        camera = new THREE.OrthographicCamera(width / -2, width / 2, height / 2, height / -2, 1, 1000);
+        //   正交相机   OrthographicCamera(left, right, top, bottom, near, far)
+        
+//     透视相机   PerspectiveCamera(fov, aspect, near, far);    Fov – 相机的视锥体的垂直视野角（视野范围，鱼眼）;   Aspect – 相机视锥体的长宽比
+        //设置相机的位置
+        camera.position.x = 0;
+        camera.position.y = 0;
+        camera.position.z = 200;
+        //设置相机的上方向
+        camera.up.x = 0;
+        camera.up.y = 1;
+        camera.up.z = 0;
+        //设置相机聚焦的位置(其实就是确定一个方向)
+        camera.lookAt({
+            x: 0,
+            y: 0,
+            z: 0
+        });
+    }
+    
+//  初始化场景
+    function initScene() {
+        scene = new THREE.Scene();
+    }
+    function initObject() {
+    	//创建一个边长为100的立方体
+        var geometry = new THREE.CubeGeometry(100, 100, 100);
+        object = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial());
+        scene.add(object);
+    }
+    
+//  添加动态循环动画
+    function render() {
+        requestAnimationFrame(render);
+        object.rotation.x += 0.05;
+        object.rotation.y += 0.05;
+        renderer.render(scene, camera);
+    }
+    function threeStart() {
+        initRenderer();
+        initCamera();
+        initScene();
+        initObject();
+        render();
+    }
+    window.onload = threeStart();
+</script>
+</body>
+</html>
