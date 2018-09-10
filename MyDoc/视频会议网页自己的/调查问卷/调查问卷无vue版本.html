@@ -52,43 +52,45 @@ body{
 	color:red;
 	border-bottom:3px solid red;
 }
-
+.hidecontainer{
+	display: none;
+}
 </style>		
 	</head>
 	<body>
 <div id="app">
-	<h1 style="text-align: center;">{{moreadd}}</h1>
-	<div class="res-page1 page-container" >
+	<h1 style="text-align: center;">调查问卷</h1>
+	<div class="res-page1 page-container" id="page1">
 		<div class="page-title">谁是刘备的兄弟</div>
-		<div class="page1-selector-1 page-selector" v-bind:class="{'checked':pageoneselect==1}" @click="pageoneselect=1">关羽</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pageoneselect==2}" @click="pageoneselect=2">赵云</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pageoneselect==3}" @click="pageoneselect=3">曹操</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pageoneselect==4}" @click="pageoneselect=4">吕布</div>	
+		<div class="page1-selector-1 page-selector selection">关羽</div>
+		<div class="page1-selector-2 page-selector selection">赵云</div>
+		<div class="page1-selector-3 page-selector selection">曹操</div>
+		<div class="page1-selector-4 page-selector selection">吕布</div>	
 		<div class="page-selector button1" >下一个</div>	
 	</div>
 	
-	<div class="res-page2 page-container" >
+	<div class="res-page2 page-container hidecontainer" id="page2">
 		<div class="page-title">谁是刘备的兄弟2</div>
-		<div class="page1-selector-1 page-selector" v-bind:class="{'checked':pagetwoselect==1}" @click="pagetwoselect=1">关羽</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pagetwoselect==2}" @click="pagetwoselect=2">赵云</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pagetwoselect==3}" @click="pagetwoselect=3">曹操</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pagetwoselect==4}" @click="pagetwoselect=4">吕布</div>
-		<div class="page-selector pagenav" @click="showPageNumber=1;">上一个</div>	
-		<div class="page-selector pagenav" @click="showPageNumber=3;">下一个</div>	
+		<div class="page2-selector-1 page-selector selection">关羽</div>
+		<div class="page2-selector-2 page-selector selection">赵云</div>
+		<div class="page2-selector-3 page-selector selection">曹操</div>
+		<div class="page2-selector-4 page-selector selection">吕布</div>
+		<div class="page-selector pagenav button2">上一个</div>	
+		<div class="page-selector pagenav button3">下一个</div>	
 	</div>
 	
-	<div class="res-page3 page-container" >
+	<div class="res-page3 page-container hidecontainer" id="page3">
 		<div class="page-title">谁是刘备的兄弟3</div>
-		<div class="page1-selector-1 page-selector" v-bind:class="{'checked':pagethreeselect==1}" @click="pagethreeselect=1">关羽</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pagethreeselect==2}" @click="pagethreeselect=2">赵云</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pagethreeselect==3}" @click="pagethreeselect=3">曹操</div>
-		<div class="page1-selector-2 page-selector" v-bind:class="{'checked':pagethreeselect==4}" @click="pagethreeselect=4">吕布</div>
-		<div class="page-selector pagenav" @click="showPageNumber=2;">上一个</div>	
-		<div class="page-selector pagenav" @click="showPageNumber=4;changescore();">下一个</div>	
+		<div class="page3-selector-1 page-selector selection">关羽</div>
+		<div class="page3-selector-2 page-selector selection">赵云</div>
+		<div class="page3-selector-3 page-selector selection">曹操</div>
+		<div class="page3-selector-4 page-selector selection">吕布</div>
+		<div class="page-selector pagenav button4">上一个</div>	
+		<div class="page-selector pagenav button5"onclick="getscore()">下一个</div>	
 	</div>
 	
-	<div class="res-page1 page-container" v-show="showPageNumber==4">
-		<div class="page-title">您的得分:<input type="text" value="0" disabled="" v-model="totalscaore"></div>
+	<div class="res-page4 page-container hidecontainer" id="page4" v-show="showPageNumber==4">
+		<div class="page-title">您的得分:<span id="getscaore"></span></div>
 	</div>
 	
 	
@@ -98,10 +100,50 @@ body{
 <script>
 
 $(document).ready(function(){
-  $(".btn1").click(function(){
-    $("p").slideToggle();
+  $(".button1").click(function(){
+    $(".res-page1").hide();
+    $(".res-page2").show(1000); 
+  });
+  $(".button2").click(function(){
+    $(".res-page2").hide();
+    $(".res-page1").show(1000); 
+  });
+  $(".button3").click(function(){
+    $(".res-page2").hide();
+    $(".res-page3").show(1000); 
+  });
+  $(".button4").click(function(){
+    $(".res-page3").hide();
+    $(".res-page2").show(1000); 
+  });
+  $(".button5").click(function(){
+    $(".res-page3").hide();
+    $(".res-page4").show(1000); 
+  });
+  $(".selection").click(function(){
+	$(this).parent().children().each(function(){
+		$(this).removeClass("checked");
+	})
+	$(this).addClass("checked");
   });
 });
+
+function getscore(){
+	var score = 0;
+	if($(".page1-selector-1").hasClass("checked")){
+		score++;
+		console.log("1");
+	}
+	if($(".page2-selector-2").hasClass("checked")){
+		score++;
+		console.log("2");
+	}
+	if($(".page3-selector-3").hasClass("checked")){
+		score++;
+		console.log("3");
+	}
+	$("#getscaore").text(score);
+}
 
 </script>	
 

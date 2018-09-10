@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+<style>
+svg{
+	overflow: scroll;
+}
+
+.SVG-text{
+	font-size:12px;
+	font-family: "微软雅黑";
+	color:#666
+}
+
+</style>		
+	</head>
+	<body>
+		
+<div id="Area1" style="border:1px solid #c0c0c0; width:1080px;margin: 0 auto;border-radius: 5px; margin-top:20px">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1080"; height="190"; version="1.1" >
+
+<!--左侧-->
+<rect x="20" y="20" width="400" height="150"style="fill:white;stroke:#c0c0c0;stroke-width:1;fill-opacity:0;stroke-opacity:0.9"/>
+<!--源端机器-->
+
+<image id="node-sorce" xlink:href="img/node_online.png" x="140" y="50" height="50px" width="50px"/> 
+ <text class="SVG-text" x="95" y="70" fill="#666">A机器</text>
+ <text class="SVG-text" x="50" y="90" fill="#666">192.168.17.11</text>
+  
+<line x1="190" y1="75" x2="340" y2="75"style="stroke:rgb(150,150,150);stroke-width:1"/>
+<!-- 源端库-->
+<a href="http://www.baidu.com">
+<image xlink:href="img/db_normal.png" x="340" y="50" height="50px" width="50px"/> 
+</a>
+<text class="SVG-text" x="340" y="110" fill="#666">i2c_work</text>
+<text class="SVG-text" x="200" y="160" fill="#666">最后抓取时间：2018-01-04_13-57-57</text>
+
+
+
+<!--中间-->
+<line x1="420" y1="85" x2="650" y2="85"style="stroke:rgb(192,192,192);stroke-width:5"/>
+
+<image xlink:href="img/rule_track.png" x="500" y="30" height="100px" width="70px"/> 
+ <text class="SVG-text" x="500" y="120" fill="#666">1-2同步规则</text>
+  <text class="SVG-text" x="480" y="140" fill="#666">网络状态1000kb/s</text>
+
+ <polygon points="650,75 660,85 650,95"style="fill:rgb(192,192,192);stroke:rgb(192,192,192);stroke-width:1;" />
+
+
+
+<!--右侧-->
+<rect x="660" y="20" width="400" height="150"style="fill:white;stroke:#c0c0c0;stroke-width:1;fill-opacity:0;stroke-opacity:0.9"/>
+<!--备端库-->
+<a href="http://www.baidu.com">
+<image xlink:href="img/db_normal.png" x="690" y="50" height="50px" width="50px"/> 
+</a> 
+ <text class="SVG-text" x="690" y="110" fill="#666">i2c_work</text>
+ <text class="SVG-text" x="680" y="160" fill="#666">最后装载时间1970-01-01_08-00-00 延迟：0毫秒</text>
+
+<line x1="740" y1="75" x2="890" y2="75"style="stroke:rgb(150,150,150);stroke-width:1"/>
+<!-- 源端机械-->
+<image xlink:href="img/node_online.png" x="890" y="50" height="50px" width="50px"/> 
+ <text class="SVG-text" x="952" y="70" fill="#666">b机器</text>
+ <text class="SVG-text" x="950" y="90" fill="#666">192.168.17.12</text>
+</svg>
+</div>	
+
+
+
+
+
+
+<div id="Area2" style="border:1px solid #c0c0c0; width:1080px;margin: 0 auto;border-radius: 5px; margin-top:20px">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1080"; height="310"; version="1.1" >
+
+<!--左侧-->
+<rect x="20" y="20" width="400" height="200"style="fill:white;stroke:#c0c0c0;stroke-width:1;fill-opacity:0;stroke-opacity:0.9"/>
+<!--源端机器-->
+
+<image id="node-sorce" xlink:href="img/node_online.png" x="140" y="50" height="50px" width="50px"/> 
+ <text class="SVG-text" x="95" y="70" fill="#666">A机器</text>
+ <text class="SVG-text" x="50" y="90" fill="#666">192.168.17.11</text>
+ <line x1="190" y1="75" x2="290" y2="75"style="stroke:rgb(150,150,150);stroke-width:1"/>
+  <line x1="290" y1="75" x2="290" y2="110"style="stroke:rgb(150,150,150);stroke-width:1"/>
+ 
+ 
+ 
+ <image id="node-sorce" xlink:href="img/node_online.png" x="140" y="120" height="50px" width="50px"/> 
+  <text class="SVG-text" x="95" y="140" fill="#666">b机器</text>
+ <text class="SVG-text" x="50" y="160" fill="#666">192.168.17.11</text>
+  <line x1="190" y1="145" x2="290" y2="145"style="stroke:rgb(150,150,150);stroke-width:1"/>
+<line x1="290" y1="145" x2="290" y2="110"style="stroke:rgb(150,150,150);stroke-width:1"/>
+ 
+
+<line x1="290" y1="110" x2="340" y2="110"style="stroke:rgb(150,150,150);stroke-width:1"/>
+
+
+<!-- 源端库-->
+<a href="http://www.baidu.com">
+<image xlink:href="img/db_normal.png" x="340" y="85" height="50px" width="50px"/> 
+</a>
+<text class="SVG-text" x="340" y="145" fill="#666">i2c_work</text>
+<text class="SVG-text" x="200" y="210" fill="#666">最后抓取时间：2018-01-04_13-57-57</text>
+
+
+
+<!--中间-->
+<line x1="420" y1="130" x2="650" y2="130"style="stroke:rgb(192,192,192);stroke-width:5"/>
+
+<image xlink:href="img/rule_track.png" x="500" y="75" height="100px" width="70px"/> 
+ <text class="SVG-text" x="500" y="165" fill="#666">1-2同步规则</text>
+  <text class="SVG-text" x="480" y="185" fill="#666">网络状态1000kb/s</text>
+
+ <polygon points="650,120 660,130 650,140"style="fill:rgb(192,192,192);stroke:rgb(192,192,192);stroke-width:1;" />
+
+
+
+<!--右侧-->
+<rect x="660" y="20" width="400" height="270"style="fill:white;stroke:#c0c0c0;stroke-width:1;fill-opacity:0;stroke-opacity:0.9"/>
+<!--备端库-->
+<a href="http://www.baidu.com">
+<image xlink:href="img/db_normal.png" x="690" y="120" height="50px" width="50px"/> 
+</a> 
+ <text class="SVG-text" x="690" y="180" fill="#666">i2c_work</text>
+ <text class="SVG-text" x="680" y="280" fill="#666">最后装载时间1970-01-01_08-00-00&nbsp;延迟：0毫秒</text>
+
+<!--线-->
+<line x1="740" y1="145" x2="790" y2="145"style="stroke:rgb(150,150,150);stroke-width:1"/>
+
+
+<!-- 源端机械-->
+
+<image xlink:href="img/node_online.png" x="890" y="50" height="50px" width="50px"/> 
+ <text class="SVG-text" x="952" y="70" fill="#666">b机器</text>
+ <text class="SVG-text" x="950" y="90" fill="#666">192.168.17.12</text>
+  <line x1="790" y1="75" x2="890" y2="75"style="stroke:rgb(150,150,150);stroke-width:1"/>
+<line x1="790" y1="145" x2="790" y2="75"style="stroke:rgb(150,150,150);stroke-width:1"/>
+ 
+ <image xlink:href="img/node_online.png" x="890" y="120" height="50px" width="50px"/> 
+ <text class="SVG-text" x="952" y="140" fill="#666">c机器</text>
+ <text class="SVG-text" x="950" y="160" fill="#666">192.168.17.12</text>
+ <line x1="790" y1="145" x2="890" y2="145"style="stroke:rgb(150,150,150);stroke-width:1"/>
+<line x1="790" y1="145" x2="790" y2="145"style="stroke:rgb(150,150,150);stroke-width:1"/>
+ 
+  <image xlink:href="img/node_online.png" x="890" y="190" height="50px" width="50px"/> 
+ <text class="SVG-text" x="952" y="210" fill="#666">c机器</text>
+ <text class="SVG-text" x="950" y="230" fill="#666">192.168.17.12</text>
+  <line x1="790" y1="215" x2="890" y2="215"style="stroke:rgb(150,150,150);stroke-width:1"/>
+<line x1="790" y1="145" x2="790" y2="215"style="stroke:rgb(150,150,150);stroke-width:1"/>
+</svg>
+</div>			
+
+<script>
+//var c = document.getElementById('node-sorce');
+//c.setAttribute('href','img/cloud.png');
+
+
+function InitSvgElement() {
+            this.svgDoc = document.getElementById('svgDoc').getSVGDocument();
+            this.svgRoot = this.svgDoc.documentElement;
+            this.svg_jzwd = this.svgDoc.getElementById("tspan-jzwd");
+            this.svg_jzyl = this.svgDoc.getElementById("tspan-jzyl");
+            this.svg_czyl = this.svgDoc.getElementById("tspan-czyl");
+            this.svg_czwd = this.svgDoc.getElementById("tspan-czwd");
+            this.svg_yl = this.svgDoc.getElementById("tspan-yl");
+            this.svg_wd = this.svgDoc.getElementById("tspan-wd");
+            this.svg_yll = this.svgDoc.getElementById("rect-ylg");
+        }
+
+ /// <summary>获取测点数据</summary>
+        function GetTagValues() {
+
+            try {
+
+                $.ajax({
+                    type: "get",
+                    url: "json/RlueData.json",
+                    data: { ip: ip, port: port, tagNames: tags },
+                    dataType: 'xml',
+                    error: function (request) {
+                        alert("调用webService异常");
+                    },
+                    success: function (msg) {
+                        var tagValueJSON = $(msg).find("string").text();
+                        UpdateTagLables(tagValueJSON);
+                    }
+                });
+            } catch (e) {
+                alert(e.Message);
+            }
+        }
+        
+ /// <summary>更新标签数据</summary>
+        function UpdateTagLables(valueJSON) {
+            var tagValueArray = eval('(' + valueJSON + ')');
+            if (tagValueArray.length != 6) {
+                // alert("数据长度不足,请按照顺序设置测点!" + tagValueArray.length);
+                return;
+            }
+            else {
+                this.SetElementValue(this.svg_jzwd, tagValueArray[0].Value, " ℃");
+                this.SetElementValue(this.svg_jzyl, tagValueArray[1].Value, " MPa");
+                this.SetElementValue(this.svg_czwd, tagValueArray[2].Value, " ℃");
+                this.SetElementValue(this.svg_czyl, tagValueArray[3].Value, " MPa");
+                this.SetElementValue(this.svg_wd, tagValueArray[4].Value, " ℃");
+                this.SetElementValue(this.svg_yl, tagValueArray[5].Value, " MPa");
+
+                var yl = (tagValueArray[5].Value / 1000) * 68; //当前值除以量程(1000)得到百分比,然后乘以压力计的最大宽度得出实际应该显示的高度
+                yl = CurrencyFormatted(yl);
+                this.svg_yll.setAttributeNS(null, "width", yl);
+
+
+            }
+
+        }
+        
+ function Start() {
+    InitSvgElement();
+    this.timer = setInterval("GetTagValues()", 1000);
+ }
+ 
+ 
+
+</script>
+	</body>
+</html>

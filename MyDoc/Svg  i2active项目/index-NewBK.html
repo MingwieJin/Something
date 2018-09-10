@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+				<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"></script>
+				<script src="js/forSVGBK.js"></script>
+<style>
+svg{
+	overflow: scroll;
+}
+
+#graph{
+	padding-bottom: 30px;
+}
+.SVG-text{
+	font-size:12px;
+	font-family: "微软雅黑";
+	color:#666
+}
+
+</style>		
+	</head>
+	<body id="main">
+		<div id="graph" style="overflow-x: scroll;"></div>
+
+		
+
+	
+
+<script>
+//var c = document.getElementById('node-sorce');
+//c.setAttribute('href','img/cloud.png');
+
+
+//function InitSvgElement() {
+//          this.svgDoc = document.getElementById('svgDoc').getSVGDocument();
+//          this.svgRoot = this.svgDoc.documentElement;
+//          this.svg_jzwd = this.svgDoc.getElementById("tspan-jzwd");
+//          this.svg_jzyl = this.svgDoc.getElementById("tspan-jzyl");
+//          this.svg_czyl = this.svgDoc.getElementById("tspan-czyl");
+//          this.svg_czwd = this.svgDoc.getElementById("tspan-czwd");
+//          this.svg_yl = this.svgDoc.getElementById("tspan-yl");
+//          this.svg_wd = this.svgDoc.getElementById("tspan-wd");
+//          this.svg_yll = this.svgDoc.getElementById("rect-ylg");
+//      }
+
+ /// <summary>获取测点数据</summary>
+function GetRuleData() {
+	 try {
+	
+			$.ajax({
+		   url: "json/xinBK.json",//json文件位置
+		   type: "get",//请求方式为get
+		   dataType: "json", //返回数据格式为json
+		   success: function(data) {//请求成功完成后要执行的方法 
+		       //each循环 使用$.each方法遍历返回的数据date
+		       DrawRuleChart(data);
+		   	},
+		   	 error: function(XMLHttpRequest, textStatus, errorThrown) {
+			 alert(XMLHttpRequest.status);
+			 alert(XMLHttpRequest.readyState);
+			 alert(textStatus);
+   			}
+			});
+	    } catch (e) {
+	        alert(e.Message);
+	    }
+}
+        
+ /// <summary>更新标签数据</summary>
+        function DrawRuleChart(result) {
+
+//			alert(result.backupRule[1].dst.node[0].ip);
+        for(var j=0; j<result.backupRule.length; j++){
+//				alert(j);
+            var DstLength = result.backupRule[j].dst.node.length;//备端节点个数
+            var SrcLength = result.backupRule[j].src.node.length;//源端节点个数
+            var Totalheight;//svg总高度
+            var D_height =0;//高度补差
+            var S_height =0;//高度补差
+            var RealLeftheight = 130+(SrcLength-1)*70;//左侧框高度
+            var RealRightheight = 130+(DstLength-1)*70;//右侧框高度
+            var Lmid = 40 +SrcLength*35;//左侧中线y坐标
+            var Rmid = 40 +DstLength*35;//右侧中线y坐标
+
+//计算左右哪边节点数更多，取高的一边作为svg高度
+            if(DstLength==0 || SrcLength==0){
+                Totalheight = 0;
+                alert("node error");
+            }else if(DstLength==1 && SrcLength==1){
+                Totalheight = 170;
+            }else if(DstLength > SrcLength) {
+                Totalheight = 170 + 70*(DstLength-1);
+                S_height =(DstLength-SrcLength)*35;
+            }else if (DstLength <= SrcLength){
+                Totalheight = 170 + 70*(SrcLength-1);
+                D_height =(SrcLength-DstLength)*35;
+            }
+//创建div
+            var Div1 = document.createElement('div');
+            var div111 = document.getElementById('graph');
+            Div1.id = 'Area'+j;
+            Div1.setAttribute( "style", " width:1080px; margin: 0 auto;border-radius: 5px;margin-top:20px" );
+            div111.appendChild(Div1);
+
+//创建SVG
+            var svg1 = document.createElementNS( "http://www.w3.org/2000/svg", "svg" );
+//svg1.setAttribute( "xmlns", "http://www.w3.org/2000/svg" );
+            svg1.id = 'svg'+j;
+            svg1.setAttribute( "width", 1080 );
+            svg1.setAttribute( "height", Totalheight );
+            svg1.setAttribute( "version", 1.1 );
+            Div1.appendChild(svg1);
+
+//var svgNow=document.getElementById('svg'+j);
+
+//画左侧方框
+            DrawRect(20, 20+S_height ,400,RealLeftheight, svg1.id);
+//画左侧源端节点
+            for(var i=0; i<SrcLength; i++){
+
+                var name = result.backupRule[j].src.node[i].name;
+                var status = result.backupRule[j].src.node[i].status;
+                var ip = result.backupRule[j].src.node[i].ip;
+                DrawnodeSrc(140,50+70*(i)+S_height,status,name,ip,Lmid, SrcLength, svg1.id, j, i);
+            };
+//画左侧数据库
+            var nameDbSrc = result.backupRule[j].src.db.name;
+            var labelDbSrc = result.backupRule[j].src.db.label;
+            var statusDbSrc = result.backupRule[j].src.db.status;
+            DrawDbSrc(nameDbSrc,labelDbSrc,statusDbSrc, Lmid, S_height, RealLeftheight, svg1.id, j);
+
+
+//画中间的规则
+            var nameRule = result.backupRule[j].rule.name;
+            var statusRule = result.backupRule[j].rule.status;
+            var bytesRule = parseInt(result.backupRule[j].rule.bytes/1024);
+            DrawCloud(nameRule, statusRule, bytesRule ,Lmid, S_height, svg1.id, j);
+
+//画右侧方框
+            DrawRect(660, 20+D_height ,400,RealRightheight, svg1.id);
+
+//画右侧备端节点
+            for(var i=0; i<DstLength; i++){
+                var name = result.backupRule[j].dst.node[i].name;
+                var status = result.backupRule[j].dst.node[i].status;
+                var ip = result.backupRule[j].dst.node[i].ip;
+
+                DrawnodeDst(890,50+70*(i)+D_height,status,name,ip, Rmid, DstLength, svg1.id, j, i);
+            }
+
+//画右侧数据库
+            var nameDbDst = result.backupRule[j].dst.db.name;
+            var labelDbDst = result.backupRule[j].dst.db.label;
+            var statusDbDst = result.backupRule[j].dst.db.status;
+            DrawDbDst(nameDbDst,labelDbDst,statusDbDst, Rmid, D_height, RealRightheight, svg1.id, j);
+
+        }
+}
+ 
+// 用来实时获取数据
+ function ChangeRuleData() {
+			$.ajax({
+		   url: "json/xinBK.json",//json文件位置
+		   type: "get",//请求方式为get
+		   dataType: "json", //返回数据格式为json
+		   success: function(data) {//请求成功完成后要执行的方法 
+		       //each循环 使用$.each方法遍历返回的数据date
+		       ChangeRuleChart(data);
+		   	},
+		   	 error: function(XMLHttpRequest, textStatus, errorThrown) {
+			 alert(XMLHttpRequest.status);
+			 alert(XMLHttpRequest.readyState);
+			 alert(textStatus);
+   			}
+			});
+
+}
+ 
+// 用来实时更新图表 
+ function ChangeRuleChart(result){
+ 	for(var j=0; j<result.backupRule.length; j++){
+ 		var DstLength = result.backupRule[j].dst.node.length;//备端节点个数
+		var SrcLength = result.backupRule[j].src.node.length;//源端节点个数
+			
+//更换源端节点状态
+for(var i=0; i<SrcLength; i++){
+	var status = result.backupRule[j].dst.node[i].status;
+	document.getElementById('ScrNode'+j+i).setAttribute( "href", "img/"+status+".png");
+}; 
+
+//更换源端数据库状态
+var labelDbSrc = result.backupRule[j].src.db.label;
+var statusDbSrc = result.backupRule[j].src.db.status;
+document.getElementById('SrcDB'+j).setAttribute( "href", "img/"+statusDbSrc+".png");
+document.getElementById('SrcDBLabel'+j).textContent = labelDbSrc;
+ 
+//更换中间的图和速度
+var statusRuleChange = result.backupRule[j].rule.status;
+var bytesChange = parseInt(result.backupRule[j].rule.bytes/1024);
+document.getElementById('cloud'+j).setAttribute( "href", "img/"+statusRuleChange+".png");
+document.getElementById('cloudText'+j).textContent = "网络状态"+bytesChange+"kb/s";
+
+//更换备端节点状态
+for(var i=0; i<DstLength; i++){
+	var status = result.backupRule[j].dst.node[i].status;
+	document.getElementById('DstNode'+j+i).setAttribute( "href", "img/"+status+".png");
+}; 
+
+//更换备端数据库状态
+var labelDbDst = result.backupRule[j].dst.db.label;
+var statusDbDst = result.backupRule[j].dst.db.status;
+document.getElementById('DstDB'+j).setAttribute( "href", "img/"+statusDbDst+".png");
+document.getElementById('DstDBLabel'+j).textContent = labelDbDst;
+
+ 	}
+ }
+ 
+ 
+ 
+GetRuleData();
+setInterval(ChangeRuleData, 5000);
+
+//function Start() {
+//	
+//	var parent = document.getElementById('graph');
+//	var child=document.getElementById("Area11");
+//	parent.removeChild(child);
+//	GetRuleData();
+//	
+// }
+ 
+
+ 
+ 
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,153 @@
+{
+	"totalrule": [
+			{
+			"src": [{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn"
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+			}],
+
+			"dst": [{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn"
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.81",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+			}, {
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn"
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+			}],
+
+			"cloud": [{
+					"name": "1-2同步规则",
+					"status": "rule_track",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "最后抓取时间：2017-01-04_13-57-57",
+					"label2": "最后装载时间    1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒"
+				}, {
+					"name": "1-2同步规则",
+					"status": "rule_track",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "最后抓取时间：2017-01-04_13-57-57",
+					"label2": "最后装载时间    1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒"
+				}
+
+			]
+		},
+		{
+			"src": [{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn"
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+			}, {
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn"
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+			}],
+
+			"dst": [{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn"
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.88",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+			}, {
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn"
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+			}],
+
+			"cloud": [{
+					"name": "1-2同步规则",
+					"status": "rule_track",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "最后抓取时间：2017-01-04_13-57-57",
+					"label2": "最后装载时间    1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒"
+				}, {
+					"name": "1-2同步规则",
+					"status": "rule_track",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "最后抓取时间：2017-01-04_13-57-57",
+					"label2": "最后装载时间    1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒"
+				}
+
+			]
+		}
+	]
+}
+

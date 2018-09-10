@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+<script>		
+	var Nobj = new Object();
+	function varObj(id, height, width){
+			Nobj.width = width;	
+			Nobj[id]={
+				id:id,
+				height:height,
+				width:width
+		}
+	};
+	
+	
+	varObj(55321, 100, 10);
+ 	varObj(5532, 1000, 100)
+	console.log(Nobj);
+	
+	if(Nobj[5532]!= undefined){
+		alert(Nobj[5532].id);
+		
+	}else {
+		alert("no");
+	}
+</script>	
+	</body>
+</html>

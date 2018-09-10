@@ -1,0 +1,266 @@
+ {	"src": [{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn",
+					"Srcid":1111
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}, {
+					"name": "wk1",
+					"ip": "192.168.17.12",
+					"status": "node_offline"
+				}]
+				
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn",
+					"Srcid":1111
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}]
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn",
+					"Srcid":1111
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}]
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_normal",
+					"Srcid":1444
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_offline"
+				}]
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn",
+					"Srcid":1555
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}, {
+					"name": "wk6",
+					"ip": "192.168.17.77",
+					"status": "node_online"
+				}, {
+					"name": "wk7",
+					"ip": "192.168.17.55",
+					"status": "node_offline"
+				}]
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn",
+					"Srcid":1555
+				},
+				"node": [{
+					"name": "wk2",
+					"ip": "192.168.17.11",
+					"status": "node_online"
+				}]
+				}
+				
+				
+				
+				
+				],
+		"dst": [{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_normal",
+					"Dstid":2222
+				},
+				"node": [{
+					"name": "wk5",
+					"ip": "192.168.17.13",
+					"status": "node_online"
+				}, {
+					"name": "wk4",
+					"ip": "192.168.17.14",
+					"status": "node_offline"
+				}, {
+					"name": "wk3",
+					"ip": "192.168.17.15",
+					"status": "node_offline"
+				}]
+	
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_normal",
+					"Dstid":2333
+				},
+				"node": [{
+					"name": "wk5",
+					"ip": "192.168.17.13",
+					"status": "node_online"
+				}, {
+					"name": "wk4",
+					"ip": "192.168.17.14",
+					"status": "node_offline"
+				}, {
+					"name": "wk3",
+					"ip": "192.168.17.15",
+					"status": "node_offline"
+				}]
+	
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_abnormal",
+					"Dstid":2444
+				},
+				"node": [{
+					"name": "wk5",
+					"ip": "192.168.17.13",
+					"status": "node_offline"
+				},
+				{
+					"name": "wk5",
+					"ip": "192.168.17.13",
+					"status": "node_offline"
+				}]
+	
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_unkown",
+					"Dstid":2333
+				},
+				"node": [{
+					"name": "wk5",
+					"ip": "192.168.17.13",
+					"status": "node_online"
+				}]
+	
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_normal",
+					"Dstid":2444
+				},
+				"node": [{
+					"name": "wk5",
+					"ip": "192.168.17.13",
+					"status": "node_online"
+				}]
+	
+				},
+				{
+				"db": {
+					"name": "I2c_work",
+					"status": "db_warn",
+					"Dstid":2666
+				},
+				"node": [{
+					"name": "wk5",
+					"ip": "192.168.17.13",
+					"status": "node_online"
+				}]
+	
+				}
+				
+				
+				],
+				
+		"cloud":[ {
+					"name": "1-2同步规则",
+					"status": "rule_track",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "抓取时间：2017-01-04_13-57-57",
+					"label2": "装载时间：1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒",
+					"SrcId":1111,
+					"DstId":2222
+				},
+				 {
+					"name": "1-2同步规则",
+					"status": "rule_fix",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "抓取时间：2019-01-04_13-57-57",
+					"label2": "装载时间：2018-01-01_08-00-00",
+					"label3": "延迟：199毫秒",
+					"SrcId":1111,
+					"DstId":2333
+				},
+				 {
+					"name": "1-2同步规则",
+					"status": "rule_error",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "抓取时间：2017-01-04_13-57-57",
+					"label2": "装载时间：1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒",
+					"SrcId":1111,
+					"DstId":2444
+				},
+				 {
+					"name": "1-2同步规则",
+					"status": "rule_pause",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "抓取时间：2017-01-04_13-57-57",
+					"label2": "装载时间：1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒",
+					"SrcId":1444,
+					"DstId":2333
+				},
+				 {
+					"name": "1-2同步规则",
+					"status": "rule_unkown",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "抓取时间：2017-01-04_13-57-57",
+					"label2": "装载时间：1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒",
+					"SrcId":1555,
+					"DstId":2444
+				},
+				 {
+					"name": "1-2同步规则",
+					"status": "rule_track",
+					"bytes": 1234000,
+					"id": "EFD9E246-3C88-5E84-CAB4-488AB8B45CA8",
+					"label1": "抓取时间：2017-01-04_13-57-57",
+					"label2": "装载时间：1970-01-01_08-00-00",
+					"label3": "延迟：100毫秒",
+					"SrcId":1666,
+					"DstId":2666
+				}
+				
+				
+				
+				]
+}
+	
+

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+				<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"></script>
+				<script src="js/forReal.js"></script>
+<style>
+svg{
+	overflow: scroll;
+}
+
+#graph{
+	padding-bottom: 30px;
+}
+.SVG-text{
+	font-size:12px;
+	font-family: "微软雅黑";
+	color:#666
+}
+
+</style>		
+	</head>
+	<body id="main">
+		<div id="graph" style="overflow-x: scroll;"></div>
+
+		
+
+	
+
+<script>
+
+ /// <summary>获取测点数据</summary>
+function GetRuleData() {
+	 try {
+	
+			$.ajax({
+		   url: "json/allreal.json",//json文件位置
+		   type: "get",//请求方式为get
+		   dataType: "json", //返回数据格式为json
+		   success: function(data) {//请求成功完成后要执行的方法 
+		       //each循环 使用$.each方法遍历返回的数据date
+		       DrawRuleChart(data);
+		   	},
+		   	 error: function(XMLHttpRequest, textStatus, errorThrown) {
+			 alert(XMLHttpRequest.status);
+			 alert(XMLHttpRequest.readyState);
+			 alert(textStatus);
+   			}
+			});
+	    } catch (e) {
+	        alert(e.Message);
+	    }
+}
+        
+ /// <summary>更新标签数据</summary>
+function DrawRuleChart(result) {
+        var SVGbeginHeight = 20;
+var Srcobj = new Object();
+	Srcobj.width=0;
+var Dstobj = new Object();
+	Dstobj.width=0;
+		
+//创建div
+ var Div1 = document.createElement('div');
+ var div111 = document.getElementById('graph');
+ Div1.id = 'Area';
+ Div1.setAttribute( "style", " width:1080px; margin: 0 auto;border-radius: 5px;margin-top:20px" );
+div111.appendChild(Div1);
+
+//创建SVG
+var svg1 = document.createElementNS( "http://www.w3.org/2000/svg", "svg" );
+svg1.id = 'svg1';
+svg1.setAttribute( "width", 1080 );
+svg1.setAttribute( "height", 220 );
+svg1.setAttribute( "version", 1.1 );
+Div1.appendChild(svg1);		
+
+//用来往varObj里存储数据
+function varSrcObj(id, height){
+//		var a = id;
+			 Srcobj[id]={
+				id:id,
+				height:height,
+				width:-1
+		};
+};
+
+function varDstObj(id, height){
+//		var a = id;
+			Dstobj[id]={
+				id:id,
+				height:height,
+				width:-1
+		};
+
+};
+
+		
+//开始循环json		
+        for(var j=0; j<result.cloud.length; j++){
+
+			var SrcLength = result.src[j].node.length;//源端节点个数
+            var DstLength = result.dst[j].node.length;//备端节点个数
+            var Totalheight;//svg总高度
+			var RealLeftheight = 140;
+			var RealRightheight = 140;
+
+//          var Lmid = 40 +SrcLength*35;//左侧中线y坐标
+//          var Rmid = 40 +DstLength*35;//右侧中线y坐标
+
+            if(DstLength==0 || SrcLength==0){
+                Totalheight = 0;
+                alert("node error");
+            }else if(DstLength<=2 && SrcLength<=2){
+                Totalheight = 140;
+            }else {
+            	if(SrcLength >=DstLength){
+            		 Totalheight= SrcLength*70;
+            	}
+            	else{
+            		Totalheight= DstLength*70;
+            	}
+            } ;          
+            if (SrcLength> 2){RealLeftheight=SrcLength*70};
+            if (DstLength> 2){RealRightheight=DstLength*70};
+        
+//画中间的规则
+var SrcidCloud=  result.cloud[j].SrcId;
+var DstIdCloud=  result.cloud[j].DstId;
+var nameCloud = result.cloud[j].name;
+var statusCloud = result.cloud[j].status;
+var bytesCloud = parseInt(result.cloud[j].bytes/1024);
+var label1Cloud = result.cloud[j].label1;
+var label2Cloud = result.cloud[j].label2;
+var label3Cloud = result.cloud[j].label3;
+
+if (Srcobj[SrcidCloud]!= undefined && Dstobj[DstIdCloud]!= undefined){
+		var SrcHeightCloud = Srcobj[SrcidCloud].height;
+		if(Srcobj[SrcidCloud].width ==-1){
+			var SrcWidthCloud = Srcobj.width;
+			Srcobj[SrcidCloud].width = Srcobj.width;
+			Srcobj.width = Srcobj.width + 1;
+		}
+		else{
+			var SrcWidthCloud = Srcobj[SrcidCloud].width;
+		}
+		var DstHeightCloud = Dstobj[DstIdCloud].height;
+		if(Dstobj[DstIdCloud].width ==-1){
+			var DstWidthCloud = Dstobj.width;
+			Dstobj[DstIdCloud].width = Dstobj.width;
+			Dstobj.width = Dstobj.width + 1;
+		}
+		else{
+			var DstWidthCloud = Dstobj[DstIdCloud].width;
+		}
+//		alert(DstWidthCloud);
+		var LorR = 4;
+		DrawCloud(nameCloud, statusCloud, bytesCloud, label1Cloud, label2Cloud, label3Cloud, SVGbeginHeight, j, LorR, SrcHeightCloud, SrcWidthCloud, DstHeightCloud, DstWidthCloud);
+
+		}
+
+else if(Srcobj[SrcidCloud]!= undefined){
+		var SrcHeightCloud = Srcobj[SrcidCloud].height;
+		if(Srcobj[SrcidCloud].width ==-1){
+			var SrcWidthCloud = Srcobj.width;
+			Srcobj[SrcidCloud].width = Srcobj.width;
+			Srcobj.width = Srcobj.width + 1;
+		}
+		else{
+			var SrcWidthCloud = Srcobj[SrcidCloud].width;
+		}
+		var LorR = 1;
+		DrawCloud(nameCloud, statusCloud, bytesCloud, label1Cloud, label2Cloud, label3Cloud, SVGbeginHeight, j, LorR, SrcHeightCloud, SrcWidthCloud, 0 , 0);
+		varDstObj(DstIdCloud, SVGbeginHeight+35);
+		
+	}
+else if (Dstobj[DstIdCloud]!= undefined){
+		var DstHeightCloud = Dstobj[DstIdCloud].height;
+		if(Dstobj[DstIdCloud].width ==-1){
+			var DstWidthCloud = Dstobj.width;
+			Dstobj[DstIdCloud].width = Dstobj.width;
+			Dstobj.width = Dstobj.width + 1;
+		}
+		else{
+			var DstWidthCloud = Dstobj[DstIdCloud].width;
+		}
+		var LorR = 2;
+		DrawCloud(nameCloud, statusCloud, bytesCloud, label1Cloud, label2Cloud, label3Cloud, SVGbeginHeight, j, LorR, 0, 0, DstHeightCloud, DstWidthCloud);
+		
+		varSrcObj(SrcidCloud, SVGbeginHeight+35);
+	}
+
+else{
+	var LorR = 0;
+	DrawCloud(nameCloud, statusCloud, bytesCloud, label1Cloud, label2Cloud, label3Cloud, SVGbeginHeight, j , LorR, 0 , 0, 0, 0);
+	varSrcObj(SrcidCloud, SVGbeginHeight+35);
+	varDstObj(DstIdCloud, SVGbeginHeight+35);
+}        
+
+//如果左侧源端存在
+if(LorR!=1 && LorR!=4) {
+//画左侧方框
+if (SrcLength==1){
+DrawRect(20 ,SVGbeginHeight,320,RealLeftheight-40);	
+}
+else{
+DrawRect(20 ,SVGbeginHeight,320,RealLeftheight);	
+}
+
+
+//画左侧源端节点
+for(var i=0; i<SrcLength; i++){
+		var name = result.src[j].node[i].name;
+        var ip = result.src[j].node[i].ip;
+        var status = result.src[j].node[i].status;
+DrawnodeSrc(120 , SVGbeginHeight+10+70*(i) ,name,ip,status, SVGbeginHeight+35 ,SrcLength, j, i);
+};
+
+//画左侧数据库
+ var nameDbSrc = result.src[j].db.name;
+//var labelDbSrc = result.src[j].db.label;
+var statusDbSrc = result.src[j].db.status;
+var ipDbSrc = result.src[j].db.Srcid;
+DrawDbSrc(nameDbSrc,statusDbSrc,ipDbSrc,SVGbeginHeight,j)
+}
+
+//如果右侧备端存在
+if(LorR!=2 && LorR!=4) {
+//画右侧方框
+if (DstLength==1){
+DrawRect(740 ,SVGbeginHeight,320,RealRightheight-40);
+}
+else{
+DrawRect(740 ,SVGbeginHeight,320,RealRightheight);
+}
+
+//画右侧数据库
+ var nameDbDst = result.dst[j].db.name;
+//var labelDbSrc = result.src[j].db.label;
+var statusDbDst = result.dst[j].db.status;
+var ipDbDst = result.dst[j].db.Dstid;
+DrawDbDst(nameDbDst,statusDbDst,ipDbDst,SVGbeginHeight,j)
+
+//画右侧备端节点
+for(var i=0; i<DstLength; i++){
+		var name = result.dst[j].node[i].name;
+        var ip = result.dst[j].node[i].ip;
+        var status = result.dst[j].node[i].status;
+DrawnodeDst(910 , SVGbeginHeight+10+70*(i) ,name,ip,status, SVGbeginHeight+35 ,DstLength, j, i);
+
+};
+}
+
+//console.log(Srcobj);
+//console.log(Dstobj);
+
+SVGbeginHeight = Totalheight+ SVGbeginHeight +20;
+svg1.setAttribute( "height", SVGbeginHeight);          
+}	
+}
+// 用来实时获取数据更新图表
+// 用来实时获取数据更新图表
+// 用来实时获取数据更新图表
+// 用来实时获取数据更新图表
+// 用来实时获取数据更新图表
+ function ChangeRuleData() {
+			$.ajax({
+		   url: "json/allreal.json",//json文件位置
+		   type: "get",//请求方式为get
+		   dataType: "json", //返回数据格式为json
+		   success: function(data) {//请求成功完成后要执行的方法 
+		       //each循环 使用$.each方法遍历返回的数据date
+		       ChangeRuleChart(data);
+		   	},
+		   	 error: function(XMLHttpRequest, textStatus, errorThrown) {
+			 alert(XMLHttpRequest.status);
+			 alert(XMLHttpRequest.readyState);
+			 alert(textStatus);
+   			}
+			});
+
+}
+ 
+// 用来实时更新图表 
+ function ChangeRuleChart(result){
+//用来存这个要更新的数据库id是不是存在过
+var Srco = new Object();
+var Dsto = new Object();
+
+//用来往varObj里存储数据
+function varSrcO(id){
+			 Srco[id]={
+				id:id}
+};
+
+function varDstO(id){
+			Dsto[id]={
+				id:id}
+};
+
+//开始循环json		
+        for(var j=0; j<result.cloud.length; j++){
+
+			var SrcLength = result.src[j].node.length;//源端节点个数
+            var DstLength = result.dst[j].node.length;//备端节点个数
+  			var SrcidCloud=  result.cloud[j].SrcId;
+			var DstIdCloud=  result.cloud[j].DstId;
+            
+            
+if (Srco[SrcidCloud]!= undefined && Dsto[DstIdCloud]!= undefined){
+		var LorR = 4;
+}
+else if(Srco[SrcidCloud]!= undefined){
+		var LorR = 1;
+		varDstO(DstIdCloud);
+}
+else if (Dsto[DstIdCloud]!= undefined){
+		var LorR = 2;
+		varSrcO(SrcidCloud);
+	}
+
+else{
+	var LorR = 0;
+	varSrcO(SrcidCloud);
+	varDstO(DstIdCloud);
+}  
+
+if(LorR!=1 && LorR!=4) {
+//更换源端节点状态
+for(var i=0; i<SrcLength; i++){
+	var status = result.src[j].node[i].status;
+	document.getElementById('ScrNode'+j+i).setAttribute( "href", "img/"+status+".png");
+}; 
+
+//更换源端数据库状态
+var statusDbSrc = result.src[j].db.status;
+document.getElementById('SrcDB'+j).setAttribute( "href", "img/"+statusDbSrc+".png");
+}
+ 
+//更换中间的图和速度
+var statusRuleChange = result.cloud[j].status;
+var bytesChange = parseInt(result.cloud[j].bytes/1024);
+var label1CloudChange = result.cloud[j].label1;
+var label2CloudChange = result.cloud[j].label2;
+var label3CloudChange = result.cloud[j].label3;
+document.getElementById('cloud'+j).setAttribute( "href", "img/"+statusRuleChange+".png");
+document.getElementById('cloudText'+j).textContent = "状态"+bytesChange+"kb/s";
+document.getElementById('cloudLabel1'+j).textContent = label1CloudChange;
+document.getElementById('cloudLabel2'+j).textContent = label2CloudChange;
+document.getElementById('cloudLabel3'+j).textContent = label3CloudChange;
+
+if(LorR!=2 && LorR!=4) {
+//更换备端节点状态
+for(var i=0; i<DstLength; i++){
+	var status = result.dst[j].node[i].status;
+	document.getElementById('DstNode'+j+i).setAttribute( "href", "img/"+status+".png");
+}; 
+
+//更换备端数据库状态
+var statusDbDst = result.dst[j].db.status;
+document.getElementById('DstDB'+j).setAttribute( "href", "img/"+statusDbDst+".png");
+}
+
+ 	}
+ } 
+ 
+ 
+GetRuleData();
+setInterval(ChangeRuleData, 5000);
+
+
+//function Start() {
+//	
+//	var parent = document.getElementById('graph');
+//	var child=document.getElementById("Area11");
+//	parent.removeChild(child);
+//	GetRuleData();
+//	
+// }
+ 
+
+ 
+ 
+
+</script>
+	</body>
+</html>
