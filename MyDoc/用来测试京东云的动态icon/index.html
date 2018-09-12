@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		
+		
+<style>
+	.jdc-opTop-icon{
+		width:64px;
+		height:64px;
+		overflow: hidden;
+		border-radius:50%;
+		background-repeat:no-repeat;
+		background-position: 0 -2176px;
+		background-size:100%;
+		background-image:url("img/123.png");
+	}
+</style>		
+	</head>
+	<body>
+<div class="jdc-opTop-icon"></div>
+
+
+<script>
+$(document).ready(function(){
+	var flag = true;
+	$(".jdc-opTop-icon").mouseover(function(){
+		if(flag){
+		flag= false;
+		$(".jdc-opTop-icon").css("background-positionY",0+"px");
+		setTimeout(function(){ changeheight(64)}, 20);
+		setTimeout(function(){ changeheight(128)}, 40);
+		setTimeout(function(){ changeheight(192)}, 60);
+		setTimeout(function(){ changeheight(256)}, 80);
+		setTimeout(function(){ changeheight(320)}, 100);
+		setTimeout(function(){ changeheight(384)}, 120);
+		setTimeout(function(){ changeheight(448)}, 140);
+		setTimeout(function(){ changeheight(512)}, 160);
+		setTimeout(function(){ changeheight(576)}, 180);
+		setTimeout(function(){ changeheight(640)}, 200);
+		setTimeout(function(){ changeheight(704)}, 220);
+		setTimeout(function(){ changeheight(768)}, 240);
+		setTimeout(function(){ changeheight(832)}, 260);
+		setTimeout(function(){ changeheight(896)}, 280);
+		setTimeout(function(){ changeheight(960)}, 300);
+		setTimeout(function(){ changeheight(1024)}, 320);
+		setTimeout(function(){ changeheight(1088)}, 340);
+		setTimeout(function(){ changeheight(1152)}, 360);
+		setTimeout(function(){ changeheight(1216)}, 380);
+		setTimeout(function(){ changeheight(1344)}, 400);
+		setTimeout(function(){ changeheight(1408)}, 420);
+		setTimeout(function(){ changeheight(1472)}, 440);
+		setTimeout(function(){ changeheight(1536)}, 460);
+		setTimeout(function(){ changeheight(1600)}, 480);
+		setTimeout(function(){ changeheight(1664)}, 500);
+		setTimeout(function(){ changeheight(1728)}, 520);
+		setTimeout(function(){ changeheight(1792)}, 540);
+		setTimeout(function(){ changeheight(1856)}, 560);
+		setTimeout(function(){ changeheight(1920)}, 580);
+		setTimeout(function(){ changeheight(1984)}, 600);
+		setTimeout(function(){ changeheight(2048)}, 620);
+		setTimeout(function(){ changeheight(2112)}, 640);
+		setTimeout(function(){ changeheight(2176)}, 660);
+		setTimeout(function(){ flag=true;}, 680);
+		}
+		
+//		$(".jdc-opTop-icon").animate({"background-positionY":-2176},1000)
+//		for (var i=0;i<2176;i=i+64){
+//			setTimeout(function(){ changeheight(i)}, 50*(i+1));
+//			console.log("111")
+//		}
+//		var i = 0;
+//		while(i<2176){
+//		setTimeout(function(){ changeheight(i)}, i+1);
+//		 i=i+64;
+//		}
+	})
+});
+
+
+function changeheight(i){
+		$(".jdc-opTop-icon").css("background-positionY","-"+i+"px");
+}
+	
+</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+x=0;
+y=0;
+$(document).ready(function(){
+  $("div.over").mouseover(function(){
+    $(".over span").text(x+=1);
+  });
+  $("div.enter").mouseenter(function(){
+    $(".enter span").text(y+=1);
+  });
+});
+</script>
+<div class="over" style="background-color:lightgray;padding:20px;width:40%;float:left">
+<h2 style="background-color:white;">被触发的 Mouseover 事件：<span></span></h2>
+</div>
+<div class="enter" style="background-color:lightgray;padding:20px;width:40%;float:right">
+<h2 style="background-color:white;">被触发的 Mouseenter 事件：<span></span></h2>
+</div>
+	</body>
+</html>
