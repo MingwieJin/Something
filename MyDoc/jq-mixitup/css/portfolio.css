@@ -1,0 +1,141 @@
+/**********************
+PORTFOLIO
+***********************/
+.centered-pills {
+	text-align: center;
+}
+.centered-pills ul.nav-pills {
+	display: inline-block;
+}
+.centered-pills li {
+	display: inline;
+}
+.centered-pills a {
+	float: left;
+}
+
+.nav-pills > li > a{
+/*	border-radius: 5px;
+        border:1px solid transparent;*/
+	color: #333;
+	margin-right: 20px;
+}
+
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus,
+.nav-pills > li > a.active{
+	background-color: transparent;
+	color:#027cdc;
+}
+
+.projects{
+	margin: 0 0 70px 0;
+}
+
+.portfolio-item {
+	position: relative;
+	
+	overflow: hidden;
+	padding: 0;
+	
+	text-align: center;
+}
+
+.portfolio-item figcaption {
+	background: #27282b;
+	background: rgba(39, 40, 43, 0.8);
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	bottom: 15px;
+	right: 15px;
+	display: block;
+	opacity: 0;
+}
+
+.portfolio-item:hover figcaption {
+	opacity: 1;
+}
+
+figcaption a{
+	text-decoration: none;
+}
+
+figcaption a:hover, a:focus{
+	text-decoration: none;
+	color:#fff;
+}
+figcaption h3 {
+	color: #fff;
+	font-size: 18px;
+	line-height: 28px;
+	margin-top: 20%;
+}
+
+@media (max-width:1500px) and (min-width:1200px) {
+    figcaption h3{
+        font-size: 15px;
+        margin-top: 15%;
+    } 
+    figcaption span{
+        font-size:13px;
+    }
+}
+
+@media (max-width:1200px){
+    figcaption h3{
+        font-size: 12px;
+        margin-top: 5%;
+        margin-bottom: 5px;
+    } 
+    figcaption span{
+        font-size:10px;
+    }
+}
+
+figcaption span {
+	color: #fff;
+}
+
+#about .baner {
+	background-image: url(../img/about-bg.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.box{
+	background: #27282b;
+	background: rgba(39, 40, 43, 0.8);
+	margin: 70px 0;
+	padding: 40px;
+}
+
+.box h3,
+.box p
+{
+	color: #fff;
+}
+
+.box .delimiter,
+.box p{
+	margin-bottom: 50px;
+}
+
+.box h3{
+	margin-bottom: 20px;
+}
+
+.box .delimiter{
+	width: 60px;
+	height: 0;
+	border-bottom: 2px solid #fa5c58;
+	display: block;
+}
+
+/********************************
+Team
+*********************************/
+
+ .mix{
+	display: none;
+}

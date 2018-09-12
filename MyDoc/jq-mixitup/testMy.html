@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/portfolio.css">
+	<link rel="stylesheet" type="text/css" href="css/button-type.css">
+
+<!-- Load custom js plugins -->
+<script type="text/javascript" src="js/jquery.mixitup.js"></script>
+<!--<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/wow.js"></script>
+<script type="text/javascript" src="js/smooth-scroll.js"></script>-->
+<!--<script type="text/javascript" src="js/apptest.js"></script>-->
+
+
+<style>
+	.row-portfolio{
+	width:92.5%;
+	margin: 0 auto ;
+	}
+	
+	.portfolio-item figcaption {
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+}
+</style>
+	</head>
+	<body >
+		
+		
+		
+		<div class="content-portfolio" id="filter-controls">
+		<nav class="centered-pills clearfix">
+			<ul class="nav nav-pills" >
+				<li><a href="javascript:void(0);" class="filter active button-type1" data-filter="all">所有产品</a></li>
+				<li><a href="javascript:void(0);" class="filter button-type1" data-filter=".yun">云</a></li>
+				<li><a href="javascript:void(0);" class="filter button-type1" data-filter=".software">软件</a></li>
+				<li><a href="javascript:void(0);" class="filter button-type1" data-filter=".hardware">硬件</a></li>
+<!--				<li><a href="javascript:void(0);" class="filter" data-filter=".templates">Templates</a></li>-->
+			</ul>
+		</nav>
+		
+		
+		
+		
+		
+		<div class="projects row-portfolio">
+			<figure class="mix all portfolio-item hardware  col-md-3 col-sm-6" >
+				<img class="img-responsive" src="image/HA.png" alt="coopy icons" />
+				<figcaption class="mask">
+					<a href="http://www.info2soft.com/products/i2coopy">
+					<h3>i2COOPY数据实时灾备</h3>
+					<span>实时持续备份,无备份时间窗口</span>
+					</a>
+				</figcaption>
+			</figure>
+			<figure class="mix portfolio-item software col-md-3  col-sm-6">
+				<img class="img-responsive" src="image/i2avtive.png" alt="Atom UI Kit" />
+				<figcaption class="mask">
+					<h3>Atom UI Kit</h3>
+					<span>UI Kits</span>
+				</figcaption>
+			</figure>
+			<figure class="mix portfolio-item software col-md-3  col-sm-6">
+				<img class="img-responsive" src="image/i2Cloud.png" alt="60 flat icons" />
+				<figcaption class="mask">
+					<h3>60 flat icons</h3>
+					<span>Icons</span>
+				</figcaption>
+			</figure>
+			<figure class="mix portfolio-item software yun col-md-3  col-sm-6">
+				<img class="img-responsive" src="image/Move.png" alt="iPad mockup" />
+				<figcaption class="mask">
+					<h3>iPad Mockup</h3>
+					<span>Mockups</span>
+				</figcaption>
+			</figure>
+			<figure class="mix portfolio-item software col-md-3  col-sm-6">
+				<img class="img-responsive" src="image/Move.png" alt="Ket singlpage PSD template" />
+				<figcaption class="mask">
+					<h3>Ket Web template</h3>
+					<span>Tempaltes</span>
+				</figcaption>
+			</figure>
+			<figure class="mix portfolio-item software yun col-md-3  col-sm-6">
+				<img class="img-responsive" src="image/i2Cloud.png" alt="Mentum web theme" />
+				<figcaption class="mask">
+					<h3>Mentum web theme</h3>
+					<span>Templates</span>
+				</figcaption>
+			</figure>
+			<figure class="mix portfolio-item hardware col-md-3  col-sm-6">
+				<img class="img-responsive" src="image/i2avtive.png" alt="Smartphone mockup" />
+
+				<figcaption class="mask">
+					<h3>Smartphone mockup</h3>
+					<span>Mockups</span>
+				</figcaption>
+			</figure>
+			<figure class="mix portfolio-item software col-md-3  col-sm-6">
+				<img class="img-responsive" src="img/portfolio/sven.jpg" alt="Sven UI Kit" />
+				<figcaption class="mask">
+					<h3>Sven UI Kit</h3>
+					<span>UI Kits</span>
+				</figcaption>
+			</figure>
+
+		</div>
+	</div>
+	
+	
+	
+	
+<script>
+	    $('#filter-controls').mixItUp(); 
+	   $("#filter-controls .active").focus();
+</script>	
+	</body>
+</html>
