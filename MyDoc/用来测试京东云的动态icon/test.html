@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	<style>
+		#div{
+		    width: 100px;
+		    height: 100px;
+		    animation-name: skyset;
+		    animation-duration: 5000ms;
+		    animation-iteration-count: 1;
+		    border: 1px solid blue;
+		    animation-timing-function: linear;
+		    -webkit-animation-name: skyset;
+		    -webkit-animation-duration: 5000ms;
+		    -webkit-animation-iteration-count: 1;
+		    -webkit-animation-timing-function: steps(2, end);
+		}
+
+		@-webkit-keyframes skyset {
+		    0% {
+		        width: 100px;
+		    }
+		    50% {
+		        width: 150px;
+		    }
+		    100% {
+		        width: 200px;    
+		    }
+		}
+
+	</style>	
+	</head>
+	<body>
+		
+	<div id="div"></div>
+	</body>
+</html>

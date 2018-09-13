@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body id="body">
+    <!--
+        /*transition过渡特效*/
+        第一步：设置目标元素div2的初始样式
+        第二步：设置目标元素div2在鼠标hover时的表现样式
+        第三步：给目标元素添加transition属性，并指定需要过渡的属性
+ 
+        /*固定宽高盒子上下左右居于不定宽高容器正中*/
+        第一步：设置待定位盒子和宽高值
+        第二步：将待定位盒子position属性设为absolute使其相对于父元素绝对定位（相对于static定位以外的第一个父元素进行定位）,
+        使其顶部和左侧定位距离设为父元素高和宽的50%（即：先将盒子定位到“父元素4分之1区域的右下部”）
+        第三步：把待定位盒子的margin-top值和margin-left值设为其高度和宽度一半的负值（即：把盒子从右下区域拉回正中间）
+    -->
+ 
+    <div id="div2">
+        <div>
+            content content content content content content content content
+        </div>
+    </div>
+ 
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+ 
+        #body {
+            background-color:green;
+        }
+ 
+        #div2 {
+            width:300px;
+            height:200px;
+            background-color:red;
+ 
+            position:absolute;
+            top:50%;
+            left:50%;
+ 
+            margin-top:-100px;
+            margin-left:-150px;
+ 
+            transition:all 1s steps(3, start) 0s;
+            /*transition:width 3s,height 3s,margin-top 3s,margin-left 3s,background-color 3s;*/ /*属性随相同时间过渡，整体过渡显得很规则*/
+            /*transition:width 1s,height 2s,margin-top 2s,margin-left 3s,background-color 3s;*/ /*属性随不同时间过渡，整体过渡显得更有动态感*/
+        }
+ 
+        #div2:hover {
+            width:600px;
+            height:400px;
+            margin-top:-200px;
+            margin-left:-300px;
+            background-color:yellow;
+        }
+    </style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+</html>
