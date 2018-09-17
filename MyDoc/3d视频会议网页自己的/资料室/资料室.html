@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>展厅</title>
+	    <!-- load stylesheets -->
+	    <link rel="stylesheet" href="css/reset.css">
+	    <!--<link rel="stylesheet" href="css/style.css">-->
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+		
+<style>
+body{
+	font-size: 14px;
+}
+.main-container{
+	position: relative;
+}
+	
+.main-container .backimg{
+	
+	width:100%;
+	height:auto;
+	z-index: -1;
+	
+}	
+.logo-live{
+	position: absolute;
+	top: 3%;
+	left: 2%;
+	width:20%;
+	cursor: pointer;
+}
+
+.left-1{
+	position:absolute;
+	/*height:10%;*/
+	width:4.3%;
+	top: 19.2%;
+	left:6.2%;	
+	z-index: 7;
+}
+
+.left-2{
+	position:absolute;
+	/*height:10%;*/
+	width:4.3%;
+	top: 21.2%;
+	left:11.2%;	
+	z-index: 6;
+}
+.right-1{
+	position:absolute;
+	width:4.3%;
+	top: 19%;
+	right:7.2%;
+	z-index: 7;
+}
+.li-row{
+	width:100%;	
+	margin-top:2px;
+}
+.data-row, .data-row1{
+	float:left;
+}
+
+.dota-row-content{
+	background: url(img/lefttext_16.png) no-repeat center;
+	background-size:100% 100%;
+	width:500%;
+	margin-left:105%;
+	height:30px;
+	float:left;
+	position:absolute;
+	padding:10% 0 10% 20%;
+	font-size:12px;
+	
+}
+.dota-row-content-right{
+	background: url(img/righttext_12.png) no-repeat center;
+	background-size:100% 100%;
+	width:500%;
+	margin-left:-520%;
+	height:30px;
+	float:left;
+	position:absolute;
+	padding:10% 0 10% 20%;
+	font-size:12px;
+	
+}
+
+@media screen and (max-width: 1200px ) {
+	.dota-row-content, .dota-row-content-right{
+		font-size:10px;
+	}	
+}
+@media screen and (max-width: 800px ) {
+	.dota-row-content, .dota-row-content-right{
+		font-size:8px;
+	}	
+}
+.clear{
+	clear: both;
+}
+
+</style>		
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="logo-live"><a href="../主入口/主入口.html"><img src="img/logo3.png" alt="logo"/></a></div>
+			<img class="backimg" src="img/background.jpg"/>
+			<ul class="left-1">
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台2</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台3</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台4</div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+			
+			<ul class="left-2">
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/box_07.png"/>
+					<img class="data-row1" src="img/boxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+			
+			
+			<ul class="right-1">
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+				<li class="li-row">
+					<img class="data-row" src="img/rightbox_07.png"/>
+					<img class="data-row1" src="img/rightboxactive_07.png" style="display:none;"/>
+					<div class="dota-row-content-right" style="display:none;">VERITAS ACCESS 一款软件定义存储平台1</div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+		</div>
+		
+		
+<script>
+$(document).ready(function(){
+	var liwidth = $('.li-row').width();
+	var liheight = liwidth/1.7;
+	$('.data-row').css("height",liheight);
+	$('.data-row1').css("height",liheight);
+	$('.dota-row-content').css("height",liheight);
+	
+	$(".li-row").mouseover(function(){
+	    $(this).find(".data-row1").css("display","block");
+	    $(this).find(".data-row").css("display","none");
+	    $(this).find(".dota-row-content").css("display","block");
+	    $(this).find(".dota-row-content-right").css("display","block");
+	});
+	$(".li-row").mouseout(function(){
+	    $(this).find(".data-row").css("display","block");
+	    $(this).find(".data-row1").css("display","none");
+	    $(this).find(".dota-row-content").css("display","none");
+	    $(this).find(".dota-row-content-right").css("display","none");
+	    
+	});
+		
+})
+</script>		
+	</body>
+</html>

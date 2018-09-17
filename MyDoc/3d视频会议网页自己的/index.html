@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <title>点播</title>
+	    <!-- load stylesheets -->
+	    <link rel="stylesheet" href="css/reset.css">
+	    <link rel="stylesheet" href="css/style.css">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="logo-live"><a href="主入口/主入口.html"><img src="img/logo3.png" alt="logo"/></a></div>
+			<!--<div class="logo-live"><img src="../images/logo-live.png" alt="logo"  data-smarket="logo" data-smarket-name="会场Logo" data-smarket-scope="图片设置"/></div>-->
+			<div class="live-main clearfix">
+				<a href="主入口/主入口.html"><div class="back back-1">返回选择会场</div></a>
+				<div class="bf">
+					<!--视频开始-->
+						<div class="video" data-component="video">
+							  <video id="my-video" class="video-js" controls preload="none" width="100%" height="100%"
+							  poster="img/poster.jpg" data-setup="{}">
+							    <source src="http://oss.info2soft.com/video/info2soft.mp4" type='video/mp4'>
+							    <p class="vjs-no-js">
+							      To view this video please enable JavaScript, and consider upgrading to a web browser that
+							      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+							    </p>
+							  </video>
+						</div>
+					<!--视频结束-->
+					<div name = "video1" style=" text-align: center"></div>
+					<div class="ppt" id="mypptshow" name="doc" data-component="doc"></div>
+					<div class="video-animation">
+						<div class="video-line"></div>
+						<div class="video-round"></div>
+					</div>
+					<div class="switch icon-switch"></div>
+				</div>
+				<div class="bf-side">
+					<div class="cont" id="chapterVM">
+						<div class="ppt"></div>
+						<div class="tabs">
+							<span class="on">时间</span>
+							<span>页码</span>
+						</div>
+						<ul class="list" data-bind="foreach:chapterList">
+							<!--<li class="clearfix" data-bind="click:function(){meetingSetting.chapterSeek($data)}">
+								<div class="fl" data-bind="text:startimeShort">00:08:47</div>
+								<div class="fl" data-bind="text:title,attr:{'title':title}">1</div>
+							</li>-->
+							<li class="clearfix" data-bind="click:function(){meetingSetting.chapterSeek($data)}" data-time="0" onclick="setCurTime(this);">
+								<div class="fl" data-bind="text:startimeShort">00:00:00</div>
+								<div class="fl" data-bind="text:title,attr:{'title':title}">1</div>
+							</li>
+							<li class="clearfix" data-bind="click:function(){meetingSetting.chapterSeek($data)}" data-time="4" onclick="setCurTime(this);">
+								<div class="fl" data-bind="text:startimeShort">00:00:04</div>
+								<div class="fl" data-bind="text:title,attr:{'title':title}">2</div>
+							</li>
+							<li class="clearfix" data-bind="click:function(){meetingSetting.chapterSeek($data)}" data-time="60" onclick="setCurTime(this);">
+								<div class="fl" data-bind="text:startimeShort">00:01:00</div>
+								<div class="fl" data-bind="text:title,attr:{'title':title}">3</div>
+							</li>
+							<li class="clearfix" data-bind="click:function(){meetingSetting.chapterSeek($data)}" data-time="100" onclick="setCurTime(this);">
+								<div class="fl" data-bind="text:startimeShort">00:01:40</div>
+								<div class="fl" data-bind="text:title,attr:{'title':title}">4</div>
+							</li>
+							<li class="clearfix" data-bind="click:function(){meetingSetting.chapterSeek($data)}" data-time="120" onclick="setCurTime(this);">
+								<div class="fl" data-bind="text:startimeShort">00:02:00</div>
+								<div class="fl" data-bind="text:title,attr:{'title':title}">5</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="gz"></div><!--下方观众图-->
+		</div>
+		
+		<!--ppt浏览弹窗-->
+	   	<div class="largeContainer" id="largeContainer">
+	   		<a href="javascript:void(0);"  class="largeContainer-close"></a>
+			<img id="large_img" src="" />
+		</div>
+
+
+<script>
+	(function (doc, win) {
+		var docEl = doc.documentElement,
+		resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		recalc = function () {
+			var clientWidth = docEl.clientWidth;
+		if (!clientWidth) return;
+		if(clientWidth>=1920){
+			docEl.style.fontSize = '100px';
+		}else{
+			docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+		}
+	};
+	if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	
+	
+	
+//	换位按钮
+	$('.icon-switch').click(function(){
+        var className = $('[data-component="doc"]').attr('class');
+        $('[data-component="doc"]').attr('class', $('[data-component="video"]').attr('class'));
+        $('[data-component="video"]').attr('class', className);
+    });
+    
+//	用来改变播放ppt图片的  
+    function changeimg(src){
+    	 var html = '';
+    	$("#mypptshow").empty();
+    	html += '<img id="headImage" src="'+src+'">';
+    	$('#mypptshow').html(html);
+    	//绑定点击放大事件
+    	$("#headImage").bind("click", function(){
+			loadImg($("#headImage").attr("src"));
+		});
+    }
+    
+//  用来给隐藏弹窗层赋值的
+    function loadImg(_id){
+    	var blockheight=document.body.scrollHeight +"px";  //设置隐藏层的高度为当前页面高度
+    	
+//		赋值图片路径,并且赋值css纵向屏幕高度和横向居中
+		if(document.body.clientWidth>=1200){
+			$("#large_img").attr('src', _id).css('height',$(window).height());
+		}
+		else{
+			$("#large_img").attr('src', _id).css('width','100%');
+		}
+//		设定container的大小,显示container
+		$("#largeContainer").css({width:$(window).width(),height:blockheight}).show();
+		
+	}	
+//	//绑定点击放大事件
+//	$("#headImage").bind("click", function(){
+//		loadImg($("#headImage").attr("src"));
+//	});
+	//绑定点击弹窗缩小事件
+  	$("#largeContainer").bind("click",function(){
+			$("#largeContainer").hide();
+	});
+//绑定esc键退出全屏
+	$(window).keydown(function (event) {
+        if (event.keyCode == 27) {
+            $("#largeContainer").hide();
+        }
+   });
+//时间跳转
+	function setCurTime(obj){ 
+	  var videotime =$(obj).attr("data-time");
+	  console.log(videotime);
+	  var myVid=document.getElementById("my-video");
+	  myVid.currentTime=parseInt(videotime);
+	} 
+
+$(document).ready(function(){
+	changeimg("img/poster.jpg");
+	//监听播放时间
+	var video = document.getElementById('my-video');
+	//使用事件监听方式捕捉事件
+	video.addEventListener("timeupdate",function(){
+	    var timeDisplay;
+		//用秒数来显示当前播放进度
+		timeDisplay = Math.floor(video.currentTime);
+	    //当视频播放到 4s的时候做处理
+		if( timeDisplay <4){
+		       changeimg("img/poster.jpg");
+
+		}	    
+		else if(4 <=timeDisplay && timeDisplay<60){
+		       changeimg("img/portfolio/p1.jpg");
+
+		}
+		else if( 60<=timeDisplay && timeDisplay<100 ){
+		       changeimg("img/portfolio/p2.jpg");
+
+		}
+		else if( 100<=timeDisplay){
+		       changeimg("img/portfolio/p3.jpg");
+
+		}
+	})
+})
+
+
+
+
+
+</script>
+
+
+	</body>
+</html>

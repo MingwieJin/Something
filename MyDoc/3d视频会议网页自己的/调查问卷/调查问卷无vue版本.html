@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>主入口</title>
+
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+		
+<style>
+body{
+	font-size: 14px;
+	margin:0;
+}
+.page-container{
+	width: 100%;
+	max-width: 1200px;
+	margin:0 auto;
+	text-align: center;
+}
+.page-title{
+	font-size:28px;
+	color:#027cdc;
+}
+.page-selector{
+	width:200px;
+	height:70px;
+	text-align: center;
+	line-height: 70px;
+	margin:50px auto;
+	font-size:25px;
+	color:#fff;
+	border: none;
+	border-radius: 3px;
+	background: -webkit-linear-gradient(#007adb, #1fb4fe); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#007adb, #1fb4fe); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#007adb, #1fb4fe); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#007adb, #1fb4fe); /* 标准的语法 */	
+    border-bottom:3px solid transparent;
+}
+
+.pagenav{
+	display: inline-block;
+	margin:0 20px 10px 20px;
+}
+
+.page-selector:hover{
+	 border-bottom:3px solid blueviolet;
+	 color:blueviolet;
+}
+.page-container .checked{
+	color:red;
+	border-bottom:3px solid red;
+}
+.hidecontainer{
+	display: none;
+}
+</style>		
+	</head>
+	<body>
+<div id="app">
+	<h1 style="text-align: center;">调查问卷</h1>
+	<div class="res-page1 page-container" id="page1">
+		<div class="page-title">谁是刘备的兄弟</div>
+		<div class="page1-selector-1 page-selector selection">关羽</div>
+		<div class="page1-selector-2 page-selector selection">赵云</div>
+		<div class="page1-selector-3 page-selector selection">曹操</div>
+		<div class="page1-selector-4 page-selector selection">吕布</div>	
+		<div class="page-selector button1" >下一个</div>	
+	</div>
+	
+	<div class="res-page2 page-container hidecontainer" id="page2">
+		<div class="page-title">谁是刘备的兄弟2</div>
+		<div class="page2-selector-1 page-selector selection">关羽</div>
+		<div class="page2-selector-2 page-selector selection">赵云</div>
+		<div class="page2-selector-3 page-selector selection">曹操</div>
+		<div class="page2-selector-4 page-selector selection">吕布</div>
+		<div class="page-selector pagenav button2">上一个</div>	
+		<div class="page-selector pagenav button3">下一个</div>	
+	</div>
+	
+	<div class="res-page3 page-container hidecontainer" id="page3">
+		<div class="page-title">谁是刘备的兄弟3</div>
+		<div class="page3-selector-1 page-selector selection">关羽</div>
+		<div class="page3-selector-2 page-selector selection">赵云</div>
+		<div class="page3-selector-3 page-selector selection">曹操</div>
+		<div class="page3-selector-4 page-selector selection">吕布</div>
+		<div class="page-selector pagenav button4">上一个</div>	
+		<div class="page-selector pagenav button5"onclick="getscore()">下一个</div>	
+	</div>
+	
+	<div class="res-page4 page-container hidecontainer" id="page4" v-show="showPageNumber==4">
+		<div class="page-title">您的得分:<span id="getscaore"></span></div>
+	</div>
+	
+	
+	
+</div>	
+		
+<script>
+
+$(document).ready(function(){
+  $(".button1").click(function(){
+    $(".res-page1").hide();
+    $(".res-page2").show(1000); 
+  });
+  $(".button2").click(function(){
+    $(".res-page2").hide();
+    $(".res-page1").show(1000); 
+  });
+  $(".button3").click(function(){
+    $(".res-page2").hide();
+    $(".res-page3").show(1000); 
+  });
+  $(".button4").click(function(){
+    $(".res-page3").hide();
+    $(".res-page2").show(1000); 
+  });
+  $(".button5").click(function(){
+    $(".res-page3").hide();
+    $(".res-page4").show(1000); 
+  });
+  $(".selection").click(function(){
+	$(this).parent().children().each(function(){
+		$(this).removeClass("checked");
+	})
+	$(this).addClass("checked");
+  });
+});
+
+function getscore(){
+	var score = 0;
+	if($(".page1-selector-1").hasClass("checked")){
+		score++;
+		console.log("1");
+	}
+	if($(".page2-selector-2").hasClass("checked")){
+		score++;
+		console.log("2");
+	}
+	if($(".page3-selector-3").hasClass("checked")){
+		score++;
+		console.log("3");
+	}
+	$("#getscaore").text(score);
+}
+
+</script>	
+
+	</body>
+</html>

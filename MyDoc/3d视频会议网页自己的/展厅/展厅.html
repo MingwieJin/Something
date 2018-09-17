@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>展厅</title>
+	    <!-- load stylesheets -->
+	    <link rel="stylesheet" href="css/reset.css">
+	    <!--<link rel="stylesheet" href="css/style.css">-->
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+		
+<style>
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;
+-o-user-select:none;
+-khtml-user-select:none;
+-webkit-user-select:none;
+-ms-user-select:none;
+user-select:none;
+}	
+	
+body{
+	font-size: 14px;
+}
+.main-container{
+	position: relative;
+}
+	
+.main-container img{
+	
+	width:100%;
+	height:auto;
+	z-index: -1;
+	
+}	
+.logo-live{
+	position: absolute;
+	top: 3%;
+	left: 2%;
+	width:20%;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.hover .a_hover{display:none;}
+.a_1{position: absolute;left:43.75%;top: 11.11%;width: 12.7%;height: 13.33%;z-index: 20;background-color: rgba(0,0,0,0)}
+.a_2{position: absolute;left:29.5%;top: 18.52%;width: 13%;height: 14.33%;transform: rotateZ(-40deg);-o-transform: rotateZ(-40deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_3{position: absolute;left:22%;top: 41.5%;width: 13%;height: 14.33%;transform: rotateZ(-83deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_4{position: absolute;left:27%;top: 67.5%;width: 14%;height: 14.33%;transform: rotateZ(45deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_5{position: absolute;left:42.5%;top:80%;width: 15%;height: 14.33%;z-index: 20;background-color: rgba(0,0,0,0)}
+.a_6{position: absolute;left:59%;top:68%;width: 14%;height: 14.33%;transform: rotateZ(-45deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_7{position: absolute;left: 64.5%;top: 42%;width: 14%;height: 14.33%;transform: rotateZ(-90deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_8{position: absolute;left: 57.5%;top: 19%;width: 13%;height: 14.33%;transform: rotateZ(40deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_9{position: absolute;left: 14%;top: 61%;width: 14%;height: 13%;transform: rotateZ(48deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_10{position: absolute;left: 7.5%;top: 70.5%;width: 14%;height: 13%;transform: rotateZ(48deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_11{position: absolute;left: 78.5%;top: 70.5%;width: 14%;height: 13%;transform: rotateZ(-48deg);z-index: 20;background-color: rgba(0,0,0,0)}
+.a_12{position: absolute;left: 72.5%;top: 60.5%;width: 14%;height: 13%;transform: rotateZ(-48deg);z-index: 20;background-color: rgba(0,0,0,0)}
+
+.a_13{position: absolute;left: 44.5%;top: 26%;width: 11%;height: 12%;z-index: 20;cursor: pointer;background-color: rgba(0,0,0,0)}
+.a_13>a,.a_14>a,.a_15>a,.a_16>a,.a_17>a,.a_18>a{position: absolute;left: 0;top: 0;width:100%;height:800%;/*background-color:#04A5F0;*/transform-origin:top center 0;transform:rotate3d(1,0,0,-54deg);}
+.a_14{position: absolute;left: 53.5%;top: 34%;width: 11%;height: 12%;transform: rotateZ(51deg);z-index: 20;cursor: pointer;background-color: rgba(0,0,0,0)}
+.a_15{position: absolute;left: 35.5%;top: 34%;width: 11%;height: 12%;transform: rotateZ(-57deg);z-index: 20;cursor: pointer;background-color: rgba(0,0,0,0)}
+.a_16{position: absolute;left: 35.5%;top: 51%;width: 11%;height: 12%;transform: rotateZ(-123deg);z-index: 20;cursor: pointer;background-color: rgba(0,0,0,0)}
+.a_17{position: absolute;left: 44.5%;top: 61%;width: 11%;height: 12%;transform: rotateZ(-180deg);z-index: 20;cursor: pointer;background-color: rgba(0,0,0,0)}
+.a_18{position: absolute;left: 53.5%;top: 52%;width: 11%;height: 12%;transform: rotateZ(-238deg);z-index: 20;cursor: pointer;background-color: rgba(0,0,0,0)}
+
+
+.hover-img,.hover-t{width: 100%;height: 100%;position: absolute;left: 0;top: 0;}
+.hover-img>img{position: absolute;left: 0;top: 0;width: 100%;height: 100%;display: none; z-index: 0;}
+.hover-t>span{font-size: 20px;text-align: center;display: none;}
+.hover-t .t-1{position: absolute;left:43.75%;top: 15%;width: 12.7%;}
+.hover-t .t-2{position: absolute;left:30%;top: 23%;width: 12.7%;}
+.hover-t .t-3{position: absolute;left:22%;top: 46%;width: 12.7%;}
+.hover-t .t-4{position: absolute;left:28%;top: 72%;width: 12.7%;}
+.hover-t .t-5{position: absolute;left:44%;top: 84%;width: 12.7%;}
+.hover-t .t-6{position: absolute;left:60%;top: 72%;width: 12.7%;}
+.hover-t .t-7{position: absolute;left:65.5%;top: 47%;width: 12.7%;}
+.hover-t .t-8{position: absolute;left:57.5%;top: 24%;width: 12.7%;}
+.hover-t .t-9{position: absolute;left:14.5%;top: 65%;width: 12.7%;}
+.hover-t .t-10{position: absolute;left:8%;top: 75%;width: 12.7%;}
+.hover-t .t-11{position: absolute;left:79%;top: 75%;width: 12.7%;}
+.hover-t .t-12{position: absolute;left:73%;top: 66%;width: 12.7%;}
+.hover-t .t-13{position: absolute;left:44%;top: 30%;width: 12.7%;}
+.hover-t .t-14{position: absolute;left:52%;top: 39%;width: 12.7%;}
+.hover-t .t-15{position: absolute;left:35%;top: 39%;width: 12.7%;}
+.hover-t .t-16{position: absolute;left:35%;top: 54%;width: 12.7%;}
+.hover-t .t-17{position: absolute;left:44%;top: 63%;width: 12.7%;}
+.hover-t .t-18{position: absolute;left:52%;top: 54%;width: 12.7%;}
+
+.hover .a_title, .hover .a_content{display:none;}
+
+#InfomationContainer{width: 100%;height: 100%;position: absolute;top: 0px;left: 0px;background-color: rgba(51, 51, 51, 0.7);display: none;z-index:10110;}
+/*#headImage{height:100%;display:blcok;margin:0 auto;}	*/
+/*#large_img{max-width: 100%;}*/
+.InfomationContainer-close {
+	display: block;
+	/*position:absolute;
+	top:20px;
+	right:20px;*/
+	float:right;
+	margin:10px;
+	width:20px;
+	height:20px;
+	text-indent:-9999px;
+	background: url(../img/close1.png) no-repeat 0 0;
+	background-size:100% 100%;
+}
+.InfomationContainer-inner{
+	display:block;
+	width:480px;
+	margin:0 auto;
+	background: #fff;
+	position:absolute;
+	top:50%;
+	left:50%;
+	-webkit-transform:translate(-50%,-50%);
+	transform: translate(-50%, -50%);
+}
+.inner-Alltitle{
+	background: #027CDC;
+	height:40px;
+	margin-bottom: 20px;
+}
+.alltitle-title{
+	display:inline-block;
+	color:#fff;
+	font-size: 20px;
+	margin: 6.5px 0 0 15px;
+}
+.inner-allcontent{
+	padding:0 0 20px 0
+}
+.inner-allcontent ul{
+	margin: 30px 0 0 50px;
+}
+.inner-allcontent ul li{
+	margin: 10px 0;
+	list-style-type:disc;
+	font-size: 18px;
+}
+.inner-row{
+/*	padding:0 0 20px 0*/
+}
+.inner-icon{
+	width:64px;
+	display: inline-block;
+	margin:0 30px 0 40px;
+	vertical-align: top;
+}
+@media screen and (max-width: 480px) {
+	.InfomationContainer-inner{
+		width:340px;
+	}	
+	.inner-icon{
+		margin: 0 20px 0 0;
+	}
+}
+.inner-icon img{
+	margin:10px;
+}
+.inner-content{
+	display: inline-block;
+	margin-bottom: 25px;
+}
+.inner-title{
+	color:#333;
+	margin:15px 0 10px 0;
+	font-size: 18px;
+}
+.inner-title a{
+	color:#333;
+	text-decoration: none;
+} 
+.inner-title a:hover{
+	color:#027cdc;
+	text-decoration: none;
+}
+.inner-desc{
+	color:#999;
+	font-size: 16px;
+}
+
+</style>		
+	</head>
+	<body>
+<div class="main-container">
+			<div class="logo-live"><a href="../主入口/主入口.html"><img src="img/logo3.png" alt="logo"/></a></div>
+			<img src="img/zh-new.jpg"/>
+	
+		<!--点击层-->
+        <div class="hover">
+            <div class="a_1 a_hover"></div>
+            <div class="a_2 a_hover"></div>
+            <div class="a_3 a_hover"></div>
+            <div class="a_4 a_hover"></div>
+            <div class="a_5 a_hover"></div>
+            <div class="a_6 a_hover"></div>
+            <div class="a_7 a_hover"></div>
+            <div class="a_8 a_hover"></div>
+            <div class="a_9 a_hover"></div>
+            <div class="a_10 a_hover"></div>
+            <div class="a_11 a_hover"></div>
+            <div class="a_12 a_hover"></div>
+            <div class="a_13 a_hover" style="display:block;"><div class="a_title">i2cdp</div><div class="a_content"><ul><li>i2cdp迁移功能强大</li><li>i2cdp迁移功能强大2</li><li>i2cdp迁移功能强大3</li></ul></div></div>
+            <div class="a_14 a_hover" style="display:block;"><div class="a_title">i2coopy</div><div class="a_content"><ul><li>i2move迁移功能强大</li><li>i2move迁移功能强大2</li><li>i2move迁移功能强大3</li></ul></div></div>
+            <div class="a_15 a_hover" style="display:block;"><div class="a_title">i2move</div><div class="a_content"><ul><li>i2move迁移功能强大</li><li>i2move迁移功能强大2</li><li>i2move迁移功能强大3</li></ul></div></div>
+            <div class="a_16 a_hover" style="display:block;"><div class="a_title">i2dr</div><div class="a_content"><ul><li>i2move迁移功能强大</li><li>i2move迁移功能强大2</li><li>i2move迁移功能强大3</li></ul></div></div>
+            <div class="a_17 a_hover" style="display:block;"><div class="a_title">i2share</div><div class="a_content"><ul><li>i2move迁移功能强大</li><li>i2move迁移功能强大2</li><li>i2move迁移功能强大3</li></ul></div></div>
+            <div class="a_18 a_hover" style="display:block;"><div class="a_title">i2vp</div><div class="a_content"><ul><li>i2move迁移功能强大</li><li>i2move迁移功能强大2</li><li>i2move迁移功能强大3</li></ul></div></div>
+        </div>
+        <!--hover图片层-->
+        <div class="hover-img">
+            <img src="img/hover/01.png" alt=""/>
+            <img src="img/hover/02.png" alt=""/>
+            <img src="img/hover/03.png" alt=""/>
+			<img src="img/hover/04.png" alt=""/>
+			<img src="img/hover/05.png" alt=""/>
+			<img src="img/hover/06.png" alt=""/>
+			<img src="img/hover/07.png" alt=""/>
+			<img src="img/hover/08.png" alt=""/>
+			<img src="img/hover/09.png" alt=""/>
+			<img src="img/hover/10.png" alt=""/>
+			<img src="img/hover/11.png" alt=""/>
+			<img src="img/hover/12.png" alt=""/>
+			<img src="img/hover/13.png" style="display:block;" alt=""/>
+			<img src="img/hover/14.png" style="display:block;" alt=""/>
+			<img src="img/hover/15.png" style="display:block;" alt=""/>
+			<img src="img/hover/16.png" style="display:block;" alt=""/>
+			<img src="img/hover/17.png" style="display:block;" alt=""/>
+			<img src="img/hover/18.png" style="display:block;" alt=""/>
+        </div>
+        <!--hover文字层-->
+        <div class="hover-t">
+            <span class="t-1">展区名称</span>
+            <span class="t-2">展区名称</span>
+            <span class="t-3">展区名称</span>
+            <span class="t-4">展区名称</span>
+            <span class="t-5">展区名称</span>
+            <span class="t-6">展区名称</span>
+            <span class="t-7">展区名称</span>
+            <span class="t-8">展区名称</span>
+            <span class="t-9">展区名称</span>
+            <span class="t-10">展区名称</span>
+            <span class="t-11">展区名称</span>
+            <span class="t-12">展区名称</span>
+            <span class="t-13" style="display:block;">i2cdp</span>
+            <span class="t-14" style="display:block;">i2coopy</span>
+            <span class="t-15" style="display:block;">i2move</span>
+            <span class="t-16" style="display:block;">i2DR</span>
+            <span class="t-17" style="display:block;">i2share</span>
+            <span class="t-18" style="display:block;">i2VP</span>
+        </div>
+
+</div>
+
+<!--弹窗-->
+	   	<div class="InfomationContainer" id="InfomationContainer">
+			<div class="InfomationContainer-inner">
+				
+				<div class="inner-Alltitle"><div class="alltitle-title" id="alltitle-title"></div>
+					<a href="javascript:void(0);"  class="InfomationContainer-close"></a>
+				</div>
+				<div class="inner-allcontent" id="inner-allcontent">
+					
+				</div>
+			</div>
+		</div>	
+		
+<script>
+//绑定esc键退出弹窗
+	$(window).keydown(function (event) {
+        if (event.keyCode == 27) {
+            $("#InfomationContainer").hide();
+        }
+   });	
+//点击退出弹窗
+   	 $("#InfomationContainer").click(function(){
+		$("#InfomationContainer").hide();
+	});	
+	
+$(document).ready(function(){
+	$(".a_hover").click(function(){
+//	获取,给弹窗添加内容
+		var a_title= $(this).find(".a_title").text();
+		var a_content = $(this).find(".a_content").html();		
+		$('#inner-allcontent').empty();
+		$('#alltitle-title').empty();		
+		var html = '';
+		var html1 = '';
+		html1 +=  a_title;
+		html += a_content;
+		$('#inner-allcontent').html(html);
+		$('#alltitle-title').html(html1);
+//	给弹窗黑幕赋予高度
+		var blockheight=document.body.scrollHeight +"px";  //设置隐藏层的高度为当前页面高度
+		$("#InfomationContainer").css({width:$(window).width(),height:blockheight}).show();
+
+	});
+})
+</script>		
+	</body>
+</html>
