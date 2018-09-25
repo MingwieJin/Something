@@ -8,12 +8,12 @@
 		box-shadow:5px 5px 5px #c1c1c1;*/
 	}
 	.tablemobile{width:95%;margin:0 auto;}
-	@media screen and (max-width: 961px){
+	/*@media screen and (max-width: 961px){
 		.tablemy{display: none;}
 	}	
 	@media screen and (min-width: 960px){
 		.tablemobile{display: none;}
-	}
+	}*/
 	.choosebar{
 		font-size:20px;
 		/*border:1px solid #E5E5E5;*/
@@ -93,4 +93,5 @@
 }	
 @media screen and (min-width: 500px){
 	.td-titletop{display: none;}
+	.td-titleleft{width:20%;}
 }

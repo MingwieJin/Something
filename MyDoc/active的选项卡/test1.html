@@ -37,8 +37,11 @@
 	
 </div>-->
 <table class="tablemy">
+	<tr class="choosebar td-titletop">
+		<td  class="td-title td-titletop" colspan="3" style="text-align: left;">源端：</td>
+	</tr>	
 	<tr class="choosebar">
-		<td  class="td-title">源端：</td>
+		<td  class="td-title td-titleleft">源端：</td>
 		<td class="td-content content-intro">
 				常规数据库:
 		</td>
@@ -53,8 +56,11 @@
 		<td></td>
 		<td></td>
 	</tr>
+	<tr class="choosebar td-titletop">
+		<td  class="td-title td-titletop" colspan="3" style="border-top:1px solid #f4f4f4;text-align: left;">目标端：</td>	
+	</tr>
 	<tr class="choosebar bot-bar bar-1" style="border-bottom:none;">
-		<td class="td-title" rowspan="3">目标端：</td>
+		<td class="td-title td-titleleft" rowspan="3">目标端：</td>
 		<td class="td-content content-intro">
 				常规数据库:
 	
@@ -314,6 +320,27 @@ function changeplan(where, type){
 	}
 }
 	
+	
+$.ajax({ 
+     url:"/index.php?m=order&c=cart&a=checksuffix",
+    data:{   
+//  	checkcompany: "i2yun2",
+//      checksuffix:$("#suffix").val()
+    },
+    type:"post", 
+    async:true,  // 设置同步方式
+    cache:false,    
+    dataType:'json',
+    success:function(data) {  
+        if(){
+        	
+        }
+
+    },    
+    error : function(XMLHttpRequest, textStatus, errorThrown) {
+        alert("网络故障");
+    } 
+});
 </script>
 	</body>
 </html>
