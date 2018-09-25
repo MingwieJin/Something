@@ -37,58 +37,116 @@
 	
 </div>-->
 <table class="tablemy">
-<tr class="choosebar">
-	<td  class="td-title">源端：</td>
-	<td class="td-content content-intro">
-			常规数据库:
-	</td>
-	<td class="td-content">
-		<div class="td-inner">
-			<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(0, 'Orcale')">Orcale</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'Mysql')">Mysql</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'postgres')">postgres</a>
-		</div>
-	</td>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr class="choosebar bot-bar bar-1" style="border-bottom:none;">
-	<td class="td-title" rowspan="2">目标端：</td>
-	<td class="td-content content-intro" style="width:10%;">
-			常规数据库:
-
-	</td>
-	<td class="td-content content-name">
-			<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(1, 'Orcale')">Orcale</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'Mysql')">Mysql</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'postgres')">postgres</a>
-		
-	</td>
-	<td class="td-content content-intro">无sql型数据库:</td>
-	<td class="td-content">
-			<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'reids')">reids</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ssdb')">ssdb</a>		
-	</td>
-</tr>
-<tr class="choosebar bot-bar bar-2" style="border-top:none;">
-	<td class="td-content content-intro">
-			消息队列:
-	</td>
-	<td class="td-content content-name">
-			<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'Kafka')">Kafka</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ActvieMQ')">ActvieMQ</a>
-		
-	</td>
-	<td class="td-content">文件:</td>
-	<td class="td-content">
-			<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'txt')">txt</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'csv')">csv</a>
-			<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'xml')">xml</a>
-		
-	</td>
-</tr>
+	<tr class="choosebar">
+		<td  class="td-title">源端：</td>
+		<td class="td-content content-intro">
+				常规数据库:
+		</td>
+		<td class="td-content">
+			<div class="td-inner">
+				<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(0, 'Orcale')">Orcale</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'Mysql')">Mysql</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'postgres')">postgres</a>
+			</div>
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr class="choosebar bot-bar bar-1" style="border-bottom:none;">
+		<td class="td-title" rowspan="3">目标端：</td>
+		<td class="td-content content-intro">
+				常规数据库:
+	
+		</td>
+		<td class="td-content content-name">
+				<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(1, 'Orcale')">Orcale</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'Mysql')">Mysql</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'postgres')">postgres</a>
+			
+		</td>
+	</tr>
+	<tr class="choosebar bot-bar bar-2">
+		<td class="td-content content-intro">nosql型数据库:</td>
+		<td class="td-content">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'reids')">reids</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ssdb')">ssdb</a>		
+		</td>
+	</tr>
+	<tr class="choosebar bot-bar bar-2">
+		<td class="td-content content-intro">
+				消息队列:
+		</td>
+		<td class="td-content content-name">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'Kafka')">Kafka</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ActvieMQ')">ActvieMQ</a>
+			
+		</td>
+		<!--<td class="td-content">文件:</td>
+		<td class="td-content">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'txt')">txt</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'csv')">csv</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'xml')">xml</a>
+			
+		</td>-->
+	</tr>
 </table>
+
+<!--手机端用-->
+
+<!--<table class="tablemobile">
+	<tr class="choosebar td-titletop">
+		<td  class="td-title td-titletop" colspan="3">源端：</td>
+	</tr>
+	<tr class="choosebar">
+		<td  class="td-title td-titleleft" style="text-align: center;">源端：</td>
+		<td class="td-content content-intro">常规数据库:</td>
+		<td class="td-content">
+			<div class="td-inner">
+				<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(0, 'Orcale')">Orcale</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'Mysql')">Mysql</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'postgres')">postgres</a>
+			</div>
+		</td>
+	</tr>
+	<tr class="choosebar td-titletop">
+		<td  class="td-title td-titletop" colspan="3" style="border-top:1px solid #f4f4f4;">目标端：</td>	
+	</tr>
+	<tr class="choosebar bot-bar bar-1">
+		<td class="td-title td-titleleft" rowspan="4" style="text-align: center;">目标端：</td>
+		<td class="td-content content-intro">常规数据库:</td>
+		<td class="td-content content-name">
+				<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(1, 'Orcale')">Orcale</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'Mysql')">Mysql</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'postgres')">postgres</a>
+			
+		</td>
+	</tr>
+	<tr class="choosebar bot-bar bar-2">
+		<td class="td-content content-intro">nosql型数据库:</td>
+		<td class="td-content">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'reids')">reids</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ssdb')">ssdb</a>		
+		</td>
+	</tr>
+	<tr class="choosebar bot-bar bar-2">
+		<td class="td-content content-intro">消息队列:</td>
+		<td class="td-content content-name">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'Kafka')">Kafka</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ActvieMQ')">ActvieMQ</a>
+			
+		</td>
+	</tr>
+	<tr class="choosebar bot-bar bar-2" style="border-top:none;">
+		<td class="td-content">文件:</td>
+		<td class="td-content">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'txt')">txt</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'csv')">csv</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'xml')">xml</a>
+			
+		</td>
+	</tr>
+</table>-->
 
 
 <div class="oracle-oracle" id="oracle-oracle">	
