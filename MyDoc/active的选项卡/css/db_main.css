@@ -76,7 +76,7 @@
 		margin:0 auto;*/
 	}
 	.content-intro{
-		width:8%;
+		width:1%;
 	}
 /*@media screen and (min-width: 1200px) and (max-width: 1400px){
 	.content-name{
@@ -93,5 +93,5 @@
 }	
 @media screen and (min-width: 500px){
 	.td-titletop{display: none;}
-	.td-titleleft{width:20%;}
+	.td-titleleft{width:8%;}
 }
