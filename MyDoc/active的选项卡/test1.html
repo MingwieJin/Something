@@ -284,12 +284,13 @@
 <script>
 $(document).ready(function(){
   				var data ={"src":["oracle","mysql","postgres"],"dst":{"normal":["oracle","mysql","postgres"],"nosql":["reids","ssdb"],"sequence":["Kafka","ActvieMQ"]}};
-				 $('#bar-src').empty();
-				 var htmlsrc = '';
+
 
 				 $.each(data, function(key, value){
 				 	//添加源端数据库选项卡
 				 	if(key=="src"){
+				 		$('#bar-src').empty();
+				 		var htmlsrc = '';
 				 		htmlsrc += '<td  class="td-title td-titleleft">源端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content"><div class="td-inner">';
 				 		 $.each(data.src, function(indexSRC, valueSRC){
 								htmlsrc += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(0, \''+valueSRC+'\')">'+valueSRC+'1</a>';
@@ -307,7 +308,7 @@ $(document).ready(function(){
 				 		 		var htmldstNor = '';
 							 	htmldstNor += '<td class="td-title td-titleleft" rowspan="3">目标端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content content-name">';
 				 		 		$.each(data.dst.normal, function(indexNor, valueNor){
-										htmldstNor += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNor+'\')">'+valueNor+'</a>';
+										htmldstNor += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNor+'\')">'+valueNor+'2</a>';
 				 		 		});
 				 		 		htmldstNor += '</td>';
 							 	$('#bar-dst-normal').html(htmldstNor);
@@ -319,7 +320,7 @@ $(document).ready(function(){
 				 		 		var htmldstNos = '';
 							 	htmldstNos += '<td class="td-content content-intro">nosql型数据库:</td><td class="td-content">';
 				 		 		$.each(data.dst.nosql, function(indexNosql, valueNosql){
-										htmldstNos += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNosql+'\')">'+valueNosql+'</a>';
+										htmldstNos += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNosql+'\')">'+valueNosql+'2</a>';
 				 		 		});
 				 		 		htmldstNos += '</td>';
 							 	$('#bar-dst-nosql').html(htmldstNos);	
@@ -330,7 +331,7 @@ $(document).ready(function(){
 				 		 		var htmldstSe = '';
 							 	htmldstSe += '<td class="td-content content-intro">消息队列:</td><td class="td-content content-name">';
 				 		 		$.each(data.dst.sequence, function(indexSe, valueSe){
-										htmldstSe += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueSe+'\')">'+valueSe+'</a>';
+										htmldstSe += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueSe+'\')">'+valueSe+'3</a>';
 				 		 		});
 				 		 		htmldstSe += '</td>';
 							 	$('#bar-dst-sequence').html(htmldstSe);
@@ -398,80 +399,76 @@ function changeplan(where, type){
 	}
 }
 	
-	
-  $.ajax({ 
+
+ $.ajax({ 
      url:"<?php echo base_url('assets/MyComponent/get-info.php'); ?>",
     data:{   
-//  	checkcompany: "i2yun2",
-//      checksuffix:$("#suffix").val()
     },
     type:"post", 
-    async:true,  // 设置同步方式
+    async:false,  // 设置同步方式
     cache:false,    
     dataType:'json',
     success:function(data) {  
-		console.log(data);
-  				var data ={"src":["oracle","mysql","postgres"],"dst":{"normal":["oracle","mysql","postgres"],"nosql":["reids","ssdb"],"sequence":["Kafka","ActvieMQ"]}};
-				 
-				 
-//				 $('#bar-dst-nosql').empty();
-//				 $('#bar-dst-sequence').empty();
-				 
-
-				 $.each(data, function(key, value){
+        if(data!=-1){
+                console.log(data);
+		$.each(data, function(key, value){
 				 	//添加源端数据库
-				 	if(key=="src"){
-				 		$('#bar-src').empty();
-				 		var htmlsrc = '';
-				 		htmlsrc += '<td  class="td-title td-titleleft">源端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content"><div class="td-inner">';
-				 		 $.each(data.src, function(indexSRC, valueSRC){
-								htmlsrc += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(0, \''+valueSRC+'\')">'+valueSRC+'1</a>';
-				 		 });
-				 		htmlsrc += '</div></td>';
-				 		$('#bar-src').html(htmlsrc);
-				 		$("#bar-src .td-inner a:eq(0)").addClass("active");	
-				 	}
-//				 	添加备端数据库
-				 	else if(key=="dst"){
-				 		 $.each(data.dst, function(keyDST, valueDST){
-//				 		 	备端-常规数据库
-				 		 	if(keyDST=="normal"){
-				 		 		$('#bar-dst-normal').empty();
-				 		 		var htmldstNor = '';
-							 	htmldstNor += '<td class="td-title td-titleleft" rowspan="3">目标端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content content-name">';
-				 		 		$.each(data.dst.normal, function(indexNor, valueNor){
-										htmldstNor += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNor+'\')">'+valueNor+'</a>';
-				 		 		});
-				 		 		htmldstNor += '</td>';
-							 	$('#bar-dst-normal').html(htmldstNor);
-							 	$("#bar-dst-normal .content-name a:eq(0)").addClass("active");		
-				 		 	}
-//				 		 	备端-Nosql数据库
-				 		 	else if(keyDST=="nosql"){
-				 		 		$('#bar-dst-nosql').empty();
-				 		 		var htmldstNos = '';
-							 	htmldstNos += '<td class="td-content content-intro">nosql型数据库:</td><td class="td-content">';
-				 		 		$.each(data.dst.nosql, function(indexNosql, valueNosql){
-										htmldstNos += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNosql+'\')">'+valueNosql+'</a>';
-				 		 		});
-				 		 		htmldstNos += '</td>';
-							 	$('#bar-dst-nosql').html(htmldstNos);	
-				 		 	}
-//				 		 	备端-消息队列
-				 		 	else if(keyDST=="sequence"){	
-				 		 		$('#bar-dst-sequence').empty();
-				 		 		var htmldstSe = '';
-							 	htmldstSe += '<td class="td-content content-intro">消息队列:</td><td class="td-content content-name">';
-				 		 		$.each(data.dst.sequence, function(indexSe, valueSe){
-										htmldstSe += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueSe+'\')">'+valueSe+'</a>';
-				 		 		});
-				 		 		htmldstSe += '</td>';
-							 	$('#bar-dst-sequence').html(htmldstSe);
-				 		 	}
-				 		 });
-				 	}
+                    if(key=="src"){
+                        $('#bar-src').empty();
+                        var htmlsrc = '';
+                        htmlsrc += '<td  class="td-title td-titleleft">源端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content"><div class="td-inner">';
+                         $.each(data.src, function(indexSRC, valueSRC){
+                                        htmlsrc += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(0, \''+valueSRC+'\')">'+valueSRC+'</a>';
+                         });
+                        htmlsrc += '</div></td>';
+                        $('#bar-src').html(htmlsrc);
+                        $("#bar-src .td-inner a:eq(0)").addClass("active");	
+                    }
+                    //添加备端数据库
+                    else if(key=="dst"){
+                        $.each(data.dst, function(keyDST, valueDST){
+                    //备端-常规数据库
+                            if(keyDST=="normal"){
+                                    $('#bar-dst-normal').empty();
+                                    var htmldstNor = '';
+                                    htmldstNor += '<td class="td-title td-titleleft" rowspan="3">目标端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content content-name">';
+                                    $.each(data.dst.normal, function(indexNor, valueNor){
+                                                    htmldstNor += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNor+'\')">'+valueNor+'</a>';
+                                    });
+                                    htmldstNor += '</td>';
+                                    $('#bar-dst-normal').html(htmldstNor);
+                                    $("#bar-dst-normal .content-name a:eq(0)").addClass("active");		
+                            }
+//                                备端-Nosql数据库
+                            else if(keyDST=="nosql"){
+                                    $('#bar-dst-nosql').empty();
+                                    var htmldstNos = '';
+                                    htmldstNos += '<td class="td-content content-intro">nosql型数据库:</td><td class="td-content">';
+                                    $.each(data.dst.nosql, function(indexNosql, valueNosql){
+                                                    htmldstNos += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNosql+'\')">'+valueNosql+'</a>';
+                                    });
+                                    htmldstNos += '</td>';
+                                    $('#bar-dst-nosql').html(htmldstNos);	
+                            }
+//                                备端-消息队列
+                            else if(keyDST=="sequence"){	
+                                    $('#bar-dst-sequence').empty();
+                                    var htmldstSe = '';
+                                    htmldstSe += '<td class="td-content content-intro">消息队列:</td><td class="td-content content-name">';
+                                    $.each(data.dst.sequence, function(indexSe, valueSe){
+                                                    htmldstSe += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueSe+'\')">'+valueSe+'</a>';
+                                    });
+                                    htmldstSe += '</td>';
+                                    $('#bar-dst-sequence').html(htmldstSe);
+                            }
+                        });
+                    }
 
-				 });
+             });
+        }
+        else {
+            $("#tablemy").css("display","none");
+        }
     },    
     error : function(XMLHttpRequest, textStatus, errorThrown) {
         alert("网络故障");
