@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>360buy������ɸѡ</title>
+    <style type="text/css">
+        #filter
+        {
+        	width:620px;
+        	height:auto;
+        	margin-left:auto;
+        	margin-right:auto;
+        	font-size:12px;
+        }
+        
+        #filter dl
+        {
+        	padding:0;
+        	margin-top:0;
+        	margin-bottom:0;
+        	clear:both;
+        	padding:4px 0;        
+        }
+        
+        #filter dt,dd
+        {
+        	display:block;
+        	float:left;
+        	width:auto;
+        	padding:0;
+        	margin:3px 0;        	       	
+        }
+        
+        #filter dt
+        {
+        	height:14px;
+        	padding-bottom:4px;
+        	font-weight:bold;
+        	color:#333333;        	
+        }
+        
+        #filter dd
+        {
+        	color:#005AA0;
+        	margin-right:8px;
+        }
+        
+        #filter a
+        {
+        	cursor:pointer;
+        }
+        
+        .seling
+        {
+            background-color:#005AA0;
+        	color:#FFFFFF;
+        }
+        
+        .seled
+        {
+        	background-color:#005AA0;
+        	color:#FFFFFF;
+        }
+    </style>
+	
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //ѡ��filter�µ�����a��ǩ��Ϊ�����hover�������÷�������������ֱ���������Ϻ��ƿ���ִ�еĺ���
+        $("#filter a").hover(
+            function () {
+                $(this).addClass("seling");
+            },
+            function () {
+                $(this).removeClass("seling");
+            }
+        );
+
+
+        //ѡ��filter�����е�dt��ǩ������Ϊdt��ǩ����ĵ�һ��dd��ǩ�µ�a��ǩ�����ʽseled��(��̾jquery��ǿ��)
+        $("#filter dt+dd a").attr("class", "seled"); /*ע�⣺���Ӧ��������(attr)��ʽ�����������ʽ(addClass)��
+                                                      ��Ȼ����ͨ��$("#filter a[class='seled']")���ʲ���class��ʽΪseled��a��ǩ��*/       
+
+        //Ϊfilter�µ�����a��ǩ��ӵ����¼�
+        $("#filter a").click(function () {
+            $(this).parents("dl").children("dd").each(function () {
+				//�������ַ�ʽЧ����ͬ��������д�����ڲ����ǵ�����find()�������ԣ��ڶ������ַ����ǵȼ۵ġ���
+                //$(this).children("div").children("a").removeClass("seled");
+				//$(this).find("a").removeClass("seled");
+				$('a',this).removeClass("seled");
+            });
+
+            $(this).attr("class", "seled");
+
+            alert(RetSelecteds()); //����ѡ�н��
+        });
+        alert(RetSelecteds()); //����ѡ�н��
+    });
+
+    function RetSelecteds() {
+        var result = "";
+        $("#filter a[class='seled']").each(function () {
+            result += $(this).html()+"\n";
+        });
+        return result;
+    }
+</script>
+</head>
+
+<body>
+    <div id="filter">
+        <dl>
+            <dt>Ʒ�ƣ�</dt>
+            <dd><div><a>ȫ��</a></div></dd>
+            <dd><div><a>����(hp)</a></div></dd>
+            <dd><div><a>����(Lenovo)</a></div></dd>
+            <dd><div><a>����(ThinkPad)</a></div></dd>
+            <dd><div><a>���(acer)</a></div></dd>
+            <dd><div><a>��˶</a></div></dd>
+            <dd><div><a>����</a></div></dd>
+            <dd><div><a>����</a></div></dd>
+            <dd><div><a>����</a></div></dd>
+            <dd><div><a>��֥</a></div></dd>
+            <dd><div><a>Gateway</a></div></dd>
+            <dd><div><a>΢��</a></div></dd>
+            <dd><div><a>����</a></div></dd>
+            <dd><div><a>�廪ͬ��</a></div></dd>
+            <dd><div><a>��ʿͨ</a></div></dd>
+            <dd><div><a>ƻ��(Apple)</a></div></dd>
+            <dd><div><a>����</a></div></dd>
+            <dd><div><a>����</a></div></dd>
+            <dd><div><a>����</a></div></dd>
+        </dl>
+        <dl>
+            <dt>�۸�</dt>
+            <dd><div><a>ȫ��</a></div></dd>
+            <dd><div><a>1000-2999</a></div></dd>
+            <dd><div><a>3000-3499</a></div></dd>
+            <dd><div><a>3500-3999</a></div></dd>
+            <dd><div><a>4000-4499</a></div></dd>
+            <dd><div><a>4500-4999</a></div></dd>
+            <dd><div><a>5000-5999</a></div></dd>
+            <dd><div><a>6000-6999</a></div></dd>
+            <dd><div><a>7000-9999</a></div></dd>
+            <dd><div><a>10000����</a></div></dd>
+        </dl>
+        <dl>
+            <dt>�ߴ磺</dt>
+            <dd><div><a>ȫ��</a></div></dd>
+            <dd><div><a>8.9Ӣ�缰����</a></div></dd>
+            <dd><div><a>11Ӣ��</a></div></dd>
+            <dd><div><a>12Ӣ��</a></div></dd>
+            <dd><div><a>13Ӣ��</a></div></dd>
+            <dd><div><a>14Ӣ��</a></div></dd>
+            <dd><div><a>15Ӣ��</a></div></dd>
+            <dd><div><a>16Ӣ��-17Ӣ��</a></div></dd>
+        </dl>
+        <dl>
+            <dt>ƽ̨��</dt>
+            <dd><div><a>ȫ��</a></div></dd>
+            <dd><div><a>AMD Brazos APUƽ̨</a></div></dd>
+            <dd><div><a>Intel Sandy Bridgeƽ̨</a></div></dd>
+            <dd><div><a>Intelƽ̨</a></div></dd>
+            <dd><div><a>AMDƽ̨</a></div></dd>
+        </dl>
+        <dl>
+            <dt>�Կ���</dt>
+            <dd><div><a>ȫ��</a></div></dd>
+            <dd><div><a>�����Կ�</a></div></dd>
+            <dd><div><a>�����Կ�</a></div></dd>
+            <dd><div><a>��о�Կ�</a></div></dd>            
+        </dl>
+    </div>
+</body>
+</html>

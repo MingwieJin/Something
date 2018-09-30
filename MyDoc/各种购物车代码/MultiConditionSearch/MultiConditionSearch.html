@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+<title>无标题文档</title>  
+</head>    
+<body>  
+    <div id="filter">   
+    </div>  
+</body>
+<script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+<link href="./main.css" rel="stylesheet" />
+<script src="./main.js"></script>
+<script>
+//加载事件  
+var data=[
+		{	
+			"url":"",
+            "title": "品牌",
+			"name":"pinpai",
+			"multiple": true,
+            "data": [				
+                {	
+					"id":"-1",
+					"css":"common",
+					"name":"all",
+                    "value": "全部"
+                },
+                {
+					"id":"1",
+					"css":"common",
+					"name":"1",
+                    "value": "惠普"
+                },
+                {
+					"id":"2",
+					"css":"common",
+					"name":"2",
+                    "value": "海尔"
+                },
+                {
+					"id":"3",
+					"css":"common",
+					"name":"3",
+                    "value": "微星"
+                }
+            ]
+        },
+        {
+            "title": "价格",
+			"name":"jiage",
+			"multiple": true,
+            "data": [
+                {
+					"id":"-1",
+					"css":"common",
+					"name":"1",
+                    "value": "1-2999"
+                },
+                {
+					"id":"1",
+					"css":"common",
+					"name":"2",
+                    "value": "3000-5000"
+                },
+                {
+					"id":"2",
+					"css":"common",
+					"name":"3",
+                    "value": "5000-7000"
+                },
+                {
+					"id":"3",
+					"css":"common",
+					"name":"4",
+                    "value": "7000-9000"
+                }
+            ]
+        },
+        {
+            "title": "平台",
+			"name":"pintai",
+			"multiple": false,
+            "data": [
+                {
+					"id":"-1",
+					"css":"common",
+					"name":"1",
+                    "value": "全部"
+                },
+                {
+					"id":"1",
+					"css":"common",
+					"name":"2",
+                    "value": "Inter平台"
+                },
+                {
+					"id":"2",
+					"css":"common",
+					"name":"3",
+                    "value": "AMD平台"
+                },
+                {
+					"id":"3",
+					"css":"common",
+					"name":"4",
+                    "value": "VDI平台"
+                }
+            ]
+        }
+	];
+
+$('#filter').comboboxfilter({
+	scope: 'FilterQuery2',
+	data:data,
+	onChange:function(newValue){
+	$('#demo_value').val(newValue);
+	}
+});
+
+</script>
+</html> 
