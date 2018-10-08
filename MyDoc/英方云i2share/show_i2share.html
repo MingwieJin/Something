@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+   <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.0.0/jquery.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title></title>
+		
+		
+<style>
+	#myTab{
+		float:none !important;
+		margin-bottom: 20px !important;
+	}
+	.form-share{
+		font-size:16px;
+	}
+	#PurchaseQuantity{
+/*		height:30px;*/
+/*		font-size:20px;*/
+	}
+	.form-submit{
+	background: #005BAC;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	width: 140px;
+	height:40px;
+	margin-top: 10px;
+	}
+</style>
+	</head>
+	<body>
+		<ul id="myTab" class="nav nav-tabs">
+		   <li class="active"><a href="#taocan1" data-toggle="tab">套餐1</a><div class="taocanprice" style="display: none;">1</div></li>
+		   <li><a href="#taocan2" data-toggle="tab">套餐2</a></li>
+		
+		</ul>
+		<div id="myTabContent" class="tab-content" style="margin-bottom: 30px;">
+		   <div class="tab-pane fade active" id="taocan1">
+				未连接网络
+		   </div>
+		   <div class="tab-pane fade" id="taocan2">
+				未连接网络
+		   </div>
+		
+		</div>
+		<h3 id="shengji_title" style="display:none;">升级/续费</h3>
+		<div class="form-share" >
+			<form action="into/into1.php" method = 'post' onsubmit = "return goSubmit();" target="_blank">
+<!--			<input type="text" name="Mcompany" id="Mcompany" value="">-->
+	
+			<!--<select id="productType" name="productType"  style="height: 34px; width: 276px;font-size: 16px;">
+				<option value="taocan1">服务一</option>
+			</select>
+			<div>服务描述</div>-->
+			
+			<div class="productDescribe" id="describePro">
+			</div>
+			<br />
+			<div class='form-row'>
+			购买时长: &nbsp;<span>
+					<select id="timecycle" name="timecycle" style="height: 34px; width: 276px;font-size: 16px;">
+						<option value="1">一个月</option>
+	                    <option value="2">二个月</option>
+	                    <option value="3">三个月</option>
+	                    <option value="4">四个月</option>
+	                    <option value="5">五个月</option>
+	                    <option value="6">六个月</option>
+	                    <option value="7">七个月</option>
+	                    <option value="8">八个月</option>
+	                    <option value="9">九个月</option>
+	                    <option value="10">一年(优惠2个月)</option>
+	                    <option value="20">二年(优惠4个月)</option>
+	                    <option value="30">三年(优惠6个月)</option>
+                </select>
+			</div>
+			<div class="form-share-text" style="margin: 20px 0;"> 购买数量：
+				<span><input id="PurchaseQuantity" type="number" name="snum_quantity" min="1" max="10" value="2" onchange="subnumber()" readonly="true"/></span>	
+			</div>
+			<div class="form-share-text" style="margin: 20px 0;"> 购买容量（GB）：
+				<span><input id="PurchaseStorage" type="number" name="snum_storage" min="20" max="262144" value="1" onchange="subnumber()" readonly="true"/></span>	
+			</div>
+			<div id="shownum">无法连接网络</div>
+			<br>
+			
+			<input  name="from" value="i2share" type="hidden">
+			<input  name="ptype" value="goumai" type="hidden" id="ptype" > 
+			<input  name="services" value="taocan1" type="hidden" id="services111"><!--服务与分发数-->
+			<input  name="hid_services" value="cloud" type="hidden"> <!--目标云-->
+			<input  name="a_title" value="i2share购买"  type="hidden" id="a_title" >
+			<input  name="money" value="none" type="hidden">
+			<input class="form-submit" type="submit" value="确认提交">
+			
+		</form>	
+		</div>
+		<div style="height: 30px;"></div>
+		<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe> 
+
+<script>
+	function goSubmit(){
+		return true;
+	}
+	
+	function subnumber(){
+		var Productval = $("#PurchaseQuantity").val();
+		var Producttime = $("#timecycle").val();
+		var Storageval = $("#PurchaseStorage").val();
+		var UnitPrice = $("#myTab").find(".active").find(".taocanprice").text();
+		var StoragePrice = $("#myTab").find(".active").find(".storageprice").text();
+		var sumPrice = (Productval*UnitPrice + StoragePrice*Storageval)*Producttime;
+		$("#shownum").text("合计"+sumPrice+'元');
+		
+	}
+
+	
+	 function initPrice(){
+	 
+		var result = new Array();
+		 $.ajax( {    
+		    url:"json/product.json",
+		    data:{   
+		    		productfrom: "i2share"
+//		    		,
+//		            serviceid : param["serviceid"],//云id，由ajax返回
+//		            service : param["service"]//服务id
+		    },
+		    type:'get',    
+		    cache:false,    
+		    dataType:'json',    
+		    beforeSend: function(XMLHttpRequest){
+//		    	if(param["before"])
+//		    		eval(param["before"]);
+	        },
+		    success:function(data) {  
+				 $('#myTab').empty();
+				 $('#myTabContent').empty();
+				 var html = '';
+				 var html1 = '';
+				 $.each(data, function(productIndex, product){
+				 	html +=  '<li><a href="#'+product['id']+'" data-toggle="tab">'+product['name']+'</a><div class="taocanprice" style="display: none;">'+product['unitprice']+'</div><div class="storageprice" style="display: none;">'+product['storageprice']+'</div></li>'
+				 	html1 += '<div class="tab-pane fade" id="'+product['id']+'">'+product['desc']+' </div>'
+				 	
+				 });
+		 
+//				 新加的升级续费区域
+//				 $shengji = "升级续费";
+//				 $shengjides = "升级续费简介";
+//				 html +=  '<li><a href="#shengji" data-toggle="tab">'+$shengji+'</a></li>';
+//				 html1 += '<div class="tab-pane fade" id="shengji">'+$shengjides+' </div>';
+//				 新加的升级续费区域
+				 
+				 //需要编写解除锁定
+				 $('#myTab').html(html);
+				 $('#myTabContent').html(html1);
+				 $("#myTab li:eq(0)").addClass("active");
+				 $("#myTabContent .tab-pane:eq(0)").addClass("active in");
+
+				 
+				 
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+			 alert(XMLHttpRequest.status);
+			 alert(XMLHttpRequest.readyState);
+			 alert(textStatus);
+   			} 
+		});
+		
+//		新加的获取用户信息
+//		新加的获取用户信息
+//		新加的获取用户信息
+//		新加的获取用户信息
+//		$.ajax( {    
+//		    url:"json/user.json",
+//		    data:{   
+//		    		productfrom: "i2share"
+////		    		,
+////		            serviceid : param["serviceid"],//云id，由ajax返回
+////		            service : param["service"]//服务id
+//		    },
+//		    type:'get',    
+//		    cache:false,    
+//		    dataType:'json',    
+//		    beforeSend: function(XMLHttpRequest){
+////		    	if(param["before"])
+////		    		eval(param["before"]);
+//	        },
+//		    success:function(data) {  
+//		    	if(data){
+//		    	$('#myTab').empty();
+//				 $('#myTabContent').empty();
+//				 var html = '';
+//				 var html1 = '';
+//				 var data1 = data[1];  
+//				 
+//				 	html +=  '<li><a href="#'+data1['type']+'" data-toggle="tab">'+data1['nameC']+'</a><div class="taocanprice" style="display: none;">'+data1['unitprice']+'</div><div class="storageprice" style="display: none;">'+data1['storageprice']+'</div><div class="unitMin" style="display: none;">'+data1['unitMin']+'</div><div class="storageMin" style="display: none;">'+data1['storageMin']+'</div><div class="unitMax" style="display: none;">'+data1['unitMax']+'</div></li>'
+//				 	html1 += '<div class="tab-pane fade" id="'+data1['type']+'">已购买产品：'+data1['nameC']+'<br>用户数： '+data1['quantity']+'<br>购买容量：'+data1['storage']+'<br>到期时间：'+data1['duration']+'</div>'
+//		 
+////				 新加的升级续费区域
+////				 $shengji = "升级续费";
+////				 $shengjides = "升级续费简介";
+////				 html +=  '<li><a href="#shengji" data-toggle="tab">'+$shengji+'</a></li>';
+////				 html1 += '<div class="tab-pane fade" id="shengji">'+$shengjides+' </div>';
+////				 新加的升级续费区域
+//				 
+//				 $('#myTab').html(html);
+//				 $('#myTabContent').html(html1);
+//				 $("#myTab li:eq(0)").addClass("active");
+//				 $("#myTabContent .tab-pane:eq(0)").addClass("active in");
+//				 $("#ptype").attr("value", "shengji");
+//				 $("#a_title").attr("value", "i2share用户升级");
+////				 $("#ptype").attr("value", "xufei");
+////				 $("#a_title").attr("value", "i2share用户续费");
+//				 $("#services111").attr("value", "taocan2");
+//				 $("#shengji_title").css("display", "");
+//		    	}
+// 
+//		     },    
+//		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+////			 alert(XMLHttpRequest.status);
+////			 alert(XMLHttpRequest.readyState);
+////			 alert(textStatus);
+//			alert("链接失败");
+// 			} 
+//		});
+//		新加的获取用户信息end	
+		return result;
+	 }
+	
+	function changemax(){
+		var free1 = $("#myTab").find(".active").find("a").attr('href');
+		var free2 = free1.substring(1);
+		$("#services111").attr('value', free2);
+		$("#PurchaseQuantity").val(2)
+		if (free1=="#taocan1"){
+			$("#PurchaseQuantity").attr('readonly', 'true');
+			$("#PurchaseStorage").val(1)
+			$("#PurchaseStorage").attr('readonly', 'true');
+		}
+		else{
+			$("#PurchaseQuantity").removeAttr('readonly');
+			$("#PurchaseStorage").removeAttr('readonly');
+			$("#PurchaseQuantity").val(5);
+			$("#PurchaseStorage").val(20);
+			
+			
+			
+		}
+	}
+	
+	$(document).ready(function() {
+		initPrice();
+		setTimeout(subnumber, 50);
+		$("#timecycle").change(function(){ 
+			subnumber();
+		}); 
+  		$("#myTab").click(function(){
+			setTimeout(changemax, 50);
+  			setTimeout(subnumber, 50);
+  		})
+  
+	});
+
+	
+
+</script>
+	</body>
+</html>

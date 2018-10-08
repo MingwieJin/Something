@@ -1,0 +1,472 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>云备份与恢复 - 云备份与恢复_云备份软件 - 英方云</title>
+<meta name="keywords" content="云备份,云灾备,云容灾,灾备,云迁移,业务迁移,云高可用">
+<meta name="description" content="【英方】云备份与恢复产品是将系统容灾备份软件和云计算平台技术结合为一体，可以通过充分的云计算资源共享，实现成本低廉、部署迅速、灵活弹性的远程数据容灾备份服务。">
+<link rel="stylesheet" type="text/css" href="skin/css/public_style.css">
+<link rel="stylesheet" type="text/css" href="skin/css/style.css">
+<link rel="stylesheet" href="skin/css/common.css" type="text/css"/>
+<script language="javascript" type="text/javascript" src="statics/js/jquery.min.js"></script>
+<script language="javascript" src="statics/js/cookie.js" type="text/javascript"></script>
+<script language="javascript" src="statics/js/jquery.touchSlider.js" type="text/javascript"></script>
+
+<!--新加的-->
+   <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.0.0/jquery.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--新加的结束-->
+</head>
+	
+<script type="text/javascript" src="statics/js/cookie.js"></script>
+<script type="text/javascript" src="statics/js/member_common.js"></script>
+<script type="text/javascript" src="statics/js/dialog.js"></script>
+<script type="text/javascript" src="statics/js/formvalidator.js" charset="UTF-8"></script>
+<script type="text/javascript" src="statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script language="JavaScript">
+function save_username() {
+	if($('#cookietime').attr('checked')==true) {
+		var username = $('#username').val();
+		setcookie('username', username, 3);
+	} else {
+		delcookie('username');
+	}
+}
+function showlogonform(){
+	$('.loginform').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$('.loginformcontent').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$(".loginformcontent").show();	
+	$(".loginform").show();	
+}
+function closelogonform(){
+	$(".loginformcontent").hide();	
+	$(".loginform").hide();	
+}
+
+$(document).ready(function(){
+	var userid = "";
+	var httpreffer = 'm=content&c=index&a=show&catid=11&id=4';
+	if(httpreffer.indexOf("islogin")!=-1&&userid=="")
+	{
+		showlogonform();
+	}
+	var username = getcookie('username');
+	if(username != '' && username != null) {
+		$('#username').val(username);
+		$('#cookietime').attr('checked',true);
+	}
+	$('#username').focus();
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#username").formValidator({onshow:"请输入用户名",onfocus:"应该为2-20位之间"}).inputValidator({min:2,max:20,onerror:"应该为2-20位之间"}).regexValidator({regexp:"ps_username",datatype:"enum",onerror:"用户名格式错误"});
+	$("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"});
+	$("#code").formValidator({onshow:"请输入验证码",onfocus:"验证码应该为5位"}).inputValidator({min:5,max:5,onerror:"验证码应该为5位"});
+});
+
+</script>
+<style>
+.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url(/statics/images/msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+.onLamp{background-position:3px -200px}
+.onTime{background-position:3px -1356px}
+	.loginform{width:650px; height:390px; position:fixed;opacity: 0.5; z-index:9999; border:1px solid #ccc; background-color:#00adf2; display:none;}
+	.loginformcontent{width:648px;  position:fixed; display:none; z-index:99999;height:387px;opacity: 1; margin:2px; background-color:#fff;}
+	.loginformcontent .title{ padding-left:20px; padding-top:20px; color:#386ea8; border-bottom:1px solid #6a6b6a;}
+	.loginformcontent .content{padding-left:20px; padding-top:20px;}
+	.loginformcontent .content li{height:50px; }
+	.loginformcontent .content span{ width:130px; text-align:right; display:inline-block; padding-right:20px;}
+	.loginformcontent .content .input{border:1px solid #00adf2; padding-left:5px; height:24px; line-height:20px;}
+	.loginformcontent .content .input:hover{border:1px solid #ff0000;}
+	.loginformcontent .content p{display:inline-block; border:0px solid #ccc;}
+	.loginformcontent .content .mybtns{ padding-left:25%; padding-top:15px; margin-left:-20px; margin-top:30px; border-top:1px solid #6a6b6a;}
+	.msg_allow{color:#3D882D}
+	
+		#myTab{
+		float:none !important;
+		margin-bottom: 20px !important;
+	}
+	.form-share{
+		font-size:16px;
+	}
+	#PurchaseQuantity{
+		height:30px;
+		font-size:20px;
+	}
+		.form-submit{
+	background: #005BAC;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	width: 140px;
+	height:40px;
+	margin-top: 10px;
+	}
+</style>
+<div class="loginform"></div>
+<div class="loginformcontent">
+<div class="title">会员登录</div>
+<form action="/index.php?m=member&c=index&a=login" method="post" onsubmit="save_username();" id="myform" name="myform">
+<input type="hidden" name="forward" id="forward" value="/index.php?m=content&c=index&a=show&catid=11&id=4">
+<div class="content">
+	<ul>
+		<li>
+			<span>请输入用户名</span>
+			<p><input type="text" name="username" class="input" style="width:200px;" id="username" /></p>
+			<p id="usernameTip" class="msg_allow">请输入用户名</p>
+		</li>
+		<li>
+			<span>请输入密码</span>
+			<p><input type="password" name="password" class="input" style="width:200px;" id="password" /></p>
+			<p id="passwordTip" class="msg_allow">请输入密码</p>
+		</li>
+		<li>
+			<span>请输入验证码</span>
+						<p style="width:350px;"><img id='code_img' onclick='this.src=this.src+"&"+Math.random()' src='/api.php?op=checkcode&code_len=5&font_size=14&width=120&height=26&font_color=&background='></p>
+			<p style="margin-left:154px; margin-top:2px;"><input class="input" style="width:120px;" type="text" name="code" id="code" /></p>
+			<p id="codeTip" class="msg_allow">请输入验证码</p>
+		</li>
+		<li>
+			<span style="margin-left:111px; margin-top:10px;"><input type="checkbox" name="cookietime" value="2592000" id="cookietime"> 记住用户名</span>
+		</li>
+		<li>
+			<div class="mybtns">
+				<input type="submit" class="mybtn_blue" name="dosubmit" id="dosubmit" value="登录" />
+				<input type="button" class="mybtn_red" onclick="closelogonform()" style="margin-left:20px;" name="submit" id="submit" value="取消" />
+			</div>
+		</li>
+	</ul>
+</div>
+</form>
+</div>
+<body>
+<!--header start-->
+<div id="myheader">
+    <div class="public_width">
+        <div class="newnav">
+            <div class="fl">
+							<a href="/" title="英方云" class="f1"><img src="/skin/images/logo.png" width="117" height="90" alt="英方云" /></a>
+			            </div>
+			            <div class="nav_list">
+              <ul>
+                <li><a href="http://www.i2yun.com/beifenhuifu/" target="_blank">产品服务</a></li>
+                <li><a href="http://www.i2yun.com/jiejuefangan/" target="_blank">解决方案</a></li>
+                <li><a href="http://www.i2yun.com/kehuanli/" target="_blank">客户案例</a></li>
+                <li><a href="http://www.i2yun.com/changjianwenti-19-1.html" target="_blank">技术支持</a></li>
+				<!--<li><a href="http://www.i2yun.com/index.php?m=content&c=index&a=lists&catid=25" target="_blank">软件下载</a></li>-->
+                <li><a href="http://www.i2yun.com/html/about/" target="_blank">关于我们</a></li>
+                <li><a href="/i2/i2yun/home.php?f=aTJ5dW4%3D&u=" target="_blank">控制台</a></li>
+              </ul>
+            </div>
+			        </div>        
+        <div class="member">
+                            <a class="btn btn-signin" target="_blank" href="/index.php?m=member&c=index&a=login">登录</a><a class="btn btn-signup" target="_blank" href="/index.php?m=member&c=index&a=register&siteid=1">注册</a>  
+                </div>
+        <div class="clear"></div>
+        
+    </div>
+</div>
+
+<script>
+    function showgongdan(){
+        var userid = "";
+        if(userid=="")
+        {
+            showlogonform();
+            return false;
+        }
+        location.href="/index.php?m=content&c=index&a=gongdanlist";
+    }
+</script>
+<!--header end-->
+
+<!--内容开始-->
+<div class="w1120">
+    <div class="body_fg">
+    <div class="left">
+    	<ul>
+    		            <li class="on"><a href="/beifenhuifu/"><img src="/skin/images/zuo-2a.png" /><p>云备份与恢复</p></a></li>
+            <li><a href="/yewuqianyi/"><img src="/skin/images/zuo-3.png" /><p>业务迁移</p></a></li>
+            <li><a href="/gaokeyong/"><img src="/skin/images/zuo-3.png" /><p>云高可用</p></a></li>
+			<li><a href="/i2box/"><img src="/skin/images/zuo-1.png" /><p>i2BOX一体机</p></a></li>
+            <!--li><a href="/yungongxiang/"><img src="/skin/images/zuo-4.png" /><p>云共享</p></a></li>-->
+            <!--<li><a href="/zhuji/"><img src="/skin/images/zuo-1.png" /><p>云资源</p></a></li>-->
+        </ul>
+    </div>
+    <div class="right">
+    	<h3>i2share云共享</h3>
+
+<link href="skin/css/market.css" rel="stylesheet" type="text/css">
+<link href="skin/css/gobal.css" rel="stylesheet" type="text/css">
+<link href="skin/css/base.css" rel="stylesheet" type="text/css">
+<link href="skin/css/beifen_range_input_skin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="skin/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="skin/js/jquery.form.js"></script>
+<script type="text/javascript" src="skin/js/jquery.json-1.3.js"></script>
+
+<style>
+	.jscode{display:none;}
+	#serviceitemzone ul{ margin-left:112px;}
+	#serviceitemzone ul li{ padding-left:10px; border-bottom:1px solid #fff;line-height: 35px;}
+	/*#serviceitemzone ul .on{background-color:#6bb4f2; color:#fff;background-image:url(/skin/images/gou.png); background-repeat:no-repeat; background-position:780px 12px; }*/
+	.addzone{ display: inline-block;vertical-align: middle; margin-left:20px;}
+</style>
+<!--<div class="jscode" id="js_getServices">showCloudCategory(data.result);</div>
+<div class="jscode" id="js_getServiceitem">var html="<ul>";$.each(data.result,function(key,val){html+='<li onclick="queryPrice(this)" class="myServiceItem" data-v="'+key+'" title="'+val.desc+'">'+val.desc+'</li>';});html+="</ul>";$("#serviceitemzone").html(html);</div>
+<div class="jscode" id="js_queryPrice">$("#priceresult").html('小计： <span style="float: none;" id="price">'+data.result.tradeAmount+'</span>元');</div>-->
+
+<script>
+	
+	
+	
+	function goSubmit(){
+		var userid = "";
+		if(userid=="")
+		{
+			showlogonform();
+			return false;
+		}
+		var serviceid = $("#hid_services").val();
+		var services = $("#services").val();
+		if(serviceid.length==0){
+			alert("请选择备份目标云");
+			return false;
+		}
+		// to check service here;
+		return true;
+	}
+	function subnumber(){
+		var Productval = $("#PurchaseQuantity").val();
+		var Producttime = $("#timecycle").val();
+		var ProductPrice = $("#myTab").find(".active").find(".taocanprice").text();
+		$("#shownum").text("合计"+Productval*ProductPrice*Producttime+'元');
+		
+	}
+
+	
+	 function initPrice(){
+	 
+		var result = new Array();
+		 $.ajax( {    
+		    url:"json/product.json",
+		    data:{   
+		    		productfrom: "i2share"
+//		    		,
+//		            serviceid : param["serviceid"],//云id，由ajax返回
+//		            service : param["service"]//服务id
+		    },
+		    type:'get',    
+		    cache:false,    
+		    dataType:'json',    
+		    beforeSend: function(XMLHttpRequest){
+//		    	if(param["before"])
+//		    		eval(param["before"]);
+	        },
+		    success:function(data) {  
+// 				 $('#productType').empty();   //清空resText里面的所有内容
+// 				 $('#describePro').empty(); 
+//                       var html = ''; 
+//                       var html1 = '';
+//                       $.each(data, function(productIndex, product){
+//                             html += '<option value="'+product['id']+'">'+product['name']+'</option>';
+//                             html1 += '<div class="'+product['id']+' PD" style="display:none;">'+product['price']+product['desc']+'</div>'
+//                       });
+//              $('#productType').html(html);
+//              $('#describePro').html(html1);
+//              $("#describePro .PD:eq(0)").css("display","block");
+				 $('#myTab').empty();
+				 $('#myTabContent').empty();
+				 var html = '';
+				 var html1 = '';
+				 $.each(data, function(productIndex, product){
+				 	html +=  '<li><a href="#'+product['id']+'" data-toggle="tab">'+product['name']+'</a><div class="taocanprice" style="display: none;">'+product['price']+'</div></li>'
+				 	html1 += '<div class="tab-pane fade" id="'+product['id']+'">'+product['desc']+' </div>'
+				 });
+				 $('#myTab').html(html);
+				 $('#myTabContent').html(html1);
+				 $("#myTab li:eq(0)").addClass("active");
+				 $("#myTabContent .tab-pane:eq(0)").addClass("active in");
+				 
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+			 alert(XMLHttpRequest.status);
+			 alert(XMLHttpRequest.readyState);
+			 alert(textStatus);
+   			} 
+		});
+		return result;
+	 }
+	
+	$(document).ready(function() {
+		initPrice();
+		$("#timecycle").change(function(){ 
+			subnumber();
+		}); 
+  		$("#myTab").click(function(){
+  			setTimeout(subnumber, 50);
+  		})
+  
+	});
+
+</script>
+		<ul id="myTab" class="nav nav-tabs">
+		   <li class="active"><a href="#taocan1" data-toggle="tab">套餐1</a><div class="taocanprice" style="display: none;">1</div></li>
+		   <li><a href="#taocan2" data-toggle="tab">套餐2</a></li>
+		
+		</ul>
+		<div id="myTabContent" class="tab-content" style="margin-bottom: 30px;">
+		   <div class="tab-pane fade active" id="taocan1">
+				111
+		   </div>
+		   <div class="tab-pane fade" id="taocan2">
+				222
+		   </div>
+		
+		</div>
+		<div class="form-share" style="text-align: center;">
+			<form action="" method = 'post' onsubmit = "return goSubmit();" target="_blank">
+<!--			<input type="text" name="Mcompany" id="Mcompany" value="">-->
+	
+			<!--<select id="productType" name="productType"  style="height: 34px; width: 276px;font-size: 16px;">
+				<option value="taocan1">服务一</option>
+			</select>
+			<div>服务描述</div>-->
+			
+			<div class="productDescribe" id="describePro">
+			</div>
+			<br />
+			<div class='form-row'>
+			购买时长: &nbsp;<span>
+					<select id="timecycle" name="timecycle" style="height: 34px; width: 276px;font-size: 16px;">
+						<option value="1">一个月</option>
+	                    <option value="2">二个月</option>
+	                    <option value="3">三个月</option>
+	                    <option value="4">四个月</option>
+	                    <option value="5">五个月</option>
+	                    <option value="6">六个月</option>
+	                    <option value="7">七个月</option>
+	                    <option value="8">八个月</option>
+	                    <option value="9">九个月</option>
+	                    <option value="10">一年(优惠2个月)</option>
+	                    <option value="20">二年(优惠4个月)</option>
+	                    <option value="30">三年(优惠6个月)</option>
+                </select>
+			</div>
+			<div class="form-share-text" style="margin: 20px 0;"> 购买数量：
+				<span><input id="PurchaseQuantity" type="number" name="snum_quantity" min="1" max="10" value="1" onchange="subnumber()"/></span>	
+			</div>
+			<div id="shownum">小计1000元</div>
+			<br>
+			<input  name="from" value="i2share" type="hidden">
+			<input  name="ptype" value="cloud" type="hidden"> 
+			<input  name="services" value="" type="hidden"><!--服务与分发数-->
+			<input  name="hid_services" value="cloud" type="hidden"> <!--目标云-->
+			<input  name="a_title" value="{$title}"  type="hidden">
+			<input  name="money" value="{$money}" type="hidden">
+			<input class="form-submit" type="submit" value="确认提交">
+			
+		</form>	
+		</div>
+		<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe> 
+
+
+    </div>
+    </div>
+</div>
+<!--内容结束-->
+<div class="clear"></div>
+<div class="zixunf">
+  <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006178601&aty=0&a=0&curl=&ty=1" target="_blank" rel="nofollow"><div class="qqcontact"></div></a>
+  <a href="http://p.qiao.baidu.com//im/index?siteid=8152259&ucid=19123718" target="_blank" rel="nofollow"><div class="onlinecontact"></div></a>
+</div>
+
+
+<div id="footer">
+  <div class="public_width">
+    <ul>
+      <li>
+        <ul>
+          <li>产品中心</li>
+          <li><a href="/beifenhuifu/" target="_blank">云备份与恢复</a></li>
+          <li><a href="/yewuqianyi/" target="_blank">业务迁移</a></li>
+          <li><a href="/gaokeyong/" target="_blank">高可用</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>帮助中心</li>
+          <li><a href="/changjianwenti-19-1.html" target="_blank">常见问题</a></li>
+          <li><a href="/bangzhuwendang-26-1.html" target="_blank">帮助文档</a></li>
+          <li><a href="javascript:void(0);" target="_blank">在线客服</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>关于我们</li>
+          <li><a href="/html/about/" target="_blank">英方简介</a></li>
+          <li><a href="/index.php?m=content&c=index&a=lists&catid=9" target="_blank">联系我们</a></li>
+          <li><a href="/jiejuefangan/" target="_blank">云灾备解决方案</a></li>
+        </ul>
+      </li>
+      <li class="erweima">
+        <div class="tel">
+          <p>400-6178-601</p>
+          <p>400-6178-601</p>
+        </div>
+      </li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="banquan">
+    <p>Copyright 2015 i2yun.com, All Rights Reserved. <br />
+      英方云版权所有 沪ICP备12000492号-3</p>
+  </div>
+</div>
+<script language="JavaScript" src="/api.php?op=count&id=4&modelid=12"></script>
+<script> 
+<!-- 
+/*tab切换 更换显示样式*/ 
+function setTab(m,n){ 
+var tli=document.getElementById("menu"+m).getElementsByTagName("span"); 
+var mli=document.getElementById("main"+m).getElementsByTagName("ul"); 
+for(i=0;i<tli.length;i++){ 
+tli[i].className=i==n?"hover":""; 
+mli[i].style.display=i==n?"block":"none"; 
+} 
+} 
+</script>
+<div style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255337646'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1255337646' type='text/javascript'%3E%3C/script%3E"));</script></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?adf04e685aa6f83b0c6f9501b18b13a6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".picbig").each(function(i){
+		var cur = $(this).find('.img-wrap').eq(0);
+		var w = cur.width();
+		var h = cur.height();
+	   $(this).find('.img-wrap img').LoadImage(true, w, h,'/statics/images/msg_img/loading.gif');
+	});
+})
+</script>
+</body>
+</html>

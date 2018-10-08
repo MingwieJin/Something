@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.0.0/jquery.js"></script>		
+<style>
+	#openi2sharexufei{width:650px; height:440px; background:#fff; border:1px solid #ccc; margin:auto; position:fixed;}
+	#openi2sharexufei .dialog_layer_main{padding-left:20px; padding-top: 20px;}
+	#openi2sharexufei .fengexian{border-bottom:1px solid #386ea8; margin-left: -20px; margin-top: 10px; margin-bottom:20px;}
+	#openi2sharexufei .dialog_layer_main .dialog_layer_title h3{display: inline-block; color:#386ea8; font-size:22px;}
+	#openi2sharexufei .dialog_layer_main .dialog_layer_title .close{float: right; margin-right: 20px; width: 30px; height: 30px; line-height: 30px; font-size: 15px; text-align: center;}
+	
+	.form-submit{
+	background: #005BAC;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	width: 140px;
+	height:40px;
+	margin:10px 0 0 0;
+	}
+	
+	.form-cancel{
+	background: #005BAC;
+	border:none;
+	font-size: 18px;
+	color:#FFFFFF;
+	padding: 8px 34px;
+	margin: 10px  0 0 10px;
+	}
+</style>		
+		
+	</head>
+	<body>
+		
+<div id="openi2sharexufei" class="sidebar-panel-container">
+	<div class="dialog_layer_main">
+		<div class="dialog_layer_title">
+			<h3>续费升级</h3><a class="close" title="关闭" onclick="$('#openi2sharexufei').hide()" href="javascript:;"><i>×</i></a>
+		</div>
+		<div class="fengexian"></div>
+		
+		
+		
+	<ul id="myTab" class="nav nav-tabs" style="display:none"></ul><!--用来存储信息-->
+
+			<div class="form-share" >
+			<form action="<?php echo APP_PATH;?>index.php?m=order&c=cart&a=i2shareadd" method = 'post' onsubmit = "return goSubmitshare();" target="_blank">
+			
+			<div class="productDescribe" id="describePro">
+			</div>
+			<br />
+			<div class='form-row'>
+			续费时长: 
+					<select id="timecycle"  name="timecycle" style="height: 34px; width: 276px;font-size: 16px;">
+						<option value="1">一个月</option>
+	                    <option value="2">二个月</option>
+	                    <option value="3">三个月</option>
+	                    <option value="4">四个月</option>
+	                    <option value="5">五个月</option>
+	                    <option value="6">六个月</option>
+	                    <option value="7">七个月</option>
+	                    <option value="8">八个月</option>
+	                    <option value="9">九个月</option>
+	                    <option value="10">一年(优惠2个月)</option>
+	                    <option value="20">二年(优惠4个月)</option>
+	                    <option value="30">三年(优惠6个月)</option>
+	                    <option value="0">不续费时间</option>
+                </select>
+			</div>
+			<div class="form-share-text" style="margin: 20px 0;"> 增加用户数量<span id="storageW" style="display:none">&nbsp;&nbsp;(以5为单位增加)</span>：&nbsp; 
+				<span><input id="PurchaseQuantity"  type="number" name="snum_quantity" min="0" max="200" value="5" onchange="subnumber()" step="5" style="height: 24px;font-size: 16px;"/></span>	
+			</div>
+
+            <div class="form-share-text" style="margin: 20px 0;"> 续费容量（GB）：&nbsp;
+					<span><input id="PurchaseStorage" type="number" name="snum_storage" min="0" max="262144" value="5" onchange="subnumber()" style="height: 24px;font-size: 16px;"/></span>	
+			</div>
+
+			<div id="shownum">无法连接网络</div>
+			<br>
+			
+			<input  name="from" value="i2share" type="hidden">
+			<input  name="ptype" value="xufei" type="hidden"> 
+			<input  name="orderid" value="" type="hidden" id="orderid"><!--uuid-->
+			<input  name="services" value="taocan2" type="hidden" id="services111"><!--服务与分发数-->
+			<input  name="hid_services" value="cloud" type="hidden"> <!--目标云-->
+			<input  name="a_title" value="i2share续费"  type="hidden">
+			<input  name="money" value="none" type="hidden">
+			
+			<div class="fengexian"></div>
+			<input class="form-submit" type="submit" value="加入购物车">
+			
+		<a class="form-cancel" onclick="$('#openi2sharexufei').hide()" >取消购买</a>	
+		</form>	
+		</div>
+
+
+
+
+	</div>
+</div>
+
+		
+<script>
+	function openi2sharexufei(items){
+		$("#openi2sharexufei").css("top",($(window).height()-$("#xufeizone").height())/2);
+		$("#openi2sharexufei").css("left",($(window).width()-$("#xufeizone").width())/2);
+		$("#openi2sharexufei").show();
+		$("#orderid").val($(items).attr("data-v"));
+		initPrice();
+      	setTimeout(subnumber, 500);
+		$("#timecycle").change(function(){ 
+			subnumber();
+		}); 
+	}
+	function goSubmitshare(){
+                    return true;
+	}
+	
+	function subnumber(){
+		var Productval = $("#PurchaseQuantity").val();
+		var Producttime = $("#timecycle").val();
+		var Storageval = $("#PurchaseStorage").val();
+        var unitMin = parseInt($("#myTab").find(".active").find(".unitMin").text());
+        var storageMin = parseInt($("#myTab").find(".active").find(".storageMin").text());
+      	var unitMax = parseInt($("#myTab").find(".active").find(".unitMax").text());
+                if(Productval<0){
+                        alert("该套餐用户数量不能小于0");
+                        Productval=unitMin;
+                        $("#PurchaseQuantity").val(unitMin);
+                    }
+				else if( unitMax!="" && Productval>unitMax){
+                        alert("该套餐用户数量不能大于"+unitMax);
+                        Productval=unitMax;
+                        $("#PurchaseQuantity").val(unitMax);
+                    }
+                else if( Productval%5!=0){
+                        alert("该套餐增加用户数必须为5的倍数");
+                        Productval=unitMin;
+                         $("#PurchaseQuantity").val(unitMin);
+                } 
+      			
+                if( Storageval<0){
+                        alert("该套餐存储数量不能小于0");
+                        Storageval=storageMin;
+                         $("#PurchaseStorage").val(storageMin);
+                         
+                    }
+		var UnitPrice = $("#myTab").find(".active").find(".taocanprice").text();
+		var StoragePrice = $("#myTab").find(".active").find(".storageprice").text();
+		var sumPrice = (Productval*UnitPrice + StoragePrice*Storageval)*Producttime;
+		$("#shownum").text("合计"+sumPrice+'元');
+		
+        }
+	
+	 function initPrice(){
+		var result = new Array();
+		 $.ajax( {    
+                    //url:"/index.php?m=order&c=cart&a=productinfo",
+           url:"json/user.json",
+		    data:{   
+		    		productfrom: "i2share"
+//		    		,
+//		            serviceid : param["serviceid"],//云id，由ajax返回
+//		            service : param["service"]//服务id
+		    },
+		    type:'get',    
+		    cache:false,    
+		    dataType:'json',    
+		    beforeSend: function(XMLHttpRequest){
+	        },
+		    success:function(data) {  
+				var data1 = data[1];
+				 $('#myTab').empty();
+				 var html = '';
+
+				 	html +=  '<li class="active"><a href="#'+data1['name']+'" data-toggle="tab">'+data1['nameC']+'</a><div class="taocanprice" style="display: none;">'+data1['unitprice']+'</div><div class="storageprice" style="display: none;">'+data1['storageprice']+'</div><div class="unitMin" style="display: none;">'+data1['unitMin']+'</div><div class="storageMin" style="display: none;">'+data1['storageMin']+'</div><div class="unitMax" style="display: none;">'+data1['unitMax']+'</div></li>'
+
+				 $('#myTab').html(html);
+//				 $("#myTab li:eq(0)").addClass("active");
+				 
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+//			 alert(XMLHttpRequest.status);
+//			 alert(XMLHttpRequest.readyState);
+//			 alert(textStatus);
+			alert("链接服务器错误");
+   			} 
+		});
+		return result;
+	 }
+	 
+	 
+	 	$(document).ready(function() {
+		initPrice();
+      	setTimeout(subnumber, 500);
+		$("#timecycle").change(function(){ 
+			subnumber();
+		}); 
+  
+	});
+</script>		
+	</body>
+</html>

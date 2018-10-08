@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
+   <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.0.0/jquery.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title></title>
+		
+		
+<style>
+	#form111{
+		font-size:16px;
+		line-height: 26px;
+		color:#4F5357;
+		width:94%;
+		margin: 0 3%;
+	}
+
+	hr{
+		margin:15px 0;
+		color:#C3C1C1;
+		
+	}
+
+	.form-row{
+		width:100%;
+		max-width:420px;
+		margin:0 auto;
+	}
+	
+	#myTab{
+		background:#303F9F;
+		width:100%;
+		display:flex;
+		justify-content: center;
+		max-width:420px;
+		margin:0 auto;
+		
+	}
+	
+	#myTabContent{
+		width:94%;
+		max-width:420px;
+		margin:0 auto;
+		color:#4F5357;
+		font-weight: 700;
+		padding:20px 0 30px 0;
+	}
+	
+	.nav-tabs>li{
+		width:50%;
+		
+	}
+	
+	
+	.nav-tabs>li>a{
+		background: #303F9F;
+		color: #fff;
+		border:none;
+		font-family: "微软雅黑";
+		font-weight: 700;
+	}
+	
+	.nav-tabs>li>a:hover{
+		background:#3B86D6;
+		color: #fff;
+		border:none;
+		font-family: "微软雅黑";
+		font-weight: 700;
+	}
+	
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+		background: #3B86D6;
+		color: #FBC02D;
+		border:none;
+		border-bottom: 2px solid #FBC02D;
+		font-family: "微软雅黑";
+		font-weight: 700;
+	}
+	
+	
+	#timecycle{
+		float:right;
+		height:28px;
+		width:148px;
+		font-size: 16px;
+		margin-right: 7px;
+		color:#4F5357;
+	}
+	
+	/*#timecycle, #PurchaseStorage, #PurchaseStorage{
+		display:none;
+	}*/
+	
+	.PurchaseQuantity_sub, .PurchaseQuantity_add, .PurchaseStorage_sub, .PurchaseStorage_add{
+		cursor: pointer;
+		height: 26px;
+		width: 26px;
+		font-size:20px;
+		color:#333;
+		text-decoration: none;
+		display:inline-block;
+		text-align: center;
+	}
+	
+	/*.PurchaseQuantity_sub{
+		background:url(img/sub.png) no-repeat center;
+	}*/
+	
+	.PurchaseQuantity_sub img, .PurchaseQuantity_add img, .PurchaseStorage_sub img, .PurchaseStorage_add img{
+		display: inline-block;
+		width:100%;
+		height:auto;
+	}
+	
+	
+	.input-contain, .input-contain1{
+		width:100%;
+		max-width:420px;
+		margin:0 auto;
+	}
+	.input-zone{
+		float:right;
+	}
+	.input-contain input{
+		height:22px;
+		font-size: 16px;
+		margin:0;
+		color:#4F5357;
+		width:100px;
+		display:inline-block;
+		vertical-align: top;
+		text-align: center;
+		border:none;
+	}
+	
+	
+	.form-submit{
+	background: #3B86D6;
+	border:1px solid #0059B8;
+	border-radius:5px;
+	font-size: 18px;
+	color:#FFFFFF !important;
+	width:100%;
+	max-width:420px;
+	height:40px !important;
+	margin:10px auto 0 auto !important;
+	}
+</style>
+	</head>
+	<body>
+	<ul id="myTab" class="nav nav-tabs">
+		   <li class="active"><a href="#taocan1" data-toggle="tab">套餐1</a><div class="taocanprice" style="display: none;">1</div></li>
+		   <li><a href="#taocan2" data-toggle="tab">套餐2</a></li>
+		
+		</ul>
+		<div id="myTabContent" class="tab-content">
+		   <div class="tab-pane fade active" id="taocan1">
+				免费版：如超过90天未使用，我们将在提前告知用户的前提下对免费版帐号及数据进行清空。
+		   </div>
+		   <div class="tab-pane fade" id="taocan2">
+				企业版：比一般网盘更强大的数据管理服务，可拨打400-6178-601联系销售顾问咨询更多解决方案。
+		   </div>
+		
+		</div>		
+		
+		
+		
+		
+		
+		
+<form action="#" id="form111">		
+			<div class='form-row'>
+			购买时长: &nbsp;<span>
+					<select id="timecycle" name="timecycle" >
+						<option value="1">一个月</option>
+	                    <option value="2">二个月</option>
+	                    <option value="3">三个月</option>
+	                    <option value="4">四个月</option>
+	                    <option value="5">五个月</option>
+	                    <option value="6">六个月</option>
+	                    <option value="7">七个月</option>
+	                    <option value="8">八个月</option>
+	                    <option value="9">九个月</option>
+	                    <option value="10">一年(优惠2个月)</option>
+	                    <option value="20">二年(优惠4个月)</option>
+	                    <option value="30">三年(优惠6个月)</option>
+                </select>
+			</div>		
+<hr />		
+		
+			<div class="input-contain">购买数量：
+				<div class="input-zone">
+					<a class="PurchaseQuantity_sub" data-ty="-" onclick="changeQuan(this);return false;" href="javascript:void(0);"><img src="img/sub.png"/></a>		
+					<input id="PurchaseQuantity" name="snum_quantity" value="1"/>
+					<a class="PurchaseQuantity_add" data-ty="+" onclick="changeQuan(this);return false;" href="javascript:void(0);"><img src="img/plus.png"/></a>	
+				</div>
+			</div>	
+
+<hr />
+
+			<div class="input-contain">购买容量(GB)：
+				<div class="input-zone">
+					<a class="PurchaseStorage_sub" data-ty="-" onclick="changeStor(this);return false;" href="javascript:void(0);"><img src="img/sub.png"/></a>		
+					<input id="PurchaseStorage" name="snum_storage" value="1"/>
+					<a class="PurchaseStorage_add" data-ty="+" onclick="changeStor(this);return false;" href="javascript:void(0);"><img src="img/plus.png"/></a>	
+				</div>
+			</div>
+
+<hr />	
+
+			<div class="input-contain1">公司名称：
+				<div class="input-zone">
+					<input id="company"  name="company" value="请输入您公司的名称">
+				</div>
+			</div>
+
+<hr />	
+
+
+			<div class="input-contain1">公司后缀：
+				<div class="input-zone">
+					<input id="suffix"  name="suffix" value="英文或者数字">
+				</div>
+			</div>
+
+<hr />	
+
+			<div class="input-contain">
+				<div id="shownum">无法连接网络</div>
+			</div>
+<hr />	
+
+
+			<input  name="from" value="i2share" type="hidden">
+			<input  name="ptype" value="goumai" type="hidden"> 
+			<input  name="services" value="taocan1" type="hidden" id="services111"><!--服务与分发数-->
+			<input  name="hid_services" value="cloud" type="hidden"> <!--目标云-->
+			<input  name="a_title" value="i2share购买"  type="hidden">
+			<input  name="money" value="none" type="hidden">
+
+			
+			<div class="input-contain1">
+			<input class="form-submit" type="submit" value="确认提交">
+			</div>
+			
+		</form>	
+
+
+
+<script>
+	function changeStor(items){
+		var Aors = $(items).attr('data-ty');
+		var storagevalnow = parseInt($("#PurchaseStorage").val());
+		if(Aors == "+"){
+			storagevalnow +=1;
+			$("#PurchaseStorage").val(storagevalnow);
+		}
+		if(Aors == "-"){
+			storagevalnow -=1;
+			if(storagevalnow<0){
+				alert("套餐存储量不得小于0");
+				$("#PurchaseStorage").val(0);
+			}
+			else{
+			$("#PurchaseStorage").val(storagevalnow);
+			
+			}
+		}
+	}
+	
+	function changeQuan(items){
+		var Aors = $(items).attr('data-ty');
+		var quantityvalnow = parseInt($("#PurchaseQuantity").val());
+		if(Aors == "+"){
+			quantityvalnow +=1;
+			$("#PurchaseQuantity").val(quantityvalnow);
+		}
+		if(Aors == "-"){
+			quantityvalnow -=1;
+			if(quantityvalnow<0){
+				alert("套餐存储量不得小于0");
+				$("#PurchaseQuantity").val(0);
+			}
+			else{
+			$("#PurchaseQuantity").val(quantityvalnow);
+			}
+		}
+	}
+	
+	subnumber
+</script>
+	</body>
+</html>
