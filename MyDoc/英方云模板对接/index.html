@@ -1,0 +1,645 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
+<!--<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta name="viewport" content="width=device-width,initial-scale=1">-->
+<title>云备份与恢复_云备份软件 - 英方云</title>
+<meta name="keywords" content="云备份，云备份软件，云备份怎么恢复">
+<meta name="description" content="【英方】云备份与恢复产品是将系统容灾备份软件和云计算平台技术结合为一体，可以通过充分的云计算资源共享，实现成本低廉、部署迅速、灵活弹性的远程数据容灾备份服务。">
+<link rel="stylesheet" type="text/css" href="skin/css/public_style.css">
+<link rel="stylesheet" type="text/css" href="skin/css/style.css">
+<link rel="stylesheet" href="skin/css/common.css" type="text/css"/>
+
+<!--新加的-->
+<link rel="stylesheet" type="text/css" href="css/Price-tags.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/cool-gray.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+
+<script language="javascript" type="text/javascript" src="statics/js/jquery.min.js"></script>
+<script language="javascript" src="statics/js/cookie.js" type="text/javascript"></script>
+<script language="javascript" src="statics/js/jquery.touchSlider.js" type="text/javascript"></script>
+</head>
+	
+<script type="text/javascript" src="statics/js/cookie.js"></script>
+<script type="text/javascript" src="statics/js/member_common.js"></script>
+<script type="text/javascript" src="statics/js/dialog.js"></script>
+<script type="text/javascript" src="statics/js/formvalidator.js" charset="UTF-8"></script>
+<script type="text/javascript" src="statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script language="JavaScript">
+function save_username() {
+	if($('#cookietime').attr('checked')==true) {
+		var username = $('#username').val();
+		setcookie('username', username, 3);
+	} else {
+		delcookie('username');
+	}
+}
+function showlogonform(){
+	$('.loginform').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$('.loginformcontent').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$(".loginformcontent").show();	
+	$(".loginform").show();	
+}
+function closelogonform(){
+	$(".loginformcontent").hide();	
+	$(".loginform").hide();	
+}
+
+$(document).ready(function(){
+	var userid = "";
+	var httpreffer = 'm=content&c=index&a=lists&catid=11';
+	if(httpreffer.indexOf("islogin")!=-1&&userid=="")
+	{
+		showlogonform();
+	}
+	var username = getcookie('username');
+	if(username != '' && username != null) {
+		$('#username').val(username);
+		$('#cookietime').attr('checked',true);
+	}
+	$('#username').focus();
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#username").formValidator({onshow:"请输入用户名",onfocus:"应该为2-20位之间"}).inputValidator({min:2,max:20,onerror:"应该为2-20位之间"}).regexValidator({regexp:"ps_username",datatype:"enum",onerror:"用户名格式错误"});
+	$("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"});
+	$("#code").formValidator({onshow:"请输入验证码",onfocus:"验证码应该为5位"}).inputValidator({min:5,max:5,onerror:"验证码应该为5位"});
+});
+
+</script>
+<style>
+.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url(/statics/images/msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+.onLamp{background-position:3px -200px}
+.onTime{background-position:3px -1356px}
+	.loginform{width:650px; height:390px; position:fixed;opacity: 0.5; z-index:9999; border:1px solid #ccc; background-color:#00adf2; display:none;}
+	.loginformcontent{width:648px;  position:fixed; display:none; z-index:99999;height:387px;opacity: 1; margin:2px; background-color:#fff;}
+	.loginformcontent .title{ padding-left:20px; padding-top:20px; color:#386ea8; border-bottom:1px solid #6a6b6a;}
+	.loginformcontent .content{padding-left:20px; padding-top:20px;}
+	.loginformcontent .content li{height:50px; }
+	.loginformcontent .content span{ width:130px; text-align:right; display:inline-block; padding-right:20px;}
+	.loginformcontent .content .input{border:1px solid #00adf2; padding-left:5px; height:24px; line-height:20px;}
+	.loginformcontent .content .input:hover{border:1px solid #ff0000;}
+	.loginformcontent .content p{display:inline-block; border:0px solid #ccc;}
+	.loginformcontent .content .mybtns{ padding-left:25%; padding-top:15px; margin-left:-20px; margin-top:30px; border-top:1px solid #6a6b6a;}
+	.msg_allow{color:#3D882D}
+	.nav li:nth-child(2) a {border-bottom: 2px solid #FFCC00;}
+	
+</style>
+<div class="loginform"></div>
+<div class="loginformcontent">
+<div class="title">会员登录</div>
+<form action="/index.php?m=member&c=index&a=login" method="post" onsubmit="save_username();" id="myform" name="myform">
+<input type="hidden" name="forward" id="forward" value="/beifenhuifu/">
+<div class="content">
+	<ul>
+		<li>
+			<span>请输入用户名</span>
+			<p><input type="text" name="username" class="input" style="width:200px;" id="username" /></p>
+			<p id="usernameTip" class="msg_allow">请输入用户名</p>
+		</li>
+		<li>
+			<span>请输入密码</span>
+			<p><input type="password" name="password" class="input" style="width:200px;" id="password" /></p>
+			<p id="passwordTip" class="msg_allow">请输入密码</p>
+		</li>
+		<li>
+			<span>请输入验证码</span>
+						<p style="width:350px;"><img id='code_img' onclick='this.src=this.src+"&"+Math.random()' src='/api.php?op=checkcode&code_len=5&font_size=14&width=120&height=26&font_color=&background='></p>
+			<p style="margin-left:154px; margin-top:2px;"><input class="input" style="width:120px;" type="text" name="code" id="code" /></p>
+			<p id="codeTip" class="msg_allow">请输入验证码</p>
+		</li>
+		<li>
+			<span style="margin-left:111px; margin-top:10px;"><input type="checkbox" name="cookietime" value="2592000" id="cookietime"> 记住用户名</span>
+		</li>
+		<li>
+			<div class="mybtns">
+				<input type="submit" class="mybtn_blue" name="dosubmit" id="dosubmit" value="登录" />
+				<input type="button" class="mybtn_red" onclick="closelogonform()" style="margin-left:20px;" name="submit" id="submit" value="取消" />
+			</div>
+		</li>
+	</ul>
+</div>
+</form>
+</div>
+<body>
+<!--header start-->
+<div id="myheader">
+    <div class="public_width">
+        <div class="newnav">
+            <div class="fl">
+							<a href="/" title="英方云" class="f1"><img src="skin/images/logo.png" width="117" height="90" alt="英方云" /></a>
+			            </div>
+			            <div class="nav_list">
+              <ul>
+                <li><a href="http://www.i2yun.com/beifenhuifu/" >产品服务</a></li>
+                <li><a href="http://www.i2yun.com/jiejuefangan/" >解决方案</a></li>
+                <li><a href="http://www.i2yun.com/kehuanli/" >客户案例</a></li>
+                <li><a href="http://www.i2yun.com/bangzhuwendang-26-1.html" >技术支持</a></li>
+				<li><a href="http://www.i2yun.com/index.php?m=content&c=index&a=lists&catid=25" >软件下载</a></li>
+                <li><a href="http://www.i2yun.com/html/about/" >关于我们</a></li>
+                <li><a href="/i2/i2yun/home.php?f=aTJ5dW4%3D&u=" >控制台</a></li>
+              </ul>
+            </div>
+			        </div>        
+        <div class="member">
+                            <a class="btn btn-signin" target="_blank" href="/index.php?m=member&c=index&a=login">登录</a><a class="btn btn-signup" target="_blank" href="/index.php?m=member&c=index&a=register&siteid=1">注册</a>  
+                </div>
+        <div class="clear"></div>
+        
+    </div>
+</div>
+
+<script>
+    function showgongdan(){
+        var userid = "";
+        if(userid=="")
+        {
+            showlogonform();
+            return false;
+        }
+        location.href="/index.php?m=content&c=index&a=gongdanlist";
+    }
+</script>
+<!--header end-->
+<!-- top start -->
+    <!-- 云备份与恢复 -->
+        <div class="ybf1920">
+      <div class="public_width ybftop">
+        <h1>云备份和恢复</h1>
+        <p>云备份与恢复产品是将系统容灾备份软件和云计算平台技术结合为一体，可以通过充分的云计算资源共享，实现成本低廉、部署迅速、灵活弹性的远程数据容灾备份服务。</p>
+        <p>英方云全面支持Windows和Linux平台以及虚拟平台上的各种应用数据的保护，包括SQLServer、Exchange、DB2、Oracle、MySQL等。</p>
+        <div class="btncp">
+				<a href="/index.php?m=member&c=index&a=register&siteid=1" target="_blank" class="btn btn-kai">立即注册</a> 
+				<a href="/index.php?m=content&c=index&a=show&catid=11&id=4&tc=free" target="_blank" class="btn btn-try">马上开通</a>
+        </div>
+       </div>
+      <div class="clear"></div>
+    </div>
+    
+
+<!-- top end -->
+<!--内容开始-->
+<div class="w1120">
+    <div class="body_fg">
+    <!--<div class="left">
+    	<ul>
+        	            <li class="on"><a href="/beifenhuifu/"><img src="skin/images/zuo-2a.png" /><p>云备份与恢复</p></a></li>
+            <li><a href="/yewuqianyi/"><img src="skin/images/zuo-3.png" /><p>业务迁移</p></a></li>
+            <li><a href="/gaokeyong/"><img src="skin/images/zuo-3.png" /><p>云高可用</p></a></li>
+			<li><a href="/i2box/"><img src="skin/images/zuo-1.png" /><p>i2BOX一体机</p></a></li>-->
+            <!--li><a href="/yungongxiang/"><img src="/skin/images/zuo-4.png" /><p>云共享</p></a></li>-->
+            <!--<li><a href="/zhuji/"><img src="/skin/images/zuo-1.png" /><p>云资源</p></a></li>-->
+        <!--</ul>
+    </div>-->
+
+    <div class="right1003">
+    
+    <div class="ptr-xx">
+                <!-- 云备份与恢复 -->
+
+<!--产品优势     -->       
+            <h3 class="cpcomtitle">产品优势</h3>
+            <div class="cp_youshi">
+                <ul>
+						<li>
+							<div class="justify-img"><img src="img/1.png" alt="优势图"></div>
+							<h4>高效</h4>
+							<p>快速部署，易于应用，开通功能只需几分钟；随时可变更的主机规格和带宽，高资源利用率</p>
+						</li>
+						<li>
+							<div class="justify-img"><img src="img/2.png" alt="优势图"></div>
+							<h4>安全</h4>
+							<p>AES256数据加密，压缩传输，提供数据传输的安全性</p>
+						</li>
+						<li>
+							<div class="justify-img"><img src="img/3.png" alt="优势图"></div>
+							<h4>可靠</h4>
+							<p>电信级别的服务器运行环境，可达99.995%的设计可用度，99.99995%的设计数据持久度</p>
+						</li>
+						<li>
+							<div class="justify-img"><img src="img/4.png" alt="优势图"></div>
+							<h4>高性能</h4>
+							<p>以字节为数据捕捉的最小单位，从而减小了需复制的数据量，从而节省了带宽。</p>
+						</li>
+						<li style="margin-right:0px">
+							<div class="justify-img"><img src="img/5.png" alt="优势图"></div>
+							<h4>低成本</h4>
+							<p>充分利用云计算平台的成本优势，降低容灾成本投入；不需要初始大规模投入，只需按时付费.</p>
+						</li>
+						
+						</ul>            
+            </div>
+<div class="clear"></div>
+<div style="height:30px"></div>
+
+
+
+<!--产品架构-->
+<h3 class="cpcomtitle">产品架构</h3>
+<div class="cp_jiagou"> <img src="skin/images/cpbf_jiagou.jpg" alt="云备份与恢复产品架构" /> </div>
+
+<!--产品场景-->
+<h3 class="cpcomtitle">产品场景</h3>
+<div class="cp_changjing">
+<ul>
+<li style="margin-right: 50px;">
+	<h4>公有云备份和恢复</h4>
+	<img alt="公有云备份与恢复场景" height="104" src="skin/images/cpbf_cj4.jpg" width="411" />
+	<p><strong>推荐方案：</strong>英方云+公有云平台+三大运营商云平台<br />
+	<strong>方案描述：</strong>用户可选择把数据实时备份到英方云、阿里云、腾讯云、天翼云等云平台，需要恢复时直接从云平台进行快速恢复。<br />
+	<strong>适用场景：</strong>适合接受公有云的企业和个人用户，费用低、免维护、易扩展。</p>
+</li>
+<li style="margin-right: 50px;">
+	<h4>私有云备份和恢复</h4>
+	<img alt="私有云备份与恢复场景" height="104" src="skin/images/cpbf_cj5.jpg" width="411" />
+	<p><strong>推荐方案：</strong>与企业现有的私有存储对接，或二次开发整合到企业现有IT资源中<br />
+	<strong>方案描述：</strong>私有云灾备系统部署在企业自己的服务器上，所有信息由企业自己掌握，部署方便。并可以通过API二次开发整合到企业ERP、CRM等现有IT资源中。<br />
+	<strong>适用场景：</strong>适合不上云、高安全性、高要求自主数据控制的企业。</p>
+</li>
+<li style="margin-right:0">
+	<h4>混合云备份和恢复</h4>
+	<img alt="混合云备份与恢复场景" height="104" src="skin/images/cpbf_cj3.jpg" width="411" />
+	<p><strong>推荐方案：</strong>英方i2Box+云存储平台<br />
+	<strong>方案描述：</strong>i2Box是英方软件NAS容灾备份一体机产品，它集英方灾备软件和NAS硬件于一体，是集合成云存储与灾备协作管理的统一平台，如有业务需要上云，简单设置即可。<br />
+	<strong>适用场景：</strong>适合已有公有云和私有云业务或未来计划上云的企业用户。</p>
+</li>
+</ul>           
+<div class="clear"></div>
+</div>
+           
+  
+<!--客户案例-->
+ <h3 class="cpcomtitle">客户案例</h3>
+ <div class="cp_case">
+<ul>
+	<li><img alt="医院云灾备案例图片" height="136" src="skin/images/beifen_case1.jpg" width="198" />
+		<h4 class="meigui">广东省妇幼保健院</h4>
+		<p><strong>行业领域：</strong>医疗医院<br />
+		广东省妇幼保健院创建于1944年，隶属广东省政府的专业公共妇幼卫生机构，历经70年的发展，已经成为了一所集保健、医疗、教学、科研、培训及技术指导于一体的大型三级甲等医院，目前是中山大学等8所部、省属高校的教学医院和附属医院，美国排名第一的哈佛大学医学院波士顿儿童医院的战略合作伙伴...<a class="blue" href="/yiliao/69.html" target="_blank">了解详情&gt;&gt;</a></p>
+	</li>
+		<li><img alt="浙江大学云灾备案例图片" height="136" src="skin/images/beifen_case4.jpg" width="198" />
+		<h4 style="color:#004b84;">浙江大学云备份共享中心</h4>
+		<p><strong>行业领域：</strong>教育学校<br />
+		浙江大学直属于中华人民共和国教育部，是中国首批7所&ldquo;211工程&rdquo;、首批9所&ldquo;985工程&rdquo;重点建设的全国重点大学之一，是九校联盟、世界大学联盟、环太平洋大学联盟的成员，是教育部&ldquo;卓越医生教育培养计划&rdquo;、&ldquo;卓越农林人才教育培养计划&rdquo;改革试点高校，是中国著名顶尖学府之一，也是中国学科最齐全的大学。...<a class="blue" href="/jiaoyu/88.html" target="_blank">了解详情&gt;&gt;</a></p>
+	</li>
+		<li><img alt="社保云灾备案例图片" height="136" src="skin/images/beifen_case3.jpg" width="198" />
+		<h4 class="orange">杭州市淳安劳动和社会保障局</h4>
+		<p><strong>行业领域：</strong>政府单位<br />
+		杭州市淳安县劳动和社会保障局是主管全县劳动和社会保障工作的县政府组成部门。其主要职责是贯彻执行国家、省、市有关劳动和社会保障工作的法律、法规、方针政策，研究制定劳动和社会保险制度改革方案，编制全县劳动和社会保障事业中长期发展总体规划和年度工作计划并组织实施...<a class="blue" href="/zhengfu/93.html" target="_blank">了解详情&gt;&gt;</a></p>
+	</li>
+</ul>           
+ </div>
+<div class="clear"></div>
+
+
+<!--推荐套餐-->
+<h3 class="cpcomtitle">推荐套餐</h3>
+<div class="container1">
+				<div style="height: 40px;"></div>
+
+				<!-- Begin prices -->
+				<div class="prices">
+					<div class="containerPrice">
+						<div class="rowPrice">
+							
+							<!--<div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.3s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-plug fa-2x"></i>
+										<h3>Basic</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead"><strong>$49</strong></p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">Personal Use</li>
+										<li class="list-group-item">3 projects</li>
+										<li class="list-group-item">1 GB Disk</li>
+										<li class="list-group-item">Custom Domain</li>
+										<li class="list-group-item">24/7 Support</li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="#">Order Now!</a>
+									</div>
+								</div>										
+							</div>-->
+
+							<div class="price-box col-sm-6 col-md-4 wow flipInY" data-wow-delay="0.5s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-cog fa-2x"></i>
+										<h3>i2Availability</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead">云高可用</p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">自动切换</li>
+										<li class="list-group-item">多类型监控</li>
+										<li class="list-group-item">多种通知方式</li>
+										<li class="list-group-item">操作简单</li>
+										<li class="list-group-item"></li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="http://www.i2yun.com/gaokeyong/">Learn More!</a>
+									</div>
+								</div>										
+							</div>
+							
+							<div class="price-box col-sm-6 price-box-featured col-md-4 wow flipInY" data-wow-delay="0.7s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-star fa-2x"></i>
+										<h3>i2Coopy+i2CDP</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead">云备份和恢复</p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">实时复制</li>
+										<li class="list-group-item">传输加密</li>
+										<li class="list-group-item">任意操作点恢复</li>
+										<li class="list-group-item">任意时间点恢复</li>
+										<li class="list-group-item">数据自行持有</li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="http://www.i2yun.com/beifenhuifu/">Learn More!</a>
+									</div>
+									<div class="price-box-ribbon"><strong>Popular</strong></div>
+								</div>										
+							</div>
+							
+							<div class="price-box col-sm-6 col-md-4 wow flipInY" data-wow-delay="0.9s">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<i class="fa fa-plus fa-2x"></i>
+										<h3>i2Move</h3>
+									</div>
+									<div class="panel-body text-center">
+										<p class="lead">业务迁移</p>
+									</div>
+									<ul class="list-group text-center">
+										<li class="list-group-item">无需停机</li>
+										<li class="list-group-item">与硬件无关</li>
+										<li class="list-group-item">多系统支持</li>
+										<li class="list-group-item">简单高效</li>
+										<li class="list-group-item"></li>
+									</ul>
+									<div class="panel-footer text-center">
+										<a class="btn btn-default" href="http://www.i2yun.com/yewuqianyi/">Learn More!</a>
+									</div>
+								</div>										
+							</div>
+							
+						</div> <!-- /.row -->
+					</div> <!-- /.container -->
+				</div>
+				<!-- End prices -->
+				<div class="extra-space-l"></div>
+			
+</div>
+<div class="clear"></div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 	
+ 	
+<!--<div class="tuijian1">
+                	<dl class="level y-clear">
+	<dd class="service-introduce">
+		<div class="level-head">
+		<div class="level-title">&nbsp;</div>
+		</div>
+		<div class="level-content">
+		<ul>
+		<li class="unlight fonbold">&nbsp;</li>
+		<li class="unlight fonbold">云端选择</li>
+		<li class="unlight fonbold">主机数量</li>
+		<li class="unlight fonbold">灾备并发数</li>
+		<li class="unlight fonbold">备份频率</li>
+		<li class="unlight fonbold">备份速度</li>
+		<li class="unlight fonbold">加密</li>
+		<li class="unlight fonbold">备份数据类型</li>
+		<li class="ulight fonbold">其他特性</li>
+		<li class="unlight fonbold">一体机硬件</li>
+		</ul>
+		</div>
+		<div class="goumai2">
+		<p>&nbsp;</p>
+		</div>
+	</dd>
+	<dd class="level-box">
+		<div class="level-head">
+		<div class="level-title">&nbsp;一体机版</div>
+		</div>
+		<div class="level-content">
+		<ul>
+		<li class="unlight">0元</li>
+		<li class="unlight">阿里云、腾讯云...</li>
+		<li class="unlight">最多2台</li>
+		<li class="unlight">每台主机2个</li>
+		<li class="unlight">实时</li>
+		<li class="unlight">不限</li>
+		<li class="unlight">AES 256</li>
+		<li class="unlight">文件、数据库</li>
+		<li class="ulight">本地、云端混合备份</li>
+		<li class="unlight">合约提供</li>
+		</ul>
+		</div>
+		<div class="goumai2">
+		<p><a href="http://www.i2yun.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=22">免费拥有</a></p>
+		</div>
+	</dd>
+	<dd class="level-enterprise">
+		<div class="level-head">
+		<div class="level-title">&nbsp;企业版</div>
+		</div>
+		<div class="level-content">
+		<ul>
+		<li class="unlight">1000元/主机/月</li>
+		<li class="unlight">阿里云、腾讯云...</li>
+		<li class="unlight">不限</li>
+		<li class="unlight">10(可免费增加)</li>
+		<li class="unlight">实时</li>
+		<li class="unlight">不限</li>
+		<li class="unlight">AES 256</li>
+		<li class="unlight">文件、数据库</li>
+		<li class="ulight">云端备份</li>
+		<li class="unlight">否</li>
+		</ul>
+		</div>
+		<div class="goumai2">
+		<p><a href="/index.php?m=content&amp;c=index&amp;a=show&amp;catid=11&amp;id=4">购买</a></p>
+		</div>
+	</dd>
+	<dd class="level-ultimate">
+		<div class="level-head">
+		<div class="level-title">&nbsp;高级定制版</div>
+		</div>
+		<div class="level-content">
+		<ul>
+		<li class="unlight">&gt;50000元/年</li>
+		<li class="unlight">所有支持云</li>
+		<li class="unlight">不限</li>
+		<li class="unlight">不限</li>
+		<li class="unlight">自定义</li>
+		<li class="unlight">不限</li>
+		<li class="unlight">AES 256</li>
+		<li class="unlight">文件、数据库</li>
+		<li class="ulight">本地、云端混合备份<br />
+		本地化管理</li>
+		<li class="unlight">可选</li>
+		</ul>
+		</div>
+		<div class="goumai2">
+		<p><a href="/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=27">购买</a></p>
+		</div>
+	</dd>
+</dl>
+<br />                </div>
+                <div class="clear"></div>
+            </div>-->
+			
+
+
+        	
+        	
+        	
+        	
+ <!-- 云备份与恢复 -->
+ <h3 class="cpcomtitle">产品帮助</h3>
+<div class="cp_help">
+ 
+<ul>
+<li>
+<p>操作指南</p>
+<ul>
+	<li><a href="/bangzhuwendang-26-15-1.html">云备份工作机、业务迁移工作机的软件安装</a></li>
+	<li><a href="/bangzhuwendang-26-11-1.html">数据远程备份的操作步骤</a></li>
+	<li><a href="/bangzhuwendang-26-3-1.html">如何选择适合我的云备份与恢复服务</a></li>
+	<li><a href="/bangzhuwendang-26-2-1.html">云备份与恢复服务购买</a></li>
+	<li><a href="/bangzhuwendang-26-4-1.html">购买云备份与恢复服务如何付款</a></li>
+</ul>
+</li>
+<li>
+<p>常见问题</p>
+<ul>
+	<li><a href="/bangzhuwendang-26-24-1.html">云备份规则中文件打开方式及安全属性同步选项怎么设置</a></li>
+	<li><a href="/bangzhuwendang-26-23-1.html">什么是指定生成Baseline（全备份）的策略</a></li>
+	<li><a href="/bangzhuwendang-26-22-1.html">云备份规则中的孤儿文件是什么意思</a></li>
+</ul>
+</li>
+</ul>               </div>
+    </div>
+    </div>
+    <div class="clear"></div>
+    </div>
+</div>
+<!--内容结束-->
+<div class="clear"></div>
+
+
+
+<!--右侧浮动按钮-->
+<div class="zixunf">
+  <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006178601&aty=0&a=0&curl=&ty=1" target="_blank" rel="nofollow"><div class="qqcontact"></div></a>
+  <a href="http://p.qiao.baidu.com//im/index?siteid=8152259&ucid=19123718" target="_blank" rel="nofollow"><div class="onlinecontact"></div></a>
+</div>
+
+
+
+
+<!--footer-->
+<div id="footer">
+  <div class="public_width">
+    <ul>
+      <li>
+        <ul>
+          <li>产品中心</li>
+          <li><a href="/beifenhuifu/" target="_blank">云备份与恢复</a></li>
+          <li><a href="/yewuqianyi/" target="_blank">业务迁移</a></li>
+          <li><a href="/gaokeyong/" target="_blank">高可用</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>帮助中心</li>
+          <li><a href="/changjianwenti-19-1.html" target="_blank">常见问题</a></li>
+          <li><a href="/bangzhuwendang-26-1.html" target="_blank">帮助文档</a></li>
+          <li><a href="javascript:void(0);" target="_blank">在线客服</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>关于我们</li>
+          <li><a href="/html/about/" target="_blank">英方简介</a></li>
+          <li><a href="/index.php?m=content&c=index&a=lists&catid=9" target="_blank">联系我们</a></li>
+          <li><a href="/jiejuefangan/" target="_blank">云灾备解决方案</a></li>
+        </ul>
+      </li>
+      <li class="erweima">
+        <div class="tel">
+          <p>400-6178-601</p>
+          <p>400-6178-601</p>
+        </div>
+      </li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="banquan">
+    <p>Copyright 2015 i2yun.com, All Rights Reserved. <br />
+      英方云版权所有 沪ICP备12000492号-3</p>
+  </div>
+</div>
+<script> 
+<!-- 
+/*tab切换 更换显示样式*/ 
+function setTab(m,n){ 
+var tli=document.getElementById("menu"+m).getElementsByTagName("span"); 
+var mli=document.getElementById("main"+m).getElementsByTagName("ul"); 
+for(i=0;i<tli.length;i++){ 
+tli[i].className=i==n?"hover":""; 
+mli[i].style.display=i==n?"block":"none"; 
+} 
+} 
+</script>
+<div style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255337646'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1255337646' type='text/javascript'%3E%3C/script%3E"));</script></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?adf04e685aa6f83b0c6f9501b18b13a6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".picbig").each(function(i){
+		var cur = $(this).find('.img-wrap').eq(0);
+		var w = cur.width();
+		var h = cur.height();
+	   $(this).find('.img-wrap img').LoadImage(true, w, h,'/statics/images/msg_img/loading.gif');
+	});
+})
+</script>
+</body>
+</html>

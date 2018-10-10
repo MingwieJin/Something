@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta name="viewport" content="width=device-width,initial-scale=1">-->
+<title>数据迁移_系统迁移_业务迁移 - 英方云</title>
+<meta name="keywords" content="数据迁移，系统迁移，业务迁移">
+<meta name="description" content="英方云迁移服务是在生产系统不停机情况下迁移现有应用或者整个系统，包括操作系统、应用程序、用户信息、网络配置等所有的数据，整个数据迁移过程时间可预测，并可在迁移完成后立刻切换到新系统，真正迁移过程服务不停止。">
+<link rel="stylesheet" type="text/css" href="skin/css/public_style.css">
+<link rel="stylesheet" type="text/css" href="skin/css/style.css">
+<link rel="stylesheet" href="skin/css/common.css" type="text/css"/>
+<script language="javascript" type="text/javascript" src="statics/js/jquery.min.js"></script>
+<script language="javascript" src="statics/js/cookie.js" type="text/javascript"></script>
+<script language="javascript" src="statics/js/jquery.touchSlider.js" type="text/javascript"></script>
+</head>
+	
+<script type="text/javascript" src="statics/js/cookie.js"></script>
+<script type="text/javascript" src="statics/js/member_common.js"></script>
+<script type="text/javascript" src="statics/js/dialog.js"></script>
+<script type="text/javascript" src="statics/js/formvalidator.js" charset="UTF-8"></script>
+<script type="text/javascript" src="statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script language="JavaScript">
+function save_username() {
+	if($('#cookietime').attr('checked')==true) {
+		var username = $('#username').val();
+		setcookie('username', username, 3);
+	} else {
+		delcookie('username');
+	}
+}
+function showlogonform(){
+	$('.loginform').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$('.loginformcontent').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$(".loginformcontent").show();	
+	$(".loginform").show();	
+}
+function closelogonform(){
+	$(".loginformcontent").hide();	
+	$(".loginform").hide();	
+}
+
+$(document).ready(function(){
+	var userid = "";
+	var httpreffer = 'm=content&c=create_html&a=category&set_catid=1&pagesize=10&dosubmit=1&autoid=2&modelid=0&referer=&pc_hash=LSupwE';
+	if(httpreffer.indexOf("islogin")!=-1&&userid=="")
+	{
+		showlogonform();
+	}
+	var username = getcookie('username');
+	if(username != '' && username != null) {
+		$('#username').val(username);
+		$('#cookietime').attr('checked',true);
+	}
+	$('#username').focus();
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#username").formValidator({onshow:"请输入用户名",onfocus:"应该为2-20位之间"}).inputValidator({min:2,max:20,onerror:"应该为2-20位之间"}).regexValidator({regexp:"ps_username",datatype:"enum",onerror:"用户名格式错误"});
+	$("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"});
+	$("#code").formValidator({onshow:"请输入验证码",onfocus:"验证码应该为5位"}).inputValidator({min:5,max:5,onerror:"验证码应该为5位"});
+});
+
+</script>
+<style>
+.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url(/statics/images/msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+.onLamp{background-position:3px -200px}
+.onTime{background-position:3px -1356px}
+	.loginform{width:650px; height:390px; position:fixed;opacity: 0.5; z-index:9999; border:1px solid #ccc; background-color:#00adf2; display:none;}
+	.loginformcontent{width:648px;  position:fixed; display:none; z-index:99999;height:387px;opacity: 1; margin:2px; background-color:#fff;}
+	.loginformcontent .title{ padding-left:20px; padding-top:20px; color:#386ea8; border-bottom:1px solid #6a6b6a;}
+	.loginformcontent .content{padding-left:20px; padding-top:20px;}
+	.loginformcontent .content li{height:50px; }
+	.loginformcontent .content span{ width:130px; text-align:right; display:inline-block; padding-right:20px;}
+	.loginformcontent .content .input{border:1px solid #00adf2; padding-left:5px; height:24px; line-height:20px;}
+	.loginformcontent .content .input:hover{border:1px solid #ff0000;}
+	.loginformcontent .content p{display:inline-block; border:0px solid #ccc;}
+	.loginformcontent .content .mybtns{ padding-left:25%; padding-top:15px; margin-left:-20px; margin-top:30px; border-top:1px solid #6a6b6a;}
+	.msg_allow{color:#3D882D}
+	@media screen and (min-width:960px ) {.cp_changjing li{width:411px;}}
+</style>
+<div class="loginform"></div>
+<div class="loginformcontent">
+<div class="title">会员登录</div>
+<form action="/index.php?m=member&c=index&a=login" method="post" onsubmit="save_username();" id="myform" name="myform">
+<input type="hidden" name="forward" id="forward" value="/index.php?m=content&c=create_html&a=category&set_catid=1&pagesize=10&dosubmit=1&autoid=2&modelid=0&referer=&pc_hash=LSupwE">
+<div class="content">
+	<ul>
+		<li>
+			<span>请输入用户名</span>
+			<p><input type="text" name="username" class="input" style="width:200px;" id="username" /></p>
+			<p id="usernameTip" class="msg_allow">请输入用户名</p>
+		</li>
+		<li>
+			<span>请输入密码</span>
+			<p><input type="password" name="password" class="input" style="width:200px;" id="password" /></p>
+			<p id="passwordTip" class="msg_allow">请输入密码</p>
+		</li>
+		<li>
+			<span>请输入验证码</span>
+						<p style="width:350px;"><img id='code_img' onclick='this.src=this.src+"&"+Math.random()' src='api.php?op=checkcode&code_len=5&font_size=14&width=120&height=26&font_color=&background='></p>
+			<p style="margin-left:154px; margin-top:2px;"><input class="input" style="width:120px;" type="text" name="code" id="code" /></p>
+			<p id="codeTip" class="msg_allow">请输入验证码</p>
+		</li>
+		<li>
+			<span style="margin-left:111px; margin-top:10px;"><input type="checkbox" name="cookietime" value="2592000" id="cookietime"> 记住用户名</span>
+		</li>
+		<li>
+			<div class="mybtns">
+				<input type="submit" class="mybtn_blue" name="dosubmit" id="dosubmit" value="登录" />
+				<input type="button" class="mybtn_red" onclick="closelogonform()" style="margin-left:20px;" name="submit" id="submit" value="取消" />
+			</div>
+		</li>
+	</ul>
+</div>
+</form>
+</div>
+<body>
+<!--header start-->
+<div id="myheader">
+    <div class="public_width">
+        <div class="newnav">
+            <div class="fl">
+							<a href="/" title="英方云" class="f1"><img src="skin/images/logo.png" width="117" height="90" alt="英方云" /></a>
+			            </div>
+			            <div class="nav_list">
+              <ul>
+                <li><a href="http://i2yun.a5yun.cn/beifenhuifu/" >产品服务</a></li>
+                <li><a href="http://i2yun.a5yun.cn/jiejuefangan/" >解决方案</a></li>
+                <li><a href="http://i2yun.a5yun.cn/kehuanli/" >客户案例</a></li>
+                <li><a href="http://i2yun.a5yun.cn/help/bangzhuwendang/" >技术支持</a></li>
+				<li><a href="http://i2yun.a5yun.cn/index.php?m=content&c=index&a=lists&catid=25" >软件下载</a></li>
+                <li><a href="http://i2yun.a5yun.cn/html/about/" >关于我们</a></li>
+                <li><a href="/i2/i2yun/home.php?f=aTJ5dW4%3D&u=" >控制台</a></li>
+              </ul>
+            </div>
+			        </div>        
+        <div class="member">
+                            <a class="btn btn-signin" target="_blank" href="/index.php?m=member&c=index&a=login">登录</a><a class="btn btn-signup" target="_blank" href="/index.php?m=member&c=index&a=register&siteid=1">注册</a>  
+                </div>
+        <div class="clear"></div>
+        
+    </div>
+</div>
+
+<script>
+    function showgongdan(){
+        var userid = "";
+        if(userid=="")
+        {
+            showlogonform();
+            return false;
+        }
+        location.href="/index.php?m=content&c=index&a=gongdanlist";
+    }
+</script>
+<!--header end-->
+<!-- top start -->
+    <!-- 业务迁移 -->
+        <div class="qianyi1920">
+      <div class="public_width ybftop">
+        <h1>业务迁移</h1>
+        <p>英方云迁移服务将复杂的系统迁移工作简单化，且在生产系统不停机情况下迁移现有应用或者整个系统，包括操作系统、应用程序、用户信息、网络配置等所有的数据，整个迁移过程时间可预测，并可在迁移完成后立刻切换到新系统，真正迁移过程服务不停止。</p><p>英方云迁移支持V2V(虚拟机到虚拟机的迁移)、P2V(物理到虚拟)、P2P、V2P等的应用和系统迁移。</p>
+        <div class="btncp">
+				<a href="/index.php?m=member&c=index&a=register&siteid=1" target="_blank" class="btn btn-kai">立即注册</a> 
+				<a href="/index.php?m=content&c=index&a=show&catid=14&id=5&tc=tengxun&rinit=init" target="_blank" class="btn btn-try">马上开通</a></div>
+       </div>
+      <div class="clear"></div>
+    </div>
+    
+    
+
+<!-- top end -->
+<!--内容开始-->
+<div class="w1120">
+    <div class="body_fg">
+    <!--<div class="left">
+    	<ul>
+        	            <li><a href="/beifenhuifu/"><img src="skin/images/zuo-2a.png" /><p>云备份与恢复</p></a></li>
+            <li class="on"><a href="/yewuqianyi/"><img src="skin/images/zuo-3.png" /><p>业务迁移</p></a></li>
+            <li><a href="/gaokeyong/"><img src="skin/images/zuo-3.png" /><p>云高可用</p></a></li>
+			<li><a href="/i2box/"><img src="skin/images/zuo-1.png" /><p>i2BOX一体机</p></a></li>-->
+            <!--li><a href="/yungongxiang/"><img src="/skin/images/zuo-4.png" /><p>云共享</p></a></li>-->
+            <!--<li><a href="/zhuji/"><img src="/skin/images/zuo-1.png" /><p>云资源</p></a></li>-->
+        <!--</ul>
+    </div>-->
+
+    <div class="right1003">
+    
+    <div class="ptr-xx">
+                <!-- 业务迁移 -->
+            
+            <h3 class="cpcomtitle">产品优势</h3>
+            <div class="qy_youshi">
+             <ul>
+              <li>
+              	<div class="justify-img"><img src="img/qy-1.png" alt="优势图"></div>
+                <h4>无需停机</h4>
+                <p>在应用和系统迁移的过程中，源机无需停止应用或者系统；业务不受影响。支持本地或者长距离远程迁移。</p>
+              </li>
+              <li>
+              	<div class="justify-img"><img src="img/qy-2.png" alt="优势图"></div>
+                <h4>与硬件无关</h4>
+                <p>支持在不同的硬件平台之间进行应用和系统迁移；支持V2V P2V、P2P等的应用和系统迁移。</p>
+              </li>
+              <li>
+              	<div class="justify-img"><img src="img/qy-3.png" alt="优势图"></div>
+                <h4>多系统支持</h4>
+                <p>Windows支持Windows 2003、2008、2012上的应用和系统的迁移；Linux全面支持Centos、SUSE 10/11系列、Redhat Enterprise等。</p>
+              </li>
+              <li style="margin-right:0px">
+              	<div class="justify-img"><img src="img/qy-4.png" alt="优势图"></div>
+                <h4>简单高效</h4>
+                <p>部署简单，易于应用，一键式迁移，确保成功后才切换，整个迁移过程时间可预测，并有图形化监控和管理。</p>
+              </li>
+            </ul>            </div>
+
+			<div style="clear:both"></div>
+            <h3 class="cpcomtitle">产品架构</h3>
+            <div class="cp_jiagou"> <img src="skin/images/cpqy_jiagou.png" width="692" height="414" alt="业务迁移产品架构" /> </div>
+
+            <h3 class="cpcomtitle">产品场景</h3>
+            <div class="cp_changjing changjing001">
+                <ul>
+<li>
+<h4>P2P(物理机到物理机)的迁移</h4>
+<img alt="业务迁移P2P场景" height="104" src="skin/images/cpbf_cj1.jpg" width="411" />
+<p><strong>场景特点：</strong>无需停机，与硬件无关的迁移：操作系统、应用程序和数据都可以在不同厂商、型号和配置的服务器间轻松移动。<br />
+<strong>适用场景：</strong>网站、服务器迁移；搭建企业办公环境；企业开发测试活动。</p>
+</li>
+<li class="fr">
+<h4>物理机和虚拟机之间的迁移</h4>
+<img alt="物理机到虚拟机迁移场景" height="104" src="skin/images/cpbf_cj2.jpg" width="411" />
+<p><strong>场景特点：</strong>无需停机、与硬件无关的迁移、高效的远距离迁移，统一的WEB界面管理和监控整个的迁移过程，迁移的各个环节一目了然。<br />
+<strong>适用场景：</strong>V2V(虚拟机到虚拟机的迁移)、P2V(物理机到虚拟机)、V2P(虚拟机到物理机的迁移)</p>
+</li>
+</ul>                <div class="clear"></div>
+            </div>
+
+            <h3 class="cpcomtitle">客户案例</h3>
+            <div class="cp_case">
+                <ul>
+<li><img alt="苏州银行云灾备案例图片" height="136" src="/skin/images/beifen_case7.jpg" width="198" />
+<h4 style="color:#6abf00;">苏州银行股份有限公司</h4>
+<p><strong>行业领域：</strong>银行/金融<br />
+苏州银行，全称&ldquo;苏州银行股份有限公司&rdquo;，是东吴农村商业银行深化改制而成的股份制商业银行，注册资本30亿元，资本净额130亿元，资本充足率39%。目前，苏州银行已拥有1个营业部、2家分行（苏州分行、常州分行）、6家个支行和48个分理处。2010年9月28日正式挂牌开业。...<a class="blue" href="/yunyingshang/66.html" target="_blank">了解详情&gt;&gt;</a></p>
+</li>
+<li><img alt="能源建设云灾备案例图片" height="136" src="/skin/images/beifen_case2.jpg" width="198" />
+<h4 class="blue">中国能源建设股份有限公司</h4>
+<p><strong>行业领域：</strong>能源建设<br />
+中国能源建设集团有限公司（简称&ldquo;中国能建&rdquo;）成立于2011年9月29日， 是经国务院批准、由国务院国有资产监督管理委员会直接管理的特大型能源建设集团，由中国葛洲坝集团公司、中国电力工程顾问集团公司（电力规划设计总院）和国家电网公司、中国南方电网有限责任公司所属15个省（市、区）的电力勘察设计、施工和修造企业组成。...<a class="blue" href="/dianli/70.html" target="_blank">了解详情&gt;&gt;</a></p>
+</li>
+<!-- <li><img alt="腾讯云灾备案例图片" height="136" src="/skin/images/beifen_case8.jpg" width="198" />
+<h4 style="color:#0874bd;">腾讯云平台</h4>
+<p><strong>行业领域：</strong>云计算<br />
+腾讯云有着深厚的基础架构，并且有着多年对海量互联网服务的经验，不管是社交、游戏还是其他领域，都有多年的成熟产品来提供产品服务。腾讯在云端完成重要部署，为开发者及企业提供云服务、云数据、云运营等整体一站式服务方案。英方云与腾讯云合作，解决将用户的数据、业务系统迁移到腾讯云上的繁琐工作量...<a class="blue" href="/yunyingshang/78.html" target="_blank">了解详情&gt;&gt;</a></p>
+</li>--></ul>            </div>
+            <div class="clear"></div>
+
+			<h3 class="cpcomtitle">推荐套餐</h3>
+            <div class="cp_taocan">
+                <div class="cptuijian">
+    				<ul>
+<li>
+<h3>系统迁移</h3>
+<p>迁移一台主机系统<br />
+一个系统迁移通道</p>
+<h4><span>4000</span> 元/台</h4>
+<a href="/index.php?m=content&amp;c=index&amp;a=show&amp;catid=14&amp;id=5&amp;tc=tengxun&amp;rinit=init">立即购买</a></li>
+</ul>                </div>
+    	        <div class="clear"></div>
+            </div>
+            
+				    <h3 class="cpcomtitle">产品帮助</h3>
+        <div class="cp_help">
+                <!-- 业务迁移 -->
+        <ul>
+<li>
+<p>操作指南</p>
+<ul>
+<li><a href="/bangzhuwendang-26-15-1.html">云备份工作机、业务迁移工作机的软件安装</a></li>
+<li><a href="/bangzhuwendang-26-20-1.html">业务迁移操作步骤</a></li>
+<li><a href="/bangzhuwendang-26-12-1.html">业务迁移的购买</a></li>
+</ul>
+</li>
+</ul>		       </div>
+    </div>
+    </div>
+    <div class="clear"></div>
+    </div>
+</div>
+<!--内容结束-->
+<div class="clear"></div>
+<div class="zixunf">
+  <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006178601&aty=0&a=0&curl=&ty=1" target="_blank" rel="nofollow"><div class="qqcontact"></div></a>
+  <a href="http://p.qiao.baidu.com//im/index?siteid=8152259&ucid=19123718" target="_blank" rel="nofollow"><div class="onlinecontact"></div></a>
+</div>
+
+
+<div id="footer">
+  <div class="public_width">
+    <ul>
+      <li>
+        <ul>
+          <li>产品中心</li>
+          <li><a href="/beifenhuifu/" target="_blank">云备份与恢复</a></li>
+          <li><a href="/yewuqianyi/" target="_blank">业务迁移</a></li>
+          <li><a href="/gaokeyong/" target="_blank">高可用</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>帮助中心</li>
+          <li><a href="/changjianwenti-19-1.html" target="_blank">常见问题</a></li>
+          <li><a href="/bangzhuwendang-26-1.html" target="_blank">帮助文档</a></li>
+          <li><a href="javascript:void(0);" target="_blank">在线客服</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>关于我们</li>
+          <li><a href="/html/about/" target="_blank">英方简介</a></li>
+          <li><a href="/index.php?m=content&c=index&a=lists&catid=9" target="_blank">联系我们</a></li>
+          <li><a href="/jiejuefangan/" target="_blank">云灾备解决方案</a></li>
+        </ul>
+      </li>
+      <li class="erweima">
+        <div class="tel">
+          <p>400-6178-601</p>
+          <p>400-6178-601</p>
+        </div>
+      </li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="banquan">
+    <p>Copyright 2015 i2yun.com, All Rights Reserved. <br />
+      英方云版权所有 沪ICP备12000492号-3</p>
+  </div>
+</div>
+<script> 
+<!-- 
+/*tab切换 更换显示样式*/ 
+function setTab(m,n){ 
+var tli=document.getElementById("menu"+m).getElementsByTagName("span"); 
+var mli=document.getElementById("main"+m).getElementsByTagName("ul"); 
+for(i=0;i<tli.length;i++){ 
+tli[i].className=i==n?"hover":""; 
+mli[i].style.display=i==n?"block":"none"; 
+} 
+} 
+</script>
+<div style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255337646'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1255337646' type='text/javascript'%3E%3C/script%3E"));</script></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?adf04e685aa6f83b0c6f9501b18b13a6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".picbig").each(function(i){
+		var cur = $(this).find('.img-wrap').eq(0);
+		var w = cur.width();
+		var h = cur.height();
+	   $(this).find('.img-wrap img').LoadImage(true, w, h,'/statics/images/msg_img/loading.gif');
+	});
+})
+</script>
+</body>
+</html>
