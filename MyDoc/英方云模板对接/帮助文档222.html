@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8" />
+<title>英方云帮助文档 - 英方云</title>
+<link rel="stylesheet" type="text/css" href="skin/css/public_style.css">
+<link rel="stylesheet" type="text/css" href="skin/css/style.css">
+<link rel="stylesheet" href="skin/css/common.css" type="text/css"/>
+<script language="javascript" src="statics/js/cookie.js" type="text/javascript"></script>
+<!--<script language="javascript" src="statics/js/jquery.touchSlider.js" type="text/javascript"></script>-->
+
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/cool-gray.css" rel="stylesheet" type="text/css" />
+<!--<link href="css/style-main.css" rel="stylesheet" type="text/css" />-->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--  <script src="skin/new/js/bootstrap.min.js"></script>-->
+
+<style>
+.navbar-default{
+	background-color:rgba(54, 57, 64, 0.9);
+	
+}
+
+
+    .top-banner-help {
+        background:url(img/slider-bg.jpg) center no-repeat; height:300px; min-width:1200px;overflow:hidden;
+                display: flex;
+          justify-content:center;
+    }
+    
+    @media (max-width:1200px) {
+    .top-banner-help {
+    	width:100%;
+    	min-width:0;
+    	}
+    }
+    .navbar{
+        margin-bottom: 0;
+    }
+      #searchwebform{
+        margin-top:140px;
+        font-size:20px
+    }
+    #q{
+    	height:42px;
+    	width: 500px;
+    }
+	.btn1{
+		font-size:20px;
+		color:#fff;
+		margin-left:20px;
+		background: #0BC3E2;
+		padding:8px 12px;
+		border-radius: 5px;
+	}
+	.btn1:hover{
+		color:#000;
+	}
+</style>
+
+
+</head>
+
+<body>
+	 <!--========== BEGIN HEADER ==========-->
+            <header id="header" class="header-main">
+                <!-- Begin Navbar -->
+                <nav id="main-navbar" class="navbar navbar-default" role="navigation"> <!-- Classes: navbar-default, navbar-inverse, navbar-fixed-top, navbar-fixed-bottom, navbar-transparent. Note: If you use non-transparent navbar, set "height: 98px;" to #header -->
+
+                  <div class="container">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                   			<a class="navbar-brand page-scroll" href="index.html"><img src="/skin/images/logo3.png"/></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="scroll"><a class="page-scroll Nav-scroll-1" href="#header">首页</a></li>
+               				<li class="dropdown">
+								<a href="#" class="dropdown-toggle Nav-scroll-2" data-toggle="dropdown">云产品服务</a>
+								<ul class="dropdown-menu">
+									<li><a href="http://i2yun.a5yun.cn/beifenhuifu/">云备份与恢复</a></li>
+									<li><a href="http://i2yun.a5yun.cn/yewuqianyi/">业务迁移</a></li>
+									<li><a href="http://i2yun.a5yun.cn/gaokeyong/">云高可用</a></li>
+									<li><a href="http://i2yun.a5yun.cn/i2box/">i2box一体机</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle Nav-scroll-3" data-toggle="dropdown">帮助和支持</a>
+								<ul class="dropdown-menu">
+									<li><a href="/help/bangzhuwendang/">帮助文档</a></li>
+									<li><a href="/changjianwenti/">常见问题</a></li>
+									<li><a href="javascript:void(0)" onclick="showgongdan()"">工商管理</a></li>
+								</ul>
+							</li>
+
+                            <li class="scroll"><a class="page-scroll Nav-scroll-4" href="http://i2yun.a5yun.cn/index.php?m=content&c=index&a=lists&catid=25">软件下载</a></li>
+                            <li class="scroll"><a class="page-scroll Nav-scroll-5" href="#Partener-section">关于我们</a></li>                            
+                            <li class="scroll "><a class="page-scroll Nav-scroll-6" href="#Contact-section">控制台</a></li>
+             
+                                                                                        <li><a class="NavLogin" target="_blank" href="/index.php?m=member&c=index&a=login">登录</a></li>
+                                                    </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container -->
+                </nav>
+                <!-- End Navbar -->
+
+            </header>
+<!-- ========= END HEADER =========-->	
+  
+  
+  <script>
+
+             
+             
+             
+</script>
+
+    
+    
+</style>
+
+
+<script>
+	function showgongdan(){
+		var userid = "";
+		if(userid=="")
+		{
+			showlogonform();
+			return false;
+		}
+		location.href="/index.php?m=content&c=index&a=gongdanlist";
+	}
+</script>
+
+<div class="top-banner-help">
+<!-- 搜索框开始 -->
+
+
+<form id="searchwebform" action="/index.php?m=search&c=index&a=init&typeid=&siteid=1"  target="_blank" />
+<div class="search">
+<input type="hidden" name="m" value="search"/>
+<input type="hidden" name="c" value="index"/>
+<input type="hidden" name="a" value="init"/>
+<input type="hidden" name="typeid" value="56" id="typeid"/>
+<input type="hidden" name="siteid" value="1" id="siteid"/>
+<input type="text"  name="q" id="q" value="" />
+<input type="submit" value="搜 索" class="btn1" id="search_btn" /> 
+</div>
+</form>
+<!-- 搜索框结束 -->
+</div>
+
+
+<!--内容开始-->
+<div class="w1120">
+    <div class="body_fg">
+<!--        <div class="left">
+        	<ul>
+			     <li class="on"><a href="http://i2yun.a5yun.cn/help/bangzhuwendang/"><img src="skin/images/zuo-2a.png" /><p>帮助文档</p></a></li>
+            	<li><a href="http://i2yun.a5yun.cn/changjianwenti/"><img src="skin/images/zuo-1.png" /><p>常见问题FAQ</p></a></li>
+                <li><a href="http://i2yun.a5yun.cn/index.php?m=content&c=index&a=lists&catid=25"><img src="skin/images/zuo-3.png" /><p>软件下载</p></a></li>
+                <li><a href="javascript:;" onclick="showgongdan()"><img src="skin/images/zuo-4.png" /><p>工单管理</p></a></li>
+            </ul>
+        </div>-->
+        <div class="right">
+        	<h3>帮助文档</h3>
+        	<select id="helptype">
+    		<option>请选择分类</option>
+    	</select>
+            <ul class="new-list"  id="new-list" style="margin-top:20px;">
+                        	                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/38.html">i2box</a><span>2018-01-25</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/37.html">NO1</a><span>2018-01-25</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/36.html">新版i2yun客户端windows系统安装教程</a><span>2016-06-24</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/35.html">i2box完整使用图文教程</a><span>2016-05-25</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/34.html">CDP设置图文详解</a><span>2016-05-17</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/33.html">云主机能否安装客户端？</a><span>2016-04-20</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/32.html">云高可用的云端资源由谁提供？</a><span>2016-04-18</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/31.html">云备份与高可用有什么区别？</a><span>2016-03-31</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/30.html">能不能实现操作系统级别的备份？</a><span>2016-03-31</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/29.html">认证服务器的时候用不用必须使用管理员权限账号</a><span>2016-03-31</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/28.html">如果本地数据突然中毒，怎么恢复出未染毒数据</a><span>2016-03-31</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/27.html">源机安装完客户端需要打开哪些端口</a><span>2016-03-24</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/26.html">i2yun的云备份与恢复与i2coopy有什么区别？</a><span>2016-03-23</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/25.html">如何重新打开i2yun客户端窗口</a><span>2016-03-23</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/24.html">云备份规则中文件打开方式及安全属性同步选项怎么设置</a><span>2016-03-21</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/23.html">什么是指定生成Baseline（全备份）的策略</a><span>2016-03-21</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/22.html">云备份规则中的孤儿文件是什么意思</a><span>2016-03-21</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/21.html">云高可用操作步骤</a><span>2016-03-12</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/20.html">业务迁移操作步骤</a><span>2015-08-27</span></li>
+                                                <li><a href="http://i2yun.a5yun.cn/bangzhuwendang/19.html">i2Box激活和本地数据备份的流程</a><span>2015-06-27</span></li>
+                                                        </ul>
+            <div id="pages" class="fanye"> <a class="a1">36条</a> <a href="/help/bangzhuwendang/index.html" class="a1">上一页</a> <span>1</span> <a href="/help/bangzhuwendang/2.html">2</a> <a href="/help/bangzhuwendang/2.html" class="a1">下一页</a></div>
+            <p class="help_note">没有找到相关问题，你可以<a href="/index.php?m=content&c=index&a=gongdan" target="_blank">提交工单</a>或拨打免费电话:400-6178-601</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+</div>
+
+
+
+<!--内容结束-->
+<script language="javascript" type="text/javascript" src="/statics/js/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var isallow = true;
+		 $.getJSON("http://i2yun.a5yun.cn/index.php?m=content&c=index&a=getlinklist&keyid=3393", function(json){
+			 
+		        if(json.message>0) {
+		        	var s = document.getElementById('helptype');
+		        	s.options.length=0;
+		        	s.options.add(new Option("请选择分类","0"));
+		        	$.each(json.result, function(i, n){
+		        		s.options.add(new Option(n.name,n.linkageid));
+			        });
+		        	isallow = true;
+		        }
+		    }); 
+		 $("#helptype").change(function(){
+			 if(!isallow)
+				 return;
+			 isallow = false;  
+			 $.getJSON("http://i2yun.a5yun.cn/index.php?m=content&c=index&a=gethelp&typeid="+$(this).children('option:selected').val(), function(json){
+				
+				 if(json.message==1) {
+			        	$("#new-list").html("");
+			        	$.each(json.result, function(i, n){
+			        		$("#new-list").html($("#new-list").html()+'<li><a href="'+n.url+'">'+n.title+'</a><span>'+n.inputtime+'</span></li>');
+				        });
+			        }
+			        else if(json.message==2)
+			        {
+			        	$("#new-list").html("暂无数据");
+			        }
+			        isallow = true;
+			    }); 
+		 });
+	});
+  
+	//给导航添加样式	
+$(".nav li").eq(6).css({"border-bottom":"2px solid #FFCC00"});  
+</script>
+<div class="zixunf">
+  <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006178601&aty=0&a=0&curl=&ty=1" target="_blank" rel="nofollow"><div class="qqcontact"></div></a>
+  <a href="http://p.qiao.baidu.com//im/index?siteid=8152259&ucid=19123718" target="_blank" rel="nofollow"><div class="onlinecontact"></div></a>
+</div>
+
+
+<div id="footer">
+  <div class="public_width">
+    <ul>
+      <li>
+        <ul>
+          <li>产品中心</li>
+          <li><a href="/beifenhuifu/" target="_blank">云备份与恢复</a></li>
+          <li><a href="/yewuqianyi/" target="_blank">业务迁移</a></li>
+          <li><a href="/gaokeyong/" target="_blank">高可用</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>帮助中心</li>
+          <li><a href="/changjianwenti-19-1.html" target="_blank">常见问题</a></li>
+          <li><a href="/bangzhuwendang-26-1.html" target="_blank">帮助文档</a></li>
+          <li><a href="javascript:void(0);" target="_blank">在线客服</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>关于我们</li>
+          <li><a href="/html/about/" target="_blank">英方简介</a></li>
+          <li><a href="/index.php?m=content&c=index&a=lists&catid=9" target="_blank">联系我们</a></li>
+          <li><a href="/jiejuefangan/" target="_blank">云灾备解决方案</a></li>
+        </ul>
+      </li>
+      <li class="erweima">
+        <div class="tel">
+          <p>400-6178-601</p>
+          <p>400-6178-601</p>
+        </div>
+      </li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="banquan">
+    <p>Copyright 2015 i2yun.com, All Rights Reserved. <br />
+      英方云版权所有 沪ICP备12000492号-3</p>
+  </div>
+</div>
+<script> 
+<!-- 
+/*tab切换 更换显示样式*/ 
+function setTab(m,n){ 
+var tli=document.getElementById("menu"+m).getElementsByTagName("span"); 
+var mli=document.getElementById("main"+m).getElementsByTagName("ul"); 
+for(i=0;i<tli.length;i++){ 
+tli[i].className=i==n?"hover":""; 
+mli[i].style.display=i==n?"block":"none"; 
+} 
+} 
+</script>
+<div style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255337646'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1255337646' type='text/javascript'%3E%3C/script%3E"));</script></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?adf04e685aa6f83b0c6f9501b18b13a6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".picbig").each(function(i){
+		var cur = $(this).find('.img-wrap').eq(0);
+		var w = cur.width();
+		var h = cur.height();
+	   $(this).find('.img-wrap img').LoadImage(true, w, h,'/statics/images/msg_img/loading.gif');
+	});
+})
+ //不要定位功能，恢复跳转功能
+	$('.Nav-scroll-1').click(function(){
+		window.location.href="http://i2yun.a5yun.cn";
+		return false;
+	});
+	
+	$('.Nav-scroll-2').click(function(){
+		window.location.href="http://i2yun.a5yun.cn/beifenhuifu/";
+		return false;
+	});
+	
+	$('.Nav-scroll-3').click(function(){
+		window.location.href="http://i2yun.a5yun.cn/help/bangzhuwendang/";
+		return false;
+	});
+	
+	$('.Nav-scroll-4').click(function(){
+		window.location.href="/index.php?m=content&c=index&a=lists&catid=25";
+		return false;
+	});
+	
+	$('.Nav-scroll-5').click(function(){
+//		$('html, body').animate({scrollTop: $(this.hash).offset().top - 79}, 1000);
+		window.location.href="http://i2yun.a5yun.cn/index.php?m=content&c=index&a=lists&catid=8";
+		return false;
+	});
+
+	$('.Nav-scroll-6').click(function(){
+		window.location.href="http://www.i2yun.com/index.php?m=member&c=index&a=login&forward=http%3A%2F%2Fwww.i2yun.com%2Fi2%2Fi2yun%2Fhome.php";
+		return false;
+	}); 
+  	function showgongdan(){
+		var userid = "";
+		if(userid=="")
+		{
+			showlogonform();
+			return false;
+		}
+		location.href="/index.php?m=content&c=index&a=gongdanlist";
+	}
+  
+</script>
+	
+<script type="text/javascript" src="statics/js/cookie.js"></script>
+<script type="text/javascript" src="statics/js/member_common.js"></script>
+<script type="text/javascript" src="statics/js/dialog.js"></script>
+<script type="text/javascript" src="statics/js/formvalidator.js" charset="UTF-8"></script>
+<script type="text/javascript" src="statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script language="JavaScript">
+function save_username() {
+	if($('#cookietime').attr('checked')==true) {
+		var username = $('#username').val();
+		setcookie('username', username, 3);
+	} else {
+		delcookie('username');
+	}
+}
+function showlogonform(){
+	$('.loginform').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$('.loginformcontent').css({
+		left: ($(window).width() - $('.loginform').width())/2,
+		top: ($(window).height() - $('.loginform').height())/2
+		});
+	$(".loginformcontent").show();	
+	$(".loginform").show();	
+}
+function closelogonform(){
+	$(".loginformcontent").hide();	
+	$(".loginform").hide();	
+}
+
+$(document).ready(function(){
+	var userid = "";
+	var httpreffer = 'm=content&c=create_html&a=category&set_catid=1&pagesize=10&dosubmit=1&autoid=1&modelid=0&referer=&pc_hash=F6hWXS';
+	if(httpreffer.indexOf("islogin")!=-1&&userid=="")
+	{
+		showlogonform();
+	}
+	var username = getcookie('username');
+	if(username != '' && username != null) {
+		$('#username').val(username);
+		$('#cookietime').attr('checked',true);
+	}
+	$('#username').focus();
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#username").formValidator({onshow:"请输入用户名",onfocus:"应该为2-20位之间"}).inputValidator({min:2,max:20,onerror:"应该为2-20位之间"}).regexValidator({regexp:"ps_username",datatype:"enum",onerror:"用户名格式错误"});
+	$("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"});
+	$("#code").formValidator({onshow:"请输入验证码",onfocus:"验证码应该为5位"}).inputValidator({min:5,max:5,onerror:"验证码应该为5位"});
+});
+
+</script>
+<style>
+.onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url(/statics/images/msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
+.onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
+.onFocus{background-position:3px -147px;border-color:#40B3FF;}
+.onError{background-position:3px -47px;border-color:#40B3FF; color:red}
+.onCorrect{background-position:3px -247px;border-color:#40B3FF;}
+.onLamp{background-position:3px -200px}
+.onTime{background-position:3px -1356px}
+	.loginform{width:650px; height:390px; position:fixed;opacity: 0; z-index:9999; border:1px solid #ccc; background-color:#00adf2; display:none;}
+	.loginformcontent{width:648px;  position:fixed; display:none; z-index:99999;height:357px;opacity: 0.95; margin:2px; background-color:#333;border-radius: 10px;}
+	.loginformcontent .title{ padding-left:272px; padding-top:20px; color:#FFF; border-bottom:2px solid #C0C0C0;font-size: 24px;}
+	.loginformcontent .content{padding-left:85px; padding-top:20px;}
+	.loginformcontent .content li{height:50px; }
+	.loginformcontent .content span{ width:130px; text-align:right; display:inline-block; padding-right:20px;color:#fff;}
+	.loginformcontent .content .input{border:1px solid #00adf2; padding-left:5px; height:24px; line-height:20px;color:#333;}
+	.loginformcontent .content .input:hover{border:1px solid #ff0000;}
+	.loginformcontent .content p{display:inline-block; border:0px solid #ccc;color:#fff;}
+	.loginformcontent .content .mybtns{ display:flex; justify-content: center;margin-left:-85px; margin-top:0px; border-top:2px solid #C0C0C0;}
+	.msg_allow{color:#3D882D}
+         .sub-privacy-close {
+	display: block;
+	position:absolute;
+	top:-12px;
+	right:-12px;
+	width:30px;
+	height:30px;
+	text-indent:-9999px;
+	background: url(/skin/images/loginnn-close.png) no-repeat 0 0;
+	background-size:100% 100%;
+} 	
+  .mybtn_blue,.mybtn_red {width:80px; height:35px; background: #00BFFF; border-radius: 5px; color:#fff; align-content: center;border:none;font-size:18px;margin-top:20px;}
+  .mybtn_blue:hover,.mybtn_red:hover {background: #027cdc;}
+</style>
+<div class="loginform"></div>
+<div class="loginformcontent">
+      	<a href="javascript:void(0);" onClick="closelogonform();" class="sub-privacy-close"></a>
+<div class="title">会员登录</div>
+<form action="/index.php?m=member&c=index&a=login" method="post" onsubmit="save_username();" id="myform" name="myform">
+<input type="hidden" name="forward" id="forward" value="/index.php?m=content&c=create_html&a=category&set_catid=1&pagesize=10&dosubmit=1&autoid=1&modelid=0&referer=&pc_hash=F6hWXS">
+<div class="content">
+	<ul>
+		<li>
+			<span>请输入用户名</span>
+			<p><input type="text" name="username" class="input" style="width:200px;" id="username" /></p>
+			<p id="usernameTip" class="msg_allow">请输入用户名</p>
+		</li>
+		<li>
+			<span>请输入密码</span>
+			<p><input type="password" name="password" class="input" style="width:200px;" id="password" /></p>
+			<p id="passwordTip" class="msg_allow">请输入密码</p>
+		</li>
+		<li>
+			<span>请输入验证码</span>
+						<p style="width:350px;"><img id='code_img' onclick='this.src=this.src+"&"+Math.random()' src='/api.php?op=checkcode&code_len=5&font_size=14&width=120&height=26&font_color=&background='></p>
+			<p style="margin-left:134px; margin-top:2px;"><input class="input" style="width:120px;" type="text" name="code" id="code" /></p>
+			<p id="codeTip" class="msg_allow">请输入验证码</p>
+		</li>
+		<li>
+			<span style="margin-left:111px; margin-top:10px;"><input type="checkbox" name="cookietime" value="2592000" id="cookietime"> 记住用户名</span>
+		</li>
+	</ul>
+			<div class="mybtns">
+				<input type="submit" class="mybtn_blue" name="dosubmit" id="dosubmit" value="登录" />
+				<input type="button" class="mybtn_red" onclick="closelogonform()" style="margin-left:20px;" name="submit" id="submit" value="取消" />
+			</div>  
+  
+</div>
+</form>
+</div>
+
+
+</body>
+</html>
