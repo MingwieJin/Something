@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+								<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"></script>
+	</head>
+	<body>
+		
+		
+		<div class="test" style="display: none;">22222</div>
+		
+		<div class="btn">11111</div>
+		<div class="btn2">3333</div>
+		
+		
+		<script>
+$(".btn, .btn2").click(function(){
+		if($('.test').is(':visible')){
+				$('.test').hide();
+				alert("已经隐藏");
+		}
+		else if($('.test').is(':hidden'))
+		{
+				$('.test').show();
+				alert("已经显示");
+		}
+});
+		</script>
+		
+	</body>
+</html>
