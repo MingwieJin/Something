@@ -115,7 +115,7 @@ a, a:focus, a:hover{
 }
 .ad-title{
 	position:absolute;
-	top:15%;
+	top:20%;
 	left:50%;
 	-webkit-transform:translate(-50%,-50%);
 	transform: translate(-50%, -50%);
@@ -124,37 +124,24 @@ a, a:focus, a:hover{
 	color:#fff;
 }
 .ad-container-inside{
-	margin: 140px 0 80px 0;
+	margin: 240px 0 80px 0;
 }
 .ad-row{
 	padding:0 17.5px;
 	height: 252px;
 }
-.owl-item.center .ad-row-inside {
-  transition:all 0.45s;
+.ad-row:hover{
+	/*-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);*/
 }
-.owl-item img {
-  transition: 0.45s;
-}
-.owl-item .ad-row-inside{
-	/*transform: scale(0.95);*/ 
-}
-.owl-item img {}
-.owl-item.center .ad-row-inside {
-transform: scale(1.2); 
-
-}
-#owl-carousel2 .owl-stage{
-	margin: 50px 0;
-}
-#owl-carousel2 .owl-nav{
-	display: none;
-}
-.owl-theme .owl-controls{
-	margin-top: 0;
-}
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
-	background:#027CDC;
+@media screen and (min-width: 1200px) {
+	.ad-row-mid{
+		height:272px;
+		margin-top: -18px;
+	}	
 }
 
 .ad-row-inside{
@@ -162,27 +149,24 @@ transform: scale(1.2);
 	background: rgba(22, 26, 29, 0.82);
 	height: 100%;
 	padding:0 25px;
-	height:100%;
 }
 .ad-img-outer{
-	height:120px;
+	height:100px;
 	display: block;
 	padding-top: 45px;
 }
 .ad-img-outer img{
 	display: block;
-	margin: 0 auto 0 auto !important;	
-	width: auto !important;
+	margin: 0 auto 0 auto;
 }
 .ad-row-content{
 	font-size:14px;
 	color:#fff;
 	line-height: 28px;
 	margin-top: 15px;
-	height:132px;
 }
 .ad-row-content-mid{
-	/*margin-top: 25px;*/
+	margin-top: 25px;
 }
 /*两地三中心七大优势结束*/
 /*业务层,数据层开始*/
@@ -250,10 +234,6 @@ transform: scale(1.2);
 .slide-item{
 	padding:0 8.75%;
 }
-.owl-item.center .ad-row-inside{
-	padding:0 15%;
-}
-
 .slide-item img{
 	margin:20px 0;
 	transition:all 0.5s;
@@ -261,7 +241,7 @@ transform: scale(1.2);
 	-webkit-transition:all 0.5s; /* Safari and Chrome */
 	-o-transition:all 0.5s; /* Opera */
 }
-#owl-carousel .owl-controls{
+.owl-controls{
 	display: none;
 }
 .slide-item img:hover{
@@ -272,6 +252,13 @@ transform: scale(1.2);
 	transform: scale(1.1);
 }
 /*客户案例轮播结束*/
+/*.owl-carousel .owl-stage-outer { padding: 5% 0; }*/
+
+.owl-item img {
+  transition: 0.45s;
+}
+
+.owl-item.center img {transform: scale(1.2); }
 </style>		
 </head>
 
@@ -324,48 +311,7 @@ transform: scale(1.2);
  	<div class="TT-advantages">
  		<div class="ad-container">
 			<div class="TT-title ad-title">两地三中心七大优势</div>
-			
-			<div class="owl-carousel ad-container-inside"id="owl-carousel2">
-	            <div class="slide-item">
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad01.png"/></div>
-						<div class="ad-row-content">全图形化监控及业务操作管理，所图即所见。</div>
-					</div>
-	            </div>
-	            <div class="slide-item">
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad02.png"/></div>
-						<div class="ad-row-content">提供政务云迁移与业务级别容灾解决方案，支持软件定义及基于云平台的两地三中心模式。</div>
-					</div>
-	            </div>
-	            <div class="slide-item">
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad03.png"/></div>
-						<div class="ad-row-content ad-row-content-mid">良好的兼容性。支持多个操作系统、应用软件、数据库、中间件的异构搭建。</div>
-					</div>
-	            </div>
-	            <div class="slide-item">
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad04.png"/></div>
-						<div class="ad-row-content" style="text-align: center;">按需使用，灵活扩容。</div>
-					</div>
-	            </div>
-	            <div class="slide-item">
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad05.png"/></div>
-						<div class="ad-row-content">优异的远距离数据传输技术，带宽占用低，且实现了数据传输加密。</div>
-					</div>
-	            </div>    
-			</div>
-			<div class="clear"></div>
-			
-			
-			
-			
-			
-			
-			
-			<!--<div class="ad-container-inside">
+			<div class="ad-container-inside">
 				<div class='ad-row col-md-25 col-xs-6'>
 					<div class="ad-row-inside">
 						<div class="ad-img-outer"><img src="img/ad01.png"/></div>
@@ -396,7 +342,7 @@ transform: scale(1.2);
 						<div class="ad-row-content">优异的远距离数据传输技术，带宽占用低，且实现了数据传输加密。</div>
 					</div>
 				</div>
-				<div class="clear"></div>-->
+				<div class="clear"></div>
 				
 			</div>
  		</div>
@@ -476,6 +422,7 @@ $(function(){
 //      margin: 10,
         nav: true,
         autoplay: true,
+        center: true,
         mouseDrag:true,
         autoplayTimeout: 2500,
         autoplayHoverPause: true,
@@ -495,50 +442,7 @@ $(function(){
 	        }
 	    }
 		});		
-});   
-
-$(function(){
-    var owl = $('#owl-carousel2');
-        owl.owlCarousel({
-        items: 4,
-        loop: true,
-//      margin: 10,
-        nav: true,
-//      autoplay: true,
-        center: true,
-        mouseDrag:true,
-        autoplayTimeout: 2500,
-        autoplayHoverPause: true,
-        smartSpeed:1000,
-	    responsive: {
-	        0: {
-	            items: 2,
-	           },
-	        700: {
-	            items: 2,
-	            },
-	       1000: {
-	            items: 4,
-	            },
-	       1200: {
-	            items: 5,
-	        }
-	    },
-	    callbacks:function() {
-	    	$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/ad03.png")
-	    }
-		});	
-		$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/ad03.png")
-});    
-
-
-//$(document).ready(function(){
-// 	if($('#owl-carousel2 .owl-item').hasClass("center")){
-// 		$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/ad03.png")
-// 	}
-//});
-
-
+});     
 
 </script>
 <script src="js/owl.carousel.js"></script>
