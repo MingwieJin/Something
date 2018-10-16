@@ -136,19 +136,17 @@ a, a:focus, a:hover{
 .owl-item img {
   transition: 0.45s;
 }
-.owl-item .ad-row-inside{
-	/*transform: scale(0.95);*/ 
-}
-.owl-item img {}
 .owl-item.center .ad-row-inside {
 transform: scale(1.2); 
-
 }
 #owl-carousel2 .owl-stage{
 	margin: 50px 0;
 }
 #owl-carousel2 .owl-nav{
-	display: none;
+	/*display: none;*/
+}
+#owl-carousel2 .owl-dots{
+	display: none !important;
 }
 .owl-theme .owl-controls{
 	margin-top: 0;
@@ -181,8 +179,12 @@ transform: scale(1.2);
 	margin-top: 15px;
 	height:132px;
 }
-.ad-row-content-mid{
-	/*margin-top: 25px;*/
+.owl-item.center .ad-row-inside .ad-row-content{
+	color:#4998F0;
+	transition:all 1.2s;
+	-moz-transition:all 1.2s; /* Firefox 4 */
+	-webkit-transition:all 1.2s; /* Safari and Chrome */
+	-o-transition:all 1.2s; /* Opera */
 }
 /*两地三中心七大优势结束*/
 /*业务层,数据层开始*/
@@ -271,6 +273,12 @@ transform: scale(1.2);
 	-o-transform: scale(1.1);
 	transform: scale(1.1);
 }
+.owl-theme .owl-controls .owl-nav [class*=owl-]{
+	background: rgba(22, 26, 29, 0.3);
+}
+.owl-theme .owl-controls .owl-nav [class*=owl-]:hover{
+	background: rgba(22, 26, 29, 0.3);
+}
 /*客户案例轮播结束*/
 </style>		
 </head>
@@ -328,34 +336,46 @@ transform: scale(1.2);
 			<div class="owl-carousel ad-container-inside"id="owl-carousel2">
 	            <div class="slide-item">
 					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad01.png"/></div>
+						<div class="ad-img-outer"><img img-data="img/logo/ad01" src="img/logo/ad01.png"/></div>
 						<div class="ad-row-content">全图形化监控及业务操作管理，所图即所见。</div>
 					</div>
 	            </div>
 	            <div class="slide-item">
 					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad02.png"/></div>
+						<div class="ad-img-outer"><img img-data="img/logo/ad02" src="img/logo/ad02.png"/></div>
 						<div class="ad-row-content">提供政务云迁移与业务级别容灾解决方案，支持软件定义及基于云平台的两地三中心模式。</div>
 					</div>
 	            </div>
 	            <div class="slide-item">
 					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad03.png"/></div>
+						<div class="ad-img-outer"><img img-data="img/logo/ad03" src="img/logo/ad03.png"/></div>
 						<div class="ad-row-content ad-row-content-mid">良好的兼容性。支持多个操作系统、应用软件、数据库、中间件的异构搭建。</div>
 					</div>
 	            </div>
 	            <div class="slide-item">
 					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad04.png"/></div>
+						<div class="ad-img-outer"><img img-data="img/logo/ad04" src="img/logo/ad04.png"/></div>
 						<div class="ad-row-content" style="text-align: center;">按需使用，灵活扩容。</div>
 					</div>
 	            </div>
 	            <div class="slide-item">
 					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad05.png"/></div>
+						<div class="ad-img-outer"><img img-data="img/logo/ad05" src="img/logo/ad05.png"/></div>
 						<div class="ad-row-content">优异的远距离数据传输技术，带宽占用低，且实现了数据传输加密。</div>
 					</div>
 	            </div>    
+	            <div class="slide-item">
+					<div class="ad-row-inside">
+						<div class="ad-img-outer"><img img-data="img/logo/ad06" src="img/logo/ad06.png"/></div>
+						<div class="ad-row-content">有多个大型行业客户成功案例，有强大的本地运维团队，保证7＊24小时的高效服务。</div>
+					</div>
+	            </div>  
+	            <div class="slide-item">
+					<div class="ad-row-inside">
+						<div class="ad-img-outer"><img img-data="img/logo/ad07" src="img/logo/ad07.png"/></div>
+						<div class="ad-row-content">对原有网络、存储等架构以及业务系统改动较小，不影响新旧系统之间的相互访问。</div>
+					</div>
+	            </div>  
 			</div>
 			<div class="clear"></div>
 			
@@ -458,7 +478,13 @@ transform: scale(1.2);
 	            </div>
 	            <div class="slide-item">
 						<img class="item-bg" src="img/logo/owl06.png"/>
-	            </div>            
+	            </div>    
+	            <div class="slide-item">
+						<img class="item-bg" src="img/logo/owl07.png"/>
+	            </div>    
+	            <div class="slide-item">
+						<img class="item-bg" src="img/logo/owl08.png"/>
+	            </div>    
 		</div>
 	</div>
 	<!--客户案例轮播结束-->
@@ -504,12 +530,12 @@ $(function(){
         loop: true,
 //      margin: 10,
         nav: true,
-//      autoplay: true,
+        autoplay: true,
         center: true,
-        mouseDrag:true,
+//      mouseDrag:true,
         autoplayTimeout: 2500,
         autoplayHoverPause: true,
-        smartSpeed:1000,
+        smartSpeed:500,
 	    responsive: {
 	        0: {
 	            items: 2,
@@ -523,20 +549,33 @@ $(function(){
 	       1200: {
 	            items: 5,
 	        }
-	    },
-	    callbacks:function() {
-	    	$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/ad03.png")
-	    }
-		});	
-		$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/ad03.png")
-});    
+	    },	
+		});    
+		owl.on('translated.owl.carousel', function(event) {
+			var imginfob = $('#owl-carousel2 .center').find(".ad-img-outer img").attr("img-data");
+			imginfob = imginfob+"b.png";
+			$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src",imginfob)
+
+		})
+		owl.on('translate.owl.carousel', function(event) {
+			var imginfow = $('#owl-carousel2 .center').find(".ad-img-outer img").attr("img-data");
+			imginfow = imginfow+".png";
+			$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src",imginfow)
+
+		})
+})
 
 
-//$(document).ready(function(){
-// 	if($('#owl-carousel2 .owl-item').hasClass("center")){
-// 		$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/ad03.png")
-// 	}
-//});
+//function change(){
+//	$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/ad03.png")
+//	
+//}
+
+$(document).ready(function(){
+   	if($('#owl-carousel2 .owl-item').hasClass("center")){
+   		$('#owl-carousel2 .center').find(".ad-img-outer img").attr("src","img/logo/ad01b.png")
+   	}
+});
 
 
 
