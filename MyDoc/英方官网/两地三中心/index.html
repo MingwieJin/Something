@@ -11,8 +11,7 @@
 		<link rel="stylesheet" href="css/owl.carousel.min.css">
 	    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 		
-<style>
-	
+<style>	
 body{
 	margin:0px;
 	font-family: "微软雅黑";
@@ -60,6 +59,14 @@ a, a:focus, a:hover{
 	width:100%;
 	max-width: 1230px;
 	margin:0 auto;	
+}
+@media screen and (max-width: 699px) {
+	.TT-defination{
+		width:70%;
+	}
+	.def-row{
+		margin: 40px 0;
+	}
 }
 .TT-title{
 	margin: 80px 0 30px 0;
@@ -112,6 +119,11 @@ a, a:focus, a:hover{
 	margin: 0 auto;
 	padding:10px 0 0 0;
 	position: relative;
+}
+@media screen and (max-width: 699px) {
+	.ad-container{
+		width:70%;
+	}
 }
 .ad-title{
 	position:absolute;
@@ -278,6 +290,7 @@ transform: scale(1.2);
 }
 .owl-theme .owl-controls .owl-nav [class*=owl-]:hover{
 	background: rgba(22, 26, 29, 0.3);
+	color:#4998F0;
 }
 /*客户案例轮播结束*/
 </style>		
@@ -378,48 +391,7 @@ transform: scale(1.2);
 	            </div>  
 			</div>
 			<div class="clear"></div>
-			
-			
-			
-			
-			
-			
-			
-			<!--<div class="ad-container-inside">
-				<div class='ad-row col-md-25 col-xs-6'>
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad01.png"/></div>
-						<div class="ad-row-content">全图形化监控及业务操作管理，所图即所见。</div>
-					</div>
-				</div>
-				<div class='ad-row col-md-25 col-xs-6'>
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad02.png"/></div>
-						<div class="ad-row-content">提供政务云迁移与业务级别容灾解决方案，支持软件定义及基于云平台的两地三中心模式。</div>
-					</div>
-				</div>
-				<div class='ad-row ad-row-mid col-md-25 col-xs-6'>
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad03.png"/></div>
-						<div class="ad-row-content ad-row-content-mid">良好的兼容性。支持多个操作系统、应用软件、数据库、中间件的异构搭建。</div>
-					</div>
-				</div>
-				<div class='ad-row col-md-25 col-xs-6'>
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad04.png"/></div>
-						<div class="ad-row-content" style="text-align: center;">按需使用，灵活扩容。</div>
-					</div>
-				</div>
-				<div class='ad-row col-md-25 col-xs-6'>
-					<div class="ad-row-inside">
-						<div class="ad-img-outer"><img src="img/ad05.png"/></div>
-						<div class="ad-row-content">优异的远距离数据传输技术，带宽占用低，且实现了数据传输加密。</div>
-					</div>
-				</div>
-				<div class="clear"></div>-->
-				
-			</div>
- 		</div>
+		</div>
  	</div>
 	<!--两地三中心七大优势结束-->	
 	<!--业务层,数据层开始-->
@@ -538,10 +510,10 @@ $(function(){
         smartSpeed:500,
 	    responsive: {
 	        0: {
-	            items: 2,
+	            items: 1,
 	           },
 	        700: {
-	            items: 2,
+	            items: 1,
 	            },
 	       1000: {
 	            items: 4,
