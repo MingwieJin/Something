@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"></script>
+		<script src="js/parallax.js"></script>  
+	</head>
+	<body>
+		
+		
+		<ul id="scene">  
+  <li class="layer" data-depth="0.00"><img src="img/p1.jpg"></li>  
+  <li class="layer" data-depth="0.20"><img src="img/p2.jpg"></li>  
+  <li class="layer" data-depth="0.40"><img src="img/p3.jpg"></li>  
+  <li class="layer" data-depth="0.60"><img src="img/p4.jpg"></li>  
+  <li class="layer" data-depth="0.80"><img src="img/p5.jpg"></li>  
+  <li class="layer" data-depth="1.00"><img src="img/p6.jpg"></li>  
+</ul>  
+
+
+
+<script>
+
+
+
+//$('#scene').parallax({  
+//calibrateX: false,  
+//calibrateY: true,  
+//invertX: false,  
+//invertY: true,  
+//limitX: false,  
+//limitY: 10,  
+//scalarX: 2,  
+//scalarY: 8,  
+//frictionX: 0.2,  
+//frictionY: 0.8  
+//});  
+
+//var scene = document.getElementById('scene');  
+//var parallax = new Parallax(scene, {  
+//calibrateX: false,  
+//calibrateY: true,  
+//invertX: false,  
+//invertY: true,  
+//limitX: false,  
+//limitY: 10,  
+//scalarX: 2,  
+//scalarY: 8,  
+//frictionX: 0.2,  
+//frictionY: 0.8  
+//});  
+//	没有jq用
+	var scene = document.getElementById('scene');  
+var parallax = new Parallax(scene);  
+</script>
+	</body>
+</html>
