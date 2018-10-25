@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />		
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+
+		
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<!-- Latest compiled and minified JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+
+<!-- Latest compiled and minified Locales -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+	</head>
+	<body>
+	
+	
+<table  id="table" data-pagination="true" data-search="true" data-toggle="table">
+    <thead>
+        <tr>
+            <th data-sortable="true" data-field="id">Item ID</th>
+            <th data-field="name">Item Name</th>
+            <th data-field="price">Item Price</th>
+        </tr>
+    </thead>
+</table>	
+
+
+<script>
+	$('#table').bootstrapTable({
+    columns: [{
+        field: 'id',
+        title: 'Item ID'
+    }, {
+        field: 'name',
+        title: 'Item Name'
+    }, {
+        field: 'price',
+        title: 'Item Price'
+    }],
+    data: [{
+        id: 1,
+        name: 'Item 1',
+        price: '$1'
+    }, {
+        id: 2,
+        name: 'Item 2',
+        price: '$2'
+    }]
+});
+</script>
+	</body>
+	
+</html>
