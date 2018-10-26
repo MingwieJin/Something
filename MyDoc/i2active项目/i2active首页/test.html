@@ -1,0 +1,212 @@
+<!--新加的-->
+<link href="<?php echo base_url('assets/MyComponent/button-type.css'); ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url('assets/MyComponent/db_main.css'); ?>" rel="stylesheet" type="text/css" />
+
+
+
+<style>
+/*dropmenu overflow 问题*/
+.fixed-table-body {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    height: 100%;
+}
+    #dbrule_table tbody tr td{
+        white-space:nowrap;
+    }
+</style>
+
+
+<div class="row">
+    <?php $this->load->view('_partials/breadcrumb_s'); ?>
+
+   <table class="tablemy" id="tablemy">
+	<tr class="choosebar td-titletop">
+		<td  class="td-title td-titletop" colspan="3" style="text-align: left;">源端：</td>
+	</tr>	
+	<tr class="choosebar" id="bar-src">
+		<td  class="td-title td-titleleft">源端：</td>
+		<td class="td-content content-intro">常规数据库:</td>
+		<td class="td-content">
+<!--			<div class="td-inner">
+				<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(0, 'oracle')">Orcale</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'mysql')">Mysql</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(0, 'postgres')">postgres</a>
+			</div>-->
+		</td>
+	</tr>
+	<tr class="choosebar td-titletop">
+		<td  class="td-title td-titletop" colspan="3" style="border-top:1px solid #f4f4f4;text-align: left;">目标端：</td>	
+	</tr>
+	<tr class="choosebar bot-bar bar-1" style="border-bottom:none;" id="bar-dst-normal">
+		<td class="td-title td-titleleft" rowspan="4">目标端：</td>
+		<td class="td-content content-intro">常规数据库:</td>
+<!--		<td class="td-content content-name">
+				<a class="button-type1 active" href="javascript:void(0);" onclick="changeplan(1, 'oracle')">Orcale</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'mysql')">Mysql</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'postgres')">postgres</a>
+			
+		</td>-->
+	</tr>
+	<tr class="choosebar bot-bar bar-2" id="bar-dst-nosql">
+		<td class="td-content content-intro">nosql型数据库:</td>
+<!--		<td class="td-content">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'reids')">reids</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ssdb')">ssdb</a>		
+		</td>-->
+	</tr>
+	<tr class="choosebar bot-bar bar-2" id="bar-dst-sequence">
+		<td class="td-content content-intro">消息队列:</td>
+<!--		<td class="td-content content-name">
+				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'Kafka')">Kafka</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'ActvieMQ')">ActvieMQ</a>
+			
+		</td>-->
+	</tr>
+	<tr class="choosebar bot-bar bar-2" id="bar-dst-file">
+		<td class="td-content content-intro">文件类型:</td>
+		<td class="td-content content-name">
+<!--				<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, 'txt')">txt</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'csv')">csv</a>
+				<a class="button-type1" href="javascript:void(0);"  onclick="changeplan(1, 'xml')">xml</a>			-->
+		</td>
+	</tr>
+</table>    
+          <div class="show-result" style="margin: 50px auto;font-size: 18px;color:red;width:92%;padding:0 0 0 50px;"></div>   
+
+ 
+</div>
+<script>
+
+    
+    //新加的
+$(document).ready(function(){
+  $.ajax({ 
+//     url:"<?php echo base_url('assets/MyComponent/get-info.php'); ?>",
+     url:"<?php echo base_url('assets/MyComponent/get.json'); ?>",
+    data:{   
+    },
+    type:"post", 
+    async:false,  // 设置同步方式
+    cache:false,    
+    dataType:'json',
+    success:function(data) {  
+        if(data!=-1){
+                console.log(data);
+		$.each(data, function(key, value){
+				 	//添加源端数据库
+                    if(key=="src"){
+                        $('#bar-src').empty();
+                        var htmlsrc = '';
+                        htmlsrc += '<td  class="td-title td-titleleft">源端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content"><div class="td-inner">';
+                         $.each(data.src, function(indexSRC, valueSRC){
+                                        htmlsrc += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(0, \''+valueSRC+'\')">'+valueSRC+'</a>';
+                         });
+                        htmlsrc += '</div></td>';
+                        $('#bar-src').html(htmlsrc);
+//                        $("#bar-src .td-inner a:eq(0)").addClass("active");	
+                    }
+                    //添加备端数据库
+                    else if(key=="dst"){
+                        $.each(data.dst, function(keyDST, valueDST){
+                    //备端-常规数据库
+                            if(keyDST=="normal"){
+                                    $('#bar-dst-normal').empty();
+                                    var htmldstNor = '';
+                                    htmldstNor += '<td class="td-title td-titleleft" rowspan="4">目标端：</td><td class="td-content content-intro">常规数据库:</td><td class="td-content content-name">';
+                                    $.each(data.dst.normal, function(indexNor, valueNor){
+                                                    htmldstNor += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNor+'\')">'+valueNor+'</a>';
+                                    });
+                                    htmldstNor += '</td>';
+                                    $('#bar-dst-normal').html(htmldstNor);
+//                                    $("#bar-dst-normal .content-name a:eq(0)").addClass("active");		
+                            }
+//                                备端-Nosql数据库
+                            else if(keyDST=="nosql"){
+                                    $('#bar-dst-nosql').empty();
+                                    var htmldstNos = '';
+                                    htmldstNos += '<td class="td-content content-intro">nosql型数据库:</td><td class="td-content">';
+                                    $.each(data.dst.nosql, function(indexNosql, valueNosql){
+                                                    htmldstNos += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueNosql+'\')">'+valueNosql+'</a>';
+                                    });
+                                    htmldstNos += '</td>';
+                                    $('#bar-dst-nosql').html(htmldstNos);	
+                            }
+//                                备端-消息队列
+                            else if(keyDST=="sequence"){	
+                                    $('#bar-dst-sequence').empty();
+                                    var htmldstSe = '';
+                                    htmldstSe += '<td class="td-content content-intro">消息队列:</td><td class="td-content content-name">';
+                                    $.each(data.dst.sequence, function(indexSe, valueSe){
+                                                    htmldstSe += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueSe+'\')">'+valueSe+'</a>';
+                                    });
+                                    htmldstSe += '</td>';
+                                    $('#bar-dst-sequence').html(htmldstSe);
+                            }
+//                            文件类型
+                            else if(keyDST=="file"){	
+                                    $('#bar-dst-file').empty();
+                                    var htmldstFi = '';
+                                    htmldstFi += '<td class="td-content content-intro">文件类型:</td><td class="td-content content-name">';
+                                    $.each(data.dst.file, function(indexFi, valueFi){
+                                                    htmldstFi += '<a class="button-type1" href="javascript:void(0);" onclick="changeplan(1, \''+valueFi+'\')">'+valueFi+'</a>';
+                                    });
+                                    htmldstFi += '</td>';
+                                    $('#bar-dst-file').html(htmldstFi);
+                            }
+                        });
+                    }
+
+             });
+//             用来控制选项卡是否显示
+//            $("#tablemy").css("display","inherit");
+        }
+    },    
+    error : function(XMLHttpRequest, textStatus, errorThrown) {
+        alert("网络故障");
+    } 
+});
+  
+  $(".choosebar a").click(function(){
+    $(this).parent().children().removeClass("active");
+    $(this).addClass("active");
+  });
+  $(".bar-1 a, .bar-2 a").click(function(){
+    $(".bar-1, .bar-2").find("a").removeClass("active");
+    $(this).addClass("active");
+  }); 
+});
+
+var TargetSource = -1;
+var TargetBack = -1;
+
+function changeplan(where, type){
+	if(where==0){TargetSource=type;}
+	else if (where==1){TargetBack=type;}
+	console.log(TargetSource);
+	console.log(TargetBack);
+	
+	if(TargetSource!=-1 && TargetBack!=-1){
+		if(TargetSource=="oracle" && TargetBack=="oracle"){
+			window.location = "rule/db_rule";
+		}
+		else if(TargetSource=="mysql" && TargetBack=="mysql"){
+			window.location = "mysqldb/mysql_rule";
+		}
+		else if(TargetSource=="postgres" && TargetBack=="postgres"){
+			window.location = "postgredb/postgre_rule";
+		}
+		else{
+			$(".show-result").text("已选择源端类型为"+TargetSource+"，已选择备端类型为"+TargetBack+"，没有合适的规则");
+		}
+	}
+	else if(TargetSource ==-1){
+		$(".show-result").text("已选择备端类型为"+TargetBack+"，请选择源端数据库");
+	}
+	else if(TargetBack ==-1){
+		$(".show-result").text("已选择源端类型为"+TargetSource+"，请选择备端数据库");
+	}
+}
+</script>
+<?php include_once 'snippets/list_s.php'; ?>
+<?php $this->load->view('_partials/operation'); ?>
