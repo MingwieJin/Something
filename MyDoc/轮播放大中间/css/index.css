@@ -1,0 +1,119 @@
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.imgbox{
+    width:100%;
+    height:420px;
+    overflow: hidden;
+    margin:200px;
+}
+.case-list-content{
+    height:420px;
+    position: relative;
+    margin-left:200px;
+
+}
+.case-list-content ul li{
+    float: left;
+    margin-right:20px;
+    margin-top:43px;
+    padding-bottom:50px;
+    width:366px;
+    height:366px;
+}
+.bigarcs{
+    position: relative;
+    display: inline-block;
+    height:277px;
+    width:277px;
+    -webkit-border-radius:140px;
+    -moz-border-radius:140px;
+    border-radius:140px;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+}
+.bigarcs img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+}
+.case-list-content ul li.active{
+    margin-top:0;
+}
+.case-list-content ul li.active{
+    margin-right:100px;
+}
+.case-list-content ul li.active .bigarcs{
+    width:366px;
+    height:366px;
+    -webkit-border-radius:183px;
+    -moz-border-radius:183px;
+    border-radius:183px;
+
+}
+a.changebtn {
+    border: 1px solid #a6a6a7;
+    border-radius: 22px;
+    color: #a6a6a7;
+    display: block;
+    font-size: 40px;
+    height: 41px;
+    left: -100px;
+    line-height: 40px;
+    position: absolute;
+    text-align: center;
+    top: 150px;
+    width: 41px;
+}
+a.btnright{
+    left:1170px;
+}
+a.changebtn:hover{
+    border-color: #d73653;
+    color: #d73653;
+}
+.small-arc{
+    width:134px;
+    height:134px;
+    border-radius:62px;
+    position: absolute;
+    left:65px;
+    top:66px;
+    background: rgba(58,113,198,.7);
+}
+.case-list-content ul li.active .small-arc{
+    top:115px;
+    left:115px;
+}
+.small-arc p{
+    width:90px;
+    height:auto;
+    overflow: hidden;
+    padding-left:26px;
+    padding-top:28px;
+}
+.small-arc p a{
+    font-size:14px;
+    line-height:20px;
+    color: #fff;
+}
+.small-arc p a:hover{
+    color: orange;
+}
+.shadow{
+    margin-top:14px;
+    width:138px;
+    height:15px;
+    margin-left:53px;
+    background: url("../images/yinyingdan.png") no-repeat;
+}
+.case-list-content ul li.active .shadow{
+    margin-left:103px;
+    background: url("../images/yinying.png") no-repeat;
+}
