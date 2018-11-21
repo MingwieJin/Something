@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<title></title>
+<style>
+	.MyContainer-download li{
+		list-style-type: none;
+		margin:5px 0;
+		font-size: 16px;
+	}
+	
+	.MyContainer-download ul{
+		padding:0;
+	}
+	
+	.software-title{
+		margin: 10px 0;
+		font-size:24px;
+		font-weight: 700;
+	}
+	
+	.btn-dropdown{
+		cursor:pointer;
+		font-size:18px;
+	}
+	.btn-dropdown img {
+		height:20px;
+		margin:-3px 5px 0 0;
+		-webkit-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+		transition: all 0.4s ease;
+	}
+	.MyContainer-download .collapsed img{
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+	}
+	
+	
+	.download_content{
+		border-top: 1px solid #c0c0c0;
+		border-bottom: 1px solid #c0c0c0;
+		border-radius: 5px;
+		padding: 10px;
+		margin:10px 0 10px  0;
+		text-align: center;
+		background: #f7f7f7;	
+	}
+	/*.download_soft{
+		cursor:pointer;
+	}*/
+ 	.download_soft img{
+		width:150px;
+		height:auto;
+		cursor:pointer;
+		margin-top: 15px;
+	}
+	
+	@media screen and (max-width: 1300px) {
+		.download_soft img{
+			width:120px;
+		}
+		/*.MyContainer-download li{
+			font-size: 16px;
+		}
+		.btn-dropdown img {
+			height:18px;
+			margin:-3px 5px 0 0;
+		}
+		.btn-dropdown{
+		font-size:20px;
+		}*/
+	}
+	.download_soft {
+		color:#333 !important;
+	}
+	.download_soft:hover{
+		color:#333 !important;
+		text-decoration: none !important;
+		cursor: normal;
+	}
+</style>
+	</head>
+	<body>
+	<div class="MyContainer-download">
+			
+			
+		<div class="col-md-6 col-xs-12">
+			<div class="software-title">64位</div>
+			
+			<ul>
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-1">
+							<img src="img/crossing.jpg"/>Windows 2003 SP1+ / 2008 / 2012 / XP SP3 / Vista / 7 / 8
+							<div class="ProduectName" style="display:none">windows</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-1" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-2">
+							<img src="img/crossing.jpg"/>RedHat/Centos 4.X
+							<div class="ProduectName" style="display:none">linux4x</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						
+						<!--下拉菜单-->
+						<div id="list-dropdown1-2" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-3">
+							<img src="img/crossing.jpg"/>RedHat/Centos 5.X
+							<div class="ProduectName" style="display:none">linux5x</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-3" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-4">
+							<img src="img/crossing.jpg"/>RedHat/Centos 6.X
+							<div class="ProduectName" style="display:none">linux6x</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-4" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-5">
+							<img src="img/crossing.jpg"/>Suse Linux Enterprise 10SP1
+							<div class="ProduectName" style="display:none">suse10p1</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-5" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-6">
+							<img src="img/crossing.jpg"/>Suse Linux Enterprise 10SP2
+							<div class="ProduectName" style="display:none">suse10p2</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-6" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-7">
+							<img src="img/crossing.jpg"/>Suse Linux Enterprise 11SP1
+							<div class="ProduectName" style="display:none">suse11p1</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-7" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-8">
+							<img src="img/crossing.jpg"/>Suse Linux Enterprise 11SP2
+							<div class="ProduectName" style="display:none">suse11p2</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-8" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-9">
+							<img src="img/crossing.jpg"/>Suse Linux Enterprise 11SP3
+							<div class="ProduectName" style="display:none">suse11p3</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-9" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-10">
+							<img src="img/crossing.jpg"/>Ubuntu 12.04.2
+							<div class="ProduectName" style="display:none">ubuntu.12.04.2</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-10" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-11">
+							<img src="img/crossing.jpg"/>Ubuntu 12.04.3
+							<div class="ProduectName" style="display:none">ubuntu.12.04.3</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-11" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-12">
+							<img src="img/crossing.jpg"/>Ubuntu 12.04.4
+							<div class="ProduectName" style="display:none">ubuntu.12.04.4</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-12" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-13">
+							<img src="img/crossing.jpg"/>Ubuntu 14.04
+							<div class="ProduectName" style="display:none">ubuntu.14.04</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-13" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown1-14">
+							<img src="img/crossing.jpg"/>Debian 7.1
+							<div class="ProduectName" style="display:none">debian.7.1</div>
+							<div class="ProduectBite" style="display:none">64位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown1-14" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				
+			</ul>
+			
+		</div>
+		
+		<div class="col-md-6 col-xs-12">
+			<div class="software-title">32位</div>
+			
+			<ul>
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown2-1">
+							<img src="img/crossing.jpg"/>Windows 2003 SP1+ / 2008 / 2012 / XP SP3 / Vista / 7 / 8
+							<div class="ProduectName" style="display:none">windows</div>
+							<div class="ProduectBite" style="display:none">32位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown2-1" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown2-2">
+							<img src="img/crossing.jpg"/>RedHat/Centos 4.X
+							<div class="ProduectName" style="display:none">linux4x</div>
+							<div class="ProduectBite" style="display:none">32位</div>
+						</div>
+						
+						<!--下拉菜单-->
+						<div id="list-dropdown2-2" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown2-3">
+							<img src="img/crossing.jpg"/>RedHat/Centos 5.X
+							<div class="ProduectName" style="display:none">linux5x</div>
+							<div class="ProduectBite" style="display:none">32位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown2-3" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+				
+				<li>
+						<div class="btn-dropdown collapsed" data-toggle="collapse" data-target="#list-dropdown2-4">
+							<img src="img/crossing.jpg"/>RedHat/Centos 6.X
+							<div class="ProduectName" style="display:none">linux6x</div>
+							<div class="ProduectBite" style="display:none">32位</div>
+						</div>
+						<!--下拉菜单-->
+						<div id="list-dropdown2-4" class="collapse">
+							
+							<div class="download_content">
+								<div class="download_softname" style="display:none" id="download_softname"></div>
+								<div>下载详情:</div>
+								<div class="download_introduction" id="download_introduction"></div>
+								<div><a class="download_soft" href="javascript:;"><img src="img/justdown.gif"></a></div>
+								<div class="download_newdown" style="display:none"><span class="downloadUrl" id="download_url"></span></div>
+							</div>
+							
+						</div>
+						<!--下拉菜单结束-->
+				</li>
+			</ul>	
+		</div>
+		
+		
+	</div>
+
+<script>	
+$(".btn-dropdown").each(function(){
+	if($(this).hasClass("collapsed")){
+	var productName = $(this).find(".ProduectName").text();
+	var productBite = $(this).find(".ProduectBite").text();
+	var fid = $(this).attr("data-target")
+	
+   var location = "http://download.i2yun.com";
+   var softdir = '/software/';
+
+   requestUrl = location + "/i2/i2yun/ajax_for_getsoft.php?system="+productName+"&median="+productBite;
+   $.ajax({
+         url:requestUrl,
+     dataType: 'jsonp',
+     success:function(data){
+        		 $(fid).find(".download_softname").text(data.softname);
+        		 $(fid).find(".download_introduction").text(data.content);
+                 location = location + "/i2" +  softdir;
+                 if(data.softname != '') {
+                        $(fid).find(".downloadUrl").html(location + data.softname);
+                 }
+                 var downlocation = 'http://download.i2yun.com/i2/software/'+data.softname;
+                 $(fid).find(".download_soft").attr("href", downlocation);
+     },
+     error:function(){
+         alert("获取下载文件列表失败！");
+     }
+   })
+   }
+})
+
+</script>
+	</body>
+</html>
