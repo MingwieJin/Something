@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<head> 
+ <title>bootstrap-table</title> 
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+ <meta name="description" content="" /> 
+ <meta name="keywords" content="" /> 
+   
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>	
+
+ <script type="text/javascript" src="./bootstrap-table/bootstrap-table-all.js"></script> 
+ <script type="text/javascript" src="./bootstrap-table/locale/bootstrap-table-zh-CN.js"></script> 
+
+ <link rel="stylesheet" type="text/css" href="./bootstrap-table/bootstrap-table.min.css" > 
+  
+</head> 
+  
+<script language="javascript">  
+</script> 
+  
+<body> 
+ <div class="col-md-offset-3 col-md-6"> 
+ <div class="panel panel-default"> 
+ <div class="panel-heading"> 
+ <h3 class="panel-title text-center">已添加教师账号</h3> 
+ </div> 
+ <div class="panel-body"> 
+ <div id="toolbar" class="btn-group"> 
+ <button id="btn_edit" type="button" class="btn btn-default" > 
+ <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改 
+ </button> 
+ <button id="btn_delete" type="button" class="btn btn-default"> 
+ <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除 
+ </button> 
+ </div> 
+ <table id="teacher_table" data-toggle="table" data-url="./data.php" data-method="post"
+ data-query-params="queryParams"
+ data-toolbar="#toolbar"
+ data-pagination="true"
+ data-search="true"
+ data-show-refresh="true"
+ data-show-toggle="true"
+ data-show-columns="true"
+ data-page-size="5"> 
+ <thead> 
+ <tr> 
+ <th data-field="name">用户账号</th> 
+ <th data-field="pwd">用户密码</th> 
+ <th data-field="t_name">教师姓名</th> 
+ </tr> 
+ </thead> 
+ </table>  
+ </div> 
+ </div> 
+ </div> 
+</body>
+</html>
