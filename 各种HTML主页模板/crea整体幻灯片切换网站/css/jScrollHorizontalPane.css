@@ -1,0 +1,86 @@
+.horiz .jScrollPaneContainer {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.horiz .jScrollPaneTrack {
+	position: absolute;
+	cursor: pointer;
+	left: 4px !important;
+	bottom: 3px;
+	width: 100%;
+	height: 13px !important;
+	right: auto;
+	top: auto;
+	background: url("../images/track-g.png") no-repeat scroll 0 0;	
+}
+
+.horiz .jScrollIntervalTrack { 
+	position: absolute;
+}
+
+.horiz .jScrollPaneDrag {
+	background: url("../images/drag-g.png") no-repeat scroll 0 0;
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	width:93px !important;
+	height:14px;
+	top:-2px;
+}
+.horiz .jScrollPaneDrag:hover {
+	background-position: 0 -14px;
+}
+.horiz .jScrollPaneDragLeft {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+.horiz .jScrollPaneDragRight {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+}
+.horiz a.jScrollArrowLeft {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 2px;
+	right: 28px;
+	text-indent: -2000px !important;
+	overflow: hidden;
+	background: url("../images/slide_left.png") no-repeat 0 -20px;
+	height: 21px;
+	width: 20px;
+}
+.horiz a.jScrollArrowLeft:hover, .horiz a.jScrollArrowRight:hover {
+	background-position:0 0px;
+
+}
+
+.horiz a.jScrollArrowRight {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 2px;
+	right: 3px;
+	text-indent: -2000px !important;
+	overflow: hidden;
+	background: url("../images/slide_right.png") no-repeat 0 -20px;
+	height: 21px;
+	width: 20px;
+}
+.horiz a.jScrollArrowRight:hover {
+	/*background-color: #f60;*/
+}
+.horiz a.jScrollActiveArrowButton, .horiz a.jScrollActiveArrowButton:hover {
+	/*background-color: #f00;*/
+}
+
+#scroll-box, .scroll-box{height:398px;overflow:hidden;width:946px;float:left; padding:20px 0 20px 2px;}
+		
+		
+	

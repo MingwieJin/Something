@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[Table of contents]
+
+1. Body
+2. Top 
+   - Logo
+
+3. Content / #content
+    - Article
+	- Scroll-wrap
+	- Article_link
+	- Paginator
+	- Comments
+	- Gallery
+4. Bottom / .menu_bot
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+*/
+
+
+/* [1. Body] */
+html, body{ 
+	margin: 0;
+	padding: 0;
+	min-width: 100%;
+	width:100%;
+	min-height:100%;
+	height: 100%;
+}
+body, td, th, button, input, select, textarea{
+	font: normal 12px/20px 'Lucida Sans Unicode', 'Lucida Grande', Arial, san-serif;
+	color: #fff;
+	background:#131313 url(../images/bg.png) repeat 0 0;
+	z-index:1;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+h4{
+	font-size: 15px;
+}
+
+#holder {
+	width:1030px;
+	height:100%;
+	margin:-60px auto 0;
+	display:table;
+}
+.bg {
+	width:1030px;
+	height:100%;
+	display:table-cell;
+	vertical-align:middle;	
+	position:relative;
+}
+.logo {
+	width:100%;
+	position:relative;
+	text-align:center;
+	cursor:pointer;
+	margin:0 0 0 220px;
+}
+.content {
+	float:left;
+	margin:-54px 0 0 0;
+}
+.gallery {
+	background: url(../images/bg_img.png) no-repeat 0 0;
+	width:481px;
+	height:301px;
+	float:left;
+	position:relative;
+	padding:11px 0 0 11px;
+	margin:0px 9px 7px 0;
+}
+.gallery a {
+	position:relative;
+	float:left;
+	text-decoration:none;
+	text-align:center;
+}
+.gallery a h4 {
+	margin:9px 0 0 0;
+}
+.gallery .fadeThis i {
+	background: url(../images/i.png) no-repeat 0 0;
+	position:absolute;
+	left:-3px;
+	top:-3px;
+	width:466px;
+	height:261px;	
+}
+.gallery.small {
+	background: url(../images/bg_img_s.png) no-repeat 0 0;
+	width:181px;
+	height:131px;
+	padding:10px 0 0 11px;
+	margin:0px 9px 7px 0;
+}
+.gallery.small i {
+	background: url(../images/i_s.png) no-repeat 0 0;
+	width:166px;
+	height:106px;
+	left:-3px;
+	top:-3px;
+}
+.gallery.small p {
+	margin:2px 0 0 0;
+	padding:0;
+}
+.gallery:hover h4, .gallery:hover p {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); /* IE 5.5+*/
+   -moz-opacity: 0.5; /* Mozilla 1.6 и ниже */
+   -khtml-opacity: 0.5; /* Konqueror 3.1, Safari 1.1 */
+    opacity: 0.5;
+}
+
+	.fadeThis {
+		position:relative;
+		display:block;
+	}	
+	.fadeThis span.hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		height: 240px;
+		width: 460px;
+		background:url(../images/hover.png) no-repeat center 0px;
+	}
+		.gallery.small .fadeThis span.hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		height: 90px;
+		width: 160px;
+		background: url(../images/hover_s.png) no-repeat center 0;
+	}

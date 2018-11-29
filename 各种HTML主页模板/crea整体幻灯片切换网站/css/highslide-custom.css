@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+.highslide-thumbstrip-inner .gallery-cont {
+	display:none;
+}
+
+.text-controls a span , .text-controls a:hover span {
+  text-shadow: 1px 1px 0 #dedede !important;
+}
+
+.closebutton:hover{
+	background-position: 0 -30px;
+}

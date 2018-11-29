@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+.pxs_container{
+	background:#f6f6f6 url(../images/skin/white/bg.png) repeat-y center top;
+}
+  .pxs_bg .pxs_bg1{
+		background:url(../images/skin/white/bg2.png) repeat 0 0px;
+	}
+	.pxs_bg .pxs_bg2{
+	    background:url(../images/skin/white/bg3.png) repeat-x 0 center;
+	}
