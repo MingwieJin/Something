@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+				<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="time_icon" style="color:red;"></div>
+	</body>
+
+<script>
+$(document).ready(function(){
+	var myDate=GMTToStr(Date());//得到的结果是2012-10-12 22:37:33 
+	$("#time_icon").text(myDate);
+});
+
+function GMTToStr(time){
+    var date = new Date(time)
+    var Str=date.getFullYear() + '-' +
+    (date.getMonth() + 1) + '-' + 
+    date.getDate() + ' ' + 
+    date.getHours() + ':' + 
+    date.getMinutes() + ':' + 
+    date.getSeconds()
+    return Str
+}
+
+</script>
+</html>
