@@ -1,0 +1,373 @@
+/* 
+=============================================== 
+Table Of Content
+=============================================== 
+
+1. Global CSS HTML
+  1.1 Heading
+  1.2 Default Ul li
+  1.3 Button
+  1.4 Default Image Selection
+  1.5 Button
+  1.6 Normal Heading and Padding
+  1.7 Mixing Form and Image
+  1.8 Line
+
+-------------------------------------------- */
+/* 
+=============================================== 
+1. Global CSS HTML
+===============================================
+*/
+.normal-heading {
+  margin: 0 auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.mar-top-10 {
+  margin-top: 10px;
+}
+.mar-top-20 {
+  margin-top: 20px;
+}
+.mar-right-10 {
+  margin-right: 10px;
+}
+.mar-left-10 {
+  margin-left: 10px;
+}
+.mar-btm-0 {
+  margin-bottom: 0;
+}
+.mar-btm-10 {
+  margin-bottom: 10px;
+}
+.mar-btm-20 {
+  margin-bottom: 20px;
+}
+.no-pad-right {
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .no-pad-right {
+    padding-right: 0;
+  }
+}
+.no-pad-left {
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .no-pad-left {
+    padding-left: 0;
+  }
+}
+.pad-top-150 {
+  padding-top: 150px;
+}
+.pad-top-10 {
+  padding-top: 10px;
+}
+.pad-btm-10 {
+  padding-bottom: 10px;
+}
+.img-cake-center {
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .img-cake-center-res {
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .img-full-sm {
+    width: auto;
+  }
+}
+@media (min-width: 768px) {
+  .img-full-sm {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .img-full-sm {
+    width: auto;
+  }
+}
+.lpurple {
+  color: #e6c9ff;
+}
+.purple-color {
+  color: #a593c2;
+}
+.dpurple-color {
+  color: #9a70bf;
+}
+.green-color {
+  color: #23cfa7;
+}
+.orange-color {
+  color: #ffbb63;
+}
+.blue-color {
+  color: #59d4f0;
+}
+.pink-color {
+  color: #fba1a1;
+}
+.grey-color {
+  color: #a1a2a6;
+}
+.btn:focus {
+  outline: 0;
+  color: #ffffff;
+}
+.btn-inline {
+  display: inline-block;
+}
+.btn-pink-cake {
+  background-color: #fba1a1;
+  text-transform: uppercase;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.btn-pink-cake:hover {
+  color: #ffffff;
+  background-color: #f97070;
+}
+.btn-grey-cake {
+  background-color: #a1a2a6;
+  text-transform: uppercase;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.btn-grey-cake:hover {
+  color: #ffffff;
+  background-color: #87888d;
+}
+.btn-blue-cake {
+  background-color: #59d4f0;
+  text-transform: uppercase;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.btn-blue-cake:hover {
+  color: #ffffff;
+  background-color: #2ac8ec;
+}
+.btn-orange-cake {
+  background-color: #ffbb63;
+  text-transform: uppercase;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.btn-orange-cake:hover {
+  color: #ffffff;
+  background-color: #ffa530;
+}
+.form-control-custom {
+  color: #a1a2a6;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+.form-control-custom:focus {
+  border: solid 1px #fba1a1;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+body {
+  font-family: 'latoregular';
+  background-color: #f4f3ef;
+  color: #a1a2a6;
+}
+/* 
+=============================================== 
+1.1 Heading
+===============================================
+*/
+h1 {
+  font-family: 'montserratbold';
+  font-size: 40px;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+h2 {
+  font-family: 'moon_flower_boldregular';
+  font-size: 40px;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 50px;
+  }
+}
+h3 {
+  font-family: 'latoregular';
+}
+/* 
+=============================================== 
+1.2 Default Ul li 
+===============================================
+*/
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* 
+=============================================== 
+1.3 Default Link Selection 
+===============================================
+*/
+a {
+  color: #59d4f0;
+}
+a:hover {
+  color: #2ac8ec;
+}
+/* 
+=============================================== 
+1.4 Default Image Selection
+===============================================
+*/
+/* 
+=============================================== 
+1.5 Button
+===============================================
+*/
+.button-d-cake {
+  padding: 10px 30px;
+  font-family: 'montserratbold';
+  font-size: 18px;
+  text-transform: uppercase;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: transparent;
+}
+.button-d-cake.blue-button-cake {
+  background-color: #59d4f0;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.button-d-cake.blue-button-cake:hover {
+  background-color: #0f86a1;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.button-d-cake.pink-button-cake {
+  background-color: #f8d4d3;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.button-d-cake.pink-button-cake:hover {
+  background-color: #e3534f;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.button-d-cake.orange-button-cake {
+  background-color: #ffcb88;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.button-d-cake.orange-button-cake:hover {
+  background-color: #ee8600;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+/* 
+=============================================== 
+1.6 Normal Heading and Padding
+===============================================
+*/
+.normal-heading {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.pad-top-0i {
+  padding-top: 0 !important;
+}
+.text-table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.text-table p {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.pad-md-100 {
+  padding: 0 50px;
+}
+@media (min-width: 992px) {
+  .pad-md-100 {
+    padding: 0 100px;
+  }
+}
+/* 
+=============================================== 
+1.7 Mixing Form and Image
+===============================================
+*/
+.form-cake {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+.img-100 {
+  width: 100%;
+}
+.top-relative {
+  position: relative;
+}
+.img-100px {
+  width: 100px;
+}
+.img-150px {
+  width: 150px;
+}
+/* 
+=============================================== 
+1.8 Line
+===============================================
+*/
+.top-dashed {
+  border-top: 1px dashed #a1a2a6;
+}
