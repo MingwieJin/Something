@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>	
+<style>
+.clear{
+	clear:both;
+}
+.container{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	border:1px solid #ddd;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+.text{
+	font-size: 18px;
+	color:#666;
+	text-align: center;
+	float:left;
+	border-bottom: 3px solid #15C9FE;	
+	padding: 20px;
+	width:120px;
+}
+.btn-1{
+	margin:20px;
+	float:left;
+	border:1px solid #ddd;
+	color:#ddd;
+	width:48px;
+	text-align: center;
+}
+.btn-2{
+	margin:20px;
+	float:left;
+	border:1px solid #ddd;
+	color:#ddd;
+	width:48px;
+	text-align: center;
+}
+.active{
+	border:1px solid #15C9FE;
+	color:#15C9FE;
+}
+</style>
+	</head>
+	<body>
+		
+		
+<div class="container">
+	<div class="text">节点名称</div>
+	<div class="btn-1">新建</div>
+	<div class="btn-2">删除</div>
+	<div class="clear"></div>
+</div>
+
+<script>
+//	加active
+	$(".btn-1, .btn-2").click(function(){
+	  $(this).parent().children().removeClass("active");
+	  $(this).addClass("active");
+	});
+//	btn-1点击事件
+	$(".btn-1").click(function(){
+		alert("新建");
+	});
+//	btn-2点击事件
+	$(".btn-2").click(function(){
+		alert("删除");
+	});
+</script>
+	</body>
+</html>

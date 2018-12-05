@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>	
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		
 		
 <style>	
@@ -24,20 +26,287 @@ a, a:focus, a:hover{
 }
 /*banner结束*/
 
+/*介绍*/
+.up-introduction{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 100px 0;
+}
+.up-title{
+	font-size: 28px;
+	color:#333;
+	text-align: center;
+}
+.up-sub-title{
+	font-size: 16px;
+	color:#666;
+	text-align: center;
+	margin-top: 25px;
+}
+.divider{
+	border-bottom: 1px solid #DDDDDD;
+	margin:30px 0;
+	position: relative;
+}
+.divider-inner{
+	position: absolute;	
+	left: 0;
+	right:0;
+	margin: 0 auto;
+	bottom: -3px;
+	width:120px;
+	border-top: 3px solid #15C9FE;
+	border-bottom: 3px solid #15C9FE;
+}
+.intro-content{
+	font-size:16px;
+	line-height: 31px;
+	color:#666;
+}
+.intro-img{
+	width:100%;
+}
+.intro-img img{
+	display: block;
+	width:auto;
+	height:auto;
+	margin: 55px auto 100px auto;
+}
+/*介绍结束*/
+/*数据管理策略*/
+.divider2{
+	margin-bottom: 0;
+}
+.stra-outer{
+	width:100%;
+	background: #F7F8FA;
+}
+.stra-inner{
+	width:100%;
+	max-width:1255px;
+	margin:0 auto;
+	padding-top: 30px;
+}
+.inner-left{
+	font-size:28px;
+	color:#333;
+	text-align: center;
+	 display: inline-block;
+	vertical-align: middle;
+}
+@media screen and (max-width: 760px) {.inner-left{width:100%;}.inner-right{width:80%;margin: 0 auto;}}
+@media screen and (min-width: 760px) {
+	.stra-inner{
+		position:relative;
+	}
+	.inner-left{
+		position:absolute;
+		top:50%;
+		left:5%;
+		-webkit-transform:translate(-50%,-50%);
+		transform: translate(-50%, -50%);
+	}
+	.inner-right{
+		width:88%;
+		margin-left: 12%;
+	}
+}
+.right-row{
+	padding: 0 55px;
+	margin-bottom: 50px;
+}
+.right-img{
+	width:100%;
+}
+.right-img img{
+	width:auto;
+	height:auto;
+	display: block;
+	margin: 0 auto;
+}
+.right-title{
+	color:#3B6CAE;
+	margin:15px 0 5px 0;
+	font-size: 18px;
+	text-align: center;
+	width:100%;
+}
+.right-content{
+	font-size:16px;
+	line-height: 31px;
+	color:#666;
+}
+.clear{
+	clear:both;
+}
+/*数据管理策略*/
+/*数据访问*/
+/*数据访问结束*/
+/*云端策略*/
+.up-cloud{
+	background: #F7F8FA;
+}
+/*云端策略结束*/
 </style>		
 </head>
 
 <body>
 <!--banner开始-->		
 <div class="up-banner">
-	<img src="img/up-back.jpg"/>
+	<img src="img/up_01.gif"/>
 </div>
 <!--banner结束-->
+<!--介绍-->
+<div class="up-introduction">
+	<div class="up-title">i2UP统一数据管理平台</div>
+	<div class="up-sub-title">United Data Management Platform</div>
+	<div class="divider"><div class="divider-inner"></div></div>
+	<div class="intro-content">
+		随着数字化、信息化技术的不断发展及广泛应用，数据已经成为了组织的核心资产，但一些分散的、孤立的数据并没有得到有效利用，导致整个IT系统进一步的臃肿和复杂。</br>
+		为了解决这些数据管理难题，英方推出统一数据管理平台（i2UP）。i2UP包含了针对物理机、虚拟化及云端环境的数据监控、灾备、迁移、同步、分发、共享、集成、治理，归档等多维度大数据管理功能。可帮助客户实现高效率、智能化的数据管理工作，使一个软件操作界面，全面掌握企业信息生命线。
+	</div>
+	<div class="intro-img"><img src="img/up_02.gif"/></div>
+</div>
+<!--介绍结束-->
 
+<!--数据管理策略-->
+<div class="up-strategy">
+	<div class="up-title">i2UP数据管理策略：</div>
+	<div class="up-sub-title">i2up采用一体化的管理软件，实现包括数据收集、数据访问以及云端数据。</div>
+	<div class="divider divider2"><div class="divider-inner"></div></div>	
+	<div class="stra-outer">
+		<div class="stra-inner">
+			<div class="inner-left">数据收集</div>
+			<div class="inner-right">
+				<div class="right-row col-md-4">
+					<div class="right-img"><img src="img/up_03.gif"/></div>
+					<div class="right-title">实时灾备</div>
+					<div class="right-content">数据实时复制，跨平台、跨区域数据灾备，统一管理本地与云端数据资源</div>
+				</div>
+				
+				<div class="right-row col-md-4">
+					<div class="right-img"><img src="img/up_04.gif"/></div>
+					<div class="right-title">持续数据保护</div>
+					<div class="right-content">细颗粒度的数据持续保护，可恢复至任意里是时间点</div>
+				</div>
+				
+				<div class="right-row col-md-4">
+					<div class="right-img"><img src="img/up_05.gif"/></div>
+					<div class="right-title">在线热迁移</div>
+					<div class="right-content">生产业务不间断情况下对系统的整体迁移</div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="right-row col-md-4" style="margin-bottom: 15px;">
+					<div class="right-img"><img src="img/up_06.gif"/></div>
+					<div class="right-title">全服务器备份</div>
+					<div class="right-content">对于Windows / Linux全服务器进行备份，适用于系统的系统备份、视同升级前的保护、整个视同级别的不停机迁移等场景。</div>
+				</div>
+				
+				<div class="right-row col-md-4">
+					<div class="right-img"><img src="img/up_07.gif"/></div>
+					<div class="right-title">应用高可用</div>
+					<div class="right-content">在本地/异地/云端各类应用业务系统的高可用保护，可自动速切换及分组切换</div>
+				</div>
+				
+				<div class="right-row col-md-4">
+					<div class="right-img"><img src="img/up_08.gif"/></div>
+					<div class="right-title">数据定时备份</div>
+					<div class="right-content">各类结构化数据、非结构化数据及虚拟机的定时备份</div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="right-row col-md-4">
+					<div class="right-img"><img src="img/up_09.gif"/></div>
+					<div class="right-title">数据安全加密</div>
+					<div class="right-content">多层级权限管理及审计，防止非法访问，数据传输过程中进行加密，保证数据安全</div>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>	
+</div>
+<!--数据管理策略-->
 
+<!--数据访问-->
+<div class="up-data-access">
+	<div class="stra-inner">
+		<div class="inner-left">数据访问</div>
+		<div class="inner-right">
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_10.gif"/></div>
+				<div class="right-title">结构化数据同步</div>
+				<div class="right-content">在复杂环境下实现结构化数据提取、同步、分发、容灾及主库任务分摊等。</div>
+			</div>
+			
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_11.gif"/></div>
+				<div class="right-title">数据流分支管理</div>
+				<div class="right-content">实现结构化数据的提取、复制、管理等，兼容Kafka消息队列，支持异构数据库及大数据平台之间的快速数据同步、转化等管理。</div>
+			</div>
+			
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_12.gif"/></div>
+				<div class="right-title">大数据备份</div>
+				<div class="right-content">大数据平台数据实时备份，支持多并发数据导出、数据加载及高效传输。</div>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>	
+<!--数据访问结束-->
+
+<!--云端策略-->
+<div class="up-cloud">
+	<div class="stra-inner">
+		<div class="inner-left">数据访问</div>
+		<div class="inner-right">
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_13.gif"/></div>
+				<div class="right-title">API</div>
+				<div class="right-content">开放的API接口，实现云端及其他第三方环境的兼容及对接。</div>
+			</div>
+			
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_14.gif"/></div>
+				<div class="right-title">REST/命令行</div>
+				<div class="right-content">可通过REST或命令行的方式访问i2UP，用于应用程序的二次开发。</div>
+			</div>
+			
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_15.gif"/></div>
+				<div class="right-title">多租户</div>
+				<div class="right-content">Web页面管理：通过web端的远程管理，对数据及业务系统进行虚拟机屋里管理、状态浏览、备份/恢复、运行报告分析等相关管理。</div>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_16.png"/></div>
+				<div class="right-title">服务自动化</div>
+				<div class="right-content">通过将产品嵌入到服务目录和编排工具中，实现服务交付自动化和集成管理</div>
+			</div>
+			
+			<div class="right-row col-md-4">
+				<div class="right-img"><img src="img/up_17.gif"/></div>
+				<div class="right-title">可视化控制管理</div>
+				<div class="right-content">可视化的Web端界面，实现数据的全局可见与可控 ，实现全局化管理</div>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>	
+<!--云端策略-->
 	
 
 
+<script>
 </script>
 </body>
 </html>
