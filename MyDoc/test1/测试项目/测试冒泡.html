@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+				<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+            <li>item6</li>
+        </ul>
+        
+        
+ <script>
+
+$("ul").on("mouseover",function(e){
+    $(e.target).css("background-color","#ddd").siblings().css("background-color","white");
+})
+ </script>
+	</body>
+</html>
