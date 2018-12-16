@@ -17,6 +17,16 @@
         
         
  <script>
+// 	<BODY onclick="alert('aaa');">
+//<div onclick="alert('bbb');">
+// <a href="#" class="cooltip" title="这是我的超链接提示1。" onclick="alert('ddd');">
+// 提示
+//</a>
+//</div>
+//</BODY>
+ 	
+// 	上面这段代码一共有三个事件,body，div，a都分别绑定了单击事件。
+// 	在页面中当单击a标签会连续弹出3个提示框。这就是事件冒泡引起的现象。事件冒 泡的过程是：a --> div --> body 。a冒泡到div冒泡到body。
 
 $("ul").on("mouseover",function(e){
     $(e.target).css("background-color","#ddd").siblings().css("background-color","white");

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<script>
+	//给数组原型增加一个打乱数组的函数
+Array.prototype.shuffle=function(){
+var value = this.valueOf(),len = this.length,temp,key;
+while(len--){
+//随机生成数组的下标
+key = Math.floor(Math.random()*len);
+//temp为中间交换变量
+temp = value[key];
+value[key] = value[len];
+value[len] = temp;
+}
+return value;
+}
+var arr1 = [0,1,2,3,4,5,6,7,8,9];
+var arr2 = ['a','b','c','d','e','f'];    
+console.log(arr1.shuffle());
+console.log(arr2.shuffle());
+
+
+
+
+//在本例中，我们将展示如何使用 prototype 属性来向对象添加属性：
+function employee(name,job,born)
+{
+this.name=name;
+this.job=job;
+this.born=born;
+}
+
+var bill=new employee("Bill Gates","Engineer",1985);
+
+employee.prototype.salary=null;
+bill.salary=20000;
+
+document.write(bill.salary);
+</script>
+	</body>
+</html>

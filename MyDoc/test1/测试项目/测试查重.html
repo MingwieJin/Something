@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+						<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+<script>
+//Array.prototype.unique1 = function(){
+// var res = [this[0]];
+// for(var i = 1; i < this.length; i++){
+//var repeat = false;
+//for(var j = 0; j < res.length; j++){
+// if(this[i] == res[j]){
+//  repeat = true;
+//  break;
+// }
+//}
+//if(!repeat){
+// res.push(this[i]);
+//}
+// }
+// return res;
+//}
+//var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
+//alert(arr.unique1());
+
+
+var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
+var arr2 = [];
+//arr2[0] = arr[0];
+for(var i= 0; i<arr.length; i++){
+	var flag=false;
+	for(var j=0; j<arr2.length; j++){
+		if(arr2[j]==arr[i]){
+			flag=true;
+			break;
+		}
+	}
+	if(!flag){
+		arr2.push(arr[i]);
+	}
+}
+
+alert(arr2);
+
+
+//Array.prototype.unique3 = function(){
+// var res = [];
+// var json = {};
+// for(var i = 0; i < this.length; i++){
+//if(!json[this[i]]){
+// res.push(this[i]);
+// json[this[i]] = 1;
+//}
+// }
+// return res;
+//}
+//var arr = [112,112,34,'你好',112,112,34,'你好','str','str1'];
+//alert(arr.unique3());
+
+
+
+//一个函数重复元素的数组
+//var arr2 = [112,112,34,'你好',112,112,34,'你好','str','str1'];
+//var arr_new = [];
+//for(var i=0; i<arr2.length; i++){
+//	if($.inArray(arr2[i], arr_new)==-1){
+//		arr_new.push(arr2[i]);
+//	}
+//}
+//alert(arr_new);
+
+
+
+</script>
+	</body>
+</html>

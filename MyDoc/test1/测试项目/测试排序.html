@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<script>
+//	按照首字母(或者首位数字)排序：
+var fruits = ["Banana", "Orange", "Apple", "Mango", 333, 222, 0];
+fruits.sort();
+console.log(fruits);
+
+var points1 = [40,100,1,5,25,10];
+points1.sort();
+console.log(points1);
+
+	
+//	数字排序（数字升序）：
+var points = [40,100,1,5,25,10];
+points.sort(function(a,b){return a-b});
+console.log(points);
+
+//	数字排序（数字降序）：
+var points3 = [40,100,1,5,25,10];
+points3.sort(function(a,b){return b-a});
+console.log(points3);
+
+//首字母反序位
+var fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+fruits2.sort();
+fruits2.reverse();
+console.log(fruits2);
+
+</script>
+	</body>
+</html>
