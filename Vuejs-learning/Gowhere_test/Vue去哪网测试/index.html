@@ -8,26 +8,41 @@
 		<script src="vue.js"></script>
 	</head>
 	<body>
-		<div id="app">
+		<div id="main_todolist">
 			<input type="text" v-model="inputValue"/>
 			<button v-on:click="buttonclick">提交</button>
 			<ul>
-				<li v-for="item in list">{{item}}</li>
+				<!--<li v-for="item in list">{{item}}</li>-->
+				<todoitem v-bind:content="item" v-for="item in list"></todoitem>
 			</ul>
 		</div>
 		
 		<script>
 			
+//			全局组件
+//			Vue.component("todoitem", {
+//				props:['content'],
+//				template:"<li>{{content}}</li>"
+//			})
+			
+//			vue实例
 			var app = new Vue({
-				el:"#app",
+				el:"#main_todolist",
 				data:{
 					list:[],
 					inputValue:''
 				},
 				methods:{
-					buttonclick:function(){
+					buttonclick:function(){//点击事件function
 						this.list.push(this.inputValue);
 						this.inputValue = ""
+					}
+				},
+				//组件
+				components:{
+					todoitem:{
+						props:['content'],
+						template:"<li>{{content}}</li>"						
 					}
 				}
 			})
