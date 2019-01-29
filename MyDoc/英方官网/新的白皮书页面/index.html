@@ -2,6 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="0">
 		<title></title>
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -72,6 +75,7 @@ body { margin:0px;padding:0px;}
 	text-align: center;
 	margin: -90px auto 10px auto;
 }
+.pre_img img{display:block;margin:auto;}
 @media screen and (max-width:992px) {.pre_row{margin:110px auto;}}
 
 .pre_img_sub{
@@ -135,6 +139,11 @@ body { margin:0px;padding:0px;}
     -webkit-box-orient: vertical;
     cursor: pointer;
 }
+@media screen and (min-width: 1200px) {
+.carousel_row_lg{height:360px}	
+.carousel_row_lg .sugg_content{-webkit-line-clamp: 12;}	
+}
+@media screen and (max-width: 1199px) {.carousel_row_lg .sugg_content{-webkit-line-clamp: 8;}}
 .sugg_sub_content{
 	margin-top: 20px;
 	text-align: right;
@@ -247,7 +256,23 @@ body { margin:0px;padding:0px;}
 	font-size: 40px;
 	margin-top: 35px;
 }
-
+.bottom_words_sub{
+	color:#fff;
+	font-size: 28px;
+	text-align: center;
+	margin-top: 10px;
+}
+@media screen and (max-width:992px) {
+	.bottom_content{
+		width:100%;
+	}
+	.bottom_words, .bottom_words_sub{
+		display: none;
+	}
+	.bottom_content img{
+		max-width: 40%;
+	}
+}
 
 /*底部弹窗banner结束*/
 /*弹窗*/
@@ -332,12 +357,15 @@ body { margin:0px;padding:0px;}
 }
 .error-input::-webkit-input-placeholder{ /*WebKit browsers*/
 color: red;
+font-size:16px;
 }
 .error-input::-moz-input-placeholder{ /*Mozilla Firefox*/
 color: red;
+font-size:16px;
 }
 .error-input::-ms-input-placeholder{ /*Internet Explorer*/ 
 color: red;
+font-size:16px;
 }
 #codeT{
 	width:100px;
@@ -347,6 +375,7 @@ color: red;
     font-size: 14px;
     color:#666;	
     display: inline-block;
+    vertical-align: middle;
 }
 #inputsubmit, .showcontent_button{
 height:36px; 
@@ -398,6 +427,7 @@ border-radius:20px;
 	text-align: right;
 	margin-bottom: 24px;
 }
+
 /*弹窗结束*/
 
 </style>		
@@ -422,29 +452,29 @@ border-radius:20px;
 					<div class="pre_img_sub">华东理工大学计算机技术研究所信息安全研究室主任</div>
 					<div class="pre_content_title">打造信息系统的“诺亚方舟”</div>
 					<div class="pre_content_word">现代信息和网络技术的发展和普及对社会的产业结构、生产活动方式、管理决策等诸方面产生了深远的影响，云计算、大数据、区块链和人工智能等信息产业成为推动中国经济增长的强大引擎，“互联网 +”已成为创新驱动下的互联网发展新业态，推动经济形态不断地发生演变，从而带动社会经济实体的生命力，为改革、创新、发展提供广阔的网络平台。<br>信息系统是企业和组织运营的基础平台 , 数据则是关系到自身利益的核心资源，信息化时代的工业生产、企业管理、社会治理和和人员交流需要 IT 基础设施和业务系统提供强有力的支撑。以电商平台为例，业务系统的停机不仅会中止交易，损坏数据，给企业带来重大损失，还会影响用户体验，导致用户流失；在高校，多媒体教学、校园管理、科研实验、各种校园活动等都离不开信息系统的支持，一旦出现问题，将导致学生不能选课、教学中断，科研实验数据丢失，给后续工作带来严重影响。因此，业务连续性和数据可用性关系到企业生存、社会治理、教育发展等方方面面，保证信息系统数据和业务安全，为企业和组织的运营提供连续性服务显得至关重要。<br>随着信息化上升为国家战略，国家对于信息安全防护和保障越来越重视，并将“信息安全”纳入总体国家安全观，越来越多的个人和单位逐渐意识到建设信息系统安全保障体系的紧迫性和必要性，正所谓：“居安思危，思则有备，有备无患”。<br>作为一个教育工作者，30 多年来我一直从事网络信息系统安全教育和管理工作，见证了很多信息系统的灾难事件，也参与了多个行业灾备系统的规划、设计、评审和建设工作，深深体会到灾备建设对保障企业信息系统安全和业务的重要性。英方公司作为一家专注于数据安全及业务连续性管理领域的科技企业，注重总结多行业灾备建设实践和管理经验，在数据安全和业务连续性领域展现出了强大的自主创新能力，能为各行业用户提供可靠的技术保障服务，英方公司成熟的灾备技术产品、完善的灾备保障体系可为信息系统打造坚固的“诺亚方舟”。<br>灾备是利用 IT 技术对信息系统的数据和应用程序进行保护，确保系统遭受灾难时数据的安全，为业务连续性和数据可用性提供重要保障。这本白皮书从灾备的概念、规范和案例等不同角度介绍了灾备的技术知识、实施方案及应用成果，涵盖了几乎所有的灾备系统架构和技术方案，内容全面，技术专业，通俗易懂；既能作为初学者的“引路人”，也能成为管理人员的“技术手册”，这样的白皮书并不多见。英方公司花费大量人力物力编写灾备行业白皮书，并无私地将其一线工程师在行业实践上取得的重要成果与广大 IT 从业人员和灾备技术人员分享，也体现了英方公司“未雨绸缪，防患未然，让世界早有准备”的初心与使命。</div>
-					<div class="pre_content_button"><a href="javascript:void(0);"><img src="img/button1.png"/></a></div>
+					<div class="pre_content_button"><a href="http://www.info2soft.com/5472.html"><img src="img/button1.png"/></a></div>
 				</div>
 			</div>
 			
-						<div class="pre_row col-md-4 col-sm-6">
+			<div class="pre_row col-md-4 col-sm-6">
 				<div class="pre_row_inner">
 					<div class="pre_img"><img src="img/re2.png"/></div>
 					<div class="pre_img_sub">胡军擎</div>
 					<div class="pre_img_sub">上海英方软件股份有限公司 CEO</div>
 					<div class="pre_content_title">让世界早有准备！</div>
 					<div class="pre_content_word">当今世界，以互联网产业化、工业智能化和工业一体化为代表的第四次工业革命已经悄然到来。在这个进程中，全新的技术革命带来数据信息瞬息万变的交汇、管理和利用，并普惠社会的方方面面。<br>中国是这场技术革命的参与者和引领者之一，中国政府从“互联网 +”到“中国制造2025”，与时俱进地为全行业指明了未来发展的方向。中国高铁、移动支付、量子通信、北斗导航等一张张响彻世界的中国名片，是产业信息化带来的生产效益和经济效益快速提升的必然结果。在这些宏大的产业信息化领域，越来越多的人和单位已经意识到，信息安全保障体系的作用非常关键。为此，中国政府已经将信息安全的工作提升到国家战略高度，并制定相关的法律法规贯彻下去。<br>灾备，被誉为企业信息安全的最后一道防线，是新时代产业信息化运营的保障体系之一。它的终极目标是确保组织单位的数据不丢，业务不停，在规定的时间内持续、稳定地对外提供服务。我觉得，这也是英方的价值所在。今天，英方已经能够为客户快速找回丢失的数据，能够让用户的业务永续，并在操作的过程中，摒弃了以往传统容灾备份诸多的不确定性，让整个灾备的运维体系更加便捷、智能、安全和经济。<br>这一切离不开信息技术日新月异对行业带来的利好。英方作为一家长期专注于容灾及业务高可用领域的高新科技企业，时刻关注着灾备领域国内外的最新动态，并在长期的灾备建设实践中总结了很多宝贵的实战经验。<br>这本白皮书是我们全国各地一线工程师厚积薄发的工作成果，特别是在行业实践方面，本书非常详细地阐述了八个主要行业的灾备情况，希望能够给大家带来启迪，同时也希望大家多提宝贵意见，共同服务行业的健康发展。<br>未雨绸缪，防患未然，让世界早有准备！这是英方人的使命。我们深知抵达这一使命的艰辛与不易，但这并不能撼动我们将灾备事业进行到底的决心。板凳要坐十年冷，在软件这个高科技行业，在过去，中国企业长期处于模仿学习的阶段，但是随着中国全球发展战略的提速，核心软件技术国产化，我们正处于迈向弯道超车的绝佳黄金时期。<br>一个民族有一群仰望星空的人，这个民族才有希望。今天，构建高效的 IT 资产保护体系，服务全球客户，英方人的愿景正在一步步的实现。</div>
-					<div class="pre_content_button"><a href="javascript:void(0);"><img src="img/button1.png"/></a></div>
+					<div class="pre_content_button"><a href="http://www.info2soft.com/5474.html"><img src="img/button1.png"/></a></div>
 				</div>
 			</div>
 			
-						<div class="pre_row col-md-4 col-sm-6">
+			<div class="pre_row col-md-4 col-sm-6">
 				<div class="pre_row_inner">
 					<div class="pre_img"><img src="img/re3.png"/></div>
 					<div class="pre_img_sub">于天</div>
 					<div class="pre_img_sub">国际灾难恢复协会中国分会总裁</div>
 					<div class="pre_content_title">未雨绸缪，有备无患</div>
 					<div class="pre_content_word">中国互联网应用技术的日新月异，正在加速以互联网商业为中心的生态圈建设。企业为了能够全天候不间断地为用户提供服务，必须保障其购物网站稳定可靠地运行，尤其是在每年一度的“双 11”购物疯狂节期间，企业更是必须确保其电商网站对外服务的连续性。因此，业务连续性管理已受到越来越多包括电商在内的企业的高度重视。<br>近十年来，虽然业务连续性管理已在中国的金融、电信等大型企业得到越来越多的应用，但其应用范围仍局限在少数关键领域，其他更多的行业对其认知度还不够高，还没有认识到业务连续性管理与其生存和发展的紧密关系。<br>事实上，在很多重大的灾难事件中，比如“汶川地震、911 恐怖袭击、卡特里娜飓风”等，由于许多企业没有建立业务连续性管理体系和制定业务连续性计划，遭受了无法挽回的重大损失。<br>另一方面，随着中国社会信息化指数的不断提升，云计算、大数据、人工智能等前沿科技的蓬勃发展，给人类生活和生产带来诸多便利的同时，也遭受越来越多的网络攻击、勒索病毒、钓鱼软件等日益猖獗的威胁。如何确保组织的信息安全及业务连续性，使组织从容应对各种大灾小难，是大多数企业共同面临的挑战。<br>而灾难恢复（灾备）在实现组织业务连续性目标中又起着至关重要的作用，因此，研究探讨灾备技术的发展，总结各种实用有效的灾备方案及其实施经验，供各行各业的相关从业人员在实践中加以参考，就是件非常有意义的事。英方公司作为中国灾备领域的长期实践者，能够投入如此多的时间，组织许多经验丰富的专家将自己长期在各行业灾备项目实践中积累的宝贵知识和心得总结出来，并编写成灾备技术白皮书无私地分享出来，实在是难能可贵。<br>国际灾难恢复协会（DRI International）是一个非营利的学术机构，其致力于通过专业的培训活动来推广有关业务连续性和灾难恢复的知识，并对个人进行有关 BC/DR 领域国际权威的从业资格认证。<br>作为国际灾难恢复协会中国分会（DRI China）的负责人，我多年来有幸参与和见证了中国各行各业的灾备建设与发展，并从业务连续性管理角度为许多企业的灾备建设提供了自己的建议，帮助企业理解业务连续性管理方法对灾备建设的重要指导意义。尤其是很高兴能与像英方这样的专注于灾备产品开发和服务并掌握核心灾备技术的专业公司合作，共同在各行业推广业务连续性管理和灾备技术的知识和应用，帮助各企业做好应对各种突发事件的准备，确保企业具备抵抗任何灾害袭击的能力，正所谓“未雨绸缪，有备无患”。这本汇集各方专家见解的灾备技术白皮书涵盖的内容很全面，涉及的技术很专业。据我所知，中国目前像这样全面系统地论述灾备技术专业资料并不多见，免费公开的就更少。英方公司从 2016 年起就一直坚持不懈地花费大量时间组织多方专家编写中国灾备技术白皮书，并无私地供广大灾备从业者分享，确实体现了英方公司作为灾备行业领先者的应有担当。</div>
-					<div class="pre_content_button"><a href="javascript:void(0);"><img src="img/button1.png"/></a></div>
+					<div class="pre_content_button"><a href="http://www.info2soft.com/5476.html"><img src="img/button1.png"/></a></div>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -462,11 +492,34 @@ border-radius:20px;
 		<div class="sugg_container">
 			<div class="owl-carousel" id="owl-carousel">
 		            <div class="slide-item">
-						<div class="carousel_row">
+						<div class="carousel_row carousel_row_lg" id="carousel_row_lg">
+							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
+								在我们可以预见的未来，数据安全行业将迎来迅猛发展，作为数据安全最后一道防线，灾备技术具有巨大的市场前景。当前，每个数据中心每一业务系统所关心的最主要问题就是业务如何连续运转的问题，这其中，既有业务模式方面的，也有系统支撑方面的，还有传输效率方面的，它们都属于灾备技术所需要考虑的问题。未来，每一个用户或服务提供商都需要考虑数据的重要级别、成本投入、系统兼容等方面的问题，这些问题的解决可以从这本白皮书中获得一些启发。
+							</div>
+							<div class="sugg_sub_content">——华中科技大学计算机学院院长<br>长江学者、国家杰青 冯丹</div>
+						</div>
+		            </div>
+		            <div class="slide-item">   	
+		            	<div class="carousel_row" id="carousel_row1">
 							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
 								这是我第三次收到英方所编著的灾备行业白皮书，也是第一次正式向大家推荐这本白皮书。与其说是白皮书，不如说这是一本灾备行业的解决方案指南，白皮书中关于灾备业务的设计、执行、演练等内容，不仅是对灾备行业，对其他的IT业务同样具有指导作用，此外，这本白皮书对已经制定了云端战略的企业以及像Oracle这样的云计算公司而言，也都是一本非常实用的书。
 							</div>
 							<div class="sugg_sub_content">——Oracle ISV&OEM事业部中国区总经理 李奔</div>
+						</div>
+						
+						<div class="carousel_row">
+							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
+								2016年51CTO作为独家发布平台第一次参与了英方这本白皮书的发布，并见证了英方及整个灾备行业这些年的发展。英方本次白皮书的发布，通过详实的解决方案和项目案例，进一步展现了不同行业目前的发展和未来的趋势。无疑，这是一本技术性的白皮书，也是一份有洞察性的白皮书，是整个灾备行业发展的重要路标。
+							</div>
+							<div class="sugg_sub_content">——51CTO传媒总裁 熊平</div>
+						</div>
+		            </div>
+		            <div class="slide-item">
+		            	<div class="carousel_row">
+							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
+								信息安全是当今各个行业面临的重大的问题之一，它关乎国家战略乃至全人类的命运。数据、系统、业务层面的灾备建设是信息安全的最后一道防线，已经成为所有信息系统中最重要的组成部分。如何来规划、建设以及采购适合自己的灾备系统，曾经困惑了许多单位的相关负责人。这本白皮书详细介绍了灾备的知识与技术、相应的标准与规范、灾备业务实施及服务质量评价、企业上云与云灾备的有关知识。特别是有针对性地介绍了不同行业灾备建设的特点及方案，为信息主管们提供了可靠的依据，是一个具有里程碑意义的文献。
+							</div>
+							<div class="sugg_sub_content">——焦作市人民医院信息科 古金鹏</div>
 						</div>
 						
 						<div class="carousel_row">
@@ -477,37 +530,38 @@ border-radius:20px;
 						</div>
 		            </div>
 		            <div class="slide-item">
-						<div class="carousel_row">
+		            	<div class="carousel_row">
 							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
-								2016年51CTO作为独家发布平台第一次参与了英方这本白皮书的发布，并见证了英方及整个灾备行业这些年的发展。英方本次白皮书的发布，通过详实的解决方案和项目案例，进一步展现了不同行业目前的发展和未来的趋势。无疑，这是一本技术性的白皮书，也是一份有洞察性的白皮书，是整个灾备行业发展的重要路标。
+								这是一本白皮书，同时也是一本教科书。在这本白皮书里，你将了解几十年的灾备历史、了解当下的灾备行业现状、洞察整个行业的未来趋势。这是一次集体智慧的结晶，是英方人不懈努力的成果。他们结合自己的实践经验，解答了很多关于灾备、关于数据管理的问题，为他们点赞。
 							</div>
-							<div class="sugg_sub_content">——51CTO传媒总裁 熊平</div>
+							<div class="sugg_sub_content">——山西医科大学第二医院信息管理处   柴国丽</div>
 						</div>
 						
 						<div class="carousel_row">
 							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
 								应英方之邀，为“2019年中国灾备行业白皮书”撰写一个推荐语。本着负责任的态度，仔细阅读了白皮书，其中，企业上云和行业解决方案带来了惊喜，也抓住了当今行业的热点和市场的核心。<br>毫无疑问，云计算的趋势不可阻挡，不论你是否喜欢和接受，云计算都是你必须要面对的问题。表面看来，企业上云，云化和灾备并不是一个维度的问题，二者之间的关系也不能够简化为云计算系统的灾备问题，更不能够简单理解为传统容灾保护技术的云化问题。<br>在云的环境中，数据保护，安全性、可靠性、稳定性的问题并没有随着云化而自然消失；在云环境中，仍然需要备份和容灾技术应用，其中，核心的还是数据的问题。而其中复制技术的应用是关键，这也是英方最擅长的技术。以这个技术作为保障，结合行业管理的需要和行业需求的特征，针对性行业解决方案真正做到了有的放矢，具有行业指导和借鉴的意义。<br>作为数十位专家心血的结晶，“2019年中国灾备行业白皮书”在专业性、知识性以及行业前瞻性方面具有代表性，也是行业用户、业内从业者不可或缺的有益的指南。更为难能可贵的是，灾备的问题已经不仅仅是备份、容灾的应用问题，实质也是数据的使用和管理问题，不管是数据备份、容灾到云，还是云计算应用的本地化保护问题，何尝不是混合云的应用和方法问题呢？至少是一个可以落地的开始。
 							</div>
-							<div class="sugg_sub_content">——存储在线（Dostor）总编宋家雨</div>
+							<div class="sugg_sub_content">——存储在线（Dostor）总编 宋家雨</div>
 						</div>
-		            </div>
+		            </div>	 
 		            <div class="slide-item">
-						<div class="carousel_row">
+		            	<div class="carousel_row">
 							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
-								和英方是老朋友了，当得知由英方编写的《2019中国灾备技术白皮书》即将发布，所以送上真诚的祝福。满满97页的干货，对于做文字工作的我来说，完全可以体会这其中包含多少辛劳，编写者要熬过多少个漫漫长夜。这样一本饱含诚意，兼具专业与实用性的白皮书，一定可以让灾备行业的专业人士受益匪浅，同时也是想对灾备行业有全盘性了解的人的理想选择。<br>从2016开始，英方已经连续第三年编写中国灾备技术白皮书，不仅内容越来越充实，而且具有前瞻性，这得益于英方多年的技术积累和实践经验的总结。从最早推出云灾备概念和服务开始，英方的专注与创新总能带来惊喜。就在前不久，英方发布了数据统一管理平台（i2UP），进一步扩展了灾备的外延，明确了“灾备将成为重要的数据管理平台”这一趋势。这与数据驱动业务的大方向完全吻合。<br>在数字化、智能化大行其道的今天，安全、业务连续性比以往任何时候都更重要。未雨绸缪，让世界早有准备，这不仅是灾备存在和持续发展的重要意义，也是英方的价值所在。
+								和英方是老朋友了，当得知由英方编写的《2019中国灾备技术白皮书》即将发布，所以送上真诚的祝福。满满97页的干货，对于做文字工作的我来说，完全可以体会这其中包含多少辛劳，编写者要熬过多少个漫漫长夜。这样一本饱含诚意，兼具专业与实用性的白皮书，一定可以让灾备行业的专业人士受益匪浅，同时也是想对灾备行业有全盘性了解的人的理想选择。<br><br>从2016开始，英方已经连续第三年编写中国灾备技术白皮书，不仅内容越来越充实，而且具有前瞻性，这得益于英方多年的技术积累和实践经验的总结。从最早推出云灾备概念和服务开始，英方的专注与创新总能带来惊喜。就在前不久，英方发布了数据统一管理平台（i2UP），进一步扩展了灾备的外延，明确了“灾备将成为重要的数据管理平台”这一趋势。这与数据驱动业务的大方向完全吻合。<br><br>在数字化、智能化大行其道的今天，安全、业务连续性比以往任何时候都更重要。未雨绸缪，让世界早有准备，这不仅是灾备存在和持续发展的重要意义，也是英方的价值所在。
 							</div>
-							<div class="sugg_sub_content">——《网络安全和信息化》杂志总编助理郭涛</div>
+							<div class="sugg_sub_content">——《网络安全和信息化》杂志总编助理 郭涛</div>
 						</div>
 						
 						<div class="carousel_row">
 							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
 								有幸拿到这份白皮书的抢鲜版，一口气读完108页的干货，这让我对灾备行业拥有了更全面的认知。<br>从基本概念到行业标准，再到技术流派、前瞻趋势，最可贵的是多个主流行业的灾备落地实践，涵盖了金融、政府、电信、医卫、教育、制造业……，这是一副灾备技术的全景图。<br>现阶段，灾备建设在整个IT建设中，往往变成“意识上重视、执行中忽视”的环节。IT事故虽是小概率事件，但一旦被“锅”砸中，就成为100%的灾难。随着IT技术成为企业生产力、数据成为企业核心资产，灾备的重要性会越来越凸显。<br>这个世界没有侥幸，我们能做的，就是“让世界早有准备”！
 							</div>
-							<div class="sugg_sub_content">——小黑羊</div>
+							<div class="sugg_sub_content">——知名自媒体人 小黑羊</div>
 						</div>
-		            </div>
+		            </div>	
+		            
 		            <div class="slide-item">
-						<div class="carousel_row">
+		            	<div class="carousel_row">
 							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
 								处于客户时代下的数字商业需要可靠、可预测的技术基础架构，而Disaster Recovery不仅是实现这一目标的关键支柱，也日益成为企业架构数据管理的重要考量。包括云原生、机器学习、边缘计算、区块链等新兴科技的快速发展不仅推动着灾备市场的持续演进，而且为企业技术决策者和实践者带来了新的挑战。此份白皮书从不同视角探讨了中国灾备行业的发展趋势与行业实践，是普及灾备知识、推广灾备理念的有益探索。
 							</div>
@@ -520,29 +574,14 @@ border-radius:20px;
 							</div>
 							<div class="sugg_sub_content">——企示录 张广彬</div>
 						</div>
-		            </div>	 
-		            <div class="slide-item">
-						<div class="carousel_row">
-							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
-								这是一本白皮书，同时也是一本教科书。在这本白皮书里，你将了解几十年的灾备历史、了解当下的灾备行业现状、洞察整个行业的未来趋势。这是一次集体智慧的结晶，是英方人不懈努力的成果。他们结合自己的实践经验，解答了很多关于灾备、关于数据管理的问题，为他们点赞。
-							</div>
-							<div class="sugg_sub_content">——山西医科大学第二医院信息管理处  柴国丽</div>
-						</div>
-						
-						<div class="carousel_row">
-							<div class="sugg_content" onClick="showcontent(this);" title="点击显示全部内容">
-								在我们可以预见的未来，数据安全行业将迎来迅猛发展，作为数据安全最后一道防线，灾备技术具有巨大的市场前景。当前，每个数据中心每一业务系统所关心的最主要问题就是业务如何连续运转的问题，这其中，既有业务模式方面的，也有系统支撑方面的，还有传输效率方面的，它们都属于灾备技术所需要考虑的问题。未来，每一个用户或服务提供商都需要考虑数据的重要级别、成本投入、系统兼容等方面的问题，这些问题的解决可以从这本白皮书中获得一些启发。
-							</div>
-							<div class="sugg_sub_content">——华中科技大学计算机学院院长 冯丹</div>
-						</div>
-		            </div>	
+		            </div>
 			</div>
 		</div>	
 		<div class="sugg_controller">
 			<div class="owl-prev1"><img src="img/arrow-left.png"/></div>
 			<div class="owl-next1"><img src="img/arrow-right.png"/></div>		
 		</div>
-		<div class="sugg_button"><a href="javascript:void(0);"><img src="img/button2.png"/></a></div>
+		<div class="sugg_button"><a href="http://www.info2soft.com/5478.html"><img src="img/button2.png"/></a></div>
 	</div>
 </div>
 </div>
@@ -607,8 +646,10 @@ border-radius:20px;
 <div class="bottom-banner">
 	<img class="bottom_bg" src="img/free.png"/>
 	<div class="bottom_content">
-		<img onClick="showPaper();" src="img/free_button.png"/>
-		<div class="bottom_words">2019中国灾备行业白皮书</div>
+		<img  onClick="showPaper();" src="img/free_button.png"/>
+		<img style="display: none;"  src="img/free_button1.png"/>
+		<div class="bottom_words">《2019中国灾备行业白皮书》</div>
+		<div class="bottom_words_sub">数量有限，先到先得</div>
 	</div>
 </div>
 <!--底部弹窗banner结束-->
@@ -687,8 +728,8 @@ $(function(){
 	        0: {
 	            items: 1,
 	           },
-	        700: {
-	            items: 1,
+	        600: {
+	            items: 2,
 	            },
 	       1000: {
 	            items: 3,
@@ -816,7 +857,7 @@ function hidePaper()  //去除隐藏层和弹出层
        // 根据后台返回值处理结果
 //  var j=$.parseJSON(text);
     if(text == 1) {
-        alert('提交成功');
+        alert('提交成功，我们会第一时间按照您填写的地址邮寄给您');
         $("#changecode").click();
 //      window.location.href="http://www.info2soft.com/pdf/web/viewer.php";
 		window.location.reload();
@@ -851,6 +892,17 @@ function hidecontent(){
    document.getElementById("hidebackground-paper").style.display="none";
    document.getElementById("showcontent").style.display="none";	
 }
+
+$(document).ready(function(){
+	var rowheight = $("#carousel_row1").height();
+	rowheight = 2*(rowheight+40)+20;
+	$(".carousel_row_lg").css("height", rowheight);
+});
+$(window).resize(function() {
+	var rowheight = $("#carousel_row1").height();
+	rowheight = 2*(rowheight+40)+20;
+	$(".carousel_row_lg").css("height", rowheight);
+});
 </script>
 
 </body>
