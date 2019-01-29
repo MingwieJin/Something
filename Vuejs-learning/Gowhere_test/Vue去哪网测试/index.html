@@ -13,7 +13,17 @@
 			<button v-on:click="buttonclick">提交</button>
 			<ul>
 				<!--<li v-for="item in list">{{item}}</li>-->
-				<todoitem v-bind:content="item" v-for="item in list"></todoitem>
+				<todoitem v-bind:content="item" 
+						  v-bind:index="index"
+						  v-for="(item, index) in list"
+						  @delete = "lidelete">
+				</todoitem>
+			</ul>
+			<div>已完成的list</div>
+			<ul>
+				<todofinish v-for="(value, index) in finishlist"
+							v-bind:content="value">				
+				</todofinish>
 			</ul>
 		</div>
 		
@@ -30,19 +40,33 @@
 				el:"#main_todolist",
 				data:{
 					list:[],
+					finishlist:[],
 					inputValue:''
 				},
 				methods:{
 					buttonclick:function(){//点击事件function
 						this.list.push(this.inputValue);
 						this.inputValue = ""
+					},
+					lidelete:function(index){
+						this.finishlist.push(this.list[index]);
+						this.list.splice(index,1)					
 					}
 				},
 				//组件
 				components:{
 					todoitem:{
+						props:['content', 'index'],
+						template:"<li @click = 'clickli'>{{content}}</li>",
+						methods:{
+							clickli:function(){
+								this.$emit("delete", this.index);
+							}
+						}
+					},
+					todofinish:{
 						props:['content'],
-						template:"<li>{{content}}</li>"						
+						template:"<li>{{content}}</li>",
 					}
 				}
 			})
