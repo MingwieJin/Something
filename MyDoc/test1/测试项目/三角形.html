@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+						<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+						
+<style>
+	.center1{
+		display: flex;
+		justify-content: center;
+	}
+	.center1 span{
+		display: inline-block;
+	}
+</style>
+	</head>
+	<body>
+	<div class="account11"></div>	
+		
+<script>
+	var z=1;	
+	
+	var html = "<div class='center1'>"	
+	
+	for (var j=1; j<100; j++){
+		html+= "<span>" +j+"</span>";
+		if(j==(z*(z+1)/2)){
+			html+="</div><div class='center1'>";
+			z++;
+		}
+	}
+	html+="</div>"
+	$(".account11").html(html);
+</script>
+	</body>
+</html>

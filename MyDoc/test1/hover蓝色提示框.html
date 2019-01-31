@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ellipsis</title>
+</head>
+<body>
+<style>
+.carousel_row {
+  text-transform: uppercase;
+  background: #ececec;
+
+  margin: 300px 75px 10px 75px;
+  	font-size: 14px;
+	color:#666;
+
+  padding: 15px 20px;
+
+  
+	font-size: 14px;
+	color:#666;
+	line-height: 24px;
+	
+  width: 430px;
+  
+   position: relative;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+.sugg_content{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.carousel_row .tooltip {
+  background: #425BB8;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 20px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.carousel_row .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.carousel_row .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #425BB8 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+  
+.carousel_row:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+</style>
+  <div class="carousel_row">
+  	<div class="sugg_content">这是我第三次收到英方所编著的灾备行业白皮书，也是第一次正式向大家推荐这本白皮书。与其说是白皮书，不如说这是一本灾备行业的解决方案指南，白皮书中关于灾备业务的设计、执行、演练等内容，不仅是对灾备行业，对其他的IT业务同样具有指导作用，此外，这本白皮书对已经制定了云端战略的企业以及像Oracle这样的云计算公司而言，也都是一本非常实用的书。</div>
+    
+    <div class="tooltip">这是我第三次收到英方所编著的灾备行业白皮书，也是第一次正式向大家推荐这本白皮书。与其说是白皮书，不如说这是一本灾备行业的解决方案指南，白皮书中关于灾备业务的设计、执行、演练等内容，不仅是对灾备行业，对其他的IT业务同样具有指导作用，此外，这本白皮书对已经制定了云端战略的企业以及像Oracle这样的云计算公司而言，也都是一本非常实用的书。</div>
+  </div>
+  
+    <div class="carousel_row">
+  	<div class="sugg_content">这是我第三次收到英方所编著的灾备行业白皮书，也是第一次正式向大家推荐这本白皮书。与其说是白皮书，不如说这是一本灾备行业的解决方案指南，白皮书中关于灾备业务的设计、执行、演练等内容，不仅是对灾备行业，对其他的IT业务同样具有指导作用，此外，这本白皮书对已经制定了云端战略的企业以及像Oracle这样的云计算公司而言，也都是一本非常实用的书。</div>
+    
+    <div class="tooltip">这是我第三次收到英方所编著的灾备行业白皮书，也是第一次正式向大家推荐这本白皮书。与其说是白皮书，不如说这是一本灾备行业的解决方案指南，白皮书中关于灾备业务的设计、执行、演练等内容，不仅是对灾备行业，对其他的IT业务同样具有指导作用，此外，这本白皮书对已经制定了云端战略的企业以及像Oracle这样的云计算公司而言，也都是一本非常实用的书。</div>
+  </div>
+</body>
+</html>
