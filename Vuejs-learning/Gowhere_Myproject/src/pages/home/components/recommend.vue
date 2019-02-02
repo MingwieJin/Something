@@ -34,10 +34,7 @@ export default{
 			url:'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
 			title:'故宫3',
 			desc:'世界五大宫之首，穿越与您近在咫尺'
-			},
-			
-			
-			]
+			}]
 		}
 	}
 	
