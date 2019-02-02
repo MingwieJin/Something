@@ -121,4 +121,8 @@ export default{
         text-align: center
         color: $darkTextColor
         ellipsis()
+    .swiper-pagination1
+     position:absolute
+     bottom:0
+     text-align:center
 </style>
