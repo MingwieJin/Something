@@ -1,43 +1,42 @@
 <template>
-	<div>
-		<div class="title">热销推荐</div>
-		<ul>
-			<li class="item border-bottom" v-for="item in recommendList" :key="item.id">
-				<img class="item-img" :src="item.url">
-				<div class="item-info">
-					<p class="item-title">{{item.title}}</p>
-					<p class="item-desc">{{item.desc}}</p>
-					<button class="item-button">查看详情</button>
-				</div>
-			</li>
-		</ul>
-	</div>
+    <div>
+        <div class="title">热销推荐</div>
+        <ul>
+            <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+                <img class="item-img" :src="item.url">
+                <div class="item-info">
+                    <p class="item-title">{{item.title}}</p>
+                    <p class="item-desc">{{item.desc}}</p>
+                    <button class="item-button">查看详情</button>
+                </div>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
 export default{
-	name:'HomeRecommend',
-	data:function(){
-		return{
-			recommendList:[{
-			id:'0001',
-			url:'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
-			title:'故宫',
-			desc:'世界五大宫之首，穿越与您近在咫尺'
-			},{
-			id:'0002',
-			url:'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
-			title:'故宫2',
-			desc:'世界五大宫之首，穿越与您近在咫尺'
-			},{
-			id:'0003',
-			url:'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
-			title:'故宫3',
-			desc:'世界五大宫之首，穿越与您近在咫尺'
-			}]
-		}
-	}
-	
+  name: 'HomeRecommend',
+  data: function () {
+    return {
+      recommendList: [{
+        id: '0001',
+        url: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
+        title: '故宫',
+        desc: '世界五大宫之首，穿越与您近在咫尺'
+      }, {
+        id: '0002',
+        url: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
+        title: '故宫2',
+        desc: '世界五大宫之首，穿越与您近在咫尺'
+      }, {
+        id: '0003',
+        url: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
+        title: '故宫3',
+        desc: '世界五大宫之首，穿越与您近在咫尺'
+      }]
+    }
+  }
 }
 </script>
 
