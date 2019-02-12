@@ -22,7 +22,7 @@ export default{
     line-height:.62rem
     text-align:center
     border-radius:.06rem
-	color:#666
-	padding:0 .1rem
-	box-sizing:border-box
+    color:#666
+    padding:0 .1rem
+    box-sizing:border-box
 </style>
