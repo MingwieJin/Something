@@ -1,15 +1,20 @@
 <template>
-    <city-header></city-header>
+    <div>
+        <city-header></city-header>
+        <city-search></city-search>
+    </div>
 </template>
 
 <script>
 import CityHeader from './components/CityHeader'
+import CitySearch from './components/search'
 import axios from 'axios'
 
 export default{
   name: 'City',
   components: {
-    CityHeader: CityHeader
+    CityHeader: CityHeader,
+    CitySearch: CitySearch
   },
   data: function () {
     return {
