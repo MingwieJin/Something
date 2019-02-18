@@ -187,6 +187,14 @@ a, a:focus, a:hover{
 	border-radius: 5px;
 	padding-left: 25px;
 }
+@media screen and (max-width: 600px) {
+	.form-row .form-input{
+		width:auto;	
+	}
+	.form-row{
+		width:auto
+	}
+}
 .form-submit{
 	background: #448ACA;
 	border:none;
@@ -224,14 +232,113 @@ a, a:focus, a:hover{
 }
 /*证书查询结束*/
 
+/*培训模块*/
+.Certified-train{
+	width:100%;
+	background: #F2F2F2;
+	padding: 1px 0;
+}
+.train-row-container{
+	widht:100%;
+	max-width: 1228px;	
+	margin:60px auto 60px auto;
+}
+.train-row{
+	padding:0 12px;
+}
+@media screen and (max-width:767px) {
+	.train-row{
+		max-width: 400px;
+		margin:60px auto;
+	}
+}
+.train-row-wrapper{
+	background: #FFFFFF;
+	moz-box-shadow:0px 0px 10px #ccc; 
+	-webkit-box-shadow:0px 10px 5px #ccc; 
+	box-shadow:0px 0px 10px #ccc;
+}
+.train-img-wrapper{
+	width:100%;
+	padding:36px 0 26px 0;
+	background: #F7F7F7;
+	height:120px;
+}
+.train-img-wrapper img{
+	width:auto;
+	height:auto;
+	display: block;
+	margin:auto
+}
+.train-content-wrapper{
+	padding:0 25px 30px 25px;
+}
+.train-content-title{
+	width:100%;
+	padding: 25px 0;
+	font-size: 24px;
+	color:#333;
+	text-align: center;
+}
+.train-content{
+	font-size: 16px;
+	color: #666666;
+	line-height: 30px;
+	min-height: 180px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+/*培训模块结束*/
+/*招聘讲师模块*/
+.Certified-teacher{
+	widht:100%;
+	max-width: 1216px;
+	margin:100px auto 114px auto;	
+}
+.tea-left img{
+	width:100%;
+	height:auto;
+	display: block;
+}
+.tea-left, .tea-right{
+	padding: 0 8px;
+}
+.tea-right-title{
+	font-size: 28px;
+	font-weight: 700;
+	color:#333;
+	margin-bottom: 27px;
+}
+.tea-right-content{
+	font-size:18px;
+	color:#666;
+	line-height:36px;	
+	margin-bottom: 30px;
+}
+.right-mearinbottom{
+	margin-bottom: 20px;
+}
+.tea-right-button{
+	height:50px; 
+	width:150px; 
+	background:#009fe8; 
+	color:#fff; 
+	font-size:16px; 
+	border: none;
+	border-radius:5px;
+}
+/*招聘讲师模块结束*/
+
 </style>
 
 </head>
 <body>
 <!--标题部分-->
 		<div class="banner">
-			<img src="img/banner_01.jpg"/>
-
+			<a href="javascript:void(0);"><img src="img/banner02.jpg"/></a>
 		</div>
 <!--标题部分结束-->
 
@@ -329,6 +436,95 @@ a, a:focus, a:hover{
 </div>
 <!--认证工程师模块结束-->
 
+<!--培训模块-->
+<div class="Certified-train">
+	<div class="train-row-container">
+		<div class="train-row col-md-3 col-sm-6">
+			<div class="train-row-wrapper">
+				<div class="train-img-wrapper">
+					<img src="img/en02.png"/>
+				</div>
+				<div class="train-content-wrapper">
+					<div class="train-content-title">
+						原厂培训
+					</div>
+					<div class="train-content">
+						英方研究院准备多技术维度、不同难易程度的培训课程供你来选择，灾备技术、英方产品、英方技术一应俱全，提升了自己能力，掌握基础厚积薄发，把握进阶锦上添花，何愁不升值加薪。
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="train-row col-md-3 col-sm-6">
+			<div class="train-row-wrapper">
+				<div class="train-img-wrapper">
+					<img src="img/en03.png"/>
+				</div>
+				<div class="train-content-wrapper">
+					<div class="train-content-title">
+						客户培训
+					</div>
+					<div class="train-content">
+						除了来英方参加原厂培训，英方与你一起规划你的企业与团队成长路径、学习和能力提升方案，为企业和团队实实在在谋福利。
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="train-row col-md-3 col-sm-6">
+			<div class="train-row-wrapper">
+				<div class="train-img-wrapper">
+					<img src="img/en04.png"/>
+				</div>
+				<div class="train-content-wrapper">
+					<div class="train-content-title">
+						考试认证
+					</div>
+					<div class="train-content">
+						在参加考试认证前，可以选择英方原厂培训来提升能力，如果有信心通过考试，也可以选择直接参加考试认证。通过检验的培训学习，才会更有效果，更有价值。
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="train-row col-md-3 col-sm-6">
+			<div class="train-row-wrapper">
+				<div class="train-img-wrapper">
+					<img src="img/en05.png"/>
+				</div>
+				<div class="train-content-wrapper">
+					<div class="train-content-title">
+						上机实验
+					</div>
+					<div class="train-content">
+						除了传统的听课模式，我们还准备了上机实验，助力你掌握备份、CDP以及高可用的安装配置、备份和恢复操作以及系统参数，能够有效解决日常灾备及高可用管理工作中产生的问题。
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--培训模块结束-->
+
+<!--招聘讲师模块-->
+<div class="Certified-teacher">
+	<div class="tea-container">
+		<div class="tea-left col-md-6 col-sm-12">
+			<img src="img/en06.jpg"/>
+		</div>
+		<div class="tea-right col-md-6 col-sm-12">
+			<div class="tea-right-title">
+				讲师招募
+			</div>
+			<div class="tea-right-content right-mearinbottom">如果已经掌握上面的课程，也可以轻松通过认证，那就快来应聘英方外部讲师吧。</div>
+			<div class="tea-right-content">通过选拔成为英方研究院讲师后，将作为讲师团队一员整合优质教育资源、培训资料、第一手解决方案文档等，并且可以获得讲师培养的机会，共通探索，一同进步。</div>
+			<button class="tea-right-button" onclick="">成为讲师</button>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--招聘讲师模块结束-->
 
 <script>
 function changeheight(){
