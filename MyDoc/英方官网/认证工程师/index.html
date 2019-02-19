@@ -296,7 +296,8 @@ a, a:focus, a:hover{
 .Certified-teacher{
 	widht:100%;
 	max-width: 1216px;
-	margin:100px auto 114px auto;	
+	margin:0 auto 0 auto;	
+	padding:100px 0 114px 0;
 }
 .tea-left img{
 	width:100%;
@@ -332,13 +333,140 @@ a, a:focus, a:hover{
 }
 /*招聘讲师模块结束*/
 
+/*弹窗*/
+ /*select{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #F6F7FB url(img/list_icon.png) no-repeat scroll right center !important;
+    text-indent: 5px; 
+    color:#555;
+ }*/
+#hidebackground-paper { 
+	position:absolute;left:0px;top:0px;
+	background-color:#000;
+	width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+	filter:alpha(opacity=60);  /*设置透明度为60%*/
+	opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+	display:none; 
+	/*display: block;*/
+	height:1000px;
+	
+	z-Index:10011;
+}
+#hidebox-paper, #hidebox-paper-two{ 
+	position:fixed;
+	width:406px;
+	height:auto;
+	top:50%;
+	left:50%;
+	-webkit-transform:translate(-50%,-50%);
+	transform: translate(-50%, -50%);
+	background-color:#fff;
+	display:none;
+	/*display: block;*/
+	cursor:pointer;
+	z-Index:10012;
+	text-align: center;
+	border-radius:10px;
+	border: 5px;
+}
+.paper-box-banner{
+	width:100%;
+}
+.paper-box-banner img{
+	width:100%;
+	height:auto;
+	border-top-left-radius: 5px;
+	border-top-right-radius:5px;
+}
+#hidebox-paper  .sub-privacy-close,#hidebox-paper-two .sub-privacy-close{
+	display: block;
+	position:absolute;
+	top:20px;
+	right:20px;
+	width:20px;
+	height:20px;
+	text-indent:-9999px;
+	background: url(img/close1.png) no-repeat 0 0;
+	background-size:100% 100%;
+}
+.paper-content{
+	margin: 24px auto;
+}
+.input-form-row p, .input-form-row input, .input-form-row select{
+    display:inline;
+    font-size: 18px;
+    color:#666;
+}
+.inputtype{
+	border:1px solid #E0E0E0; 
+	border-radius:3px; 
+	margin:8px auto;
+	padding-left: 10px;
+	background:#F6F7FB;
+	width:240px;
+	height:30px;
+	}
+.inputselect{
+	width:252px;
+	height:32px;
+}
+.input-select1{margin-right: 2px;}
+.error-input{
+	border:1px solid red;
+}
+.error-input::-webkit-input-placeholder{ /*WebKit browsers*/
+color: red;
+font-size:16px;
+}
+.error-input::-moz-input-placeholder{ /*Mozilla Firefox*/
+color: red;
+font-size:16px;
+}
+.error-input::-ms-input-placeholder{ /*Internet Explorer*/ 
+color: red;
+font-size:16px;
+}
+#codeT, #codeS{
+	width:100px;
+	display: inline-block;
+}
+.code-img{
+    font-size: 14px;
+    color:#666;	
+    display: inline-block;
+    vertical-align: middle;
+}
+#inputsubmit, .showcontent_button{
+height:36px; 
+width:150px; 
+margin:10px auto 8px auto; 
+background:#3C54A6; 
+color:#fff; 
+font-size:18px; 
+border: none;
+border-radius:20px;
+}
+#captcha1_img, #captcha_img{
+	transform:scale(0.8);
+}
+@media screen and (max-width:700px ) {
+	.inputtype{
+		width: 180px;
+	}
+	#hidebox-paper, #hidebox-paper-two{ 
+		width:320px;
+	}	
+}
+/*弹窗结束*/
 </style>
 
 </head>
 <body>
 <!--标题部分-->
 		<div class="banner">
-			<a href="javascript:void(0);"><img src="img/banner02.jpg"/></a>
+			<a href="javascript:void(0);"><img onClick="showPaper();" src="img/banner02.jpg"/></a>
 		</div>
 <!--标题部分结束-->
 
@@ -519,12 +647,88 @@ a, a:focus, a:hover{
 			</div>
 			<div class="tea-right-content right-mearinbottom">如果已经掌握上面的课程，也可以轻松通过认证，那就快来应聘英方外部讲师吧。</div>
 			<div class="tea-right-content">通过选拔成为英方研究院讲师后，将作为讲师团队一员整合优质教育资源、培训资料、第一手解决方案文档等，并且可以获得讲师培养的机会，共通探索，一同进步。</div>
-			<button class="tea-right-button" onclick="">成为讲师</button>
+			<button class="tea-right-button" onClick="showPaper2();">成为讲师</button>
 		</div>
 		<div class="clear"></div>
 	</div>
 </div>
 <!--招聘讲师模块结束-->
+
+<!--弹窗部分1-->
+<div id="hidebackground-paper"></div>
+<div id="hidebox-paper">
+	<div class="paper-box-banner"><img src="img/paper_bk.png"/></div>
+	
+	<a href="javascript:void(0);" onClick="hidePaper();" class="sub-privacy-close"></a>
+	
+    <div class="paper-content">
+        <form method="post" action="response.php" name="form" id="paper-form" onsubmit = "return checkPar();" target="iframe_display">
+            <div class="input-form-row"><p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</p>
+                <input type="text" id="u_name" name="u_name" class="inputtype" datatype="*" nullmsg="请填写您的姓名">
+            </div>
+            <div class="input-form-row"><p>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司：</p>
+                <input type="text" id="u_company" name="u_company" class="inputtype" datatype="*" nullmsg="请填写您的公司名称">
+            </div>
+            <div class="input-form-row"><p>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</p>
+                <input type="text" id="u_post" name="u_post" class="inputtype" datatype="*" nullmsg="请填写您的职位">
+            </div>
+            <div class="input-form-row"><p>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</p>
+                <input type="tel" id="u_tel" name="u_tel" class="inputtype" datatype="m" nullmsg="请填写您的手机号码" errormsg="您填写的手机号码格式不正确！">
+            </div>
+            <div class="input-form-row"><p>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</p>
+                <input type="email" id="u_email" name="u_email" class="inputtype" datatype="e" nullmsg="请填写您的电子邮箱" errormsg="您填写的邮箱格式不正确！">
+            </div>
+            <div class="input-form-row"><p class="input-form-code">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</p>
+                <input type="text" id="codeT" name="codeT" class="inputtype" datatype="*" nullmsg="验证码不能为空">
+                <div class="code-img"><a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha1_img').src='./captcha.php?r='+Math.random()"><img id="captcha1_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:137px; height:50px" /></a></div>
+            </div>
+            <!--<div class="code-img"><a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha1_img').src='./captcha.php?r='+Math.random()"><img id="captcha1_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:150px; height:50px" /></a></div>-->
+<!--            <p>请输入验证码:<input id="codeT" type="text" name='codeS' value=''/></p>-->
+            <input type="submit" name="submit" id="inputsubmit" value="提交" >
+        </form>
+    </div>	
+    
+</div>
+<!--弹窗部分1结束-->
+
+<!--弹窗部分2-->
+<div id="hidebox-paper-two">
+	<div class="paper-box-banner"><img src="img/paper_bk.png"/></div>
+	
+	<a href="javascript:void(0);" onClick="hidePaper2();" class="sub-privacy-close"></a>
+	
+    <div class="paper-content">
+        <form method="post" action="response.php" name="form" id="paper-form2" onsubmit = "return checkParS();" target="iframe_display">
+            <div class="input-form-row"><p>公司名称：</p>
+                <input type="text" id="speech_company" name="speech_company" class="inputtype" datatype="*" nullmsg="请填写公司名称">
+            </div>
+            <div class="input-form-row"><p>演讲主题：</p>
+                <input type="text" id="speech_topic" name="speech_topic" class="inputtype" datatype="*" nullmsg="请填写演讲主题">
+            </div>
+            <div class="input-form-row"><p>&nbsp;&nbsp;&nbsp;申请人：</p>
+                <input type="text" id="speech_applyer" name="speech_applyer" class="inputtype" datatype="*" nullmsg="请填写申请人">
+            </div>         
+            <div class="input-form-row"><p>联系电话：</p>
+                <input type="tel" id="speech_tel" name="speech_tel" class="inputtype" datatype="m" nullmsg="请填写您的手机号码" errormsg="您填写的手机号码格式不正确！">
+            </div>
+            <div class="input-form-row"><p>联系邮箱：</p>
+                <input type="email" id="speech_email" name="speech_email" class="inputtype" datatype="e" nullmsg="请填写您的电子邮箱" errormsg="您填写的邮箱格式不正确！">
+            </div>
+            <div class="input-form-row"><p class="input-form-code">&nbsp;&nbsp;&nbsp;验证码：</p>
+                <input type="text" id="codeS" name="codeS" class="inputtype" datatype="*" nullmsg="验证码不能为空">
+                <div class="code-img"><a id="changecodeS" href="javascript:void(0);" onclick="document.getElementById('captcha_img').src='./captcha.php?r='+Math.random()"><img id="captcha_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:137px; height:50px" /></a></div>
+            </div>
+            <!--<div class="code-img"><a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha1_img').src='./captcha.php?r='+Math.random()"><img id="captcha1_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:150px; height:50px" /></a></div>-->
+<!--            <p>请输入验证码:<input id="codeT" type="text" name='codeS' value=''/></p>-->
+            <input type="submit" name="submit" id="inputsubmit" value="提交" >
+        </form>
+    </div>	
+    
+</div>
+
+
+<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe>  	
+<!--弹窗部分2结束-->
 
 <script>
 function changeheight(){
@@ -585,6 +789,230 @@ $(document).ready(function(){
          }, 100);
        });
 })
+
+function showPaper()  //显示隐藏层和弹出层
+{
+	var hidebg=document.getElementById("hidebackground-paper");
+	hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+	hidebg.style.display="block";  //显示隐藏层
+   	document.getElementById("hidebox-paper").style.display="block";  //显示弹出层
+   	$("#changecode").click();
+}
+function hidePaper()  //去除隐藏层和弹出层
+{
+   document.getElementById("hidebackground-paper").style.display="none";
+   document.getElementById("hidebox-paper").style.display="none";
+}
+
+//弹窗2用
+function showPaper2()  //显示隐藏层和弹出层
+{
+	var hidebg=document.getElementById("hidebackground-paper");
+	hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+	hidebg.style.display="block";  //显示隐藏层
+   	document.getElementById("hidebox-paper-two").style.display="block";  //显示弹出层
+   	$("#changecodeS").click();
+}
+function hidePaper2()  //去除隐藏层和弹出层
+{
+   document.getElementById("hidebackground-paper").style.display="none";
+   document.getElementById("hidebox-paper-two").style.display="none";
+}
+
+ function checkPar(){
+// 	var flag = false; 
+    var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+	var name = $("#u_name").val();
+	var company = $("#u_company").val();
+	var positions = $("#u_post").val();
+	var phone = $("#u_tel").val();
+	var email = $("#u_email").val();
+    var codeT = $("#codeT").val();
+		if (name == ""){
+			$("#u_name").addClass("error-input");
+			$("#u_name").attr('placeholder','请输入姓名')
+			return false;
+		}
+		else if (company == ""){
+			$("#u_company").addClass("error-input");
+			$("#u_company").attr('placeholder','请输入公司')
+			return false;
+		}
+		else if (positions == ""){
+			$("#u_post").addClass("error-input");
+			$("#u_post").attr('placeholder','请输入职位')
+			return false;
+		}
+		else if (phone == ""){
+			$("#u_tel").addClass("error-input");
+			$("#u_tel").attr('placeholder','请输入电话')
+			return false;
+		}
+		else if(!(/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/.test(phone))){ 
+			$("#u_tel").addClass("error-input");
+			$("#u_tel").val("");
+			$("#u_tel").attr('placeholder','电话号码格式有误')
+			return false;
+		}
+		else if (email == ""){
+			$("#u_email").addClass("error-input");
+			$("#u_email").attr('placeholder','请输入邮箱')
+			return false;
+		}
+        else if(!reg.test(email)){
+			$("#u_email").addClass("error-input");
+			$("#u_email").val("");
+			$("#u_email").attr('placeholder','邮箱格式不对')
+            return false;
+    	}
+        else if (codeT == ""){
+			$("#codeT").addClass("error-input");
+			$("#codeT").attr('placeholder','验证码')
+			return false;
+		}
+		else{
+			$.ajax({    
+		    url:"JU-joinMeeting.php",// 跳转到 action    
+		    data:{   
+		    		location: $("#u_location").val(),
+		    		name: name,
+		    		company: company,
+		    		positions: positions,
+		    		phone: phone,
+		    		email: email,
+		    		codeT: codeT	
+		    },
+		        type:"POST",     
+		    	cache:false, 
+                async:false,  // 设置同步方式   
+		        dataType:'json',    
+		        success:function(data) {  
+				    if(data == 1) {
+				        alert('报名参会成功');
+				        $("#changecode").click();
+//						window.location.reload();
+				    } 
+				    else if (data == -1){
+				        alert('提交过于频繁');
+				        $("#changecode").click();
+				    }
+					else if (data == -3){
+				        alert('验证码错误');
+				        $("#changecode").click();
+				    }
+					else if(data == -2){
+						 alert('无法连接数据库，发送邮件失败');
+					}
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("网络连接错误")
+   			} 
+			});
+			return false;
+		}
+
+}
+ 
+function checkParS(){
+// 	var flag = false; 
+    var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+	var company = $("#speech_company");
+	var companyVal = $("#speech_company").val();
+	var topic = $("#speech_topic");
+	var topicVal = $("#speech_topic").val();
+	var applyer = $("#speech_applyer");
+	var applyerVal = $("#speech_applyer").val();
+	var phone = $("#speech_tel");
+	var phoneV = $("#speech_tel").val();
+	var email = $("#speech_email");
+	var emailV = $("#speech_email").val();
+	var code = $("#codeS");
+	var codeS = $("#codeS").val();
+		if (companyVal == ""){
+			company.addClass("error-input");
+			company.attr('placeholder','请输入公司名称')
+			return false;
+		}
+		else if (topicVal == ""){
+			topic.addClass("error-input");
+			topic.attr('placeholder','请输入演讲主题 ')
+			return false;
+		}
+		else if (applyerVal == ""){
+			applyer.addClass("error-input");
+			applyer.attr('placeholder','请输入申请人姓名')
+			return false;
+		}
+		else if (phoneV == ""){
+			phone.addClass("error-input");
+			phone.attr('placeholder','请输入电话')
+			return false;
+		}
+		else if(!(/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/.test(phoneV))){ 
+			phone.addClass("error-input");
+			phone.val("");
+			phone.attr('placeholder','电话号码格式有误')
+			return false;
+		}
+		else if (emailV == ""){
+			email.addClass("error-input");
+			email.attr('placeholder','请输入邮箱')
+			return false;
+		}
+        else if(!reg.test(emailV)){
+			email.addClass("error-input");
+			email.val("");
+			email.attr('placeholder','邮箱格式不对')
+            return false;
+    	}
+        else if (codeS == ""){
+			code.addClass("error-input");
+			code.attr('placeholder','验证码')
+			return false;
+		}
+		else{
+			$.ajax( {    
+		    url:"JU-speech.php",// 跳转到 action    
+		    data:{   
+		    		location: $("#location").val(),
+		    		company: companyVal,
+		    		topic: topicVal,
+		    		applyer: applyerVal,
+		    		phone: phoneV,
+		    		email: emailV,
+		    		codeS: codeS	
+		    },
+		        type:"POST",     
+		    	cache:false, 
+                async:false,  // 设置同步方式   
+		        dataType:'json',    
+		        success:function(data) {  
+				    if(data == 1) {
+				        alert('报名参加演讲成功');
+				        $("#changecodeS").click();
+//						window.location.reload();
+				    } 
+				    else if (data == -1){
+				        alert('提交过于频繁');
+				        $("#changecodeS").click();
+				    }
+					else if (data == -3){
+				        alert('验证码错误');
+				        $("#changecodeS").click();
+				    }
+					else if(data == -2){
+						 alert('无法连接数据库，发送邮件失败');
+					}
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("网络连接错误")
+                    return false;
+   			} 
+			});
+			return false;
+		}
+
+}
 </script>
 	</body>
 </html>
