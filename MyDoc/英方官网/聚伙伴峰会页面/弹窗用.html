@@ -6,243 +6,17 @@
 		<meta http-equiv="Cache-Control" content="no-cache">
 		<meta http-equiv="Expires" content="0">
 		<title></title>
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>	
-		
-		<!--轮播用-->
-		<link rel="stylesheet" href="css/owl.carousel.min.css">
-	    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-	    <script src="js/owl.carousel.js"></script>
-
+		<!--<script src="js/bootstrap.min.js"></script>-->		
 
 		
 <style>	
 *{margin:0px; padding:0px; font-family:'微软雅黑'; }
 body { margin:0px;padding:0px;}
 .clear{clear:both}
-/*banner*/
-.ju_banner{
-	width:100%;
-	overflow: hidden;
-}
-.ju_banner img{
-	width:100%;
-	height:auto;
-}
-@media screen and (max-width: 700px) {
-	.ju_banner img{
-		width:auto;
-		height:600px;
-	}
-}
-/*banner结束*/
-/*活动亮点开始*/
-.ju_highlight{
-	width:100%;
-	max-width:1372px;
-	margin: 80px auto;
-}
-.ju_title{
-	font-size: 48px;
-	color:#666;
-	text-align: center;	
-}
-.ju_title span{
-	margin: 0 16px;
-}
-.ju_title span img{
-	display: inline-block;
-}
-.high_row{
-	padding-left:30px;
-	padding-right:30px;
-}
-.high_row_wrapper{
-	margin-top: 70px;
-}
-.high_title_leftimg{
-	width:60px;
-	float:left;
-	border-bottom: 6px solid #666;
-	padding-bottom: 10px;
-	/*font-size: 50px;
-	font-weight: 700;
-	color: #009fe8;*/
-}
-.high_title_leftimg img{
-	width:45px;
-	height: 75px;
-	display: block;
-	margin:0 auto;
-	
-}
-.high_title_content{
-	padding:10px 0 0 100px;
-	border-bottom: 2px solid #666;
-	font-size:36px;
-	color:#666;
-	font-weight: 700;
-	line-height: 80px;
-}
-.high_content_row{
-	padding: 68px 6px 0 100px;
-	font-size: 18px;
-	color:#666;
-	line-height: 30px;
-}
-@media screen and (max-width:960px ) {
-	.high_content_row{
-		padding: 30px 6px 38px 100px;
-		font-size:24px;
-		line-height: 48px;
-	}
-}
-/*活动亮点结束*/
-/*会议议程开始*/
-.ju_meeting{
-	background: #F0F0F0;
-	padding-bottom:70px;
-}
-.meeting_title{
-	padding: 40px 0 64px 0;
-}
-#owl-carousel{
-	width:100%;
-	max-width: 1368px;
-	/*margin: auto;*/
-}
-#left_button{
-	margin-right: 28px;
-}
- #right_button{
- 	margin-left: 28px;	
- }
-#left_button, #right_button{
-	/*float:right;*/
-	width:58px;
-	height:151px;
-	display: flex;
-	align-items: center ;
-}
-#left_button img, #right_button img{
-	width:58px;
-}
-.item-bg{
-	padding: 0 28px;
-}
-.carousel_wrapper{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.owl-controls{
-	display: none;
-}
-@media screen and (max-width:1540px) {
-	.owl-controls{
-		display: block;
-		margin-top:30px;
-	}
-	#left_button, #right_button{
-		display: none;
-	}
-}
-.slide-item figcaption {
-	background: rgba(39, 40, 43, 0.6);
-	position: absolute;
-	top: 0px;
-	left: 28px;
-	bottom: 0px;
-	right: 28px;
-	display: block;
-	text-align: center;
-	color:#FF9F19;
-}	
-.slide-item figcaption h3 {
-margin: 18% 0 0 0;
-font-size:30px;
-}	
-.justity_title{
-	margin: 25% 0 0 0 !important;
-}
-.slide-item figcaption .mask_subtitle{
-	font-size:28px;
-}
-.slide-item figcaption .mask_content{
-	font-size: 16px;
-	border-bottom: 2px solid #FF9F19;
-	padding:20px 0 20px 0;
-	display: inline-block;
-}
-.slide-item figcaption .mask_subline{
-	height: 10px;
-	width:157px;
-	border-bottom: 2px solid #FF9F19;
-	display: inline-block;
-}
-.slide-item:hover figcaption {
-	background: rgba(2, 124, 220, 0.6);
-	color:#fff;	
-}
-.slide-item:hover figcaption .mask_content, .slide-item:hover figcaption .mask_subline{
-	border-bottom: 2px solid #fff;
-}
-/*会议议程结束*/
 
-/*议题概况*/
-.schedule_title{
-	margin:80px 0 70px 0;
-}
-.meetingSD{
-	max-width: 1312px;
-	margin: 0 auto;
-	padding-bottom: 50px;
-}
-.meetingSD-topic table{
-	border: 0px solid transparent;
-	  border-collapse:collapse;
-}
-.meetingSD-topic{
-	max-width: 1311px;
-	margin:36px auto 0 auto;
-}
-.meetingSD-topic th{
-	width:437px;
-	font-size:26px;
-	color:#FFFFFF;
-	background:#005BAB;
-	height: 70px;
-	line-height: 70px;
-	text-align: center;
-}
-.meetingSD-topic td{
-	width:437px;
-	font-size:22px;
-	color:#666;
-	background:transparent;
-	height: 74px;
-	line-height: 74px;
-	text-align: center;
-}
-.meetingSD-topic tr:nth-child(3),.meetingSD-topic tr:nth-child(5),.meetingSD-topic tr:nth-child(7){
-	background: #E6EBF4;
-}
-.meetingSD-topic tr:nth-child(2),.meetingSD-topic tr:nth-child(4),.meetingSD-topic tr:nth-child(6),.meetingSD-topic tr:nth-child(8){
-	background: #FCFCFC;
-}
 
-/*.meetingSD-topic tr:nth-child(2) td{
-	height: 26px;
-}*/
-.table-ps{
-	color:#666;
-	font-size:18px;
-	max-width: 1311px;
-	text-align: right;
-	margin:24px 0 64px 0px;
-}
-/*议题概况结束*/
 /*底部弹窗banner*/
 .bottom-banner{
 	position:relative;
@@ -289,8 +63,17 @@ font-size:30px;
 		max-width: 40%;
 	}
 }
+
 /*底部弹窗banner结束*/
 /*弹窗*/
+ /*select{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #F6F7FB url(img/list_icon.png) no-repeat scroll right center !important;
+    text-indent: 5px; 
+    color:#555;
+ }*/
 #hidebackground-paper { 
 	position:absolute;left:0px;top:0px;
 	background-color:#000;
@@ -412,201 +195,17 @@ border-radius:20px;
 
 </style>		
 </head>
+
 <body>
 <!--banner-->
-<div class="ju_banner">
+<div class="paper_banner">
 	<img src="img/banner.png"/>
 </div>
 <!--banner-->
-<!--活动亮点开始-->
-<div class="ju_highlight">
-	<div class="ju_title"><span><img src="img/ju02.png"/></span>活动亮点<span><img src="img/ju01.png"/></span></div>
-	<div class="high_row_wrapper">
-		<div class="high_row col-md-4 col-sm-12">
-			<div class="high_row_title_wrapper">
-				<div class="high_title_leftimg"><img src="img/1.png"/></div>
-				<div class="high_title_content">做行业的领跑者</div>
-			</div>
-			<div class="high_content_row">
-				<div class="high_content">洞悉灾备行业动态，了解用户再互联网时代下如何保证数据安全以及业务连续性问题，并针对不同行业，不同场景，打造专属的解决方案，提高用户认可度。</div>
-			</div>
-		</div>
-		
-		<div class="high_row col-md-4 col-sm-12">
-			<div class="high_row_title_wrapper">
-				<div class="high_title_leftimg"><img src="img/2.png"/></div>
-				<div class="high_title_content">领取工程师证书</div>
-			</div>
-			<div class="high_content_row">
-				<div class="high_content">加入英方认证工程师授课课程，会议结束后可报名参加英方工程师认证培训活动，考试通过后颁发认证证书。</div>
-			</div>
-		</div>
-		
-		<div class="high_row col-md-4 col-sm-12">
-			<div class="high_row_title_wrapper">
-				<div class="high_title_leftimg"><img src="img/3.png"/></div>
-				<div class="high_title_content">参评优秀工程师</div>
-			</div>
-			<div class="high_content_row">
-				<div class="high_content">通过工程师认证培训后，可申请加入英方认证讲师队伍，分享行业见解以及成功案例，同时也可参与认证工程师优秀评选活动。</div>
-			</div>
-		</div>
-		<div class="clear"></div>
-	</div>
-</div>
-<!--活动亮点结束-->
 
-<!--会议议程开始-->
-<div class="ju_meeting">
-	<div class="ju_title meeting_title"><span><img src="img/ju02.png"/></span>会议议程<span><img src="img/ju01.png"/></span></div>
-	<div class="carousel_wrapper">
-		<div class="meet_carousel_left" id="left_button"><img src="img/arraw_left.png"/></div>
-		<div class="owl-carousel" id="owl-carousel">
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/guangzhou.png"/>
-				<figcaption class="mask">
-					<h3>广州</h3>
-					<div class="mask_subtitle">2019/03/08</div>
-					<div class="mask_content">广州天河区林和西横路215号广州天河希尔顿酒店</div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/shenzhen.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">深圳</h3>
-					<div class="mask_subtitle">2019/03/15</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/chongqing.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">重庆</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/chengdu.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">成都</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/kunming.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">昆明</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/shijiazhuang.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">石家庄</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/jinan.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">济南</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-			<div class="slide-item">
-				<img class="item-bg" src="img/location/lanzhou.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">兰州</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/tianjin.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">天津</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/dalian.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">大连</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/zhengzhou.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">郑州</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/beijing.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">北京</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/nanjing.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">南京</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-	        <div class="slide-item">
-				<img class="item-bg" src="img/location/haerbin.png"/>
-				<figcaption class="mask">
-					<h3 class="justity_title">哈尔滨</h3>
-					<div class="mask_subtitle">敬请期待</div>
-					<div class="mask_subline"></div>
-				</figcaption>
-	        </div>
-		</div>
-		<div class="meet_carousel_right" id="right_button"><img src="img/arraw_right.png"/></div>
-	</div>
-	<div class="clear"></div>
-</div>
-<!--会议议程结束-->
 
-<!--议题概况-->
-<div class="ju-schedule">
-	<div class="ju_title schedule_title"><span><img src="img/ju02.png"/></span>议题概况<span><img src="img/ju01.png"/></span></div>
-	<div class="meetingSD">
-		<div class="meetingSD-topic">
-			<table border="none" cellspacing="collapse" cellpadding="" border-color="transparent">
-				<tr><th>时间</th><th>主题</th><th>分享者</th></tr>
-<!--				<tr><td></td><td></td><td></td></tr>-->
-				<tr><td>13:30-14:00</td><td>视频播放/签到</td><td>—</td></tr>
-				<tr><td>14:00-14:40</td><td>会议致辞</td><td>嘉宾</td></tr>
-				<tr><td>14:40-15:20</td><td>英方灾备四大解决方案</td><td>英方</td></tr>
-				<tr><td>15:20-16:00</td><td>产品及解决方案</td><td>英方</td></tr>
-				<tr><td>16:00-16:40</td><td>区域实践方案</td><td>合作伙伴</td></tr>
-				<tr><td>16:40-17:20</td><td>英方渠道生态构建</td><td>英方</td></tr>
-<!--				<tr><td>15:20-16:00</td><td>产品及解决方案</td><td>合作伙伴</td></tr>-->
-				<tr><td>17:20-18:00</td><td>互动交流</td><td>—</td></tr>
-<!--				<tr><td>18:30-20:00</td><td>晚宴</td><td>—</td></tr>-->
-			</table>
-		</div>
-		<div class="table-ps">注：具体议程以实际为准</div>
-	</div>
-	
-</div>
-<!--议题概况结束-->
 <!--底部弹窗banner-->
-<!--<div class="bottom-banner">
+<div class="bottom-banner">
 	<img class="bottom_bg" src="img/free.png"/>
 	<div class="bottom_content">
 		<img  onClick="showPaper();" src="img/free_button.png"/>
@@ -616,7 +215,7 @@ border-radius:20px;
 	</div>
 </div>
 
-<div onclick="showPaper2()">点击弹窗2</div>-->
+<div onclick="showPaper2()">点击弹窗2</div>
 <!--底部弹窗banner结束-->
 <!--弹窗部分1-->
 <div id="hidebackground-paper"></div>
@@ -732,49 +331,6 @@ border-radius:20px;
 		
 		
 <script>
-//轮播用
-$(function(){
-    var owl = $('#owl-carousel');
-        owl.owlCarousel({
-        items: 3,
-        loop: true,
-//      margin: 10,
-        nav: true,
-        autoplay: true,
-        mouseDrag:true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-	    responsive: {
-	         0: {
-	            items: 1,
-	           },
-	        600: {
-	            items: 2,
-	            },
-            1000: {
-	            items: 3,
-	            },
-	        1200: {
-	            items: 3,
-	        }
-	    }
-	});
-		
-	$('#right_button').on('click', function() {
-            owl.trigger('next.owl');
-	});
-	$('#left_button').on('click', function() {
-            owl.trigger('prev.owl');
-	})
-		
-//      setTimeout(function(){ 
-//          var rowheight= $(".owl-stage-outer").css("height");
-//          $(".owl-side").css("height", rowheight);
-//       }, 50);
-//       
-//       var rowheight= $(".owl-stage-outer").css("height");
-//       $(".owl-side").css("height", rowheight);
-}); 
 
 //弹窗用
 function showPaper()  //显示隐藏层和弹出层
