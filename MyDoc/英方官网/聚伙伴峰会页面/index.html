@@ -231,12 +231,8 @@ font-size:30px;
 .meetingSD-topic tr:nth-child(2),.meetingSD-topic tr:nth-child(4),.meetingSD-topic tr:nth-child(6),.meetingSD-topic tr:nth-child(8){
 	background: #FCFCFC;
 }
-
-/*.meetingSD-topic tr:nth-child(2) td{
-	height: 26px;
-}*/
 .table-ps{
-	color:#666;
+	color:#FF9F19;
 	font-size:18px;
 	max-width: 1311px;
 	text-align: right;
@@ -244,52 +240,60 @@ font-size:30px;
 }
 /*议题概况结束*/
 /*底部弹窗banner*/
-.bottom-banner{
-	position:relative;
-}
-.bottom_content{
-	position:absolute;
-	width:600px;
-	top:50%;
-	left:50%;
-	-webkit-transform:translate(-50%,-50%);
-	transform: translate(-50%, -50%);
-}
-.bottom_bg{
+.ju_bottom{
 	width:100%;
-	height:auto;
+	position:relative;
 	overflow: hidden;
 }
-.bottom_content img{
-	display: block;
-	margin:auto;
+.ju_bottom img{
+	width:100%;
+}
+.button_array{
+	position:absolute;
+	left: 0;
+	right: 0;
+	margin:0 auto;
+	bottom: 19.3%;
+	text-align: center;
+}
+.bottom_button{
+	width:298px;
+	height:84px;
+	border: 2px solid #009FE8;
+	border-radius: 50px;
+	font-size: 32px;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	line-height: 78px;
+	margin:0 30px;
 	cursor: pointer;
-	margin-top: 20px;
 }
-.bottom_words{
-	color:#fff;
-	text-align: center;
-	font-size: 40px;
-	margin-top: 35px;
+.bottom_button:hover{
+	border: 2px solid #fff;	
 }
-.bottom_words_sub{
-	color:#fff;
-	font-size: 28px;
-	text-align: center;
-	margin-top: 10px;
-}
-@media screen and (max-width:992px) {
-	.bottom_content{
-		width:100%;
+@media screen and (max-width: 1400px) {
+	.bottom_button{
+		width:210px;
+		height:60px;
+		font-size:24px;
+		line-height:56px;
+		border-radius: 40px;
+		margin:0 15px;		
 	}
-	.bottom_words, .bottom_words_sub{
-		display: none;
+}
+@media screen and (max-width: 700px) {
+	.ju_bottom img{
+		width:auto;
+		min-height: 400px;
 	}
-	.bottom_content img{
-		max-width: 40%;
+	.ju_bottom{
+	  display: flex;
+	  justify-content: center;
 	}
 }
 /*底部弹窗banner结束*/
+
 /*弹窗*/
 #hidebackground-paper { 
 	position:absolute;left:0px;top:0px;
@@ -358,7 +362,7 @@ font-size:30px;
 	height:30px;
 	}
 .inputselect{
-	width:252px;
+	/*width:252px;*/
 	height:32px;
 }
 .input-select1{margin-right: 2px;}
@@ -606,22 +610,23 @@ border-radius:20px;
 </div>
 <!--议题概况结束-->
 <!--底部弹窗banner-->
-<!--<div class="bottom-banner">
-	<img class="bottom_bg" src="img/free.png"/>
-	<div class="bottom_content">
-		<img  onClick="showPaper();" src="img/free_button.png"/>
-		<img style="display: none;"  src="img/free_button1.png"/>
-		<div class="bottom_words">《2019中国灾备行业白皮书》</div>
-		<div class="bottom_words_sub">数量有限，先到先得</div>
+<div class="ju_bottom">
+	<img src="img/ju04.png"/>
+	<div class="button_array">
+		<div class="button_left bottom_button" onClick="showPaper();">
+			报名参会
+		</div>
+		<div class="button_right bottom_button" onClick="showPaper2();">
+			申请演讲
+		</div>
 	</div>
 </div>
-
-<div onclick="showPaper2()">点击弹窗2</div>-->
 <!--底部弹窗banner结束-->
+
 <!--弹窗部分1-->
 <div id="hidebackground-paper"></div>
 <div id="hidebox-paper">
-	<div class="paper-box-banner"><img src="img/paper_bk.png"/></div>
+	<div class="paper-box-banner"><img src="img/ju03.png"/></div>
 	
 	<a href="javascript:void(0);" onClick="hidePaper();" class="sub-privacy-close"></a>
 	
@@ -675,7 +680,7 @@ border-radius:20px;
 
 <!--弹窗部分2-->
 <div id="hidebox-paper-two">
-	<div class="paper-box-banner"><img src="img/paper_bk.png"/></div>
+	<div class="paper-box-banner"><img src="img/ju03.png"/></div>
 	
 	<a href="javascript:void(0);" onClick="hidePaper2();" class="sub-privacy-close"></a>
 	
