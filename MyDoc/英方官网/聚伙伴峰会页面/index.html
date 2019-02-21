@@ -48,6 +48,11 @@ body { margin:0px;padding:0px;}
 	color:#666;
 	text-align: center;	
 }
+@media screen and (max-width: 700px) {
+	.ju_title{
+		font-size: 30px;
+	}
+}
 .ju_title span{
 	margin: 0 16px;
 }
@@ -148,43 +153,74 @@ body { margin:0px;padding:0px;}
 		display: none;
 	}
 }
-.slide-item figcaption {
+.slide-item .cover{
 	background: rgba(39, 40, 43, 0.6);
 	position: absolute;
-	top: 0px;
 	left: 28px;
-	bottom: 0px;
+	top:0;
+	height:300px;
 	right: 28px;
 	display: block;
 	text-align: center;
 	color:#FF9F19;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;	
+}
+.slide-item figcaption {
+	background: rgba(2, 124, 220, 0.6);
+	position: absolute;
+	/*top: 0px;*/
+	left: 28px;
+	/*bottom: 0px;*/
+	right: 28px;
+	display: block;
+	text-align: center;
+	color:#fff;
+	
+	top:300px;
+	height:300px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }	
-.slide-item figcaption h3 {
+.slide-item:hover .cover{
+	height:0;
+	top:-300px;
+}
+.slide-item:hover figcaption{
+	top:0;
+}
+.slide-item figcaption h3, .slide-item .cover h3 {
 margin: 18% 0 0 0;
 font-size:30px;
 }	
 .justity_title{
 	margin: 25% 0 0 0 !important;
 }
-.slide-item figcaption .mask_subtitle{
+.slide-item figcaption .mask_subtitle, .slide-item .cover .mask_subtitle{
 	font-size:28px;
 }
-.slide-item figcaption .mask_content{
+.slide-item figcaption .mask_content, .slide-item .cover .mask_content{
 	font-size: 16px;
 	border-bottom: 2px solid #FF9F19;
 	padding:20px 0 20px 0;
 	display: inline-block;
 }
-.slide-item figcaption .mask_subline{
+.slide-item figcaption .mask_subline, .slide-item .cover .mask_subline{
 	height: 10px;
 	width:157px;
 	border-bottom: 2px solid #FF9F19;
 	display: inline-block;
 }
-.slide-item:hover figcaption {
+/*.slide-item:hover figcaption {
 	background: rgba(2, 124, 220, 0.6);
 	color:#fff;	
-}
+}*/
 .slide-item:hover figcaption .mask_content, .slide-item:hover figcaption .mask_subline{
 	border-bottom: 2px solid #fff;
 }
@@ -257,16 +293,16 @@ font-size:30px;
 	text-align: center;
 }
 .bottom_button{
-	width:298px;
-	height:84px;
+	width:240px;
+	height:64px;
 	border: 2px solid #009FE8;
 	border-radius: 50px;
-	font-size: 32px;
+	font-size:28px;
 	color: #fff;
 	text-align: center;
 	display: inline-block;
-	line-height: 78px;
-	margin:0 30px;
+	line-height: 60px;
+	margin:0 26px;
 	cursor: pointer;
 }
 .bottom_button:hover{
@@ -279,7 +315,7 @@ font-size:30px;
 		font-size:24px;
 		line-height:56px;
 		border-radius: 40px;
-		margin:0 15px;		
+		margin:5px 15px;		
 	}
 }
 @media screen and (max-width: 700px) {
@@ -391,7 +427,7 @@ font-size:16px;
     display: inline-block;
     vertical-align: middle;
 }
-#inputsubmit, .showcontent_button{
+#inputsubmit, .showcontent_button, .close_button{
 height:36px; 
 width:150px; 
 margin:10px auto 8px auto; 
@@ -404,6 +440,9 @@ border-radius:20px;
 #captcha1_img, #captcha_img{
 	transform:scale(0.8);
 }
+@media screen and (min-width:701px ) {
+	.close_button{display: none;}
+}
 @media screen and (max-width:700px ) {
 	.inputtype{
 		width: 180px;
@@ -411,6 +450,9 @@ border-radius:20px;
 	#hidebox-paper, #hidebox-paper-two{ 
 		width:320px;
 	}	
+	#inputsubmit, .close_button{
+		width:120px;
+	}
 }
 /*弹窗结束*/
 
@@ -419,7 +461,7 @@ border-radius:20px;
 <body>
 <!--banner-->
 <div class="ju_banner">
-	<img src="img/banner.png"/>
+	<img onclick="window.location.href='#join-section'" src="img/banner.png"/>
 </div>
 <!--banner-->
 <!--活动亮点开始-->
@@ -468,6 +510,11 @@ border-radius:20px;
 		<div class="owl-carousel" id="owl-carousel">
 	        <div class="slide-item">
 				<img class="item-bg" src="img/location/guangzhou.png"/>
+				<div class="cover">
+					<h3 class="justity_title">广州</h3>
+					<div class="mask_subtitle">2019/03/08</div>
+					<div class="mask_subline"></div>
+				</div>
 				<figcaption class="mask">
 					<h3>广州</h3>
 					<div class="mask_subtitle">2019/03/08</div>
@@ -610,17 +657,19 @@ border-radius:20px;
 </div>
 <!--议题概况结束-->
 <!--底部弹窗banner-->
-<div class="ju_bottom">
-	<img src="img/ju04.png"/>
-	<div class="button_array">
-		<div class="button_left bottom_button" onClick="showPaper();">
-			报名参会
-		</div>
-		<div class="button_right bottom_button" onClick="showPaper2();">
-			申请演讲
+<section id="join-section">
+	<div class="ju_bottom">
+		<img src="img/ju04.png"/>
+		<div class="button_array">
+			<div class="button_left bottom_button" onClick="showPaper();">
+				报名参会
+			</div>
+			<div class="button_right bottom_button" onClick="showPaper2();">
+				申请演讲
+			</div>
 		</div>
 	</div>
-</div>
+</section>
 <!--底部弹窗banner结束-->
 
 <!--弹窗部分1-->
@@ -672,6 +721,7 @@ border-radius:20px;
             <!--<div class="code-img"><a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha1_img').src='./captcha.php?r='+Math.random()"><img id="captcha1_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:150px; height:50px" /></a></div>-->
 <!--            <p>请输入验证码:<input id="codeT" type="text" name='codeS' value=''/></p>-->
             <input type="submit" name="submit" id="inputsubmit" value="提交" >
+            <button type="button" onClick="hidePaper();" class="close_button">关闭</button>
         </form>
     </div>	
     
@@ -726,6 +776,7 @@ border-radius:20px;
             <!--<div class="code-img"><a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha1_img').src='./captcha.php?r='+Math.random()"><img id="captcha1_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:150px; height:50px" /></a></div>-->
 <!--            <p>请输入验证码:<input id="codeT" type="text" name='codeS' value=''/></p>-->
             <input type="submit" name="submit" id="inputsubmit" value="提交" >
+            <button type="button" onClick="hidePaper2();" class="close_button">关闭</button>
         </form>
     </div>	
     
@@ -745,7 +796,7 @@ $(function(){
         loop: true,
 //      margin: 10,
         nav: true,
-        autoplay: true,
+//      autoplay: true,
         mouseDrag:true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
@@ -771,14 +822,6 @@ $(function(){
 	$('#left_button').on('click', function() {
             owl.trigger('prev.owl');
 	})
-		
-//      setTimeout(function(){ 
-//          var rowheight= $(".owl-stage-outer").css("height");
-//          $(".owl-side").css("height", rowheight);
-//       }, 50);
-//       
-//       var rowheight= $(".owl-stage-outer").css("height");
-//       $(".owl-side").css("height", rowheight);
 }); 
 
 //弹窗用
