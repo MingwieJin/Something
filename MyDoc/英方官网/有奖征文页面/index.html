@@ -19,7 +19,13 @@ a, a:focus, a:hover{
 /*banner部分开始*/
 .reward-page{
 	padding:650px 0 0 0;
-	background: url(img/reward1.png) top no-repeat;
+	background: url(img/reward1.png) top no-repeat #FCFCF7;
+}
+@media screen and (min-width: 2000px) {
+	.reward-page{
+		background-size: 120% auto;
+		padding:1030px 0 0 0;
+	}
 }
 /*.reward_page_wrapper{
 	background: #FCFCFC;
@@ -80,14 +86,15 @@ a, a:focus, a:hover{
 }
 @media screen and (max-width: 960px) {
 	.reward-page{
-		background-position:-410px -50px ;
+		background-position:-430px -50px ;
 	}
 	.reward_schedule{
-		padding: 30px 30px 60px 30px;
+		padding: 30px 10px 60px 10px;
 	}
 	.sche_content_row{
 		margin:0 auto;
 		width:300px;
+		max-width: 100%;
 	}
 	.sche_content_img{
 		float:left;
@@ -222,6 +229,11 @@ a, a:focus, a:hover{
 	max-width: 1260px;
 	margin:30px auto 60px auto;
 	font-weight: 600;
+}
+@media screen and (max-width: 960px) {
+	.reward_right{
+		padding:0 30px;
+	}
 }
 /*版权结束*/
 </style>		
