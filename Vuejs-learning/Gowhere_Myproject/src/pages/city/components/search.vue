@@ -47,7 +47,7 @@ import { mapState, mapMutations} from 'vuex'
 				this.timer = setTimeout(() => {
 					const result = []
 					for (let i in this.cities) {
-						this.cities[i].forEach((value) => {
+						this.cities[i].forEach((value, index) => {
 							if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
 								result.push(value)
 							}
