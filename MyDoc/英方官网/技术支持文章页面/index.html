@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+<style>	
+body{margin:0px;font-family: "微软雅黑";}	
+a, a:focus, a:hover{text-decoration: none;}
+.clear{clear:both;}
+
+/*banner*/
+.tech_banner{
+	width:100%;
+}
+.tech_banner img{
+	width:100%;
+	height:auto;
+}
+/*banner结束*/
+.tech_container{
+	max-width: 1200px;
+	width:100%;
+	margin: 45px auto 80px auto;
+}
+.breadwrap{
+	max-width: 1200px;
+	width:100%;
+	margin: 0 auto;
+	padding-top: 25px;
+}
+/*左侧选项卡区*/
+#Tab-left{
+	width:100%;
+}
+#Tab-left li{
+	background: #F9F9F9;
+}
+#Tab-left>li.active{
+	border-left: 6px solid #1096E1;
+}
+@media screen and (max-width: 1200px) {
+	#Tab-left>li.active{
+		border-left: none;
+	}
+    #Tab-left{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }	
+}
+#Tab-left li a{
+	font-size:18px;
+	color:#666;
+	border:none;
+	border-bottom: 2px solid #E5E5E5;
+	line-height: 36px;
+}
+#Tab-left>li.active>a{
+	background: #F9F9F9;
+	color:#1096E1;
+}
+
+#TabContent-right{
+	width:94%;
+	margin: 0 auto;
+	/*padding-top: 30px;*/
+}
+@media screen and (min-width: 1200px) {
+	#Tab-left{
+		width:200px;
+		float:left;
+		margin-right:40px;
+	}
+	#Tab-left li{width:200px}
+	#TabContent-right{
+		width:960px;
+		float: left;
+	}
+}
+/*左侧选项卡区结束*/
+/*内容区*/
+.tech_row_wrapper{
+	border-bottom: 1px solid #efefef;
+	padding: 24px 0;
+}
+.tech_row_wrapper:nth-child(even){
+	background: #f5fbfd;
+}
+.tech_row_wrapper:nth-child(1){
+	padding-top:0
+}
+.tech_title{
+	font-size: 20px;
+	color:#333;
+	margin-bottom: 20px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.tech_content{
+	font-size: 16px;
+	color: #999;
+	line-height: 32px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.tech_date{
+	margin: 20px 0 0 0;
+	font-size:16px;
+	color: #999;
+}
+/*内容区结束*/
+</style>		
+</head>
+
+<body>
+<!--banner开始-->		
+<div class="tech_banner">
+	<img src="img/tech-sup.jpg"/>
+</div>
+<!--banner结束-->
+
+<div class="breadwrap"><ul class="breadcrumb"><li><a href="http://127.0.0.1:58080/i2_web">首页</a></li><li><a href="http://127.0.0.1:58080/i2_web/%e5%85%ac%e5%8f%b8%e6%96%b0%e9%97%bb" rel="category tag">公司新闻</a> </li><li> <a href="http://127.0.0.1:58080/i2_web/news" rel="category tag">最新动态</a></li><li>应急行业看邦正，容灾领域最英方</li></ul></div>
+
+
+<div class="tech_container">
+	
+	<!--左侧导航栏-->
+	<ul id="Tab-left" class="nav nav-tabs">
+	   <li class="active"><a href="javascript:void(0);" data-toggle="tab">web应用</a></li>
+	   <li class=""><a href="javascript:void(0);" data-toggle="tab">存储</a></li>
+	   <li class=""><a href="javascript:void(0);" data-toggle="tab">操作系统 </a></li>
+	   <li class=""><a href="javascript:void(0);" data-toggle="tab">数据库</a></li>
+	   <li class=""><a href="javascript:void(0);" data-toggle="tab">产品对比</a></li>
+	</ul>
+	
+	<!--右侧内容栏-->
+	<div id="TabContent-right" class="tab-content">
+		<div class="tech_row_wrapper">
+			<a href="javascript:void(0);">
+				<div class="tech_title">聚伙伴 齐绽放：2019英方全国渠道公开课正式启动</div>
+				<div class="tech_content">每一年的年初，英方都会如期地展开我们的渠道课活动。既是为了会旧友，也是为了共同探讨行业的技术。今年，英方的渠道课也如期而至。像是在这等候已久的旧相识，也像是刚带着新鲜技术飞奔而至的新朋友。因为我们始终相信，一枝独秀不是春，百花齐放，才是真正的绽放。3月8日，我们将来到羊城广州，开启我们此次全国渠道公开课的第一站。</div>
+				<div class="tech_date">2019-2-18</div>
+			</a>
+		</div>
+
+	</div>
+	<div class="clear"></div>
+</div>
+
+</body>
+</html>
