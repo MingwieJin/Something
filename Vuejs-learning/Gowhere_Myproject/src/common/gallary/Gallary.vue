@@ -1,15 +1,45 @@
 <template>
-	<div class="container">
-		
+	<div class="container" @click="handGalaryclick">
+		<div class="wrapper">
+        <swiper :options="swiperOption">
+            <!-- slides -->
+            <swiper-slide v-for="(item, index) in imgs" :key="index">
+                <img class="gallary-img" :src="item"/>
+            </swiper-slide>
+            <!-- Optional controls -->
+            <div class="swiper-pagination"  slot="pagination"></div>
+        </swiper>
+		</div>
 	</div>
 </template>
 
 <script>
 export default {
 	props: {
-		list: Object
+		imgs: {
+			type: Array,
+			default: function () {
+				return []
+			}
+		}
 	},
-	name: 'CommonGallary'
+	name: 'CommonGallary',
+	data: function () {
+		return {
+			swiperOption: {
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        observeParents: true,
+        observer: true, 
+			  loop: true
+			}
+		}
+	},
+	methods:{
+		handGalaryclick () {
+			this.$emit('close')
+		}
+	}
 }
 </script>
 
