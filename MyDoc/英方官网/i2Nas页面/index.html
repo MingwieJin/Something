@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+<style>	
+body{margin:0px;font-family: "微软雅黑";}	
+a, a:focus, a:hover{text-decoration: none;}
+.clear{clear:both;}
+.prod_content_title{font-size:24px;color:#333;line-height:48px;}
+.prod_content_text{font-size:16px;color:#666;line-height: 32px;}
+@media screen and (max-width: 960px) {.prod_content_title{text-align: center;}.fea_row_wapper{margin: 40px 0;}}
+@media (min-width:1200px) {
+	.left_text{text-align: left;}
+	.right_text{text-align: right;}
+}
+.col-md-25{position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px}
+@media (min-width:992px) {.col-md-25{float: left;width:20%;}}
+/*banner*/
+.prod_banner{
+	width:100%;
+}
+.prod_banner img{
+	width:100%;
+	height:auto;
+}
+/*banner结束*/
+/*产品概述*/
+.prod_introduction{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 80px 0 0 0;
+}
+.prod_title{
+	font-size: 28px;
+	color:#333;
+	text-align: center;
+}
+.divider{
+	border-bottom: 1px solid #DDDDDD;
+	margin:30px 0;
+	position: relative;
+}
+.divider-inner{
+	position: absolute;	
+	left: 0;
+	right:0;
+	margin: 0 auto;
+	bottom: -3px;
+	width:120px;
+	height:6px;
+	background: #15C9FE;
+}
+.prod_intro_contentainer{padding:12px 0;}
+.intro_left{
+	float:left;
+}
+.intro_right{
+	margin-left: 543px;
+	padding-top: 20px;
+}
+@media screen and (min-width:1200px ) {
+	.prod_intro_contentainer{padding: 25px 30px 40px 85px;}
+}
+@media screen and (min-width:960px) {
+	.intro_right{
+		display: flex;
+		align-items: center;
+		height:345px;
+		padding-bottom: 80px;
+	}
+}
+@media screen and (max-width:1200px) and (min-width:960px) {
+	.prod_intro_contentainer{padding:12px 50px}
+	.intro_right{margin-left: 300px;}
+}
+@media screen and (max-width:960px) {
+	.prod_introduction{padding: 80px 20px 80px 20px;}
+	.intro_left{float:none;}
+	.intro_left img{display: block;margin:0 auto;max-width: 100%;}
+	.intro_right{margin-left: 0;}
+}
+/*产品概述结束*/
+/*产品特点*/
+.title_container, .fea_row, .fea_row2{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+}
+.fea_row, .fea_row2{
+	padding:15px 15px 10px 15px;
+}
+.fea_row, .fea_row2{
+	position: static;
+}
+.fea_row img, .fea_row2 img{
+	display: block;margin:0 auto;
+}
+.fea_row_wapper:nth-child(even){background: #f7fcff;}
+@media screen and (min-width: 960px) {
+	.fea_row{padding: 40px 183px 40px 30px; position: relative;}
+	.fea_row_left{margin-right: 477px;padding-top: 45px;height:277px;}
+	.fea_row_right{position:absolute; right:183px; top:40px;}
+	
+	.fea_row2{padding: 40px 30px 40px 150px; position: relative;}
+	.fea_row2_left{margin-left: 425px;padding-top: 55px;height:277px;}
+	.fea_row2_right{position:absolute; left:150px; top:75px;}
+/*	.padding65{padding-top:65px;}*/
+	.top65{top:65px;}
+	.row307{height:307px;}
+	.right307{top:25px;}
+	.right203{right:203px;top:50px;}
+}
+@media screen and (max-width:1200px) and (min-width:960px) {
+	.fea_row_right{right:60px;}
+	.fea_row_left{margin-right:340px;}
+	.fea_row{padding:25px 30px 40px 30px;}
+	
+	.fea_row2_right{left:60px;}
+	.fea_row2_left{margin-left:310px;padding-top: 65px;}
+	.fea_row2{padding:55px 30px 40px 30px;}
+}
+/*产品特点结束*/
+/*应用场景*/
+.prod_scene{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 0 0 80px 0;
+}
+.scene_container{padding-top: 20px;}
+@media screen and (min-width: 1230px) {
+	.scene_container{
+		margin-left: -15px;
+		width:1230px;
+	}
+	.scene_row{
+		padding: 0 60px 60px 60px;
+	}
+	..prod_scene{padding:0;}
+}
+@media screen and (max-width: 960px) {
+	.scene_row{margin:0 auto 50px auto; max-width: 90%;}
+}
+.scene_img{
+	/*moz-box-shadow:0px 0px 10px #A1A1A1; 
+	-webkit-box-shadow:0px 10px 5px #A1A1A1; 
+	box-shadow:0px 0px 10px #A1A1A1;*/
+}
+.scene_img img{
+	width:100%;
+}
+.scene_title{
+	margin-top:20px;
+	font-size: 18px;
+	color:#333;
+	text-align: center;
+}
+/*应用场景*/
+/*兼容性列表*/
+.prod_list{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 90px 0 100px 0;
+}
+.list_li{
+	font-size: 18px;
+	color:#666;
+	line-height: 55px;
+	text-align: center;
+}
+/*@media screen and (max-width: 1200px) {
+	.list_li{
+		overflow:hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;		
+	}	
+}*/
+.list_li:nth-child(odd){
+	background: #f7fcff;
+}
+.list_li span{
+	font-weight: 700;
+}
+/*兼容性列表结束*/
+</style>		
+</head>
+
+<body>
+<!--banner开始-->		
+<div class="prod_banner">
+	<img src="img/nas_01.jpg"/>
+</div>
+<!--banner结束-->
+<!--产品概述-->
+<div class="prod_introduction">
+	<div class="prod_title">产品概述</div>
+	<div class="divider"><div class="divider-inner"></div></div>
+	
+	<div class="prod_intro_contentainer">
+		<div class="intro_left">
+			<img src="img/nas_04.png"/>
+		</div>
+		<div class="intro_right">
+			<div class="container_right_text prod_content_text">i2NAS 针对 NAS 环境实现海量数据灾备的高性能软件。解决传统 NAS 灾备场景数据量大、无法安装客户端、消耗大量主机资源等问题，实现数据的准实时同步。</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--产品概述结束-->
+
+<!--产品特点-->
+<div class="prod_feature">
+	<div class="title_container">
+		<div class="prod_title">产品特点</div>
+		<div class="divider"><div class="divider-inner"></div></div>
+	</div>
+	<div class="feature_wrapper">
+		
+		<div class="fea_row_wapper">
+			<div class="fea_row">
+				<div class="fea_row_right">
+					<img src="img/nas_08.png"/>
+				</div>
+				<div class="fea_row_left">
+					<div class="fea_row_text_container">
+						<div class="prod_content_title right_text">海量数据灾备能力</div>
+						<div class="prod_content_text right_text">i2NAS 能够满足 TB 级的数据灾备要求，即使在业务数据均为小文件、数量达到上亿级别的场景都能轻松应对。</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="fea_row_wapper">
+			<div class="fea_row2">
+				<div class="fea_row2_right">
+					<img src="img/nas_12.png"/>
+				</div>
+				<div class="fea_row2_left">
+					<div class="fea_row_text_container">
+						<div class="prod_content_title">兼容异构环境</div>
+						<div class="prod_content_text">i2NAS 工作在主机层，可以实现异构 NAS 存储间的数据复制和迁移，帮客户解耦并增加灾备方案的灵活性。</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="fea_row_wapper">
+			<div class="fea_row">
+				<div class="fea_row_right top65">
+					<img src="img/nas_16.png"/>
+				</div>
+				<div class="fea_row_left">
+					<div class="fea_row_text_container">
+						<div class="prod_content_title right_text">高效且安全的传输</div>
+						<div class="prod_content_text right_text">提供带宽及数据流控制功能，每个复制任务可根据时间动态调整带宽限制功能 ; 支持断点续传功能 , 可应对传输过程中网络 故障以及机器故障等导致的传输终止情况，环境恢复后复制任务自动恢复、断点续传。</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="fea_row_wapper">
+			<div class="fea_row2">
+				<div class="fea_row2_right right307">
+					<img src="img/nas_20.png"/>
+				</div>
+				<div class="fea_row2_left row307">
+					<div class="fea_row_text_container">
+						<div class="prod_content_title">灾备数据一致性</div>
+						<div class="prod_content_text">在海量数据复制和迁移过程中，i2NAS 支持数据一致性比对，严格校验以确保生产数据和灾备数据一致性，发现异常可自动 定位并进行修复 ;i2NAS 同时提供定期比对任务以及数据比对报表，大大提高运维便利性。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="fea_row_wapper">
+			<div class="fea_row">
+				<div class="fea_row_right right203">
+					<img src="img/nas_22.png"/>
+				</div>
+				<div class="fea_row_left">
+					<div class="fea_row_text_container">
+						<div class="prod_content_title right_text">操作的灵活性</div>
+						<div class="prod_content_text right_text">可根据实际需求灵活选取单个文件、文件夹、卷做保护，支持文件及目录选择，并提供打开文件的镜像和复制功能，节省传输数据量，节约带宽。同时可对数据进行恢复，提供恢复至本机、恢复至异机等灵活的恢复机制。</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!--产品特点结束-->
+<!--产品场景-->
+<div class="prod_scene">
+	<div class="prod_title">应用场景</div>
+	<div class="divider"><div class="divider-inner"></div></div>
+	<div class="scene_container">
+		<div class="scene_row col-md-6 col-sm-6">
+			<div class="scene_img">
+				<img src="img/nas_26.png"/>
+			</div>
+			<div class="scene_title">异构NAS存储间数据迁移</div>
+		</div>
+		
+		<div class="scene_row col-md-6 col-sm-6">
+			<div class="scene_img">
+				<img src="img/nas_28.png"/>
+			</div>
+			<div class="scene_title">海量医疗影像数据备份</div>
+		</div>
+		
+		<div class="scene_row col-md-6 col-sm-6">
+			<div class="scene_img">
+				<img src="img/nas_33.png"/>
+			</div>
+			<div class="scene_title">共享NAS存储数据备份</div>
+		</div>
+		
+		<div class="scene_row col-md-6 col-sm-6">
+			<div class="scene_img">
+				<img src="img/nas_32.png"/>
+			</div>
+			<div class="scene_title">海量证券影像数据备份</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--产品场景结束-->
+
+<!--兼容性列表-->
+<div class="prod_list">
+	<div class="prod_title">兼容性列表</div>
+	<div class="divider"><div class="divider-inner"></div></div>	
+	<div class="list_listmenu">
+		<div class="list_li"><span>操作系统：</span>兼容 SUSE Linux 、Redhat、Ubuntu 和 Windows 操作系统，并持续支持相应更新版本；兼容中标麒麟，红旗 , FreeBSD 等</div>
+		<div class="list_li"><span>应用系统：</span>支持但不限于 Oracle 、DB2 、Cache 、MySQL 、Informix 、SQL_Server、Exchange、Lotus Notes、Sybase ASE 等</div>
+		<div class="list_li"><span>虚拟化平台：</span>支持但不限于 Microsoft HyperV、VMware、Citrix、OpenStack 等，及国产服务器虚拟化平台如 CNware、华为 Fusionshpere、华三、联想、曙光、浪潮等</div>
+		<div class="list_li"><span>公有云平台：</span>支持但不限于阿里云、腾讯云、盛大云、百度云、AWS、Azure、华为云、Ucloud、QingCloud 等</div>
+		<!--<div class="list_li">软件与平台松耦合，能适用公有云各版本，云平台的版本升级不影响工具兼容性 </div>-->
+	</div>
+</div>
+<!--兼容性列表结束-->
+<script>
+</script>
+</body>
+</html>
