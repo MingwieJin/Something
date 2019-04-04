@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+<style>	
+body{
+	margin:0px;
+	font-family: "微软雅黑";
+}	
+a, a:focus, a:hover{
+	text-decoration: none;
+}
+.clear{clear:both;}
+
+.pro_container{
+	margin:200px auto;
+	max-width: 1200px;
+}
+.pro_region{
+	position:relative;
+	overflow: hidden;
+	float:left;
+	width:400px;
+	min-height: 555px;
+	border-radius: 10px;
+	box-shadow:0 0 32px 0 rgba(0,0,0,0.18);
+	background-color: #fff;
+	transition:all 0.5s;
+	cursor:pointer;	
+}
+.pro_container .pro_mouse_over{
+	z-index: 3;
+	transform:scale(1.1);
+}
+.pro_img_container{
+	position: relative;
+	overflow: hidden;
+	height:153px;
+	padding:30px 0 20px 0;
+	text-align: center;
+	background-color:#F8F8F8;
+	border-bottom:1px solid #E6E6E6;
+	transition:transform 0.3s;	
+}
+.pro_container .pro_mouse_over .pro_img_container{
+	background-color:#00A690;
+/*	height:120px*/
+}
+.pro_img_container .pro_img_left{
+	transition:opacity 0s, transform 0.8s;
+	position:absolute;
+	top:30px;
+	left:170px;
+	width:60px;
+	opacity: 0;
+	transform:translateZ(0);
+}
+.pro_container .pro_mouse_over .pro_img_left{
+	transform:translate(-190px, -60px) scale(1.66666);
+	opacity: 1;
+}
+.pro_img_container .pro_img_right{
+	transition:opacity 1s;
+	position:absolute;
+	top:20px;
+	right:0;
+	width:200px;
+	opacity: 0;
+	transform:translateZ(0);	
+}
+.pro_container .pro_mouse_over .pro_img_right{
+	opacity: 1;
+}
+.pro_img_container .pro_img_icon{
+	transition:transform 1s, opacity 0s;
+	position: relative;
+	top:0;
+	left:0;
+	height:68px;
+	width:auto;
+	opacity: 1;
+}
+.pro_container .pro_mouse_over .pro_img_icon{
+	opacity:0;
+	transform: scale(1.5) translate(-160px, -25px);
+}
+.pro_img_container .pro_img_title{
+	transition:transform 0.8s;
+	margin-top: 5px;
+	font-size: 20px;
+	top:0;
+	left:0
+	color:#333;
+}
+.pro_container .pro_mouse_over .pro_img_title{
+	position: relative;
+	transform: translate(-50px, -60px) scale(1.2);
+	transform-origin:bottom;
+	color:#fff;
+}
+</style>		
+</head>
+
+<body>
+<div class="pro_container">
+	<div class="pro_region region_left">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2_act.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2.png"/>
+			<div class="pro_img_title">数据服务</div>
+		</div>
+	</div>
+	
+	<div class="pro_region region_left pro_mouse_over">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2_act.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2.png"/>
+			<div class="pro_img_title">数据服务</div>
+		</div>
+	</div>
+	
+	<div class="pro_region region_left">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2_act.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2.png"/>
+			<div class="pro_img_title">数据服务</div>
+		</div>
+	</div>
+</div>
+
+<script>
+  $(".pro_region").mouseover(function(){
+  	$(this).parent().children().removeClass("pro_mouse_over");
+    $(this).addClass("pro_mouse_over");
+  });
+//$(".pro_region").mouseout(function(){
+//  $(this).removeClass("pro_mouse_over");
+//});
+</script>
+</body>
+</html>
