@@ -20,23 +20,25 @@ a, a:focus, a:hover{
 
 .pro_container{
 	margin:200px auto;
-	max-width: 1200px;
+	max-width: 1700px;
+	padding-left: 30px;
 }
 .pro_region{
 	position:relative;
 	overflow: hidden;
 	float:left;
-	width:400px;
-	min-height: 555px;
+	width:364px;
+	min-height: 572px;
 	border-radius: 10px;
 	box-shadow:0 0 32px 0 rgba(0,0,0,0.18);
 	background-color: #fff;
 	transition:all 0.5s;
 	cursor:pointer;	
+	margin-left: -30px;
 }
 .pro_container .pro_mouse_over{
 	z-index: 3;
-	transform:scale(1.1);
+	transform:scale(1.07);
 }
 .pro_img_container{
 	position: relative;
@@ -49,7 +51,7 @@ a, a:focus, a:hover{
 	transition:transform 0.3s;	
 }
 .pro_container .pro_mouse_over .pro_img_container{
-	background-color:#00A690;
+	background-color:#0AA4F4;
 /*	height:120px*/
 }
 .pro_img_container .pro_img_left{
@@ -95,7 +97,7 @@ a, a:focus, a:hover{
 	margin-top: 5px;
 	font-size: 20px;
 	top:0;
-	left:0
+	left:0;
 	color:#333;
 }
 .pro_container .pro_mouse_over .pro_img_title{
@@ -103,6 +105,28 @@ a, a:focus, a:hover{
 	transform: translate(-50px, -60px) scale(1.2);
 	transform-origin:bottom;
 	color:#fff;
+}
+.pro_word_container{
+	padding: 20px 30px 0 30px;
+}
+.pro_word_container ul{margin: 0; padding: 0;}
+.pro_word_container ul li{
+	list-style: none;
+	padding-bottom: 20px;
+	font-size: 18px;
+	color:#333;
+	line-height: 44px;
+}
+.pro_word_container ul li a{
+	color:#333;
+}
+.pro_word_container ul li span{
+	font-size: 14px;
+	color:#333;
+}
+.pro_word_container ul li img{
+	display: inline-block;
+	margin-right: 25px;
 }
 </style>		
 </head>
@@ -114,32 +138,142 @@ a, a:focus, a:hover{
 			<img class="pro_img_left" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2_act.svg"/>
 			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
 			<img class="pro_img_icon" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2.png"/>
-			<div class="pro_img_title">数据服务</div>
+			<div class="pro_img_title">备份产品</div>
 		</div>
-	</div>
-	
-	<div class="pro_region region_left pro_mouse_over">
-		<div class="pro_img_container">
-			<img class="pro_img_left" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2_act.svg"/>
-			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
-			<img class="pro_img_icon" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2.png"/>
-			<div class="pro_img_title">数据服务</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="javascript:void(0);"><img src="img/pro_18.png"/>i2FFO<span>（全服务器备份）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_17.png"/>i2Cloud<span>（云灾备私有化部署）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_16.png"/>i2Backup<span>（数据定时备份）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_15.png"/>i2VP<span>（无代理备份）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_14.png"/>i2DTO<span>（对象存储管理）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_13.png"/>i2BigData<span>（大数据管理）</span></a></li>
+			</ul>
 		</div>
 	</div>
 	
 	<div class="pro_region region_left">
 		<div class="pro_img_container">
-			<img class="pro_img_left" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2_act.svg"/>
+			<img class="pro_img_left" src="img/title2.svg"/>
 			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
-			<img class="pro_img_icon" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2.png"/>
-			<div class="pro_img_title">数据服务</div>
+			<img class="pro_img_icon" src="img/title2.png"/>
+			<div class="pro_img_title">大数据产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="javascript:void(0);"><img src="img/pro_3.png"/>i2Stream<span>（数据流复制管理）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_4.png"/>i2Active<span>（数据库复制和同步）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_5.png"/>i2Masking<span>（数据脱敏）</span></a></li>
+			</ul>
 		</div>
 	</div>
+	
+	<div class="pro_region region_left">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title3-1.png"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title3.png"/>
+			<div class="pro_img_title">容灾产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="javascript:void(0);"><img src="img/pro_8.png"/>i2COOPY<span>（实时数据备份和容灾）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_7.png"/>i2CDP<span>（持续数据保护）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_6.png"/>i2Availability<span>（应用高可用）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_9.png"/>i2Move<span>（系统在线热迁移）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_10.png"/>i2Nas<span>（海量数据灾备）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_11.png"/>i2CS<span>（高可用集群）</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="pro_region region_left">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title4.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title4.png"/>
+			<div class="pro_img_title">数据管理产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="javascript:void(0);"><img src="img/pro_19.png"/>i2UP<span>（统一数据管理平台）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_20.png"/>i2Share<span>（文件管理和共享）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_21.png"/>i2Distributor<span>（数据分发）</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="pro_region region_left">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title5.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title5.png"/>
+			<div class="pro_img_title">其他产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="javascript:void(0);"><img src="img/pro_2.png"/>i2yun.com<span>（英方DRaaS云平台）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="img/pro_22.png"/>i2Box<span>（灾备一体机）</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="clear"></div>
 </div>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 
 <script>
   $(".pro_region").mouseover(function(){
-  	$(this).parent().children().removeClass("pro_mouse_over");
+	$(this).parent().children().removeClass("pro_mouse_over");
     $(this).addClass("pro_mouse_over");
   });
 //$(".pro_region").mouseout(function(){
