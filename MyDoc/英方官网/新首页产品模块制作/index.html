@@ -7,6 +7,7 @@
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
+		<!--<link href="css/product-hover.css" rel="stylesheet">-->
 		
 <style>	
 body{
@@ -23,6 +24,11 @@ a, a:focus, a:hover{
 	max-width: 1700px;
 	padding-left: 30px;
 }
+@media screen and (max-width:1700px) {
+	.pro_container{
+		max-width: 1064px;
+	}
+}
 .pro_region{
 	position:relative;
 	overflow: hidden;
@@ -35,6 +41,10 @@ a, a:focus, a:hover{
 	transition:all 0.5s;
 	cursor:pointer;	
 	margin-left: -30px;
+}
+@media screen and (max-width:1700px ) {
+	.region4{margin-left: 182px;}
+	.regiontop{margin-top: 30px;}
 }
 .pro_container .pro_mouse_over{
 	z-index: 3;
@@ -65,7 +75,7 @@ a, a:focus, a:hover{
 }
 .pro_container .pro_mouse_over .pro_img_left{
 	transform:translate(-190px, -60px) scale(1.66666);
-	opacity: 1;
+	opacity: 0.5;
 }
 .pro_img_container .pro_img_right{
 	transition:opacity 1s;
@@ -132,88 +142,88 @@ a, a:focus, a:hover{
 </head>
 
 <body>
-<div class="pro_container">
+<div class="pro_container" id="pro_container">
 	<div class="pro_region region_left">
 		<div class="pro_img_container">
-			<img class="pro_img_left" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2_act.svg"/>
+			<img class="pro_img_left" src="img/title1w.svg"/>
 			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
-			<img class="pro_img_icon" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title2.png"/>
+			<img class="pro_img_icon" src="img/title1.svg"/>
 			<div class="pro_img_title">备份产品</div>
 		</div>
 		<div class="pro_word_container">
 			<ul>
-				<li><a href="javascript:void(0);"><img src="img/pro_18.png"/>i2FFO<span>（全服务器备份）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_17.png"/>i2Cloud<span>（云灾备私有化部署）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_16.png"/>i2Backup<span>（数据定时备份）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_15.png"/>i2VP<span>（无代理备份）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_14.png"/>i2DTO<span>（对象存储管理）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_13.png"/>i2BigData<span>（大数据管理）</span></a></li>
+				<li><a href="/products/i2ffo"><img src="./img/pro_18.png"/>i2FFO<span>（全服务器备份）</span></a></li>
+				<li><a href="/products/i2cloud"><img src="./img/pro_17.png"/>i2Cloud<span>（云灾备私有化部署）</span></a></li>
+				<li><a href="/products/i2backup"><img src="./img/pro_16.png"/>i2Backup<span>（数据定时备份）</span></a></li>
+				<li><a href="/products/i2vp"><img src="./img/pro_15.png"/>i2VP<span>（无代理备份）</span></a></li>
+				<li><a href="/products/i2dto"><img src="./img/pro_14.png"/>i2DTO<span>（对象存储管理）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="./img/pro_13.png"/>i2BigData<span>（大数据管理）</span></a></li>
 			</ul>
 		</div>
 	</div>
 	
 	<div class="pro_region region_left">
 		<div class="pro_img_container">
-			<img class="pro_img_left" src="img/title2.svg"/>
+			<img class="pro_img_left" src="img/title2w.svg"/>
 			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
-			<img class="pro_img_icon" src="img/title2.png"/>
+			<img class="pro_img_icon" src="img/title2.svg"/>
 			<div class="pro_img_title">大数据产品</div>
 		</div>
 		<div class="pro_word_container">
 			<ul>
-				<li><a href="javascript:void(0);"><img src="img/pro_3.png"/>i2Stream<span>（数据流复制管理）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_4.png"/>i2Active<span>（数据库复制和同步）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_5.png"/>i2Masking<span>（数据脱敏）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="./img/pro_3.png"/>i2Stream<span>（数据流复制管理）</span></a></li>
+				<li><a href="/products/i2active"><img src="./img/pro_4.png"/>i2Active<span>（数据库复制和同步）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="./img/pro_5.png"/>i2Masking<span>（数据脱敏）</span></a></li>
 			</ul>
 		</div>
 	</div>
 	
-	<div class="pro_region region_left">
+	<div class="pro_region region_left pro_mouse_over">
 		<div class="pro_img_container">
-			<img class="pro_img_left" src="img/title3-1.png"/>
+			<img class="pro_img_left" src="img/title3w.svg"/>
 			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
-			<img class="pro_img_icon" src="img/title3.png"/>
+			<img class="pro_img_icon" src="img/title3.svg"/>
 			<div class="pro_img_title">容灾产品</div>
 		</div>
 		<div class="pro_word_container">
 			<ul>
-				<li><a href="javascript:void(0);"><img src="img/pro_8.png"/>i2COOPY<span>（实时数据备份和容灾）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_7.png"/>i2CDP<span>（持续数据保护）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_6.png"/>i2Availability<span>（应用高可用）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_9.png"/>i2Move<span>（系统在线热迁移）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_10.png"/>i2Nas<span>（海量数据灾备）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_11.png"/>i2CS<span>（高可用集群）</span></a></li>
+				<li><a href="/products/i2coopy"><img src="./img/pro_8.png"/>i2COOPY<span>（实时数据备份和容灾）</span></a></li>
+				<li><a href="/products/i2cdp"><img src="./img/pro_7.png"/>i2CDP<span>（持续数据保护）</span></a></li>
+				<li><a href="/products/i2availability"><img src="./img/pro_6.png"/>i2Availability<span>（应用高可用）</span></a></li>
+				<li><a href="/products/i2move"><img src="./img/pro_9.png"/>i2Move<span>（系统在线热迁移）</span></a></li>
+				<li><a href="/products/i2nas"><img src="./img/pro_10.png"/>i2Nas<span>（海量数据灾备）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="./img/pro_11.png"/>i2CS<span>（高可用集群）</span></a></li>
 			</ul>
 		</div>
 	</div>
-	
-	<div class="pro_region region_left">
+
+	<div class="pro_region region_left region4 regiontop">
 		<div class="pro_img_container">
-			<img class="pro_img_left" src="img/title4.svg"/>
+			<img class="pro_img_left" src="img/title4w.svg"/>
 			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
-			<img class="pro_img_icon" src="img/title4.png"/>
+			<img class="pro_img_icon" src="img/title4.svg"/>
 			<div class="pro_img_title">数据管理产品</div>
 		</div>
 		<div class="pro_word_container">
 			<ul>
-				<li><a href="javascript:void(0);"><img src="img/pro_19.png"/>i2UP<span>（统一数据管理平台）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_20.png"/>i2Share<span>（文件管理和共享）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_21.png"/>i2Distributor<span>（数据分发）</span></a></li>
+				<li><a href="/products/i2up"><img src="./img/pro_19.png"/>i2UP<span>（统一数据管理平台）</span></a></li>
+				<li><a href="/products/i2share"><img src="./img/pro_20.png"/>i2Share<span>（文件管理和共享）</span></a></li>
+				<li><a href="/products/i2distributor"><img src="./img/pro_21.png"/>i2Distributor<span>（数据分发）</span></a></li>
 			</ul>
 		</div>
 	</div>
 	
-	<div class="pro_region region_left">
+	<div class="pro_region region_left regiontop">
 		<div class="pro_img_container">
-			<img class="pro_img_left" src="img/title5.svg"/>
+			<img class="pro_img_left" src="img/title5w.svg"/>
 			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
-			<img class="pro_img_icon" src="img/title5.png"/>
+			<img class="pro_img_icon" src="img/title5.svg"/>
 			<div class="pro_img_title">其他产品</div>
 		</div>
 		<div class="pro_word_container">
 			<ul>
-				<li><a href="javascript:void(0);"><img src="img/pro_2.png"/>i2yun.com<span>（英方DRaaS云平台）</span></a></li>
-				<li><a href="javascript:void(0);"><img src="img/pro_22.png"/>i2Box<span>（灾备一体机）</span></a></li>
+				<li><a href="http://www.i2yun.com/"><img src="./img/pro_2.png"/>i2yun.com<span>（英方DRaaS云平台）</span></a></li>
+				<li><a href="/products/i2box"><img src="./img/pro_22.png"/>i2Box<span>（灾备一体机）</span></a></li>
 			</ul>
 		</div>
 	</div>
