@@ -6,7 +6,7 @@
     		:key="item" 
     		:ref="item"
     		@click="ClickCity"
-    		@touchstart="handletouchStart"
+    		@touchstart.prevent="handletouchStart"
     		@touchmove="handletouchMove"
     		@touchend="handletouchEnd"
     		>{{item}}</li>
