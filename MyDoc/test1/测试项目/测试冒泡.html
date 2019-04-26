@@ -29,8 +29,11 @@
 // 	在页面中当单击a标签会连续弹出3个提示框。这就是事件冒泡引起的现象。事件冒 泡的过程是：a --> div --> body 。a冒泡到div冒泡到body。
 
 $("ul").on("mouseover",function(e){
+//	event.stopPropagation(); //禁止冒泡
     $(e.target).css("background-color","#ddd").siblings().css("background-color","white");
 })
+
+
  </script>
 	</body>
 </html>

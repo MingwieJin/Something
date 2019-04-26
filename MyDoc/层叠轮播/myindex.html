@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>测试产品</title>
+		
+		<link rel="stylesheet" href="css/public.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
+		
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/zturn.js"></script>
+
+<style>
+.lb_gl{margin-bottom: 30px;background: url(images/bg_3d.png);background-size: 100% 100%;height:725px ;}
+.turn_3d{text-align: center;color: #fff;font-weight: 400;font-size: 36px;padding: 28px 0;}
+/*.pro_container{background:#fafafa;}*/
+.pictureSlider{height: 602px;padding-bottom: 30px;}
+	
+	.pro_region{
+	position:relative;
+	overflow: hidden;
+	/*float:left;*/
+	width:364px;
+	min-height: 572px;
+	border-radius: 10px;
+	box-shadow:0 0 32px 0 rgba(0,0,0,0.18);
+	background-color: #fff;
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	/*-webkit-backface-visibility: hidden;*/
+	/*-webkit-transform-style: preserve-3d;*/
+	cursor:pointer;	
+	/*margin-left: -30px;*/
+	padding: 0;
+	height: auto;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+@media screen and (max-width:1700px ) {
+	.region4{margin-left: 182px;}
+	.regiontop{margin-top: 30px;}
+}
+/*.pro_container .pro_mouse_over{
+	z-index: 3;
+	transform:scale(1.07);
+}*/
+.pro_img_container{
+	position: relative;
+	overflow: hidden;
+	height:100px;
+	padding:30px 0 20px 0;
+	text-align: center;
+	background-color:#F8F8F8;
+	border-bottom:1px solid #E6E6E6;
+	transition:transform 0.3s;	
+}
+.pro_container .pro_mouse_over .pro_img_container{
+	background-color:#0AA4F4;
+/*	height:120px*/
+}
+.pro_img_container .pro_img_left{
+	transition:opacity 0s, transform 0.8s;
+	position:absolute;
+	top:30px;
+	left:170px;
+	width:60px;
+	opacity: 0;
+	transform:translateZ(0);
+}
+.pro_container .pro_mouse_over .pro_img_left{
+	transform:translate(-190px, -60px) scale(1.66666);
+	opacity: 0.5;
+}
+.pro_img_container .pro_img_right{
+	transition:opacity 1s;
+	position:absolute;
+	top:20px;
+	right:0;
+	width:200px;
+	opacity: 0;
+	transform:translateZ(0);	
+}
+.pro_container .pro_mouse_over .pro_img_right{
+	opacity: 1;
+}
+.pro_img_container .pro_img_icon{
+	transition:transform 1s, opacity 0s;
+	position: relative;
+	top:0;
+	left:0;
+	height:68px;
+	width:auto;
+	opacity: 1;
+}
+.pro_container .pro_mouse_over .pro_img_icon{
+	opacity:0;
+	transform: scale(1.5) translate(-160px, -25px);
+}
+.pro_img_container .pro_img_title{
+	transition:transform 0.8s;
+	margin-top: 5px;
+	font-size: 20px;
+	top:0;
+	left:0;
+	color:#333;
+}
+.pro_container .pro_mouse_over .pro_img_title{
+	position: relative;
+	transform: translate(-50px, -60px) scale(1.2);
+	transform-origin:bottom;
+	color:#fff;
+}
+.pro_word_container{
+	padding: 20px 30px 0 30px;
+}
+.pro_word_container ul{margin: 0; padding: 0;}
+.pro_word_container ul li{
+	list-style: none;
+	padding-bottom: 20px;
+	font-size: 18px;
+	color:#333;
+	line-height: 44px;
+}
+.pro_word_container ul li a{
+	color:#333;
+}
+.pro_word_container ul li span{
+	font-size: 14px;
+	color:#333;
+}
+.pro_word_container ul li img{
+	display: inline-block;
+	margin-right: 25px;
+	vertical-align: bottom;
+}
+</style>
+	</head>
+
+	<body>
+	
+		<!--轮播-->
+		<div class="lb_gl">
+			<div class="pro_container">
+				<h1 class="turn_3d">测试产品模块</h1>
+				<div class="pictureSlider poster-main">
+<!--					<div class="poster-btn poster-prev-btn"></div>-->
+					
+					
+					<ul id="zturn" class="poster-list">
+						
+						<li class="poster-item zturn-item pro_region" >
+							<div class="pro_img_container">
+								<img class="pro_img_left" src="img/title3w.svg"/>
+								<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+								<img class="pro_img_icon" src="img/title3.svg"/>
+								<div class="pro_img_title">容灾产品</div>
+							</div>
+							<div class="pro_word_container">
+								<ul>
+									<li><a href="/products/i2coopy"><img src="./img/pro_8.png"/>i2COOPY<span>（实时数据备份和容灾）</span></a></li>
+									<li><a href="/products/i2cdp"><img src="./img/pro_7.png"/>i2CDP<span>（持续数据保护）</span></a></li>
+									<li><a href="/products/i2availability"><img src="./img/pro_6.png"/>i2Availability<span>（应用高可用）</span></a></li>
+									<li><a href="/products/i2move"><img src="./img/pro_9.png"/>i2Move<span>（系统在线热迁移）</span></a></li>
+									<li><a href="/products/i2nas"><img src="./img/pro_10.png"/>i2Nas<span>（海量数据灾备）</span></a></li>
+									<li><a href="javascript:void(0);"><img src="./img/pro_11.png"/>i2CS<span>（高可用集群）</span></a></li>
+								</ul>
+							</div>
+						</li>
+						
+						<li class="poster-item zturn-item pro_region" >
+							<div class="pro_img_container">
+								<img class="pro_img_left" src="img/title4w.svg"/>
+								<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+								<img class="pro_img_icon" src="img/title4.svg"/>
+								<div class="pro_img_title">数据管理产品</div>
+							</div>
+							<div class="pro_word_container">
+								<ul>
+									<li><a href="/products/i2up"><img src="./img/pro_19.png"/>i2UP<span>（统一数据管理平台）</span></a></li>
+									<li><a href="/products/i2share"><img src="./img/pro_20.png"/>i2Share<span>（文件管理和共享）</span></a></li>
+									<li><a href="/products/i2distributor"><img src="./img/pro_21.png"/>i2Distributor<span>（数据分发）</span></a></li>
+								</ul>
+							</div>
+						</li>
+						
+						<li class="poster-item zturn-item pro_region" >
+							<div class="pro_img_container">
+								<img class="pro_img_left" src="img/title5w.svg"/>
+								<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+								<img class="pro_img_icon" src="img/title5.svg"/>
+								<div class="pro_img_title">其他产品</div>
+							</div>
+							<div class="pro_word_container">
+								<ul>
+									<li><a href="http://www.i2yun.com/"><img src="./img/pro_2.png"/>i2yun.com<span>（英方DRaaS云平台）</span></a></li>
+									<li><a href="/products/i2box"><img src="./img/pro_22.png"/>i2Box<span>（灾备一体机）</span></a></li>
+								</ul>
+							</div>
+						</li>
+						
+						<li class="poster-item zturn-item pro_region" >
+							<div class="pro_img_container">
+								<img class="pro_img_left" src="img/title1w.svg"/>
+								<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+								<img class="pro_img_icon" src="img/title1.svg"/>
+								<div class="pro_img_title">备份产品</div>
+							</div>
+							<div class="pro_word_container">
+								<ul>
+									<li><a href="/products/i2ffo"><img src="./img/pro_18.png"/>i2FFO<span>（全服务器备份）</span></a></li>
+									<li><a href="/products/i2cloud"><img src="./img/pro_17.png"/>i2Cloud<span>（云灾备私有化部署）</span></a></li>
+									<li><a href="/products/i2backup"><img src="./img/pro_16.png"/>i2Backup<span>（数据定时备份）</span></a></li>
+									<li><a href="/products/i2vp"><img src="./img/pro_15.png"/>i2VP<span>（无代理备份）</span></a></li>
+									<li><a href="/products/i2dto"><img src="./img/pro_14.png"/>i2DTO<span>（对象存储管理）</span></a></li>
+									<li><a href="javascript:void(0);"><img src="./img/pro_13.png"/>i2BigData<span>（大数据管理）</span></a></li>
+								</ul>
+							</div>
+						</li>
+						
+						<li class="poster-item zturn-item pro_region" >
+							<div class="pro_img_container">
+								<img class="pro_img_left" src="img/title2w.svg"/>
+								<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+								<img class="pro_img_icon" src="img/title2.svg"/>
+								<div class="pro_img_title">大数据产品</div>
+							</div>
+							<div class="pro_word_container">
+								<ul>
+									<li><a href="javascript:void(0);"><img src="./img/pro_3.png"/>i2Stream<span>（数据流复制管理）</span></a></li>
+									<li><a href="/products/i2active"><img src="./img/pro_4.png"/>i2Active<span>（数据库复制和同步）</span></a></li>
+									<li><a href="javascript:void(0);"><img src="./img/pro_5.png"/>i2Masking<span>（数据脱敏）</span></a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+		</div>
+</div>
+		<!--轮播-->
+	
+		
+		
+		
+<script type="text/javascript">
+						var aa=new zturn({
+							id:"zturn",
+							opacity:0.9,
+							width:364,
+							Awidth:1200,
+							scale:0.9
+						})
+						
+						
+// $(".pro_region").mouseover(function(){
+//	$(this).parent().children().removeClass("pro_mouse_over");
+//  $(this).addClass("pro_mouse_over");
+//});
+//						var ab=new zturn({
+//							id:"zturn2",
+//							opacity:0.8,
+//							width:382,
+//							Awidth:1024,
+//							scale:0.6
+//						})
+</script>
+</html>
