@@ -39,11 +39,11 @@ export default{
       if (res.ret && res.data) {
         const data = res.data
         this.hotCities = data.hotCities
-        this.cities =  data.cities
+        this.cities = data.cities
       }
     },
     changeletters (letter) {
-    	this.letter = letter
+      this.letter = letter
     }
   },
   mounted () {
