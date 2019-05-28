@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="vue.js"></script>
+<style>
+
+</style>
+	</head>
+	<body>
+		
+<div id="app">
+
+	<child :content="'dell'"></child>
+	<child :content="'lee'"></child>
+</div>
+
+
+
+<script>
+	Vue.prototype.bus = new Vue()
+	
+//			全局组件
+	Vue.component("child", {
+		props:{
+			content:String
+		},
+		data:function(){
+			return {
+				childcontent: this.content
+			}
+		},
+		template:"<div @click='myclick'>{{childcontent}}</div>",
+		methods:{
+			myclick:function(){
+				this.bus.$emit('change', this.childcontent)
+			}
+		},
+		mounted:function(){
+			var this_ = this;
+			this.bus.$on('change', function(msg){
+				this_.childcontent = msg
+			})
+		}
+	})
+
+	var vm = new Vue({
+		el:"#app",
+//		template:'<div>{{test}}</div>',
+		data:{
+			
+		},
+		methods:{
+
+		},
+		components:{
+
+		},
+		mounted:{
+		}
+	})
+</script>
+	</body>
+</html>

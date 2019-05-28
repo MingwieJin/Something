@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="vue.js"></script>
+<style>
+
+</style>
+	</head>
+	<body>
+		
+<div id="app">
+	<conunter1 v-bind:conter="2" @conterchange= "c1"></conunter1>
+	<conunter1 v-bind:conter="3" @conterchange= "c1"></conunter1>
+	<div>{{total}}</div>
+	<!--<child v-bind:cont="hello a new"</child>-->
+</div>
+
+
+
+<script>
+	var conunter1 ={
+		props:['conter'],
+		data:function(){
+			return{
+				number:this.conter
+			}
+		},
+		template: '<div @click="changenumber1">{{number}}</div>',
+		methods:{
+			changenumber1:function(){
+				this.number++;
+				this.$emit("conterchange", 1);
+			}
+		}
+	}
+	
+//	Vue.component("child",{
+//		props:{
+//			cont:[Number, String]
+//		},
+//		template:'<div>{{cont}}</div>'
+//		
+//	})
+	
+	
+	
+	var vm = new Vue({
+		el:"#app",
+//		template:'<div>{{test}}</div>',
+		data:{
+			total:5
+		},
+		methods:{
+			change1:function(){
+				Vue.set(this.userinfo, "age", 10)
+			},
+			click1:function(){
+				console.log(this.$refs.hello)
+			},
+			changetotal:function(){
+				this.total = this.$refs.one.number + this.$refs.two.number
+			},
+			c1:function(step){
+			 	this.total = this.total+step;
+			 	console.log(this.number)
+			}
+		},
+		components:{
+			counter:{
+				data:function(){
+					return {
+						number:0
+					}
+				},
+				template:"<div @click = 'click321'>{{number}}</div>",
+				methods:{
+					click321:function(){
+						this.number++;
+						this.$emit("change321");
+					}
+				}
+			},
+			conunter1:conunter1
+		}
+	})
+	
+</script>
+	</body>
+</html>

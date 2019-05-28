@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="vue.js"></script>
+<style>
+
+</style>
+	</head>
+	<body>
+		
+<div id="app">
+<child1 v-if="type ==='child1'"></child1>
+<child2 v-if="type ==='child2'"></child2>
+<button @click="change111">111</button>
+</div>
+
+
+
+<script>
+Vue.component("child1",{
+	template:"<div>child1</div>"
+})
+Vue.component("child2",{
+	template:"<div>child2</div>"
+})
+
+var vm = new Vue({
+	el:'#app',
+	data:{
+		type:'child1'
+	},
+	methods:{
+		change111:function(){
+			this.type = this.type==="child1"? "child2":"child1"; 
+		}
+	}
+})
+
+
+
+
+</script>
+	</body>
+</html>

@@ -32,10 +32,10 @@ export default {
 		getDetailInfo () {
 			axios.get('/api/detail.json', {
 				params: {
-					id: this.$route.params.id
+				  id: this.$route.params.id
 				}
-			}).then(this.handelGetDataSucc)			
-		},    
+			}).then(this.handelGetDataSucc)
+    },
 		handelGetDataSucc (res) {
 		  res = res.data
 		  if (res.ret && res.data) {
