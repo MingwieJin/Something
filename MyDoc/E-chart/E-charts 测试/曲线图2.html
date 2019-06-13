@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="https://cdn.bootcss.com/echarts/3.7.2/echarts.min.js"></script>
+<body>
+ <div id="echarts" style="height:300px;"></div>
+ 
+ <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">-->
+     <!--<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>-->
+      <script type="text/javascript">
+        var mychartdd = echarts.init(document.getElementById('echarts'));
+			 option = {
+//			 	标题
+			    title : {
+			        text: '某楼盘销售情况',
+			        subtext: '纯属虚构'
+			    },
+			    tooltip : {//提示框信息
+			        trigger: 'axis'
+			    },
+//			    上面的显示单线选项按钮
+			    legend: {
+			        data:['意向']
+			    },
+//			    grid: {//图的位置
+//			        top: 100,
+//			        bottom: 50
+//			    },
+			    // 工具栏是否显示
+			    toolbox: {
+			        show : false,
+			        feature : {
+			            mark : {show: true},
+			            dataView : {show: true, readOnly: false},
+			            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+			            restore : {show: true},
+			            saveAsImage : {show: true}
+			        }
+			    },
+			    calculable : true,
+			    xAxis :{
+			            type : 'category',
+			            boundaryGap : false,
+			            name:'礼拜',
+			            data : ['周一','周二','周三','周四','周五','周六','周日']
+			            
+			        }
+			    ,
+			    yAxis : [
+			        {
+			            type : 'value'
+			        }
+			    ],
+			    series : [
+			        {
+			            name:'成交',
+			            type:'line',
+			            smooth:true,
+			            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+			            data:[400, 112, 21, 54, 260, 830, 710]
+			        }
+//			        {
+//			            name:'预购',
+//			            type:'line',
+//			            smooth:true,
+//			            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+//			            data:[30, 182, 434, 791, 390, 30, 10]
+//			        },
+//			        {
+//			            name:'意向',
+//			            type:'line',
+//			            smooth:true,
+//			            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+//			            data:[1320, 1132, 601, 234, 120, 90, 20]
+//			        }
+			    ]
+			};
+        mychartdd.setOption(option);
+        
+        
+//setInterval(function(){
+//	option.xAxis.data.push('周x');
+//	option.series[0].data.push(Math.floor(Math.random()*1000));
+//	if(option.xAxis.data.length >10) {
+//		option.xAxis.data.splice(0,1);
+//		option.series[0].data.splice(0,1);
+//	}
+//	mychartdd.setOption(option);
+//},2000)
+
+setInterval(function(){
+	let itemArr = []
+	let dataArr = option.xAxis.data.concat()
+	option.series[0].data.forEach(function(item,index){
+		itemArr[index] = Math.floor(Math.random()*1000);
+	})
+	dataArr.push('周x');
+	dataArr.splice(0,1);
+	option.series[0].data = itemArr.concat()
+	option.xAxis.data = dataArr.concat()
+	mychartdd.setOption(option);
+},2000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+<style>	
+body{
+	margin:0px;
+}	
+a, a:focus, a:hover{
+	text-decoration: none;
+}
+.clear{clear:both;}
+.disa-header{
+	width:100%;
+}
+.disa-header img{
+	width:100%;
+}
+/*适用场景1*/
+.disa-wrapper{
+	width: 100%;
+	max-width: 1240px;
+	margin: 80px auto 64px auto;
+}
+.scence1-row{
+	padding:0 20px
+}
+.scene1-title{
+	font-size: 36px;
+	color:#707070;
+	text-align: center;
+	margin-bottom: 60px;
+}
+.scence1-topimg img{
+	max-width: 100%;
+	width:200px;
+	margin: 0 auto;
+	display: block;
+}
+.scence1-innertitle{
+	font-size: 18px;
+	color:#707070;
+	text-align: center;
+	margin: 32px auto 24px auto;
+	font-weight: 700;
+}
+.scence1-content{
+	font-size: 16px;
+	color:#707070;
+	line-height: 29px;
+}
+@media screen and (max-width: 1200px) {
+	.scence1-content{padding:0 20px;text-align: center;margin-bottom: 30px;}
+}
+/*适用场景1*/
+/*适用场景2*/
+.disa-scence2{
+	background: #F9F9F9;
+}
+.disa-wrapper2{
+	width: 100%;
+	max-width: 1200px;
+	padding: 36px 0;	
+	margin: 0 auto;
+}
+.scence2-left{
+	width:770px;
+	max-width: 100%;
+	float: left;
+	margin-right: 32px;
+}
+.scence2-left img{
+	display: block;
+	max-width: 100%;
+}
+.scence2-right{
+	/*width:754px;*/
+	max-width: 100%;
+	/*float: left;*/
+}
+.scence2-right-block{
+	margin-bottom: 24px;
+}
+.scence2-right-title{
+	font-size: 18px;
+	color:#707070;
+	margin-bottom: 16px;
+	font-weight: 700;	
+}
+.margintop5{margin-top: 7px;}
+.scence2-right-content{
+	font-size: 16px;
+	color:#707070;
+	line-height: 29px;
+}
+/*适用场景2*/
+/*适用场景3*/
+.disa-wrapper3{
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding:36px 0;
+}
+.scence3-right{
+	width:800px;
+	max-width: 100%;
+	float: right;
+	margin-left: 32px;
+}
+.scence3-right img{
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+	.scence3-right{float: none;width:100%;margin-left:0;}
+}
+/*适用场景3*/
+/*适用场景4*/
+.scence2-left{
+	width:800px;
+	max-width: 100%;
+	float: left;
+	margin-right: 32px;
+}
+.scence2-left img{
+	display: block;
+	width:100%;
+}
+@media screen and (max-width: 1200px) {
+	.scence2-left{float: none;width:100%}
+	.scence2-right-title{text-align: center;}
+	.scence2-right-content{padding:0 20px;text-align: center;}
+}
+/*适用场景4*/
+</style>		
+</head>
+<body>
+<div class="disa-header">
+	<img src="img/banner.png"/>
+</div>
+
+<!--适用场景1-->
+<div class="disa-scence1">
+	<div class="disa-wrapper">
+		<div class="scene1-title">
+			适用场景
+		</div>
+		<div class="col-md-4 scence1-row">
+			<div class="scence1-topimg">
+				<img src="img/disa1x2.png"/>
+			</div>
+			<div class="scence1-innertitle">本地数据中心数据级云容灾</div>
+			<div class="scence1-content">客户的服务器拥有关键业务数据，需要进行副本、历史点保存。</div>
+		</div>
+		
+		<div class="col-md-4 scence1-row">
+			<div class="scence1-topimg">
+				<img src="img/disa4x2.png"/>
+			</div>
+			<div class="scence1-innertitle">本地数据中心业务级容灾</div>
+			<div class="scence1-content">服务器拥有关键业务数据，需要进行数据副本、历史点保存的同时保障业务中断时能快速实现灾备数据的云端就绪（业务就绪的前置条件）。</div>
+		</div>
+		
+		<div class="col-md-4 scence1-row">
+			<div class="scence1-topimg">
+				<img src="img/disa5.png"/>
+			</div>
+			<div class="scence1-innertitle">核心数据库RAC集群云容灾</div>
+			<div class="scence1-content">对于用户数据中心核心业务中的Oracle/Oracle RAC数据库集群或小型机上的数据库需要进行云灾备保护。需要采用应用层数据日志复制的方式才能实现实时的数据灾备。</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+</div>
+<!--适用场景1-->
+<!--适用场景2-->
+<div class="disa-scence2">
+	<div class="disa-wrapper2">
+		<div class="scence2-left">
+			<img src="img/disa12x.png"/>
+		</div>
+		
+		<div class="scence2-right">
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">本地数据中心数据级云容灾</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对用户主机的操作系统、数据库、应用、文件及虚拟化主机数据，通过专线、互联网等通信电路，传输至云备份资源池中保存；实现数据的备份及数据级异地容灾。
+				</div>
+			</div>
+			
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">备份对象</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows、Linux物理主机的操作系统、数据库、应用、文件、及虚拟化平台上的虚拟主机
+				</div>
+			</div>
+			
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">备份策略</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定时备份、支持数据库热备份（支持Oracle、SQL、MySQL等单机或主备集群，不包括Oracle RAC类的双主生产集群）
+				</div>
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+</div>
+<!--适用场景2-->
+<!--适用场景3-->
+<div class="disa-scence3">
+	<div class="disa-wrapper3">
+		<div class="scence3-right">
+			<img src="img/disa3x2.png"/>
+		</div>
+		
+		<div class="scence2-right">
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">本地数据中心业务级容灾</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对本地IDC数据中心的操作系统、数据库、应用、文件、虚拟化主机的数据进行实时备份，数据通过本地网络、FC SAN存储网络直接保存在本地的前置云灾备主机中，前置云主机再将备份数据传输上异地云端的存储资源池。
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当生产主机出现故障时，前置云存储可以通过本地网络或FC SAN存储网络直接为计算资源提供生产的历史点数据恢复或应急挂载。
+				</div>
+			</div>
+			
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">备份对象</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作系统、数据库、应用、文件、虚拟化主机
+				</div>
+			</div>
+			
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">备份策略</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定时或实时持续备份（CDP）、支持数据库热备份（支持Oracle、SQL、MySQL等单机或主备集群，不包括Oracle RAC类的双主生产集群）
+				</div>
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+</div>
+<!--适用场景3-->
+
+<!--适用场景4-->
+<div class="disa-scence2">
+	<div class="disa-wrapper2">
+		<div class="scence2-left">
+			<img src="img/disa6x2.png"/>
+		</div>
+		
+		<div class="scence2-right">
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">核心数据库RAC集群云容灾</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对用户本地数据中心的集群数据库做数据进行实时日志复制，数据通过本地网络将数据保存在本地的前置云灾备存储主机中，前置云灾备存储启动存储的CDP保护功能，对数据的历史点也做保留，以确保数据修复或演练时可以随时提取历史数据。前置云灾备主机也会再将备份的数据传输上异地云端的存储资源池。
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当生产主机出现故障或演练时，前置云存储可以通过本地网络或FC SAN存储网络直接为计算资源提供生产的历史点数据恢复或应急挂载。
+				</div>
+			</div>
+			
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">备份对象</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle RAC集群数据库
+				</div>
+			</div>
+			
+			<div class="scence2-right-block">
+				<div class="scence2-right-title margintop5">备份策略</div>
+				<div class="scence2-right-content">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时日志复制（log shipping）
+				</div>
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+</div>
+<!--适用场景4-->
+<script>
+</script>
+</body>
+</html>

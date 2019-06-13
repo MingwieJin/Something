@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+<style>	
+body{
+	margin:0px;
+	font-family: "微软雅黑";
+}	
+a, a:focus, a:hover{
+	text-decoration: none;
+}
+.clear{clear:both;}
+.active_content_text{
+	font-size:16px;
+	color:#666;
+	line-height: 32px;
+}
+.col-md-25{position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px}
+@media (min-width:992px) {.col-md-25{float: left;width:20%;}}
+/*banner*/
+.dto_banner{
+	width:100%;
+}
+.dto_banner img{
+	width:100%;
+	height:auto;
+}
+/*banner结束*/
+/*产品介绍*/
+.active_introduction{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 80px 0 64px 0;
+}
+.active-title{
+	font-size: 28px;
+	color:#333;
+	text-align: center;
+}
+.divider{
+	border-bottom: 1px solid #DDDDDD;
+	margin:30px 0;
+	position: relative;
+}
+.divider-inner{
+	position: absolute;	
+	left: 0;
+	right:0;
+	margin: 0 auto;
+	bottom: -3px;
+	width:120px;
+	height:6px;
+	background: #15C9FE;
+}
+.intro_container{padding:12px 0;}
+.container_left{
+	float:left;
+}
+.contianer_right{
+	margin-left: 447px;
+	/*padding-top: 20px;*/
+}
+@media screen and (min-width:1200px ) {
+	.intro_container{padding: 90px 30px 0 95px;}
+	.contianer_right{margin-left: 527px;}
+}
+@media screen and (max-width:960px ) {
+	.dto_introduction{padding: 80px 20px 64px 20px;}
+	.container_left{float:none;}
+	.container_left img{display: block;margin:0 auto;max-width: 100%;}
+	.contianer_right{margin-left: 0;}
+}
+/*产品介绍结束*/
+/*active产品特点开始*/
+.active_feature{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 0 0 80px 0;
+}
+.feature_container{
+	/*padding: 30px 0 0 0;*/
+}
+.right-row{
+	padding: 50px 45px 0 45px;
+	/*margin-bottom: 50px;*/
+}
+@media screen and (max-width: 960px) {
+	.right-row{padding: 0 15px;margin:30px 0;}
+}
+.right-img{
+	width:100%;
+}
+.right-img img{
+	width:auto;
+	height:auto;
+	display: block;
+	margin: 0 auto;
+}
+.right-title{
+	color:#333;
+	margin:15px 0 5px 0;
+	font-size: 18px;
+	text-align: center;
+	width:100%;
+}
+.right-title-sub{
+	margin:5px 0;
+	min-height: 25px;
+	line-height: 25px;
+}
+.right-content{
+	font-size:16px;
+	line-height: 31px;
+	color:#666;
+}
+/*active产品特点结束*/
+/*应用场景*/
+.active_scene{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 0 0 80px 0;
+}
+.scene_container{padding-top: 20px;}
+@media screen and (min-width: 1230px) {
+	.scene_container{
+		margin-left: -15px;
+		width:1230px;
+	}
+}
+@media screen and (max-width: 960px) {
+	.scene_row{margin:0 auto 50px auto; max-width: 90%;}
+}
+.scene_img{
+	moz-box-shadow:0px 0px 10px #A1A1A1; 
+	-webkit-box-shadow:0px 0px 10px #A1A1A1; 
+	box-shadow:0px 0px 10px #A1A1A1;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.scene_img img{
+	width:100%;
+}
+.scene_title{
+	margin-top:20px;
+	font-size: 18px;
+	color:#333;
+	text-align: center;
+}
+/*应用场景*/
+/*兼容性列表*/
+.active_list{
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding: 0 0 80px 0;
+}
+.list_li{
+	font-size: 18px;
+	color:#666;
+	line-height: 55px;
+	text-align: center;
+	/*overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;*/
+}
+.list_li:nth-child(odd){
+	background: #f7fcff;
+}
+.list_li span{
+	font-weight: 700;
+}
+/*兼容性列表结束*/
+</style>		
+</head>
+
+<body>
+<!--banner开始-->		
+<div class="dto_banner">
+	<img src="img/i2Stream2_01.jpg"/>
+</div>
+<!--banner结束-->
+<!--i2active产品概述-->
+<div class="active_introduction">
+	<div class="active-title">产品概述</div>
+	<div class="divider"><div class="divider-inner"></div></div>
+	<div class="intro_container">
+		<div class="container_left">
+			<img src="img/i2Stream2_04.png"/>
+		</div>
+		<div class="contianer_right">
+			<div class="container_right_text active_content_text">i2Stream 是英方自主研发的数据流复制管理软件，它是一种采用面向日志抽取分析的数据库数据流实时同步技术，可以从各类结构化数据库获取数据，并保证数据的完整性、可靠性。实现数据的提取和复制，并实时将数据传输到Kafka 等消息队列。在数据复制过程中，i2Stream 充当 Kafka Producer 的角色，从关系型数据库解析生产数据，再实时往 Kafka 平台写入，提供适用于大数据环境的高性能、容错、易用和灵活的实时数据流平台，帮助客户扩展实时数据集成架构到大数据系统而不会影响生产系统的性能。</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--i2active产品概述结束-->
+<!--active产品特点开始-->
+<!--产品特点-->
+<div class="active_feature">
+	<div class="active-title">产品特点</div>
+	<div class="divider"><div class="divider-inner"></div></div>
+	
+	<div class="feature_container">
+		<div class="right-row col-md-4 col-sm-6 col-xs-6">
+			<div class="right-img"><img src="img/i2Stream2_08.png"/></div>
+			<div class="right-title">高速，低影响的数据捕获 </div>
+			<div class="right-title right-title-sub"></div>
+		</div>
+		
+		<div class="right-row col-md-4 col-sm-6 col-xs-6">
+			<div class="right-img"><img src="img/i2Stream2_10.png"/></div>
+			<div class="right-title">有效性和数据一致性 </div>
+			<div class="right-title right-title-sub"></div>
+		</div>
+		
+		<div class="right-row col-md-4 col-sm-6 col-xs-6">
+			<div class="right-img"><img src="img/i2Stream2_12.png"/></div>
+			<div class="right-title">图形化管理 </div>
+			<div class="right-title right-title-sub"></div>
+		</div>
+		
+		<div class="right-row col-md-4 col-sm-6 col-xs-6">
+			<div class="right-img"><img src="img/i2Stream2_17.png"/></div>
+			<div class="right-title">数据验证 </div>
+			<div class="right-title right-title-sub"></div>
+		</div>
+		
+		<div class="right-row col-md-4 col-sm-6 col-xs-6">
+			<div class="right-img"><img src="img/i2Stream2_18.png"/></div>
+			<div class="right-title">良好的兼容性 </div>
+			<div class="right-title right-title-sub"></div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+</div>
+<!--active产品特点结束-->
+
+<!--产品场景-->
+<div class="active_scene">
+	<div class="active-title">应用场景</div>
+	<div class="divider"><div class="divider-inner"></div></div>
+	<div class="scene_container">
+		<div class="scene_row col-md-4 col-sm-6">
+			<div class="scene_img">
+				<img src="img/i2Stream2_22.png"/>
+			</div>
+			<div class="scene_title">大数据平台数据同步</div>
+		</div>
+		
+		<div class="scene_row col-md-4 col-sm-6">
+			<div class="scene_img">
+				<img src="img/i2Stream2_24.png"/>
+			</div>
+			<div class="scene_title">数据库数据抽取</div>
+		</div>
+		
+		<div class="scene_row col-md-4 col-sm-6">
+			<div class="scene_img">
+				<img src="img/i2Stream2_26.png"/>
+			</div>
+			<div class="scene_title">异构数据库同步</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--产品场景结束-->
+
+<!--兼容性列表-->
+<div class="active_list">
+	<div class="active-title">兼容性列表</div>
+	<div class="divider"><div class="divider-inner"></div></div>
+	<div class="list_listmenu">
+		<div class="list_li"><span>操作系统：</span>Windows、RHEL5、RHEL6、RHEL7、SUSE11、SUSE12、AIX6、AIX7 ;</div>
+		<div class="list_li"><span>数据库支持：</span> 兼容 Oracle/MySQL/Postgre等 </div>
+		<!--<div class="list_li"><span>数据库支持：</span>兼容 Oracle10g/11g/12c (仅限 pdb数据库)、PostgreSQL、MySQL 等 ; 兼容 Oracle RAC, ADG 等环境。</div>-->
+		<!--<div class="list_li"><span>生产机支持的操作系统：</span>Windows2003 以上，包括 32 位和 64 位</div>-->
+	</div>
+</div>
+<!--兼容性列表结束-->
+<script>
+</script>
+</body>
+</html>
