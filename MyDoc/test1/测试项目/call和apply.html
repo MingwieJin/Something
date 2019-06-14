@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+<script>
+	function add(a,b){
+	  return a+b;  
+	}
+	function sub(a,b){
+	  return a-b;  
+	}
+	var a1 = add.apply(sub,[4,2]);　　//sub调用add的方法
+	var a2 = sub.apply(add,[4,2]);
+	console.log(a1);  //6     
+	console.log(a2);  //2
+	
+	/*call的用法*/
+	var a3 = add.call(sub,4,2);
+	console.log(a3);//6
+</script>
+	</body>
+</html>
