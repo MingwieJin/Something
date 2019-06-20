@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<button onclick="clearall()">清空全部</button>
+<button onclick="clearA()">清空A</button>
+<!--<button onclick="clearStorage()"></button>-->		
+<script>
+//sessionStorage基本相同
+	    var storage=window.localStorage;
+	    //写入a字段
+	    storage["a"]=1;
+	    //写入b字段
+	    storage.b=2;
+	    //写入c字段
+	    storage.setItem("c",3);
+	    
+//	    console.log(typeof storage["a"]); //String
+//	    console.log(typeof storage["b"]); //String
+//	    console.log(typeof storage["c"]); //String
+
+	    //第一种方法读取
+	    var a=storage.a;
+	    console.log(a);
+	    //第二种方法读取
+	    var b=storage["b"];
+	    console.log(b);
+	    //第三种方法读取
+	    var c=storage.getItem("c");
+	    console.log(c);
+	    
+function clearall(){
+	storage.clear();
+}
+
+function clearA(){
+	 storage.removeItem("a");
+}
+</script>
+	</body>
+</html>
