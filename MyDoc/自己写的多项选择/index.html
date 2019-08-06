@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->		
+<style>
+	.mulselector-show{
+		width:300px;
+		height:30px;
+		vertical-align: middle;
+		border:1px solid #dcdfe6 ;	
+		position: relative;
+	}
+	.mulselector-text{
+		width: 100%;
+		padding-right: 40px;
+		/*display: inline-block;*/
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	}
+	.combo-arrow{
+		width:18px;
+		height:30px;
+		overflow:hidden;
+		display:inline-block;
+		vertical-align:top;
+		cursor:pointer;
+		opacity:0.6;
+		position: absolute;
+		top:0;
+		right: 0;
+		background:url('img/combo_arrow.png') no-repeat center center;
+	}
+	.combo-arrow-hover{
+		opacity:1
+	}
+	/*下拉菜单*/
+	.mulselector-downmenu{
+		width:300px;
+		height: auto;
+		border:1px solid #dcdfe6 ;		
+		position: absolute;
+		z-index: 1000;
+		top: 101%;
+		/*padding: 5px 0;*/
+		display: none;
+		background: #fff;
+		
+	}
+	.mulselector-item-hover{
+		background: #eaf2ff;
+		color:#000;		
+	}
+	.mulselector-item-selected{
+		background: #FBEC88;
+		color:#000;
+	}
+</style>
+	</head>
+	<body>
+
+<div class="mulselector-show">
+	<div class="mulselector-text"></div>
+	<span class="combo-arrow"> </span>
+	<div class="mulselector-downmenu" id="mulselector-downmenu">
+	<!--<div id="" attr-uuid>name</div>-->
+	</div>
+</div> 
+
+
+<!--<select multiple="multiple" size="2" >
+  <option value ="volvo">Volvo</option>
+  <option value ="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>	-->
+
+<script type="text/javascript">
+var list = [{"UUUID111":"111"}, {"UUUID222":"222"}, {"UUUID333":"333"}];
+var select_listadd = [];
+
+function initlist(target){
+	var html = "";
+	target.forEach(function (item, index){
+		for(let i in item){
+			html += '<div class="mulselector-item" onclick="changelistadd(this,'+ i +','+item[i]+')" id="'+ i +'" attr-uuid="'+ i +'">'+item[i]+'</div>'			
+		}
+	})
+	$("#mulselector-downmenu").append(html);
+}
+
+function changelistadd(obj){
+	event.stopPropagation();
+	let id = $(obj).attr("attr-uuid");
+	let name = $(obj).text();
+	if($(obj).hasClass('mulselector-item-selected')){
+		for(let i = 0; i < select_listadd.length; i++){
+			for(let k in select_listadd[i]){
+			    if( k === id){
+			        select_listadd.splice(i,1);
+			    }
+			}
+		}
+		$(obj).removeClass('mulselector-item-selected');
+		rebuildList(select_listadd, '.mulselector-text');
+//		console.log(select_listadd);
+	}
+	else{
+		let arritem = {};
+		arritem[id] = name;
+		select_listadd.push(arritem);
+		$(obj).addClass('mulselector-item-selected');
+		rebuildList(select_listadd, '.mulselector-text');
+//		console.log(select_listadd);
+	}
+}
+
+
+function rebuildList(target, listtar){
+		let inhtml ="";
+		target.forEach(function(item, index){
+			if(index != 0){inhtml += ","}
+			for(let i in item){
+				inhtml += item[i]; 
+			}
+		})	
+		$(listtar).text(inhtml);
+}
+
+
+$(document).ready(function(){
+	initlist(list);
+	$(".mulselector-item").hover(function(){
+		if(!$(this).hasClass("mulselector-item-selected")){
+			$(this).addClass("mulselector-item-hover");
+		}
+	},function(){
+		if(!$(this).hasClass("mulselector-item-selected")){
+			$(this).removeClass("mulselector-item-hover");
+		}
+	});	
+  $(".combo-arrow, .mulselector-text").click(function(){
+  	 event.stopPropagation();
+ 	 $("#mulselector-downmenu").toggle();
+  });
+	$(document).click(function(){
+		$("#mulselector-downmenu").hide();
+	});
+});
+
+
+</script>
+	</body>
+</html>

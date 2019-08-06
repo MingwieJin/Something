@@ -1,0 +1,378 @@
+
+body {
+    overflow-y: auto;
+    min-width: 1750px !important;
+}
+.db-box {
+    height: 700px;
+    /*line-height:700px;*/
+    padding: 260px 0;
+    max-width: 130px;
+}
+.track-box {
+    padding-top: 135px;
+}
+.src-db, .tar-db {
+    margin:  0 10px 0 30px;
+}
+.src-db {
+    text-align: left;
+}
+.tar-db {
+    text-align: left;
+    margin-left: 0;
+}
+.extract-progress {
+    margin-top: 10px;
+    text-align: center;
+    width: 180px;
+}
+
+.extract-table {
+    height: 130px;
+    margin: 0 40px;
+    margin-top: 40px;
+    padding: 0;
+}
+.extract-table .aside-title {
+    padding-top: 24px;
+}
+
+.extract-handle-box,.load-handle-box {
+    padding: 0;
+    height: 100%;
+    position:relative;
+}
+.thread-table {
+    height: 170px;
+    margin-top: 70px;
+    float: left;
+}
+.thing-analysis {
+    height: 265px;
+    margin-top: 40px;
+    margin-left: 10px;
+
+}
+.relay {
+    height: 265px;
+    margin-top: 25px;
+}
+.load {
+    height: 200px;
+    margin-top: 60px;
+}
+.relay,.load {
+    margin-left: 64px;
+}
+.relay::before,.relay::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    background: #49c0e6;
+    width: 55px;
+    height: 2px;
+    left: -60px;
+    z-index: 999;
+}
+
+.relay::after {
+    left: 190px;
+}
+
+.queue {
+    height: 100px;
+    margin-left: 0;
+    float: right;
+    margin-top: 100px;
+}
+.topo-box {
+    width: 1539px;
+    overflow-x: auto;
+}
+.result-box,
+.error-result-box
+{
+    border: 1px solid #49c0e6;
+    border-radius: 4px;
+    padding: 0;
+    box-shadow: 0 0 5px #a4d5e6;
+}
+
+/*.error-result-box.relay::before,
+.error-result-box.relay::after {
+    background-color: #ff8373;
+}*/
+.thread-error .desc-text:first-child {
+    color: #ff8373;
+}
+.thread-error::before{
+    content: '';
+    position: absolute;
+    background: #ff8373;
+    margin-top: 3px;
+    margin-left: 3px;
+    width: 4px;
+    height: 16px;
+    z-index: 999;
+}
+
+.error-result-box {
+    border-color: #ff8373;
+    box-shadow: 0 0 5px #ff8373;
+}
+
+.aside-title {
+    background-color: #f9f9f9;
+    height: 100%;
+    width: 32px;
+    margin: 0;
+    padding: 75px  8px 0;
+    font-family: "Microsoft YaHei UI";
+    color: #707070;
+    font-weight: bold;
+    float: left;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.error-result-box .aside-title {
+    background-color: #ff8373;
+    color: #fff;
+}
+
+.load>.aside-title {
+    margin-left: 0;
+    padding-top: 45px;
+}
+.relay>.aside-title {
+    padding-top: 105px;
+}
+.aside-cnt {
+    height: 100%;
+    margin: 5px 10px 0 33px;
+}
+.topo-box .table{
+    border: 0 solid transparent;
+}
+.topo-box .table > thead > tr > th {
+    background-color: transparent;
+}
+.topo-box .table td,
+.topo-box .table th,
+.desc-text {
+    border: 0 solid transparent !important;
+    color: #707070;
+    font-family: "Microsoft YaHei UI";
+}
+
+.desc-text {
+    padding: 1px 1px 1px 3px;
+}
+.desc-value {
+    display: inline-block;
+    float: right;
+
+}
+
+.progress-desc {
+    margin-top: -20px;
+    font-family: "Microsoft YaHei UI";
+    color: #666;
+    font-size: 0.9em ;
+    width: 180px;
+}
+
+.extract-progress.left::after,
+.extract-progress.right::before,
+.track-box.left::after,
+.track-box.right::before,
+.track-hidden-box.left::after,
+.track-hidden-box.right::before{
+    content: '';
+    position: absolute;
+    top:95px;
+    margin-left: 73px;
+    background: #49c0e6;
+    width: 55px;
+    height: 2px;
+    z-index: 999;
+}
+
+.track-box.left::after {
+    top: 135px;
+    margin-left: 64px;
+    width: 162px;
+}
+
+.track-box.right::before {
+    top: 135px;
+    margin-left: -43px;
+    width: 105px;
+}
+
+.extract-progress.right::before {
+    margin-left: -43px;
+}
+.extract-progress.right::after {
+    border: 10px solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    left: 15px;
+    position: absolute;
+    border-left-color: #49c0e6;
+    top: 85px;
+}
+.scnTime {
+    font-size: 0.9em;
+    width: 100%;
+    display: inline-block;
+}
+.thread-table .desc-text {
+    margin: 2px 10px;
+}
+hr {
+    margin: 5px 0;
+}
+.db-box img {
+    width: 104px;
+    height: 104px;
+    margin-left: 20px;
+}
+
+.track-hidden-box {
+    padding-top: 260px;
+}
+.track-hidden-box.left::after {
+    top: 316px;
+    margin-left: 115px;
+    width: 40px;
+}
+
+.track-hidden-box.right::before {
+    top: 316px;
+    margin-left: -15px;
+    width: 45px;
+}
+.track-hidden {
+    display: none;
+}
+
+.without-relay .relay::before {
+    left: -44px;
+}
+.without-relay .relay::after {
+    left: 177px;
+}
+.without-relay .thing-analysis {
+    margin-left: 30px;
+}
+.without-relay .load,.without-relay .relay {
+    margin-left: 44px !important;
+}
+.thread-table .desc-value {
+    font-size: 0.9em;
+}
+.have-no-data {
+    padding-top: 10px;
+}
+
+/*进度球*/
+#c{
+    margin: 0 auto;
+    display: block;
+}
+#r{
+    display: block;
+    margin: 0 auto;
+}
+#r::before{
+    color: black;
+    content: attr(min);
+    padding-right: 10px;
+}
+#r::after{
+    color: black;
+    content: attr(max);
+    padding-left: 10px;
+}
+
+
+/* 加载动画 */
+.container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      animation-delay: 1s;
+  }
+.item {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: 0.5s all ease;
+    transform: scale(1);
+    animation: scale 2s infinite cubic-bezier(0, 0, 0.49, 1.02);
+}
+.item-1 {
+    background-color: #a2d5e5;
+}
+.item-1:before {
+    background-color: #a2d5e5;
+    animation-delay: 200ms;
+}
+.item-2 {
+    background-color: #92d0e4;
+}
+.item-2:before {
+    background-color: #92d0e4;
+    animation-delay: 400ms;
+}
+.item-3 {
+    background-color: #7ac4db;
+}
+.item-3:before {
+    background-color: #7ac4db;
+    animation-delay: 600ms;
+}
+.item-4 {
+    background-color: #69bdd7;
+}
+.item-4:before {
+    background-color: #69bdd7;
+    animation-delay: 800ms;
+}
+.item-5 {
+    background-color: #53b8d7;
+}
+.item-5:before {
+    background-color: #53b8d7;
+    animation-delay: 1000ms;
+
+}
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50%,
+    75% {
+        transform: scale(2.5);
+    }
+    78%, 100% {
+        opacity: 0;
+    }
+}

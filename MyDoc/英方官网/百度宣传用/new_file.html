@@ -1,0 +1,53 @@
+慕课网首页
+课程
+实战课程
+就业班
+专栏
+猿问
+手记
+邀请有奖 下载APP 购物车
+登录 / 注册
+提问 
+请输入你的问题
+如何在HTML5中实现文字淡出淡入我要回答 关注
+ / 猿问
+如何在HTML5中实现文字淡出淡入
+Html5 波斯汪 2019-05-14 17:17:16
+如何在HTML5中实现文字淡出淡入
+
+
+2 回答
+?
+湖上湖
+你把底下这段代码运行下：
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/jquery/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+$("#div1").fadeToggle();
+$("#div2").fadeToggle("slow");
+$("#div3").fadeToggle(3000);
+});
+});
+</script>
+</head>
+
+<body>
+
+<p>演示带有不同参数的 fadeToggle() 方法。</p>
+<button>点击这里，使三个矩形淡入淡出</button>
+<br><br>
+<div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+<br>
+<div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+<br>
+<div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+</body>
+
+</body>
+</html>
+
+

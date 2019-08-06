@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+				<!--<link rel="stylesheet" type="text/css" href="rule_graph.css" />-->
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="rule_graph.css" />
+		
+		
+		<style>
+			.row{
+				margin:0;
+			}
+			.col-sm-1{
+				width:12%;
+			}
+		</style>
+	</head>
+	<body>
+<div class="topo-box">
+			
+	<!--左侧db-->
+    <div class="col-sm-1 col-xs-1 db-box src-db left  ">
+        <div class="track-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <line x1="63" y1="0" x2="63" y2="150" style="stroke:#49c0e6;stroke-width:2" />
+            </svg>
+        </div>
+        <img src="assets/icon/db/sync_rule_db.png" alt="">
+        <p class="text-center src-db-name">&nbsp;</p>
+        <div class="track-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <line x1="63" y1="0" x2="63" y2="110" style="stroke:#49c0e6;stroke-width:2" />
+                <line x1="63" y1="110" x2="130" y2="110" style="stroke:#49c0e6;stroke-width:2" />
+            </svg>
+        </div>
+    </div>
+    
+    
+    <!--中间区域-->
+    <div class="col-sm-9 col-xs-9" style="height: 800px; margin-top: 30px">
+
+        <div style="padding-left: 50px"  class="row track-hidden" >
+            <div class="col-sm-2 extract-progress left">
+                <canvas id="can-extract"></canvas>
+                <input  id="range-extract" min="0" max="100"   value="0" style="display:none">
+                <p class="progress-desc">extract_progress</p>
+            </div>
+            <div class='col-sm-7 extract-table result-box'>
+                <div class="col-sm-6 extract-handle-box" >
+                    <div class="aside-title">
+                        dmp_extract
+                    </div>
+                    <div class="aside-cnt" style="">
+                        <table class="table table-condensed text-center">
+                            <thead>
+                            <tr>
+                                <th>extract</th>
+                                <th>export_table</th>
+                                <th>line</th>
+                            </tr>
+                            </thead>
+                            <tbody class="tbody-extract">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-6 load-handle-box">
+                    <div class="aside-title">
+                        dmp_load
+                    </div>
+                    <div class="aside-cnt" style="">
+                        <table class="table table-condensed text-center">
+                            <thead>
+                            <tr>
+                                <th>load_state</th>
+                                <th>load_table</th>
+                                <th>line</th>
+                            </tr>
+                            </thead>
+                            <tbody class="tbody-handle">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 extract-progress right">
+                <canvas id="can-handle"></canvas>
+                <input  id="range-handle"  min="0" max="100"  value="0"  style="display:none">
+                <p class="progress-desc">load_progress');?></p>
+            </div>
+        </div>
+        
+        
+        <div class="row load-info-below-box" style="height: 380px;margin-top: 115px;">
+        	
+        	<!--日志分析-->
+            <div class="col-sm-3 col-xs-3 thread-table result-box">
+                <div class="aside-title" style="">
+                    	日志分析
+                </div>
+                <div class="aside-cnt log-thread-box">
+
+                </div>
+            </div>
+            <!--事物分析-->
+            <div class="col-sm-2 col-xs-2 thing-analysis result-box">
+
+                <div class="aside-title" style="">
+                    	事物分析
+                </div>
+                <div class="aside-cnt">
+                    <p class="desc-text">
+                        <span>mem_usage</span>
+                        <span class="desc-value mem"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>mem_peak</span>
+                        <span class="desc-value mempeak"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>IRP</span>
+                        <span class="desc-value irp"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>DRP</span>
+                        <span class="desc-value drp"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>URP</span>
+                        <span class="desc-value urp"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>QMI</span>
+                        <span class="desc-value qmi"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>txn</span>
+                        <span class="desc-value txn"></span>
+                    </p>
+                </div>
+            </div>
+
+			<!--中间点点点的盒子-->
+            <div class="col-sm-2 col-xs-2 relay  " style="">
+                <div class="container" style="display: none">
+                    <div class="item-1 item"></div>
+                    <div class="item-2 item"></div>
+                    <div class="item-3 item"></div>
+                    <div class="item-4 item"></div>
+                    <div class="item-5 item"></div>
+                </div>
+
+                <div class="aside-title relay-content"  style="display: none">
+                    relay_state
+                </div>
+                <div class="aside-cnt relay-content" style="display: none">
+                    <p class="desc-text">
+                        <span>limit</span>
+                        <span class="desc-value relay-limit"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>recv</span>
+                        <span class="desc-value relay-in"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>send</span>
+                        <span class="desc-value relay-out"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>speed</span>
+                        <span class="desc-value relay-speed"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>cache</span>
+                        <span class="desc-value relay-cache"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>write_seq</span>
+                        <span class="desc-value relay-wSeq"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>read_seq</span>
+                        <span class="desc-value relay-rSeq"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>del_seq</span>
+                        <span class="desc-value relay-eSeq"></span>
+                    </p>
+                </div>
+
+            </div>
+            
+			<!--装载盒子-->
+            <div class="col-sm-2 col-xs-2 load result-box" >
+                <div class="aside-title" style="">
+                    	装载
+                </div>
+                <div class="aside-cnt">
+                    <p class="desc-text">
+                        <span>loaded</span>
+                        <span class="desc-value actload"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>log_result_fail</span>
+                        <span class="desc-value actfail"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>delay</span>
+                        <span class="desc-value txndelay"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>peak</span>
+                        <span class="desc-value maxdelay"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span>compress_rate</span>
+                        <span class="desc-value compress_rate"></span>
+                    </p>
+                    <p class="desc-text">
+                        <span class="desc-value scnTime"></span>
+                    </p>
+                </div>
+            </div>
+            <!--线程盒子-->
+            <div class="col-sm-1 col-xs-1 queue result-box">
+                <table class="table table-condensed text-center">
+                    <thead>
+                    <tr>
+                        <th>线程</th>
+                        <th>队列长度</th>
+                    </tr>
+                    </thead>
+                    <tbody class="tbody-loader-thread">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!--右边的db-->
+    <div  class="col-sm-1 col-xs-1 db-box tar-db right ">
+        <div class="track-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100">
+                <line x1="63" y1="0" x2="63" y2="150" style="stroke:#49c0e6;stroke-width:2" />
+            </svg>
+        </div>
+        <img src="assets/icon/db/sync_rule_db.png" alt="">
+        <p class="text-center tar-db-name">&nbsp;</p>
+        <div class="track-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100">
+                <line x1="63" y1="0" x2="63" y2="110" style="stroke:#49c0e6;stroke-width:2" />
+                <line x1="63" y1="110" x2="1" y2="110" style="stroke:#49c0e6;stroke-width:2" />
+            </svg>
+        </div>
+    </div>
+</div>
+
+<div id="showDiv" style="position: absolute; background-color: white; border: 1px solid black;">
+
+</div>
+
+
+		<script src="rule_graph.js"></script>
+	</body>
+</html>

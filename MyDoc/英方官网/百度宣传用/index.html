@@ -1,0 +1,826 @@
+<html>
+<head>
+	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+				<!--轮播用-->
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+	    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+<style>
+	/*banner*/
+.bai_ex_banner{
+	width:100%;
+}
+.bai_ex_banner img {
+	width: 100%;
+	height:auto;
+}
+.clear{
+	clear:both;
+}
+body{
+	margin:0px;
+	font-family: "微软雅黑";
+}	
+a, a:focus, a:hover{
+	text-decoration: none;
+}
+.clear{clear:both;}
+/*产品旋转区*/    
+.pro_container{
+	margin:100px auto;
+	max-width: 1700px;
+	padding-left: 30px;
+}
+@media screen and (max-width:1700px) {
+	.pro_container{
+		max-width: 1064px;
+	}
+}
+.pro_region{
+	position:relative;
+	overflow: hidden;
+	float:left;
+	width:364px;
+	min-height: 572px;
+	border-radius: 10px;
+	box-shadow:0 0 32px 0 rgba(0,0,0,0.18);
+	background-color: #fff;
+	transition:all 0.5s;
+	cursor:pointer;	
+	margin-left: -30px;
+}
+@media screen and (max-width:1700px ) {
+	.region4{margin-left: 182px;}
+	.regiontop{margin-top: 30px;}
+}
+.pro_container .pro_mouse_over{
+	z-index: 3;
+	transform:scale(1.07);
+}
+.pro_img_container{
+	position: relative;
+	overflow: hidden;
+	height:153px;
+	padding:30px 0 20px 0;
+	text-align: center;
+	background-color:#F8F8F8;
+	border-bottom:1px solid #E6E6E6;
+	transition:transform 0.3s;	
+}
+.pro_container .pro_mouse_over .pro_img_container{
+	background-color:#0AA4F4;
+/*	height:120px*/
+}
+.pro_img_container .pro_img_left{
+	transition:opacity 0s, transform 0.8s;
+	position:absolute;
+	top:30px;
+	left:170px;
+	width:60px;
+	opacity: 0;
+	transform:translateZ(0);
+}
+.pro_container .pro_mouse_over .pro_img_left{
+	transform:translate(-190px, -60px) scale(1.66666);
+	opacity: 0.5;
+}
+.pro_img_container .pro_img_right{
+	transition:opacity 1s;
+	position:absolute;
+	top:20px;
+	right:0;
+	width:200px;
+	opacity: 0;
+	transform:translateZ(0);	
+}
+.pro_container .pro_mouse_over .pro_img_right{
+	opacity: 1;
+}
+.pro_img_container .pro_img_icon{
+	transition:transform 1s, opacity 0s;
+	position: relative;
+	top:0;
+	left:0;
+	height:68px;
+	width:auto;
+	opacity: 1;
+}
+.pro_container .pro_mouse_over .pro_img_icon{
+	opacity:0;
+	transform: scale(1.5) translate(-160px, -25px);
+}
+.pro_img_container .pro_img_title{
+	transition:transform 0.8s;
+	margin-top: 5px;
+	font-size: 20px;
+	top:0;
+	left:0;
+	color:#333;
+}
+.pro_container .pro_mouse_over .pro_img_title{
+	position: relative;
+	transform: translate(-50px, -60px) scale(1.2);
+	transform-origin:bottom;
+	color:#fff;
+}
+.pro_word_container{
+	padding: 20px 30px 0 30px;
+}
+.pro_word_container ul{margin: 0; padding: 0;}
+.pro_word_container ul li{
+	list-style: none;
+	padding-bottom: 20px;
+	font-size: 18px;
+	color:#333;
+	line-height: 44px;
+}
+.pro_word_container ul li a{
+	color:#333;
+}
+.pro_word_container ul li span{
+	font-size: 14px;
+	color:#333;
+}
+.pro_word_container ul li img{
+	display: inline-block;
+	margin-right: 25px;
+}
+/*产品旋转区*/      
+/*方案轮播区域*/
+.bai_ex_carousel{
+	box-sizing: border-box;
+	background: #f1f6ff;
+	padding: 40px 0 60px 0;
+	position: relative;
+}
+.left_button, .right_button{
+	position: absolute;
+	top:38%;	
+}
+.left_button{
+	left:8%;
+}
+.right_button{
+	right:8%;
+	transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+@media screen and (max-width: 1799px) and (min-width: 1701px ) {
+	.left_button{left:3%;}	
+	.right_button{right:3%;}
+}
+@media screen and (max-width:1700px) {
+	display:none;
+}
+.bai_ex_car_inner{
+	max-width:1420px;
+	margin: 0 auto;
+}
+.carousel_title{
+	font-size: 26px;
+	font-weight: 700;
+	color:#333;
+	text-align: center;
+}
+.carousel_title_sub{
+	height: auto;
+	width:100px;
+	margin:20px auto 10px auto;
+	border-bottom: 4px solid #15C9FE;
+}
+.slide-item{
+	padding:0 8.75%;
+}
+.owl-stage-outer{
+	height: 310px;
+}
+.owl-carousel .owl-stage{
+	margin-top: 50px;
+}
+.ad-row-inside{
+	height:225px;
+	border-radius: 5px;
+		moz-box-shadow:0px 0px 20px #6FA1FB; 
+	-webkit-box-shadow:0px 0px 20px #6FA1FB; 
+	box-shadow:0px 0px 20px #6FA1FB;
+}
+.ad-row-content{
+	font-size: 18px;
+	color:#666;
+	font-weight: 700;
+	text-align: center;
+	height:107px;
+	line-height: 87px;
+}
+
+/*.owl-item.center .ad-row-inside{
+	padding:0 15%;
+}*/
+/*.ad-container-inside{
+	margin: 140px 0 80px 0;
+}
+.ad-row{
+	padding:0 17.5px;
+	height: 252px;
+}*/
+.owl-item.center .ad-row-inside {
+  transition:all 0.45s;
+}
+.owl-item img {
+  transition: 0.45s;
+}
+.owl-item.center .ad-row-inside {
+transform: scale(1.2); 
+}
+.triangle-down{
+	display: none;
+}
+.owl-item.center .triangle-down {
+	    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #fff;
+}
+
+
+
+/*#owl-carousel2 .owl-stage{
+	margin: 50px 0;
+}*/
+/*#owl-carousel2 .owl-dots{
+	display: none !important;
+}*/
+.owl-theme .owl-controls{
+	display: none;
+}
+.carousel_sub_content{
+	font-size: 16px;
+	color:#999;
+	line-height: 32px;
+	margin: 55px auto 0 auto;
+	max-width: 900px;
+}
+/*方案轮播区域*/
+/*填写表单区*/
+.bai_form{
+	width:100%;
+	padding:40px 0;
+	background: url(img/formbg.png) no-repeat;
+	background-size: cover;
+}
+.paper-content{
+	width:800px;
+	margin:0 auto;
+}
+.input-select, .input-form-row{
+	margin: 10px 0;
+	padding-right: 90px;
+}
+.input-select p, .input-form-row p{
+	display: inline-block;
+}
+#paper-form{
+	text-align: center;
+	font-size: 18px;
+}
+#paper-form p{
+	color: #fff;
+}
+#paper-form select{
+	width:235px;
+	height: 40px;
+	border-radius: 5px;
+	color:#999;
+}
+#paper-form .inputtype{
+	width:500px;
+	height:40px;
+	border-radius: 5px;
+	color:#999;
+}
+#paper-form .inputselect1{
+	margin-right: 24px;
+	/*width:200px;*/
+}
+.form_title{
+	font-size: 26px;
+	font-weight: 700;
+	color:#fff;
+	text-align: center;	
+}
+.form_title_sub{
+	height: auto;
+	width:100px;
+	margin:20px auto 30px auto;
+	border-bottom: 4px solid #fff;	
+}
+#inputsubmit{
+	width:172px;
+	height:52px;
+	border-radius: 50px;
+	margin-top: 30px;
+	color:#fff;
+	background: transparent;
+	border: 2px solid #fff;
+}
+#paper-form #codeT{
+	width:357px;
+	display: inline-block;
+}
+#paper-form .code-img{
+	display: inline-block;
+	vertical-align: middle;
+}
+/*填写表单区*/
+</style>
+</head>
+<body>
+<div class="bai_ex_banner">
+	<img src="img/banner.jpg"/>
+</div>	
+
+<!--头部产品区-->
+<div class="pro_container" id="pro_container">
+	<div class="pro_region region_left">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title1w.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title1.svg"/>
+			<div class="pro_img_title">备份产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="/products/i2ffo"><img src="./img/pro_18.png"/>i2FFO<span>（全服务器备份）</span></a></li>
+				<li><a href="/products/i2cloud"><img src="./img/pro_17.png"/>i2Cloud<span>（云灾备私有化部署）</span></a></li>
+				<li><a href="/products/i2backup"><img src="./img/pro_16.png"/>i2Backup<span>（数据定时备份）</span></a></li>
+				<li><a href="/products/i2vp"><img src="./img/pro_15.png"/>i2VP<span>（无代理备份）</span></a></li>
+				<li><a href="/products/i2dto"><img src="./img/pro_14.png"/>i2DTO<span>（对象存储管理）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="./img/pro_13.png"/>i2BigData<span>（大数据管理）</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="pro_region region_left">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title2w.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title2.svg"/>
+			<div class="pro_img_title">大数据产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="javascript:void(0);"><img src="./img/pro_3.png"/>i2Stream<span>（数据流复制管理）</span></a></li>
+				<li><a href="/products/i2active"><img src="./img/pro_4.png"/>i2Active<span>（数据库复制和同步）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="./img/pro_5.png"/>i2Masking<span>（数据脱敏）</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="pro_region region_left pro_mouse_over">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title3w.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title3.svg"/>
+			<div class="pro_img_title">容灾产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="/products/i2coopy"><img src="./img/pro_8.png"/>i2COOPY<span>（实时数据备份和容灾）</span></a></li>
+				<li><a href="/products/i2cdp"><img src="./img/pro_7.png"/>i2CDP<span>（持续数据保护）</span></a></li>
+				<li><a href="/products/i2availability"><img src="./img/pro_6.png"/>i2Availability<span>（应用高可用）</span></a></li>
+				<li><a href="/products/i2move"><img src="./img/pro_9.png"/>i2Move<span>（系统在线热迁移）</span></a></li>
+				<li><a href="/products/i2nas"><img src="./img/pro_10.png"/>i2Nas<span>（海量数据灾备）</span></a></li>
+				<li><a href="javascript:void(0);"><img src="./img/pro_11.png"/>i2CS<span>（高可用集群）</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="pro_region region_left region4 regiontop">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title4w.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title4.svg"/>
+			<div class="pro_img_title">数据管理产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="/products/i2up"><img src="./img/pro_19.png"/>i2UP<span>（统一数据管理平台）</span></a></li>
+				<li><a href="/products/i2share"><img src="./img/pro_20.png"/>i2Share<span>（文件管理和共享）</span></a></li>
+				<li><a href="/products/i2distributor"><img src="./img/pro_21.png"/>i2Distributor<span>（数据分发）</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="pro_region region_left regiontop">
+		<div class="pro_img_container">
+			<img class="pro_img_left" src="img/title5w.svg"/>
+			<img class="pro_img_right" src="https://o8ci6tgz8.qnssl.com/jiguang/20180929/assets/img/service_title_right.svg"/>
+			<img class="pro_img_icon" src="img/title5.svg"/>
+			<div class="pro_img_title">其他产品</div>
+		</div>
+		<div class="pro_word_container">
+			<ul>
+				<li><a href="http://www.i2yun.com/"><img src="./img/pro_2.png"/>i2yun.com<span>（英方DRaaS云平台）</span></a></li>
+				<li><a href="/products/i2box"><img src="./img/pro_22.png"/>i2Box<span>（灾备一体机）</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="clear"></div>
+</div>
+<!--头部产品区-->
+
+<!--方案轮播区-->
+<div class="bai_ex_carousel">
+	<div class="left_button" id="left_button"><img src="img/arrow.png"/></div>
+	<div class="bai_ex_car_inner">
+		<div class="carousel_title">解决方案</div>
+		<div class="carousel_title_sub"></div>
+		<div class="owl-carousel ad-container-inside"id="owl-carousel2">
+            <div class="slide-item">
+				<div class="ad-row-inside" tgt-type="Db">
+					<div class="ad-img-outer"><img src="img/img1.png"/></div>
+					<div class="ad-row-content">数据库容灾</div>
+					<div class="triangle-down"></div>
+				</div>
+            </div>
+            <div class="slide-item">
+				<div class="ad-row-inside" tgt-type="i2Move">
+					<div class="ad-img-outer"><img src="img/img2.png"/></div>
+					<div class="ad-row-content">在线热迁移</div>
+					<div class="triangle-down"></div>
+				</div>
+            </div>
+            <div class="slide-item">
+				<div class="ad-row-inside" tgt-type="i2Availability">
+					<div class="ad-img-outer"><img src="img/img3.png"/></div>
+					<div class="ad-row-content ad-row-content-mid">容灾高可用</div>
+					<div class="triangle-down"></div>
+				</div>
+            </div>
+            <div class="slide-item">
+				<div class="ad-row-inside"  tgt-type="i2CDP">
+					<div class="ad-img-outer"><img src="img/img4.png"/></div>
+					<div class="ad-row-content" style="text-align: center;">勒索病毒预防</div>
+					<div class="triangle-down"></div>
+				</div>
+            </div>
+            <div class="slide-item">
+				<div class="ad-row-inside" tgt-type="twoThree">
+					<div class="ad-img-outer"><img src="img/img5.png"/></div>
+					<div class="ad-row-content">两地三中心解决方案</div>
+					<div class="triangle-down"></div>
+				</div>
+            </div>    
+		</div>
+		<div class="clear"></div>
+		<div class="carousel_sub_content" id="carousel_sub_content">i2Availability通过对应用、服务器等资源的状态进行实时监控，在发现应用突然异常停止（如应用异常退出、服务器断电、硬件故障灯）、或者达到需要切换的条件时（如生产服务器资源即将耗尽、软硬件升级等），自动或手工将应用切换到灾备服务器上以便在这些情形下，由灾备机无缝接管生产服务器工作。</div>
+	</div>
+	<div class="right_button" id="right_button"><img src="img/arrow.png"/></div>
+</div>
+<!--方案轮播区-->
+
+<!--填写表单区-->
+<div class="bai_form">
+	  <div class="paper-content">
+	  	<div class="form_title">产品咨询</div>
+		<div class="form_title_sub"></div>
+        <form method="post" action="response.php" name="form" id="paper-form" onsubmit = "return checkPar();" target="iframe_display">
+        	<div class="input-select"><p class="input-form-selw">选择地点：</p>
+                <select class="inputselect inputselect1" id="province"  name="province">
+                	   <option value="省份">省份</option>
+                       <option value="北京">北京</option>
+                       <option value="天津">天津</option>
+                       <option value="上海">上海</option>
+                       <option value="重庆">重庆</option>
+                       <option value="河北">河北</option>
+                       <option value="山西">山西</option>
+                       <option value="内蒙古">内蒙古</option>
+                       <option value="辽宁">辽宁</option>
+                       <option value="吉林">吉林</option>
+                       <option value="黑龙江">黑龙江</option>
+                       <option value="江苏">江苏</option>
+                       <option value="浙江">浙江</option>
+                       <option value="安徽">安徽</option>
+                       <option value="福建">福建</option>
+                       <option value="江西">江西</option>
+                       <option value="山东">山东</option>
+                       <option value="河南">河南</option>
+                       <option value="湖北">湖北</option>
+                       <option value="湖南">湖南</option>
+                       <option value="广东">广东</option>
+                       <option value="广西">广西</option>
+                       <option value="海南">海南</option>
+                       <option value="四川">四川</option>
+                       <option value="贵州">贵州</option>
+                       <option value="云南">云南</option>
+                       <option value="西藏">西藏</option>
+                       <option value="陕西">陕西</option>
+                       <option value="甘肃">甘肃</option>
+                       <option value="青海">青海</option>
+                       <option value="宁夏">宁夏</option>
+                       <option value="新疆">新疆</option>
+                       <option value="香港">香港</option>
+                       <option value="澳门">澳门</option>
+                       <option value="台湾">台湾</option>
+                </select>
+                <select class="inputselect" id="city"  name="city">
+					<option value="城市">城市</option>
+                </select>
+            </div>
+            <div class="input-form-row"><p>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司：</p>
+                <input type="text" id="company" name="company" class="inputtype" datatype="*" nullmsg="请填写您的公司名称">
+            </div>
+            <div class="input-form-row"><p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</p>
+                <input type="text" id="name" name="name" class="inputtype" datatype="*" nullmsg="请填写您的姓名">
+            </div>
+           <div class="input-form-row"><p>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</p>
+                <input type="tel" id="tel" name="tel" class="inputtype" datatype="m" nullmsg="请填写您的手机号码" errormsg="您填写的手机号码格式不正确！">
+            </div>
+            <div class="input-form-row"><p>需&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;求：</p>
+                <input type="text" id="request" name="request" class="inputtype" datatype="*" nullmsg="请您填写需求">
+            </div>
+            
+
+            <!--<div class="input-form-row"><p>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</p>
+                <input type="text" id="u_post" name="u_post" class="inputtype" datatype="*" nullmsg="请填写您的职位">
+            </div>
+
+            <div class="input-form-row"><p>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</p>
+                <input type="email" id="u_email" name="u_email" class="inputtype" datatype="e" nullmsg="请填写您的电子邮箱" errormsg="您填写的邮箱格式不正确！">
+            </div>
+            <div class="input-form-row"><p>邮寄地址：</p>
+                <input type="text" id="u_address" name="u_address" class="inputtype">
+            </div>-->
+            <div class="input-form-row"><p class="input-form-code">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</p>
+                <input type="text" id="codeT" name="codeT" class="inputtype" datatype="*" nullmsg="验证码不能为空">
+                <div class="code-img"><a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha1_img').src='./captcha.php?r='+Math.random()"><img id="captcha1_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:137px; height:50px" /></a></div>
+            </div>
+            <!--<div class="code-img"><a id="changecode" href="javascript:void(0);" onclick="document.getElementById('captcha1_img').src='./captcha.php?r='+Math.random()"><img id="captcha1_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:150px; height:50px" /></a></div>-->
+<!--            <p>请输入验证码:<input id="codeT" type="text" name='codeS' value=''/></p>-->
+            <input type="submit" name="submit" id="inputsubmit" value="提交" >
+        </form>
+    </div>	
+</div>
+
+<iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe>  	
+<!--填写表单区-->
+
+
+
+
+<script>
+//	初始化轮播
+	$(function(){
+    var owl = $('#owl-carousel2');
+        owl.owlCarousel({
+        items: 4,
+        loop: true,
+//      margin: 10,
+        nav: true,
+//      autoplay: true,
+        center: true,
+//      mouseDrag:true,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        smartSpeed:500,
+	    responsive: {
+	        0: {
+	            items: 1,
+	           },
+	        500: {
+	            items: 2,
+	            },
+	       1000: {
+	            items: 4,
+	            },
+	       1200: {
+	            items: 5,
+	        }
+	    },	
+		});    
+		$('.right_button').on('click', function() {
+		owl.trigger('next.owl');
+		});
+		$('#left_button').on('click', function() {
+		owl.trigger('prev.owl');
+		})
+       owl.on('translated.owl.carousel', function(event) {
+			var tgtContent = $('#owl-carousel2 .center').find(".ad-row-inside").attr("tgt-type");
+//                        console.log(tgtContent);
+			changecontent(tgtContent);
+		})
+})
+	
+	
+function changecontent(tgt) {
+	var getContent = {
+	'i2Availability': 'i2Availability通过对应用、服务器等资源的状态进行实时监控，在发现应用突然异常停止（如应用异常退出、服务器断电、硬件故障灯）、或者达到需要切换的条件时（如生产服务器资源即将耗尽、软硬件升级等），自动或手工将应用切换到灾备服务器上以便在这些情形下，由灾备机无缝接管生产服务器工作。',
+	'i2Move': '上云下云都用i2Move<br>一键式系统热迁移解决方案<br><br>热迁移解决方案6大优势<br>生产业务不间断的情况下，实现业务的整体迁移<br>支持上千台系统及异构硬件的迁移，支持跨云及虚拟化平台的迁移<br>只需操作系统一致便可实现一键式操作，且迁移过程可随时终止及回退<br>整个迁移过程时间可预测，实现按计划迁移<br>迁移过程安全可靠，实现源机与目标机的数据同步，保证业务的正常切换<br>字节级增量数据传输，适合本地到云端及云到云之间的长距离、窄带宽迁移',
+	'Db': '数据库容灾方式根据硬件架构及应用软件主要分为：<br>针对X86架构下SQL Server的容灾解决方案<br>针对X86架构下Mysql的容灾解决方案<br>针对X86架构下Oracle单一数据库的容灾解决方案<br><br>以上三种方案主要通过i2Availability数据实时保护应用高可用来进行数据库业务保护。<br>针对X86架构下Oracle RAC集群的容灾解决方案，针对小机架构下的Oracle RAC集群的容灾解决方案，以上两种方案主要通过i2Active redolog的方式来进行数据库业务保护。<br>',
+	'i2CDP': '英方真CDP（软著为i2CDP）是持续数据保护技术的领先技术方案，为关键数据提供持续的、不间断的保护，并可根据需求将数据快速恢复到之前的任意时间点。i2CDP将变化的数据实时复制到灾备中心，同时也将数据的任何变化以日志方式记录下来，实现对数据变化的可回溯性；可在任何情况下依据数据变化日志，快速定位需要恢复的时间点，并将数据一键式恢复到异常点之前。',
+	'twoThree': '伴随着业务量的激增和业务业务连续性重要性的提升，传统的单数据中心已难以抵御地域性灾难及突发事件对，企业数据的安全和业务连续性，而只做本地的数据冗余保护或容灾建设，已不能规避区域性灾难对企业数据的破坏。因此包括再同城备份中心进行应用级容灾，在异地灾备中心作为全部数据级灾备和部分应用级灾备的两地三中心架构，逐渐成为当下最有效的数据及业务保护架构之一。',
+	'cloud': '云灾备<br>数据及业务保护解决方案<br><br>适用场景<br>本地数据中心数据级云容灾：客户的服务器拥有关键业务数据，需要进行副本、历史点保存。<br>本地数据中心业务级容灾：服务器拥有关键业务数据，需要进行数据副本、历史点保存的同时保障业务中断时能快速实现灾备数据的云端就绪（业务就绪的前置条件）。<br>核心数据库RAC集群云容灾：对于用户数据中心核心业务中的Oracle/Oracle RAC数据库集群或小型机上的数据库需要进行云灾备保护。需要采用应用层数据日志复制的方式才能实现实时的数据灾备。'
+	};
+	var tarHtml = getContent[tgt];
+//        console.log(tarHtml)
+	$('#carousel_sub_content').html(tarHtml);	
+}
+	
+
+
+//产品mouseover效果
+  $(".pro_region").mouseover(function(){
+	$(this).parent().children().removeClass("pro_mouse_over");
+    $(this).addClass("pro_mouse_over");
+  });
+  
+// 初始化省份城市列表 
+  var arr;
+  var arr2;
+  addArray();
+  
+ 
+//　　$(document).ready(function(){  
+  $('#province').change(function(){  
+  	var tarPro = $(this).children('option:selected').val();
+//　　alert($(this).children('option:selected').val());  
+	var tarProIndex = arr.indexOf(tarPro);
+	var html = ''
+	if (tarProIndex === -1){
+		html += '<option value="城市">城市</option>'
+	}
+	else {
+		var tarCityArray = arr2[tarProIndex]
+		tarCityArray.forEach(function (item, index) {
+			html += '<option value="' + item +'">' + item +'</option>'
+		})
+	}
+	$('#city').html(html);
+//　　var p1=$(this).children('option:selected').val();//这就是selected的值  
+//　　var p2=$('#param2').val();//获取本页面其他标签的值  
+//　　window.location.href="xx.php?param1="+p1+"m2="+p2+"";//页面跳转并传参  
+  })
+  
+  function addArray(){
+     arr=["北京","天津","上海","重庆","河北","山西","内蒙古","辽宁","吉林","黑龙江","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东","广西","海南","四川","贵州","云南","西藏","陕西","甘肃","青海","宁夏","新疆","香港","澳门","台湾"];
+     arr2=["北京","天津","上海","重庆","河北","山西","内蒙古","辽宁","吉林","黑龙江","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东","广西","海南","四川","贵州","云南","西藏","陕西","甘肃","青海","宁夏","新疆","香港","澳门","台湾"];
+    function addTo(id,iArray){
+        arr2[id] = [];
+        for(let i=0;i<iArray.length;i++){
+            arr2[id][i]=iArray[i];
+        }
+
+    }
+   addTo("0",["北京"]);
+   addTo("1",["天津"]);
+   addTo("2",["上海"]);
+   addTo("3",["重庆"]);
+   addTo("4",["石家庄","张家口","承德","秦皇岛","唐山","廊坊","保定","衡水","沧州","邢台","邯郸"]);
+   addTo("5",["太原","朔州","大同","阳泉","长治","晋城","忻州","晋中","临汾","吕梁","运城"]);
+   addTo("6",["呼和浩特","包头","乌海","赤峰","通辽","呼伦贝尔","鄂尔多斯","乌兰察布","巴彦淖尔","兴安盟","锡林郭勒盟","阿拉善盟"]);
+   addTo("7",["沈阳","朝阳","阜新","铁岭","抚顺","本溪","辽阳","鞍山","丹东","大连","营口","盘锦","锦州","葫芦岛"]);
+   addTo("8",["长春","白城","松原","吉林","四平","辽源","通化","白山","延边州"]);
+   addTo("9",["哈尔滨","齐齐哈尔","七台河","黑河","大庆","鹤岗","伊春","佳木斯","双鸭山","鸡西","牡丹江","绥化","大兴安岭"]);
+   addTo("10",["南京","徐州","连云港","宿迁","淮安","盐城","扬州","泰州","南通","镇江","常州","无锡","苏州"]);
+   addTo("11",["杭州","湖州","嘉兴","舟山","宁波","绍兴","衢州","金华","台州","温州","丽水"]);
+   addTo("12",["合肥","宿州","淮北","亳州","阜阳","蚌埠","淮南","滁州","马鞍山","芜湖","铜陵","安庆","黄山","六安","巢湖","池州","宣城"]);
+   addTo("13",["福州","南平","莆田","三明","泉州","厦门","漳州","龙岩","宁德"]);
+   addTo("14",["南昌","九江","景德镇","鹰潭","新余","萍乡","赣州","上饶","抚州","宜春","吉安"]);
+   addTo("15",["济南","青岛","聊城","德州","东营","淄博","潍坊","烟台","威海","日照","临沂","枣庄","济宁","泰安","莱芜","滨州","菏泽"]);
+   addTo("16",["郑州","开封","三门峡","洛阳","焦作","新乡","鹤壁","安阳","濮阳","商丘","许昌","漯河","平顶山","南阳","信阳","周口","驻马店","济源"]);
+   addTo("17",["武汉","十堰","襄阳","荆门","孝感","黄冈","鄂州","黄石","咸宁","荆州","宜昌","随州","仙桃","潜江","天门","神农架林区","恩施州"]);
+   addTo("18",["长沙","张家界","常德","益阳","岳阳","株洲","湘潭","衡阳","郴州","永州","邵阳","怀化","娄底","湘西州"]);
+   addTo("19",["广州","深圳","清远","韶关","河源","梅州","潮州","汕头","揭阳","汕尾","惠州","东莞","珠海","中山","江门","佛山","肇庆","云浮","阳江","茂名","湛江"]);
+   addTo("20",["南宁","桂林","柳州","梧州","贵港","玉林","钦州","北海","防城港","崇左","百色","河池","来宾","贺州"]);
+   addTo("21",["海口","三亚","文昌","琼海","万宁","五指山","东方","儋州","三沙"]);
+   addTo("22",["成都","广元","绵阳","德阳","南充","广安","遂宁","内江","乐山","自贡","泸州","宜宾","攀枝花","巴中","达州","资阳","眉山","雅安","阿坝州","甘孜州","凉山州"]);
+   addTo("23",["贵阳","六盘水","遵义","安顺","毕节","铜仁","黔东南州","黔南州","黔西南州"]);
+   addTo("24",["昆明","曲靖","玉溪","保山","昭通","丽江","思茅","临沧","德宏州","怒江州","迪庆州","大理州","楚雄州","红河州","文山州","西双版纳"]);
+   addTo("25",["拉萨","那曲","昌都","林芝","山南","日喀则","阿里"]);
+   addTo("26",["西安","延安","铜川","渭南","咸阳","宝鸡","汉中","榆林","安康","商洛"]);
+   addTo("27",["兰州","嘉峪关","白银","天水","武威","酒泉","张掖","庆阳","平凉","定西","陇南","临夏州","甘南州"]);
+   addTo("28",["西宁","海东","海北州","海南州","黄南州","果洛州","玉树州","海西州"]);
+   addTo("29",["银川","石嘴山","吴忠","固原","中卫"]);
+   addTo("30",["乌鲁木齐","克拉玛依","喀什","阿克苏","和田","吐鲁番","哈密","克孜勒苏柯州","博尔塔拉州","昌吉州","巴音郭楞州","伊犁州","塔城","阿勒泰"]);
+   addTo("31",["香港"]);
+   addTo("32",["澳门"]);
+   addTo("33",["台北","高雄","台中","花莲","基隆","嘉义","金门","连江","苗栗","南投","澎湖","屏东","台东","台南","桃园","新竹","宜兰","云林","彰化"]);
+   // console.log(arr);
+};
+
+
+//提交用
+ function checkPar(){
+// 	var flag = false; 
+//  var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+    var province = $("#province").val();
+    var city = $("#city").val();
+    var name = $("#name").val();
+    var company = $("#company").val();
+    var phone = $("#tel").val();
+    var request = $("#request").val();
+    
+//	var company = $("#u_company").val();
+//	var positions = $("#u_post").val();
+//	var phone = $("#u_tel").val();
+//	var email = $("#u_email").val();
+    var codeT = $("#codeT").val();
+		if (province === "省份"){
+			alert('请选择省份城市');
+		}
+		else if (company == ""){
+			alert('请输入公司');
+			$("#company").focus();
+			return false;
+		}
+		else if (name == ""){
+			alert('请输入姓名');
+			$("#name").focus()
+			return false;
+		}
+		else if (phone == ""){
+			alert('请输入联系方式');
+			$("#phone").focus()
+			return false;
+		}
+		else if(!(/^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/.test(phone))){ 
+			alert('电话号码有误');
+			$("#tel").val("");
+			$("#tel").focus()
+			return false;
+		}
+		else if (request == ""){
+			alert('请输入需求');
+			$("#request").focus()
+			return false;
+		}
+//		else if (email == ""){
+//			$("#u_email").addClass("error-input");
+//			$("#u_email").attr('placeholder','请输入邮箱')
+//			return false;
+//		}
+//      else if(!reg.test(email)){
+//			$("#u_email").addClass("error-input");
+//			$("#u_email").val("");
+//			$("#u_email").attr('placeholder','邮箱格式不对')
+//          return false;
+//  	}
+        else if (codeT == ""){
+			alert('请输入验证码');
+			$("#codeT").focus()
+			return false;
+		}
+		else{
+			$.ajax({    
+		    url:"JU-joinMeeting.php",// 跳转到 action    
+		    data:{   
+		    		province: province,
+		    		city: city,
+		    		name: name,
+		    		company: company,
+		    		phone: phone,
+		    		request: request,
+		    		codeT: codeT	
+		    },
+		        type:"POST",     
+		    	cache:false, 
+                async:false,  // 设置同步方式   
+		        dataType:'json',    
+		        success:function(data) {  
+				    if(data == 1) {
+				        alert('报名参会成功');
+				        $("#changecode").click();
+//						window.location.reload();
+				    } 
+				    else if (data == -1){
+				        alert('提交过于频繁');
+				        $("#changecode").click();
+				    }
+					else if (data == -3){
+				        alert('验证码错误');
+				        $("#changecode").click();
+				    }
+					else if(data == -2){
+						 alert('无法连接数据库，发送邮件失败');
+					}
+		     },    
+		     error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("网络连接错误")
+   			} 
+			});
+			return false;
+		}
+
+}
+</script>
+
+<script src="js/owl.carousel.js"></script>
+</body>
+</html>
