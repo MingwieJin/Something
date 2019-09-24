@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<script>
+	// 确定目标array倒是事多少层
+	var HighestLevel = 0;
+	var tarArr = [1, [2,3], [[4, [5,6]], 7]];
+	
+	function getlevel (arr, level) {
+		let flag = true;
+		level = level +1
+		arr.forEach(function(item , index){
+			console.log(item);
+			if (item instanceof Array) {
+				flag = false;
+				getlevel (item, level);
+			}
+		})
+		if (level>HighestLevel) HighestLevel=level;
+//		if (flag) return
+	}
+	
+var a = getlevel(tarArr, 0);
+console.log(a);
+console.log(HighestLevel)
+</script>
+	</body>
+</html>

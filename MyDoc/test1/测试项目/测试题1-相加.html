@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<script>
+	var tarStr = '123,123';
+	//目标要获得'246'这样子
+	
+	function getSum (arr) {
+		let arrS = arr.split(',');
+		let arr1 = arrS[0].split('');
+		let arr2 = arrS[1].split('');
+		let tar = [];
+		arr1.forEach(function (item, index) {
+			let sum = parseInt(item) + parseInt(arr2[index]);
+			tar.push(sum);
+		})
+		let tarArr = tar.join('');
+		return tarArr;
+	}
+
+console.log(getSum(tarStr));
+</script>
+	</body>
+</html>
