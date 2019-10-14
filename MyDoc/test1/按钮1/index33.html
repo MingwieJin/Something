@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+
+	<!--<link href="css/pushy-buttons.css" rel="stylesheet">-->
+
+<style>
+	body{
+		background:#FFFFCC;	
+		margin: 0;
+	}
+	.container{
+		text-align: center;
+		margin: 150px auto;
+	}
+	
+	@media screen and (max-width:1150px; ) {
+		.mybutton{
+			width:200px;
+		}
+	}
+	.mybutton{
+		width:400px;
+		height:50px;
+		line-height: 50px;
+	}
+	.container-row{
+		margin:0 auto;
+		/*display: flex;
+		flex-direction: column;
+		justify-content: space-around;*/
+	}
+
+	.btn--violet{
+		background-color:slateblue;
+	}
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900");
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: .3em;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  padding: .5em 1.5em .75em;
+  position: relative;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .btn:active {
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+    margin-top: .25em;
+    padding-bottom: .5em; }
+
+.btn--blue {
+  background-color: #3498db; }
+
+.btn--green {
+  background-color: #1abc9c; }
+
+.btn--red {
+  background-color: #e65d4f; }
+
+.btn--lg {
+  font-size: 1.5em; }
+
+.btn--df {
+  font-size: 1.25em; }
+
+.btn--md {
+  font-size: 1em; }
+
+.btn--sm {
+  font-size: 0.75em; }
+
+</style>
+</head>
+<body>
+		<div class="container-row" id="row111">
+
+		    <div class="container">
+		      <a class="btn btn--lg btn--blue mybutton" href="http://192.168.1.4/nextcloud/">NextCloud 云盘</a>
+		    </div>
+
+		    <div class="container">
+		      <a class="btn btn--lg btn--violet mybutton" href="http://192.168.1.4/aria-ng/">离线下载</a>
+		    </div>
+	    
+		</div>
+	
+	
+	<script>
+		var w = window.screen.width;
+//		var h = window.screen.height ;	
+		var changeH =  document.getElementById("row111");
+//		changeH.style.height = h+"px";
+		changeH.style.width = w+"px";
+	</script>
+
+</body>
+</html>

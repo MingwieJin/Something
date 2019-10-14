@@ -12,12 +12,12 @@
 	var tarArr = [1, [2,3], [[4, [5,6]], 7]];
 	
 	function getlevel (arr, level) {
-		let flag = true;
+//		let flag = true;
 		level = level +1
 		arr.forEach(function(item , index){
 			console.log(item);
 			if (item instanceof Array) {
-				flag = false;
+//				flag = false;
 				getlevel (item, level);
 			}
 		})

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<script>
+	
+function sleep(ms){
+    var temple=new Promise(
+    (resolve)=>{
+        console.log(111);setTimeout(resolve,ms)
+    });
+    return temple
+}
+sleep(5000).then(function(){
+    console.log(222)
+})
+
+
+aaaaa()
+
+</script>
+	</body>
+</html>
