@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<link href="css/jquery-ui.css" rel="stylesheet">
+		<script src="js/jquery-ui.js"></script>
+
+<style>
+.clear{clear:both;}
+/*banner*/
+.banner{background:url("img/banner.png") center center no-repeat; width: 100%; height: 720px;}
+.banner_row{display:flex;justify-content:center;padding-top: 286px;}
+.banner_conatiner{width:590px; height:220px;background:url("img/banner_icon3.png") center no-repeat;position:relative;cursor: pointer;margin:0 10px;}
+.title_container{position:absolute;height:66px;width:178px;top:86px;left:52px;translateZ(0); opacity: 1;transition: all 0.5s;}
+.title_containe img{width:100%;display:block;}
+.cover_container{width:100%;height:140%;position:absolute;right:0;bottom:-20%;}
+.cover_container2{right:-10%}
+.inner_img{background:url("img/banner_icon1.png") bottom right no-repeat; background-size:auto 100%;width:100%;height:100%;transform: translate3d(0px, 0px, 0px); opacity: 1;transition: all 0.5s;}
+.inner_img2{background:url("img/banner_icon2.png") bottom right no-repeat; background-size:auto 100%;width:100%;height:100%;transform: translate3d(0px, 0px, 0px); opacity: 1;transition: all 0.5s;}
+.banner_conatiner:hover .inner_img, .banner_conatiner:hover .inner_img2{transform: translate3d(5%, 0px, 0px); opacity: 0.5;}
+.banner_conatiner:hover .title_container{transform: translate(20%, -10%) scale(1.1);}
+/*banner*/
+/*introduction*/
+.title-container{text-align:center;margin-bottom:32px;}
+.join-title{font-size:30px;color:#333;font-style:oblique;display:inline-block;}
+/*.title-left, .title-right{}*/
+.title-left{display:inline-block; margin:0 5px 8px 0; height: 4px; width:150px; background: #22B3FF; background: linear-gradient(20deg, transparent 15px, #22B3FF 0) bottom left;}
+.title-right{display:inline-block; margin:0 0 8px 10px; height: 4px; width:150px; background: #22B3FF; background: linear-gradient(-20deg, transparent 15px, #22B3FF 0) bottom left;}
+.join-introduction{width:100%;max-width:1280px;margin:120px auto 0 auto;}
+.intro-row-container{padding:0 40px;}
+.intro-title{font-size:24px; border-bottom: 2px solid #22B3FF; margin: 12px 0;}
+.intro-title2{border-bottom: 2px solid #FFCA57}
+.intro-content{font-size: 16px; line-height: 28px;}
+/*introduction*/
+    #accordion, #accordion1{
+        margin:0 auto 3% auto;
+    }    
+    .title1, .title2, .title3, .title4 {
+  		/*display:inline-block;*/
+  		text-align: center;
+  		height: 48px;
+  		line-height: 48px;
+  		font-size: 18px;
+  		color:#666;
+  	} 
+  	.title1{text-align: left;}
+	
+         @media screen and (min-width: 960px) {
+             .col-p{
+                 padding:0 5% 0 0;
+             }
+         }
+        #apply1{
+            padding:7px 20px;
+            font-size:14px;
+            line-height:14px;
+            border-radius:60px;
+            color:#666;
+	    	border: 1px solid #666;
+        }
+        .ui-state-active #apply1 {color: #fff; background: #22B3FF; border: 1px solid #2BA0FA;}
+        .ui-state-active #apply1 a{color: #fff;}
+        
+         .videoshow {
+        margin:3.5% 5% 3% 5%;
+        }
+        #video-row h2{
+        margin:0 0 10px 0;
+        font-size:30px;
+        text-align: center;
+        }
+        #video-row{
+            padding:0 0 2.5% 0;
+        }
+
+        @media screen and (max-width: 992px) {
+        	.title1{text-align: center;}
+			.title2 {
+				display:none;
+			}
+		    .title3 {
+				display:none;
+			}
+        }
+        
+		.C-img1, .C-img2, .C-img3{
+                float:left;
+		width:25%;
+		margin: 0 4% 0 4%;
+                height:auto
+		
+	}       
+        .Pageicon{
+            margin:3% 0 3% 0;
+        }
+        
+        .buttonP {
+	display: inline-block;
+	position: relative;
+	color: #888;
+	text-shadow: 0 1px 0 rgba(255,255,255, 0.8);
+	text-decoration: none;
+	text-align: center;
+	padding: 8px 12px;
+	font-size: 12px;
+	font-weight: 700;
+	font-family: helvetica, arial, sans-serif;
+	border-radius: 4px;
+	border: 1px solid #bcbcbc;
+        
+
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 60%,rgba(225,223,226,1) 100%);
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 60%,rgba(225,223,226,1) 100%);
+	background-image: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 60%,rgba(225,223,226,1) 100%);
+	background-image: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 60%,rgba(225,223,226,1) 100%);
+	background-image: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 60%,rgba(225,223,226,1) 100%);
+        }
+
+        .buttonP:hover {
+                color: #555; 
+		text-decoration: none; 
+        }
+
+        .buttonP:focus{
+            text-decoration: none;
+        }
+/*         用来去掉banner文字*/
+        .banner_con h, .banner_con p {
+                display:none;
+        }
+ 			@media screen and (min-width: 1200px) {
+            #banner .banner_con img{
+                height:460px;
+            }
+        }
+/*原来的加入我们结束*/
+
+/*tab页签*/
+.Page-JoinUs{
+	widht:100%;
+	max-width: 1200px;
+	margin:60px auto 0 auto;
+}
+#myTab{
+	font-size: 22px;
+	border-bottom: none;
+    margin:0 5% 10px 5%;
+}
+#myTab li{
+    border:none;
+}
+.nav-tabs>li>a{
+	color:#666;
+	font-size: 28px;
+	text-align: center;
+}
+.nav-tabs>li>a>span{padding-bottom:5px;}
+#join-section .nav-tabs>li>a:hover, #join-section .nav>li>a:hover{
+    background-color:transparent;
+    border-color:transparent;  
+}
+#join-section .nav-tabs>li.active>a,#join-section .nav-tabs>li.active>a:focus{
+	/*font-size: 28px;*/
+	color: #22B3FF;
+    border:none;
+    /*border-bottom: 2px solid #027CDC;*/
+}
+#join-section .nav-tabs>li.active>a>span,#join-section .nav-tabs>li.active>a>span:focus{border-bottom: 2px solid #22B3FF;}
+#myTabContent{
+	margin: 0;
+}
+.Gettouch{
+    margin:0 5%;
+}
+.gettouch-title{
+    text-align:center;
+    font-size:30px;
+    color:#333;
+    margin: 20px 0;
+}
+.gettouch-content{
+/*    text-align:center;*/
+    margin:30px 0;
+    font-size:20px;
+    color:#666;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited{
+    color:#666;
+}
+#accordion p, #accordion1 p{
+    color:#666;
+}
+.ui-state-active{background: #EAF8FF;border-top: 1px solid #22B3FF;border-bottom: 1px solid #22B3FF;}
+.ui-accordion .ui-accordion-header{margin-top: 0; padding: 0;}
+#join-section .accordion-top-title{padding-left:20px; font-size: 20px; /*border-top:1px solid #d3d3d3*/}
+#join-section .accordion-top-title .title1, #join-section .accordion-top-title .title2, #join-section .accordion-top-title .title3, #join-section .accordion-top-title .title4{line-height:20px;padding-top:12px; padding-bottom: 12px; color:#333; }
+#join-section .ui-accordion .ui-accordion-icons{padding-left:20px;}
+#join-section .ui-accordion .ui-accordion-content{padding-left: 35px;}
+.accordion-title-inner{border-right: 1px solid #666;}
+/*tab页签结束*/
+/*面试流程*/
+.join-process{width: 100%; max-width: 1200px; margin: 120px auto 0 auto;}
+.process-img img{width: 100%;}
+/*面试流程*/
+</style>
+<!--banner-->
+<div class='banner'>
+	<div class='banner_row'>
+		<div class='banner_conatiner'>
+			<a href="#join-section" onclick="jumpToJobTab('campus')">
+				<div class="title_container">
+					<img src="img/title2.png">
+				</div>
+				<div class="cover_container">
+					<div class="inner_img"></div>
+				</div>
+			</a>
+		</div>
+		
+		<div class='banner_conatiner'>
+			<a href="#join-section" onclick="jumpToJobTab('society')">
+				<div class="title_container">
+					<img src="img/title1.png">
+				</div>
+				<div class="cover_container cover_container2">
+					<div class="inner_img2"></div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+<!--banner-->
+
+<!--introduction-->
+<div class='join-introduction'>
+	<div class='title-container'><div class='title-left'></div><div class="join-title">选&nbsp;择&nbsp;英&nbsp;方</div><div class='title-right'></div></div>
+	
+	<div class="col-md-4 col-sm-6 intro-row-container">
+		<div class='intro-top-img'>
+			<img src="img/icon1.png">
+		</div>
+		<div class="intro-title">可选的办公地址</div>
+		<div class='intro-content'>英方中国区的总部设在上海, 北京、上海、杭州均设立了研发中心，同时在广州、深圳、合肥、沈阳、哈尔滨、长春、济南、石家庄、郑州、南京、杭州、武汉、南昌、昆明、重庆、成都、西安、乌鲁木齐和兰州等全国省会搭建了全销售体系和服务团队。</div>
+	</div>
+	
+	<div class="col-md-4 col-sm-6 intro-row-container">
+		<div class='intro-top-img'>
+			<img src="img/icon3.png">
+		</div>
+		<div class="intro-title intro-title2">丰厚的福利待遇</div>
+		<div class='intro-content'>公司具有极具竞争力的薪酬和奖励制度，只要有付出就会有收获。更是有右后的员工福利，其中包含但不限于：通讯补贴，年终奖励，交通补贴，节日福利，员工旅游，零食下午茶。</div>
+	</div>
+	
+	<div class="col-md-4 col-sm-6 intro-row-container">
+		<div class='intro-top-img'>
+			<img src="img/icon2.png">
+		</div>
+		<div class="intro-title">完善的成长体系</div>
+		<div class='intro-content'>英方拥有完备的入职培训，职业培训和晋升体系。每一位加入英方的小伙伴都可以通过我们的流程快速的融入英方这个大家庭。英方也会大力支持员工的自我提升，在这里，只要你肯拼搏，公司就能给你最大的支持帮助你的成长。</div>
+	</div>
+	
+	<div class="clear"></div>
+</div>
+<!--introduction-->
+
+
+
+<!--招聘tab模块-->
+<section id="join-section">
+<div class="Page-JoinUs">
+		<div class='title-container'><div class='title-left'></div><div class="join-title">在&nbsp;招&nbsp;岗&nbsp;位</div><div class='title-right'></div></div>
+	
+	<ul id="myTab" class="nav nav-tabs">
+	   <li class="active col-md-4 col-sm-4"><a href="#CampusRecruiting" onclick="changeImg('campus')" id="tab1" data-toggle="tab"><span>校&nbsp;园&nbsp;招&nbsp;聘</span></a></li>
+	   <li class="col-md-4 col-sm-4"><a href="#SocialRecruitment" onclick="changeImg('society')" data-toggle="tab"  id="tab2"><span>社&nbsp;会&nbsp;招&nbsp;聘</span></a></li>
+	   <li class="col-md-4 col-sm-4"><a href="#Gettouch" id="tab3" data-toggle="tab"><span>联&nbsp;系&nbsp;方&nbsp;式</span></a></li>
+	</ul>
+	
+	<div id="myTabContent" class="tab-content">
+		<!--社会招聘-->
+                <div class="CampusRecruiting tab-pane in active" id="CampusRecruiting">
+                        <!--<div class='introduction'>
+                            <div class="row intro-row">
+                                <div class="col-md-12">
+                                    <p>讲信誉、有韧劲、会来事、爱拼才会赢。</p>
+                                    <p>英方中国区的总部设在上海，北京、上海、杭州均设立了研发中心，同时在广州、深圳、合肥、沈阳、哈尔滨、长春、济南、石家庄、郑州、南京、杭州、武汉、南昌、昆明、 重庆、成都、西安、乌鲁木齐和兰州等全国省会搭建了全销售体系和服务团队。欢迎您的加入！
+                                    </p>
+                                </div>
+                            </div>               
+                        </div>-->
+                <!--折叠板部分-->
+                        <div class="accordion-top-title" >
+
+                                <div class="title1 col-md-3 col-xs-6"><div class="accordion-title-inner">职位名称</div></div>
+                                <div class="title2 col-md-3 col-xs-6"><div class="accordion-title-inner">职位类别</div></div>
+                                <div class="title3 col-md-3 col-xs-6"><div class="accordion-title-inner">工作地址</div></div>
+                                <div class="title4 col-md-3 col-xs-6">快速申请</div>
+                                <div class="clear"></div>
+                        </div>
+                        <div id="accordion">
+                        	
+                            <div class="title-row" >
+
+                                <div class="title1 col-md-3 col-xs-6"><a href="<?php the_permalink() ?>">软件工程师</a></div>
+                                <div class="title2 col-md-3 col-xs-6">技术</div>
+                                <div class="title3 col-md-3 col-xs-6">北京</div>
+                                <div class="title4 col-md-3 col-xs-6"><button class="btn btn-default" id="apply1"><a href="mailto:hr@info2soft.com?subject=职位申请&body=请在这里输入正文" onclick="event.stopPropagation()">立即申请</a></button></div>
+                                <div class="clear"></div>
+                                
+                            </div>
+                            <div class="C_content">
+                                <div class="col-md-6 col-p">
+                                    <p>
+										嗷嗷嗷哦啊哦啊哦
+                                    </p>
+                                </div>
+                            </div>
+                            
+                             <div class="title-row" >
+
+                                <div class="title1 col-md-3 col-xs-6"><a href="<?php the_permalink() ?>">软件工程师</a></div>
+                                <div class="title2 col-md-3 col-xs-6">技术</div>
+                                <div class="title3 col-md-3 col-xs-6">北京</div>
+                                <div class="title4 col-md-3 col-xs-6"><button class="btn btn-default" id="apply1"><a href="mailto:hr@info2soft.com?subject=职位申请&body=请在这里输入正文" onclick="event.stopPropagation()">立即申请</a></button></div>
+                                <div class="clear"></div>
+                                
+                            </div>
+                            <div class="C_content">
+                                <div class="col-md-6 col-p">
+                                    <p>
+										嗷嗷嗷哦啊哦啊哦
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="title-row" >
+
+                                <div class="title1 col-md-3 col-xs-6"><a href="<?php the_permalink() ?>">软件工程师</a></div>
+                                <div class="title2 col-md-3 col-xs-6">技术</div>
+                                <div class="title3 col-md-3 col-xs-6">北京</div>
+                                <div class="title4 col-md-3 col-xs-6"><button class="btn btn-default" id="apply1"><a href="mailto:hr@info2soft.com?subject=职位申请&body=请在这里输入正文" onclick="event.stopPropagation()">立即申请</a></button></div>
+                                <div class="clear"></div>
+                                
+                            </div>
+                            <div class="C_content">
+                                <div class="col-md-6 col-p">
+                                    <p>
+										嗷嗷嗷哦啊哦啊哦
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+
+                <!--折叠部分结束-->
+                </div>
+                                <!--社会招聘结束-->
+
+                                <!--校园招聘-->
+                <div class="SocialRecruitment tab-pane" id="SocialRecruitment">
+                        <!--<div class='introduction'>
+                            <div class="row intro-row">
+                                <div class="col-md-12">
+                                    <p>爱梦想、懂生活、要成长、扬帆向海行。</p>
+                                    <p>英方校招每年都会在全国开启巡回宣讲，招聘岗位包括市场销售/ 行政/ 人力资源/ 财务/ 商务/ 技术/ 研发等方面的培训生岗位。欢迎关注英方最新校招动态，同时也期待优秀的您加入英方！
+                                    </p>
+                                </div>
+                            </div>               
+                        </div>    -->
+
+                        <div class="accordion-top-title" >
+
+                                <div class="title1 col-md-3 col-xs-6"><div class="accordion-title-inner">职位名称</div></div>
+                                <div class="title2 col-md-3 col-xs-6"><div class="accordion-title-inner">职位类别</div></div>
+                                <div class="title3 col-md-3 col-xs-6"><div class="accordion-title-inner">工作地址</div></div>
+                                <div class="title4 col-md-3 col-xs-6">快速申请</div>
+                                <div class="clear"></div>
+                        </div>
+                <!--折叠板部分-->
+                        <div id="accordion1">     
+
+ 							<div class="title-row" >
+
+                                <div class="title1 col-md-3 col-xs-6"><a href="<?php the_permalink() ?>">软件工程师</a></div>
+                                <div class="title2 col-md-3 col-xs-6">技术</div>
+                                <div class="title3 col-md-3 col-xs-6">北京</div>
+                                <div class="title4 col-md-3 col-xs-6"><button class="btn btn-default" id="apply1"><a href="mailto:hr@info2soft.com?subject=职位申请&body=请在这里输入正文" onclick="event.stopPropagation()">立即申请</a></button></div>
+                                <div class="clear"></div>
+                                
+                            </div>
+                            <div class="C_content">
+                                <div class="col-md-6 col-p">
+                                    <p>
+										嗷嗷嗷哦啊哦啊哦
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                <!--折叠部分结束-->
+                </div>	
+		<!--校园招聘结束-->
+		
+		<!--联系方式-->
+		<div class="Gettouch tab-pane" id="Gettouch">
+<!--                    <div class="gettouch-title">联络详情：</div>-->
+                    <div class="gettouch-content">简历请投至：hr@info2soft.com；招聘热线：021-61679073</div>
+                    <div class="gettouch-content">邮件标注【校招or社招+应聘岗位+姓名+学校+专业】,写明联系方式,并附带上您的简历。我们会在初选后与您取得联系</div>
+		</div>
+		<!--联系方式结束-->
+		
+		
+	</div>
+</div>
+</section>
+<!--招聘tab模块结束-->
+
+<!--面试流程-->
+<div class="join-process">
+	<div class='title-container'><div class='title-left'></div><div class="join-title">面&nbsp;试&nbsp;流&nbsp;程</div><div class='title-right'></div></div>
+	<div class="process-img"><img id="process-img-inner" src="img/process1.png"/></div>
+</div>
+<!--面试流程-->
+
+
+
+
+<!--精彩瞬间开始-->
+<div class="videoshow" id="videoshow">
+        <div class="row" id="video-row">
+            <div class="col-md-12">
+                <h2>精彩瞬间</h2> 
+                <div class="devider"></div>
+                <div class="subtitle">Our memories</div>
+            </div>
+        </div>
+     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+	<!-- 轮播（Carousel）指标 -->
+	
+	<!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                        <div class="item active">
+                                <div class="page1"></div>
+                                <div class="carousel-page1">
+                                <img class="C-img1" src="<?php echo $hr_joinus_video_img1;?>" alt="First slide">
+                                <img class="C-img1" src="<?php echo $hr_joinus_video_img2;?>" alt="First slide">
+                                <img class="C-img1" src="<?php echo $hr_joinus_video_img3;?>" alt="First slide">
+
+                                </div>
+
+
+                        </div>
+                        <div class="item">
+                                <img class="C-img2" src="<?php echo $hr_joinus_video_img4;?>" alt="Second slide">
+                                <img class="C-img2" src="<?php echo $hr_joinus_video_img5;?>" alt="Second slide">
+                                <img class="C-img2" src="<?php echo $hr_joinus_video_img6;?>" alt="Second slide">
+
+
+                        </div>
+                        <div class="item">
+                                <img class="C-img3" src="<?php echo $hr_joinus_video_img7;?>" alt="Third slide">
+                                <img class="C-img3" src="<?php echo $hr_joinus_video_img8;?>" alt="Third slide">
+                                <img class="C-img3" src="<?php echo $hr_joinus_video_img9;?>" alt="Third slide">
+
+
+                        </div>                       
+
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <div class="Pageicon" id="Pageicon" align="center">
+                <a class="carousel-control1 left buttonP" href="#myCarousel" 
+                   data-slide="prev">&larr;</a>
+                <a class="carousel-control1 right buttonP" href="#myCarousel" 
+                   data-slide="next">&rarr;</a>
+                </div>
+        </div> 
+</div>
+
+
+
+
+  <script>
+   function jumpToJobTab(type) {
+   	 if(type === 'campus') {
+   	 	$('#tab1').click();
+   	 	$('#process-img-inner').attr('src', 'img/process1.png')
+   	 } else if (type === 'society') {
+   	 	$('#tab2').click();
+   	 	$('#process-img-inner').attr('src', 'img/process2.png')
+   	 }
+   }
+   
+   function changeImg (type) {
+   	 if(type === 'campus') {
+   	 	$('#process-img-inner').attr('src', 'img/process1.png')
+   	 } else if (type === 'society') {
+   	 	$('#process-img-inner').attr('src', 'img/process2.png')
+   	 }   	
+   }
+  
+   $( function() {
+       if(screen.width>= 767){
+            $( "#accordion" ).accordion({
+              heightStyle:"content",
+              collapsible: true
+            });
+            $( "#accordion1" ).accordion({
+              heightStyle:"content",
+              collapsible: true
+            });
+       }
+       else
+       {
+             $( "#accordion" ).accordion({
+              heightStyle:"content",
+              collapsible: true,
+              active:false
+            });
+             $( "#accordion1" ).accordion({
+              heightStyle:"content",
+              collapsible: true,
+              active:false
+            });
+       }
+  } );
+  </script>
+
+
+</body>
+</html>
