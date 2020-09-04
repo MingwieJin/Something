@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+			<meta charset="UTF-8">
+	<title></title>
+	
+	
+	<style>
+		/*#text{margin: 20px;padding: 30px;color:red;}
+		.margin_test1, .margin_test2{
+			width:200px;
+			height:100px;
+			margin:20px;
+			background: red;
+			box-sizing: border-box;
+		}*/
+	</style>
+</head>
+<body>
+<button onclick="downLoad('下载内容123123','test.txt')">点击下载</button>
+	
+	
+	<script type="text/javascript">
+function downLoad(content,fileName){
+		var urlObject = window.URL || window.webkitURL || window;
+        var aEle = document.createElement("a");// 创建a标签
+        blob = new Blob([content]); 
+        aEle.download = fileName;// 设置下载文件的文件名
+        aEle.href = urlObject.createObjectURL(blob)
+        aEle.click();// 设置点击事件
+
+}
+
+//     exportRaw(name, data) {
+//       let urlObject = window.URL || window.webkitURL || window;
+//       let export_blob = new Blob([data]);
+//       let save_link = document.createElementNS(
+//         "http://www.w3.org/1999/xhtml",
+//         "a"
+//       );
+//       save_link.href = urlObject.createObjectURL(export_blob);
+//       save_link.download = name;
+//       this.fakeClick(save_link);
+//     },
+//downLoad('下载内容123123','test.txt')
+		
+	</script>
+</body>
+</html>
