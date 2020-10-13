@@ -61,7 +61,7 @@ import { mapState, mapMutations} from 'vuex'
 			this.scroll = new BScroll(this.$refs.search)
 		},
 		computed: {
-			hasNodata() {
+			hasNodata () {
 				return !this.list.length
 			}
 		}
