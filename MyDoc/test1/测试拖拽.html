@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8" />
+<style> 
+	#login {position: absolute; }
+#title{background: red;;}
+</style>
+</head>
+<body>
+	
+<div id="login" class="login">
+	<!-- 点击title拖拽 -->
+        <div id="title" class="login-title">登录会员
+    <!-- title end -->
+            <span><a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a></span>
+        </div>
+        <div class="login-input-content">
+            <div class="login-input">
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input">
+            </div>
+            <div class="login-input">
+                <label>登录密码：</label>
+                <input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input">
+            </div>
+        </div>
+        <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">登录会员</a></div>
+    </div>
+
+<script>
+
+var login = document.querySelector('.login');//获取整个弹框的内容
+var title = document.querySelector('#title');
+    title.addEventListener('mousedown',function(e){
+        //当按下鼠标的时候，获取到鼠标在拖拽盒子内的坐标
+        //鼠标在页面的坐标 - 大盒子距离浏览器左侧的距离
+        var x = e.pageX - login.offsetLeft;
+        var y = e.pageY - login.offsetTop;
+
+        //鼠标移动
+        document.addEventListener('mousemove',move);
+
+        function move(e){
+        //拖拽的盒子定位=鼠标在页面的坐标 - 鼠标在拖拽盒子的坐标
+            login.style.left = e.pageX - x + 'px';
+            login.style.top = e.pageY - y + 'px';
+        }
+
+        //当鼠标抬起的时候，将移动事件删除
+        document.addEventListener('mouseup',function(){
+            document.removeEventListener('mousemove',move);
+        })
+
+    })
+
+
+</script>
+
+</body>
+</html>

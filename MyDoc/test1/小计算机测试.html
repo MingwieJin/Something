@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		   <script src="http://cdn.static.runoob.com/libs/jquery/2.0.0/jquery.js"></script>
+	</head>
+	<body>
+<div>
+	<input class="account" type="value" placeholder="账号数量">
+	<input class="month" type="value" placeholder="月份">
+	<input class="storage" type="value" placeholder="内存数">
+	<button onclick="cal()">计算价格</button>	
+</div>
+<div class="showval">总价：<span class="showvalinner"></span></div>
+
+<script>
+	function cal(){
+		var account = parseInt($('.account').val());
+		var month =  parseInt($(".month").val());
+		var stor =  parseInt($(".storage").val());
+		var sum = account*98*month + stor;
+		$('.showvalinner').text(sum);
+	}
+</script>
+	</body>
+</html>
