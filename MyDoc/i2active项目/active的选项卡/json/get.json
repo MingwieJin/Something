@@ -1,9 +1,0 @@
-{
-	"src": ["oracle", "mysql", "postgres"],
-	"dst": {
-		"normal": ["oracle", "mysql", "postgres"],
-		"nosql": ["reids", "ssdb"],
-		"sequence": ["Kafka", "ActvieMQ", "ActvieMQ"],
-		"file": ["txt", "csv", "xml"]
-	}
-}
